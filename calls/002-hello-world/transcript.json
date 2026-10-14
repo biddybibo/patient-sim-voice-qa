@@ -1,0 +1,188 @@
+{
+  "call_id": "002-hello-world",
+  "room": "call-002-hello-world-1792021239",
+  "recording_started_at": 1792021240.8638139,
+  "turns": [
+    {
+      "speaker": "CLINIC_AGENT",
+      "t_start": 4.98,
+      "t_end": 8.17,
+      "text": "This call may be recorded for quality and training purposes.",
+      "interrupted": false,
+      "stt_confidence": 1.0,
+      "latency": {
+        "transcription_delay": 0.237,
+        "end_of_turn_delay": 0.601
+      }
+    },
+    {
+      "speaker": "CLINIC_AGENT",
+      "t_start": 8.78,
+      "t_end": 25.67,
+      "text": "I can help with that. Before we schedule your appointment, would you like to create a demo patient profile? I just need your first and last name to get started.",
+      "interrupted": false,
+      "stt_confidence": 1.0,
+      "latency": {
+        "transcription_delay": 0.273,
+        "end_of_turn_delay": 0.601
+      }
+    },
+    {
+      "speaker": "PATIENT_BOT",
+      "t_start": 10.41,
+      "t_end": 14.87,
+      "text": "Hi, thanks. I'd like to book a routine checkup sometime next week, preferably in the morning.",
+      "interrupted": false,
+      "stt_confidence": null,
+      "latency": {
+        "llm_node_ttft": 1.414,
+        "tts_node_ttfb": 0.312,
+        "e2e_latency": 2.239
+      }
+    },
+    {
+      "speaker": "PATIENT_BOT",
+      "t_start": 27.05,
+      "t_end": 37.41,
+      "text": "I'm not really looking to make a demo profile, I'm an actual patient. My name is Jane Doe, and my date of birth is July 4th, 2000. Can we get me in for a checkup next week?",
+      "interrupted": false,
+      "stt_confidence": null,
+      "latency": {
+        "llm_node_ttft": 0.668,
+        "tts_node_ttfb": 0.167,
+        "e2e_latency": 1.378
+      }
+    },
+    {
+      "speaker": "CLINIC_AGENT",
+      "t_start": 40.63,
+      "t_end": 59.82,
+      "text": "Thanks for sharing your information. To schedule your checkup, I'll need to create a demo patient profile for you first. This is just for the demo system here, Let me get that set up. Your patient profile is set up, and I have your date of birth as July fourth two thousand. How can I help you today?",
+      "interrupted": false,
+      "stt_confidence": 0.99267578,
+      "latency": {
+        "transcription_delay": 0.302,
+        "end_of_turn_delay": 0.6
+      }
+    },
+    {
+      "speaker": "PATIENT_BOT",
+      "t_start": 61.74,
+      "t_end": 69.12,
+      "text": "Okay, sounds good. I'd like to book a routine checkup next week, ideally sometime in the morning. Do you have anything open on Tuesday or Wednesday?",
+      "interrupted": false,
+      "stt_confidence": null,
+      "latency": {
+        "llm_node_ttft": 1.052,
+        "tts_node_ttfb": 0.176,
+        "e2e_latency": 1.914
+      }
+    },
+    {
+      "speaker": "CLINIC_AGENT",
+      "t_start": 72.58,
+      "t_end": 78.97,
+      "text": "Just to confirm, you'd like to book a general office visit for a routine checkup next week, preferably in the morning. Is that right?",
+      "interrupted": false,
+      "stt_confidence": 0.9951171866666666,
+      "latency": {
+        "transcription_delay": 0.34,
+        "end_of_turn_delay": 0.601
+      }
+    },
+    {
+      "speaker": "PATIENT_BOT",
+      "t_start": 80.55,
+      "t_end": 85.95,
+      "text": "Yes, that's right. A general office visit for a routine checkup, next week, in the morning if you have something open.",
+      "interrupted": false,
+      "stt_confidence": null,
+      "latency": {
+        "llm_node_ttft": 0.896,
+        "tts_node_ttfb": 0.155,
+        "e2e_latency": 1.584
+      }
+    },
+    {
+      "speaker": "CLINIC_AGENT",
+      "t_start": 88.78,
+      "t_end": 98.92,
+      "text": "We have several morning openings next Tuesday, October twentieth. You like to see doctor Zigniew Lukowski, doctor Kelly Noble, or Duggehauser? Or do you have a preference?",
+      "interrupted": false,
+      "stt_confidence": 0.9963379099999999,
+      "latency": {
+        "transcription_delay": 0.448,
+        "end_of_turn_delay": 0.6
+      }
+    },
+    {
+      "speaker": "PATIENT_BOT",
+      "t_start": 100.84,
+      "t_end": 106.65,
+      "text": "I don't have a preference, so whoever has the earliest morning slot on Tuesday works for me. What times do they have?",
+      "interrupted": false,
+      "stt_confidence": null,
+      "latency": {
+        "llm_node_ttft": 1.049,
+        "tts_node_ttfb": 0.148,
+        "e2e_latency": 1.918
+      }
+    },
+    {
+      "speaker": "CLINIC_AGENT",
+      "t_start": 110.23,
+      "t_end": 116.32,
+      "text": "The earliest morning slot on Tuesday October twentieth, is at ten AM. Would you like to book that time?",
+      "interrupted": false,
+      "stt_confidence": 0.9970703249999999,
+      "latency": {
+        "transcription_delay": 0.355,
+        "end_of_turn_delay": 0.601
+      }
+    },
+    {
+      "speaker": "PATIENT_BOT",
+      "t_start": 117.84,
+      "t_end": 122.4,
+      "text": "Yes, ten AM on Tuesday, October twentieth works great. Please book it.",
+      "interrupted": false,
+      "stt_confidence": null,
+      "latency": {
+        "llm_node_ttft": 0.652,
+        "tts_node_ttfb": 0.166,
+        "e2e_latency": 1.522
+      }
+    },
+    {
+      "speaker": "CLINIC_AGENT",
+      "t_start": 124.98,
+      "t_end": 157.02,
+      "text": "Booking your appointment now for ten AM on Tuesday, October twentieth. With doctor Zabignu Lukowski. One moment while I confirm. Your appointment is set for Tuesday, October twentieth at ten AM. With doctor Zebigniew Lukoski at Pivot Point Orthopedics Please bring your photo ID, insurance card, a list of your current medications, and any imaging discs you have. Would you like me to send you a text message with these appointment details?",
+      "interrupted": false,
+      "stt_confidence": 0.9689378046153846,
+      "latency": {
+        "transcription_delay": 0.261,
+        "end_of_turn_delay": 3.001
+      }
+    },
+    {
+      "speaker": "PATIENT_BOT",
+      "t_start": 161.24,
+      "t_end": 167.7,
+      "text": "Thanks, that all sounds good. I'm not sure about the text, so I'll just keep the details you've given me. Thanks again, goodbye.",
+      "interrupted": false,
+      "stt_confidence": null,
+      "latency": {
+        "llm_node_ttft": 0.809,
+        "tts_node_ttfb": 0.139,
+        "e2e_latency": 4.215
+      }
+    },
+    {
+      "speaker": "TOOL",
+      "t_start": 161.25,
+      "t_end": null,
+      "text": "end_call({\"reason\": \"goal_met\"})"
+    }
+  ]
+}

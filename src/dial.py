@@ -14,6 +14,7 @@ from dataclasses import dataclass
 
 from src import config  # first: sets SSL_CERT_FILE before aiohttp loads
 
+from google.protobuf.duration_pb2 import Duration
 from livekit import api
 from src.guard import check_dial_target
 from src.recording import next_call_id
@@ -57,13 +58,16 @@ async def place_call(scenario: str) -> CallInfo:
                 participant_identity="clinic-line",
                 participant_name="Clinic",
                 wait_until_answered=True,
-                max_call_duration=api.Duration(seconds=config.MAX_CALL_SECONDS),
+                max_call_duration=Duration(seconds=config.MAX_CALL_SECONDS),
             )
         )
         answered_at = time.time()
         print(f"Answered after {answered_at - dialed_at:.1f}s")
         return CallInfo(call_id, room_name, dialed_at, answered_at)
     except api.TwirpError as e:
+        # Delete the room so the dispatched agent job ends instead of lingering for the
+        # next worker to pick up.
+        await lkapi.room.delete_room(api.DeleteRoomRequest(room=room_name))
         sip_status = e.metadata.get("sip_status_code"), e.metadata.get("sip_status")
         raise SystemExit(f"Call failed: {e.message} (SIP {sip_status})") from e
     finally:

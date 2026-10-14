@@ -1,0 +1,21 @@
+{
+  "duration_s": 6.1,
+  "end_reason": "remote_hangup_or_timeout",
+  "turns": {
+    "clinic": 0,
+    "bot": 0
+  },
+  "bot_latency_s": {
+    "response_e2e": null,
+    "end_of_turn_delay": null,
+    "llm_ttft": null,
+    "tts_ttfb": null
+  },
+  "clinic_response_latency_s": null,
+  "talk_over": {
+    "count": 0,
+    "events": []
+  },
+  "longest_silence_s": null,
+  "bot_turns_cut_off": 0
+}

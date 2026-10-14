@@ -1,0 +1,15 @@
+[00:05.0] CLINIC_AGENT: This call may be recorded for quality and training purposes.
+[00:08.8] CLINIC_AGENT: I can help with that. Before we schedule your appointment, would you like to create a demo patient profile? I just need your first and last name to get started.
+[00:10.4] PATIENT_BOT: Hi, thanks. I'd like to book a routine checkup sometime next week, preferably in the morning.
+[00:27.1] PATIENT_BOT: I'm not really looking to make a demo profile, I'm an actual patient. My name is Jane Doe, and my date of birth is July 4th, 2000. Can we get me in for a checkup next week?
+[00:40.6] CLINIC_AGENT: Thanks for sharing your information. To schedule your checkup, I'll need to create a demo patient profile for you first. This is just for the demo system here, Let me get that set up. Your patient profile is set up, and I have your date of birth as July fourth two thousand. How can I help you today?
+[01:01.7] PATIENT_BOT: Okay, sounds good. I'd like to book a routine checkup next week, ideally sometime in the morning. Do you have anything open on Tuesday or Wednesday?
+[01:12.6] CLINIC_AGENT: Just to confirm, you'd like to book a general office visit for a routine checkup next week, preferably in the morning. Is that right?
+[01:20.5] PATIENT_BOT: Yes, that's right. A general office visit for a routine checkup, next week, in the morning if you have something open.
+[01:28.8] CLINIC_AGENT: We have several morning openings next Tuesday, October twentieth. You like to see doctor Zigniew Lukowski, doctor Kelly Noble, or Duggehauser? Or do you have a preference?
+[01:40.8] PATIENT_BOT: I don't have a preference, so whoever has the earliest morning slot on Tuesday works for me. What times do they have?
+[01:50.2] CLINIC_AGENT: The earliest morning slot on Tuesday October twentieth, is at ten AM. Would you like to book that time?
+[01:57.8] PATIENT_BOT: Yes, ten AM on Tuesday, October twentieth works great. Please book it.
+[02:05.0] CLINIC_AGENT: Booking your appointment now for ten AM on Tuesday, October twentieth. With doctor Zabignu Lukowski. One moment while I confirm. Your appointment is set for Tuesday, October twentieth at ten AM. With doctor Zebigniew Lukoski at Pivot Point Orthopedics Please bring your photo ID, insurance card, a list of your current medications, and any imaging discs you have. Would you like me to send you a text message with these appointment details?
+[02:41.2] PATIENT_BOT: Thanks, that all sounds good. I'm not sure about the text, so I'll just keep the details you've given me. Thanks again, goodbye.
+[02:41.2] -- end_call({"reason": "goal_met"})

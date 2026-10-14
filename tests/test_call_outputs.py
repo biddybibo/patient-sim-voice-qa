@@ -87,6 +87,22 @@ def test_metrics():
     assert m["clinic_response_latency_s"]["n"] == 2
 
 
+def test_bot_talking_inside_a_long_clinic_turn():
+    """Pattern from call 002: bot jumped in after the recording disclaimer while the
+    clinic kept talking; the clinic's turn (8.8-25.7) contains the bot's (10.4-14.9)."""
+    ctx = ChatContext()
+    ctx.items.extend([
+        msg("user", "This call may be recorded.", 5.0, 8.2),
+        msg("user", "I can help with that.", 8.8, 25.7),
+        msg("assistant", "Hi, I'd like to book a checkup.", 10.4, 14.9, e2e_latency=2.2),
+        msg("assistant", "I'm Jane Doe.", 27.1, 37.4, e2e_latency=1.4),
+    ])
+    m = metrics.compute(transcript.build_turns(ctx.items, T0), duration=40.0, end_reason="x")
+    assert m["talk_over"]["count"] == 1
+    assert m["talk_over"]["events"][0] == {"at": 10.4, "speaker": "PATIENT_BOT", "seconds": 4.5}
+    assert m["longest_silence_s"] == 1.4  # 25.7 -> 27.1, not 14.9 -> 27.1
+
+
 def test_call_ids_are_sequential(tmp_path, monkeypatch):
     monkeypatch.setattr("src.recording.CALLS_DIR", tmp_path)
     assert next_call_id("Simple Scheduling") == "001-simple-scheduling"

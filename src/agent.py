@@ -96,14 +96,19 @@ def prewarm(proc: JobProcess) -> None:
     proc.userdata["vad"] = silero.VAD.load()
 
 
-server = AgentServer(setup_fnc=prewarm)
+# One call at a time, so one warm process is enough (production default is 10).
+server = AgentServer(setup_fnc=prewarm, num_idle_processes=1)
 
 
 async def save_call(ctx: JobContext) -> None:
     """Runs after the session has closed (recording finalized), before temp files are deleted."""
     call_id = json.loads(ctx.job.metadata or "{}").get("call_id")
-    session = ctx.primary_session
-    if not call_id or session is None:  # console mode or the call never connected
+    if not call_id:  # console mode
+        return
+    try:
+        session = ctx.primary_session
+    except RuntimeError:  # the phone line never joined, so no session was started
+        logger.info("no session for %s; nothing to save", call_id)
         return
 
     report = ctx.make_session_report(session)

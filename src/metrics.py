@@ -31,16 +31,25 @@ def compute(turns: list[dict], duration: float | None, end_reason: str) -> dict:
         return [t["latency"][key] for t in speech if t["speaker"] == BOT and key in t["latency"]]
 
     clinic_response, overlaps, gaps = [], [], []
-    for prev, cur in zip(speech, speech[1:]):
-        if prev["t_end"] is None:
-            continue
-        gap = cur["t_start"] - prev["t_end"]
-        if prev["speaker"] != cur["speaker"] and gap < -OVERLAP_TOLERANCE:
-            overlaps.append({"at": cur["t_start"], "speaker": cur["speaker"], "seconds": round(-gap, 2)})
-        if gap > 0:
-            gaps.append(gap)
-        if prev["speaker"] == BOT and cur["speaker"] == CLINIC:
-            clinic_response.append(gap)
+    # Compare each turn with whichever earlier turn ends last (the one still "on air"),
+    # not just the previous one: a long clinic turn can contain a whole bot turn.
+    on_air = None
+    for prev, cur in zip([None] + speech, speech):
+        if on_air is not None and on_air["t_end"] is not None:
+            gap = cur["t_start"] - on_air["t_end"]
+            if on_air["speaker"] != cur["speaker"] and gap < -OVERLAP_TOLERANCE:
+                overlap_end = min(on_air["t_end"], cur["t_end"] or on_air["t_end"])
+                overlaps.append({
+                    "at": cur["t_start"],
+                    "speaker": cur["speaker"],
+                    "seconds": round(overlap_end - cur["t_start"], 2),
+                })
+            if gap > 0:
+                gaps.append(gap)
+        if prev and prev["speaker"] == BOT and cur["speaker"] == CLINIC and prev["t_end"] is not None:
+            clinic_response.append(cur["t_start"] - prev["t_end"])
+        if on_air is None or (cur["t_end"] or 0) > (on_air["t_end"] or 0):
+            on_air = cur
 
     return {
         "duration_s": round(duration, 1) if duration else None,
