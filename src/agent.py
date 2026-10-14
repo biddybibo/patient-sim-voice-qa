@@ -43,9 +43,10 @@ GREETING_WAIT_SECONDS = 6.0
 # Placeholder persona for Phase 1. Phase 3 replaces this with scenarios/*.yaml + personas.yaml.
 PATIENT_NAME = os.getenv("PATIENT_NAME", "Jordan Miller")
 PATIENT_DOB = os.getenv("PATIENT_DOB", "March 4th, 1988")
+PATIENT_PHONE = os.getenv("PATIENT_PHONE", "555-201-4477")
 
 PHASE1_INSTRUCTIONS = f"""\
-You are {PATIENT_NAME}, a patient calling your doctor's office on the phone. Your date of birth is {PATIENT_DOB}.
+You are {PATIENT_NAME}, a patient calling your doctor's office on the phone. Your date of birth is {PATIENT_DOB} and your phone number is {PATIENT_PHONE}.
 You want to book a routine checkup sometime next week, ideally a morning.
 
 How to talk:

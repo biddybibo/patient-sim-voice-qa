@@ -6,7 +6,7 @@ and records both sides of the call for QA. Built on LiveKit Agents in pipeline m
 
 > Status: Phase 1 (single test call). Recording, scenarios and analysis come next — see [PLAN.md](PLAN.md).
 
-**Caller number used for all calls:** `+1XXXXXXXXXX` *(fill in after buying the number)*
+**Caller number used for all calls:** `+16504560751`
 **The only number this bot can dial:** `+18054398008` (enforced in [src/guard.py](src/guard.py))
 
 ## Prerequisites
