@@ -24,7 +24,7 @@ Hard rules (automatic rejection):
 - Pipeline mode only (separate STT → LLM → TTS). No OpenAI Realtime, RealtimeModel plugins, Gemini Live, Vapi, Retell, Bland.
 - Call only +1-805-439-8008. Never the number on the Athena confirmation screen. Don't dial any other number for testing, including your own phone.
 - One caller phone number for every call, reported in E.164.
-- No "Pretty Good AI" / "PGAI" in repo name, description, README title, or either Loom. Repo stays private.
+- No company name or initials in repo name, description, README title, or either Loom. Repo stays private.
 
 ## Review fixes — when each one lands
 
@@ -74,7 +74,7 @@ LiveKit's APIs move fast (outbound calls, make_call recipe, composite egress, `A
 
 Save every receipt for reimbursement (≤ $20).
 
-- [ ] Create **two** Athena test accounts at pgai.us/athena [FIX 5]. Account A is the main patient; account B is the "other patient" for privacy probes. Record name, DOB, phone, doctor, location, insurance for both in `scenarios/facts.yaml` (ground truth). Do **not** call the confirmation-screen number.
+- [ ] Create **two** Athena test accounts at the portal linked in the brief [FIX 5]. Account A is the main patient; account B is the "other patient" for privacy probes. Record name, DOB, phone, doctor, location, insurance for both in `scenarios/facts.yaml` (ground truth). Do **not** call the confirmation-screen number.
 - [ ] Explore the portal: is there an appointments view? If yes, use it to verify phone bookings persist.
 - [ ] LiveKit Cloud project → `LIVEKIT_URL`, `LIVEKIT_API_KEY`, `LIVEKIT_API_SECRET`. Install the `lk` CLI.
 - [ ] Twilio: **upgrade from trial** (prepay ~$20) [FIX 1]. Buy one US local number (~$1.15/mo). Create an Elastic SIP trunk with termination URI + credential list. (Or Telnyx equivalent.)
@@ -408,7 +408,7 @@ diff and push back → run a call → confirm. Narrate why each prompt is phrase
 - [ ] ITERATION_LOG.md with before/after evidence
 - [ ] `.env.example` present; no secrets in git history (`git log -p | grep -i key`)
 - [ ] Repo name, description, README title free of the company name/initials
-- [ ] Repo private; eng-challenge@prettygoodai.com added as collaborator
+- [ ] Repo private; the reviewer address from the brief added as collaborator
 - [ ] Loom 1 ≤ 3:00, webcam on, own voice, no company name
 - [ ] Loom 2 AI-debugging video, webcam on, viewable by anyone with the link
 - [ ] Submission form: repo link, both Loom links, phone number
