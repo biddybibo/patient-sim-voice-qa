@@ -4,7 +4,7 @@ A Python voice bot that phones a clinic's AI phone agent, plays a realistic pati
 and records both sides of the call for QA. Built on LiveKit Agents in pipeline mode
 (Deepgram STT → Claude → Cartesia TTS).
 
-> Status: Phase 1 (single test call). Recording, scenarios and analysis come next — see [PLAN.md](PLAN.md).
+> Status: Phase 2 (recording, transcripts, metrics). Scenarios and analysis come next — see [PLAN.md](PLAN.md).
 
 **Caller number used for all calls:** `+16504560751`
 **The only number this bot can dial:** `+18054398008` (enforced in [src/guard.py](src/guard.py))
@@ -56,6 +56,15 @@ uv run python -m src.agent console
 uv run pytest
 ```
 
+Each call writes a folder under `calls/`, e.g. `calls/001-hello-world/`:
+
+| File | Contents |
+|---|---|
+| `recording.ogg` / `recording.mp3` | Stereo: clinic agent on one channel, patient bot on the other |
+| `transcript.txt` | `[mm:ss.s] SPEAKER: text`, timed from the start of the recording |
+| `transcript.json` | Same turns with end times, STT confidence and per-turn latency |
+| `metrics.json` | Bot latency (median/p90), clinic response latency, talk-over, longest silence, end reason |
+
 ## Environment variables
 
 | Variable | Purpose |
@@ -67,5 +76,4 @@ uv run pytest
 | `DEEPGRAM_API_KEY` | Speech-to-text |
 | `ANTHROPIC_API_KEY` | Live patient LLM (Claude Haiku 5.5) and later offline analysis |
 | `CARTESIA_API_KEY` | Text-to-speech |
-| `S3_*` | Recording storage for LiveKit Egress (Phase 2) |
 | `PATIENT_NAME`, `PATIENT_DOB` | Phase 1 placeholder patient identity |

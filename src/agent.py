@@ -34,6 +34,9 @@ from livekit.agents import (
 from livekit.agents.utils import is_given
 from livekit.plugins import anthropic, cartesia, deepgram, noise_cancellation, silero
 
+from src import metrics, transcript
+from src.recording import save_audio
+
 
 logger = logging.getLogger("patient-caller")
 
@@ -84,6 +87,7 @@ class PatientAgent(Agent):
             reason: Why the call is ending: goal_met, blocked, transferred, or loop_detected.
         """
         logger.info("end_call requested: %s", reason)
+        context.userdata["end_reason"] = reason
         await context.wait_for_playout()
         await get_job_context().delete_room()
 
@@ -95,7 +99,35 @@ def prewarm(proc: JobProcess) -> None:
 server = AgentServer(setup_fnc=prewarm)
 
 
-@server.rtc_session(agent_name=config.AGENT_NAME)
+async def save_call(ctx: JobContext) -> None:
+    """Runs after the session has closed (recording finalized), before temp files are deleted."""
+    call_id = json.loads(ctx.job.metadata or "{}").get("call_id")
+    session = ctx.primary_session
+    if not call_id or session is None:  # console mode or the call never connected
+        return
+
+    report = ctx.make_session_report(session)
+    call_dir = config.CALLS_DIR / call_id
+    t0 = report.audio_recording_started_at or report.started_at
+
+    if report.audio_recording_path and report.audio_recording_path.exists():
+        save_audio(report.audio_recording_path, call_dir)
+    else:
+        logger.warning("no audio recording found for %s", call_id)
+
+    turns = transcript.build_turns(report.chat_history.items, t0)
+    transcript.write_transcript(
+        turns,
+        call_dir,
+        header={"call_id": call_id, "room": report.room, "recording_started_at": t0},
+    )
+    end_reason = session.userdata.get("end_reason") or "remote_hangup_or_timeout"
+    call_metrics = metrics.compute(turns, report.duration, end_reason)
+    (call_dir / "metrics.json").write_text(json.dumps(call_metrics, indent=2))
+    logger.info("saved call to %s", call_dir)
+
+
+@server.rtc_session(agent_name=config.AGENT_NAME, on_session_end=save_call)
 async def entrypoint(ctx: JobContext) -> None:
     metadata = json.loads(ctx.job.metadata or "{}")
     logger.info("job started in room %s, metadata=%s", ctx.room.name, metadata)
@@ -115,6 +147,7 @@ async def entrypoint(ctx: JobContext) -> None:
         },
         # The clinic agent may go quiet while it looks something up; don't treat that as "away".
         user_away_timeout=None,
+        userdata={"end_reason": None},
     )
 
     heard_clinic = asyncio.Event()
@@ -155,6 +188,8 @@ async def entrypoint(ctx: JobContext) -> None:
             participant_kinds=[rtc.ParticipantKind.PARTICIPANT_KIND_SIP],
             delete_room_on_close=True,
         ),
+        # Built-in recorder: stereo OGG, clinic and bot on separate channels, one timeline.
+        record={"audio": True, "traces": False, "logs": False},
     )
 
     # The callee speaks first. Only if the line stays silent do we say hello.

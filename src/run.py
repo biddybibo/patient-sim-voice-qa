@@ -11,10 +11,12 @@ import sys
 import threading
 import time
 
+from src.config import CALLS_DIR
 from src.dial import place_call, wait_for_call_end
 
 WORKER_READY_LINE = "registered worker"
 WORKER_START_TIMEOUT = 60
+SAVE_TIMEOUT = 60
 
 
 def start_worker() -> subprocess.Popen:
@@ -41,6 +43,15 @@ def start_worker() -> subprocess.Popen:
     return proc
 
 
+def wait_for_file(path, timeout: float) -> bool:
+    deadline = time.time() + timeout
+    while time.time() < deadline:
+        if path.exists():
+            return True
+        time.sleep(0.5)
+    return False
+
+
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--scenario", default="hello-world")
@@ -54,8 +65,12 @@ def main() -> None:
         call = asyncio.run(place_call(args.scenario))
         asyncio.run(wait_for_call_end(call.room_name))
         print(f"Call ended after {time.time() - call.answered_at:.0f}s")
-        # Let the worker finish its shutdown callbacks (Phase 2 writes files here).
-        time.sleep(3)
+        call_dir = CALLS_DIR / call.call_id
+        if wait_for_file(call_dir / "metrics.json", SAVE_TIMEOUT):
+            print(f"\nSaved {call_dir}:")
+            print((call_dir / "transcript.txt").read_text())
+        else:
+            print(f"Worker did not write {call_dir} within {SAVE_TIMEOUT}s; check worker logs.")
     finally:
         if worker:
             worker.terminate()

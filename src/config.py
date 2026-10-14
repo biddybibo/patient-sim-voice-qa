@@ -1,6 +1,7 @@
 """Shared settings loaded from .env."""
 
 import os
+from pathlib import Path
 
 import certifi
 from dotenv import load_dotenv
@@ -12,6 +13,9 @@ load_dotenv()
 os.environ.setdefault("SSL_CERT_FILE", certifi.where())
 
 AGENT_NAME = "patient-caller"
+
+# One folder per call: recording.ogg/.mp3, transcript.txt/.json, metrics.json
+CALLS_DIR = Path(__file__).resolve().parents[1] / "calls"
 
 # Live conversation model: small and fast. Thinking is turned off in agent.py for latency.
 LIVE_LLM_MODEL = "claude-haiku-5-5"

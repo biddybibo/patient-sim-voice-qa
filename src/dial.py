@@ -16,10 +16,12 @@ from src import config  # first: sets SSL_CERT_FILE before aiohttp loads
 
 from livekit import api
 from src.guard import check_dial_target
+from src.recording import next_call_id
 
 
 @dataclass
 class CallInfo:
+    call_id: str
     room_name: str
     dialed_at: float
     answered_at: float
@@ -28,7 +30,8 @@ class CallInfo:
 async def place_call(scenario: str) -> CallInfo:
     target = check_dial_target(os.getenv("TARGET_NUMBER", "+18054398008"))
     trunk_id = config.require("SIP_OUTBOUND_TRUNK_ID")
-    room_name = f"call-{scenario}-{int(time.time())}"
+    call_id = next_call_id(scenario)
+    room_name = f"call-{call_id}-{int(time.time())}"
 
     lkapi = api.LiveKitAPI()
     try:
@@ -40,7 +43,7 @@ async def place_call(scenario: str) -> CallInfo:
             api.CreateAgentDispatchRequest(
                 agent_name=config.AGENT_NAME,
                 room=room_name,
-                metadata=json.dumps({"scenario": scenario}),
+                metadata=json.dumps({"scenario": scenario, "call_id": call_id}),
             )
         )
 
@@ -59,7 +62,7 @@ async def place_call(scenario: str) -> CallInfo:
         )
         answered_at = time.time()
         print(f"Answered after {answered_at - dialed_at:.1f}s")
-        return CallInfo(room_name, dialed_at, answered_at)
+        return CallInfo(call_id, room_name, dialed_at, answered_at)
     except api.TwirpError as e:
         sip_status = e.metadata.get("sip_status_code"), e.metadata.get("sip_status")
         raise SystemExit(f"Call failed: {e.message} (SIP {sip_status})") from e

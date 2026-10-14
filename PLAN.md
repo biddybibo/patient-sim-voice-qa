@@ -37,7 +37,7 @@ Hard rules (automatic rejection):
 | 5 | Second Athena test account (for privacy scenarios) | **Phase 0** | Takes 5 min; needed to prove leaks later |
 | 6 | Explicit `agent_name` dispatch + single `run.py` command | **Phase 1** | Shapes how `dial.py`/`agent.py` are written |
 | 7 | Local tuning loop (console mode / mock clinic) before real calls | **Phase 1** | Saves line time and budget from day one |
-| 8 | Align transcript timestamps to the recording (egress starts before answer) | **Phase 2** | Every bug timestamp depends on it |
+| 8 | Align transcript timestamps to the recording (egress starts before answer) — **resolved by design**: built-in recorder + transcript both timed from the recording's first sample | **Phase 2** | Every bug timestamp depends on it |
 | 9 | Log the bot's own latency (EOU, LLM TTFT, TTS TTFB) | **Phase 2** | Needed as the v1 baseline for iteration evidence |
 | 10 | `send_dtmf` tool for phone menus | **Phase 3** | Part of the tools work; cheap |
 | 11 | Mid-call silence handling (no "Hello?" or away-timeout during agent lookups) | **Phase 3** | Turn-taking logic |
@@ -59,7 +59,7 @@ The "why" column goes straight into ARCHITECTURE.md and the Loom.
 | LLM (live) | Claude Haiku 5.5 [FIX 2] | Fast first token, follows persona prompts well | Groq Llama (fastest, weaker persona control); larger models too slow per turn |
 | TTS | Cartesia Sonic (current version) | ~100 ms first audio, natural prosody, cheap | ElevenLabs Flash (pricier); OpenAI TTS (higher latency) |
 | VAD / turns | Silero VAD + LiveKit turn detector (English model) | Semantic end-of-turn beats silence timers when the agent pauses mid-thought | Silence-only endpointing (cuts the agent off); Flux |
-| Recording | Room Composite Egress, `audio_only`, dual channel (agent L / caller R), OGG → S3/R2 | Both sides, separable channels, required format | Local frame capture + ffmpeg (fallback) |
+| Recording | LiveKit Agents built-in session recorder (`record={"audio": True}`): stereo OGG/Opus, clinic and bot on separate channels, one timeline; MP3 via PyAV | Both sides, separable channels, required format, no storage bucket or egress cost, timestamps align by construction | Room Composite Egress → S3/R2 (original plan: extra account + keys, egress fees, ring-time offset to correct) |
 | Analysis LLM | Claude Sonnet 5.5 / Opus 5.5 offline | Latency doesn't matter post-call; quality does | Same small model (misses subtle bugs) |
 | Provider access | Decide in Phase 0 [FIX 3]: LiveKit Inference (one bill, fewer keys) vs. direct keys | Simpler receipts vs. full plugin options | — |
 
