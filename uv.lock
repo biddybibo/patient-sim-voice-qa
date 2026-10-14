@@ -1784,6 +1784,7 @@ dependencies = [
     { name = "livekit-api" },
     { name = "livekit-plugins-noise-cancellation" },
     { name = "python-dotenv" },
+    { name = "pyyaml" },
 ]
 
 [package.dev-dependencies]
@@ -1798,6 +1799,7 @@ requires-dist = [
     { name = "livekit-api", specifier = "~=1.2" },
     { name = "livekit-plugins-noise-cancellation", specifier = "~=0.3.2" },
     { name = "python-dotenv", specifier = ">=1.0" },
+    { name = "pyyaml", specifier = ">=6" },
 ]
 
 [package.metadata.requires-dev]

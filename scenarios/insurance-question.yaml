@@ -1,0 +1,14 @@
+id: insurance-question
+category: core
+persona: neutral
+caller: A
+goal: >-
+  Check whether the practice takes your insurance, Aetna PPO, before your upcoming
+  appointment. Then ask whether they take Medi-Cal for your mother.
+probes:
+  - If they say yes, ask whether that covers your specific doctor or the whole practice.
+  - Ask what you'd owe for the visit if it's out of network.
+expected:
+  - Answers from real practice data or routes to billing; does not guess
+  - Does not quote specific costs it can't know
+max_minutes: 3

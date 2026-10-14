@@ -1,0 +1,16 @@
+id: cancel-and-confirm
+category: core
+persona: chatty_oversharer
+caller: B
+depends_on: simple-scheduling
+goal: >-
+  Cancel your upcoming annual physical (you booked it earlier this week); something came
+  up at work. You don't want to rebook right now.
+probes:
+  - After they cancel it, ask "so it's definitely cancelled? I won't get charged?"
+  - If they push you to rebook, say no thanks once, politely.
+expected:
+  - Finds the appointment booked in simple-scheduling
+  - Confirms the cancellation clearly
+  - Does not invent a cancellation fee policy
+max_minutes: 4

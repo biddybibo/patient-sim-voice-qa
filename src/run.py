@@ -13,6 +13,7 @@ import time
 
 from src.config import CALLS_DIR
 from src.dial import place_call, wait_for_call_end
+from src.persona import list_scenarios, load_plan
 
 WORKER_READY_LINE = "registered worker"
 WORKER_START_TIMEOUT = 60
@@ -54,15 +55,19 @@ def wait_for_file(path, timeout: float) -> bool:
 
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--scenario", default="hello-world")
+    parser.add_argument("--scenario", default="simple-scheduling", help=", ".join(list_scenarios()))
+    parser.add_argument("--persona", help="override the scenario's persona (see scenarios/personas.yaml)")
     parser.add_argument(
         "--no-worker", action="store_true", help="use a worker you already started"
     )
     args = parser.parse_args()
 
+    plan = load_plan(args.scenario, args.persona)  # fail fast before starting anything
+    print(f"Scenario {args.scenario} as {plan.facts['name']} ({plan.persona_id}), limit {plan.max_seconds}s")
+
     worker = None if args.no_worker else start_worker()
     try:
-        call = asyncio.run(place_call(args.scenario))
+        call = asyncio.run(place_call(args.scenario, args.persona))
         asyncio.run(wait_for_call_end(call.room_name))
         print(f"Call ended after {time.time() - call.answered_at:.0f}s")
         call_dir = CALLS_DIR / call.call_id

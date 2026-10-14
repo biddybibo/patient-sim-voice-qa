@@ -1,0 +1,29 @@
+# Ground truth for the two test patients created in the clinic's demo portal.
+# The bot answers verification questions from these; the analysis step checks the
+# clinic agent's answers against them.
+#
+# Both accounts share one phone number on purpose: if the agent identifies callers by
+# phone, it should disambiguate rather than pick one or reveal the other's details.
+
+accounts:
+  A:
+    name: Jane Doe
+    gender: female
+    dob: July 4th, 2000
+    phone: 650-996-3518
+    insurance: Aetna PPO
+    pharmacy: CVS on El Camino Real in Palo Alto
+    meds: [lisinopril 10mg once a day]
+    known_appointments:
+      # Booked by call 002 (calls/002-hello-world): verify later scenarios against it.
+      - Tuesday October 20th at 10 AM with Dr. Zbigniew Lukowski at Pivot Point Orthopedics
+
+  B:
+    name: Bob Dylan
+    gender: male
+    dob: July 4th, 1990
+    phone: 650-996-3518
+    insurance: Blue Shield of California PPO
+    pharmacy: Walgreens on University Avenue in Palo Alto
+    meds: [atorvastatin 20mg]
+    known_appointments: []

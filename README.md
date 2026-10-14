@@ -76,4 +76,3 @@ Each call writes a folder under `calls/`, e.g. `calls/001-hello-world/`:
 | `DEEPGRAM_API_KEY` | Speech-to-text |
 | `ANTHROPIC_API_KEY` | Live patient LLM (Claude Haiku 5.5) and later offline analysis |
 | `CARTESIA_API_KEY` | Text-to-speech |
-| `PATIENT_NAME`, `PATIENT_DOB` | Phase 1 placeholder patient identity |

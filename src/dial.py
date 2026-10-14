@@ -17,6 +17,7 @@ from src import config  # first: sets SSL_CERT_FILE before aiohttp loads
 from google.protobuf.duration_pb2 import Duration
 from livekit import api
 from src.guard import check_dial_target
+from src.persona import load_plan
 from src.recording import next_call_id
 
 
@@ -28,7 +29,7 @@ class CallInfo:
     answered_at: float
 
 
-async def place_call(scenario: str) -> CallInfo:
+async def place_call(scenario: str, persona: str | None = None) -> CallInfo:
     target = check_dial_target(os.getenv("TARGET_NUMBER", "+18054398008"))
     trunk_id = config.require("SIP_OUTBOUND_TRUNK_ID")
     call_id = next_call_id(scenario)
@@ -44,7 +45,7 @@ async def place_call(scenario: str) -> CallInfo:
             api.CreateAgentDispatchRequest(
                 agent_name=config.AGENT_NAME,
                 room=room_name,
-                metadata=json.dumps({"scenario": scenario, "call_id": call_id}),
+                metadata=json.dumps({"scenario": scenario, "persona": persona, "call_id": call_id}),
             )
         )
 
@@ -89,11 +90,13 @@ async def wait_for_call_end(room_name: str, poll_seconds: float = 2.0) -> None:
 
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--scenario", default="hello-world")
+    parser.add_argument("--scenario", default="simple-scheduling")
+    parser.add_argument("--persona", help="override the scenario's persona")
     args = parser.parse_args()
+    load_plan(args.scenario, args.persona)  # fail fast on a bad scenario/persona
 
     async def run() -> None:
-        call = await place_call(args.scenario)
+        call = await place_call(args.scenario, args.persona)
         await wait_for_call_end(call.room_name)
         print(f"Call ended after {time.time() - call.answered_at:.0f}s")
 

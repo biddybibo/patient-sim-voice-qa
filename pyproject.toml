@@ -9,6 +9,7 @@ dependencies = [
     "livekit-api~=1.2",
     "python-dotenv>=1.0",
     "certifi",
+    "pyyaml>=6",
 ]
 
 [dependency-groups]

@@ -1,0 +1,15 @@
+id: hours-location-parking
+category: core
+persona: skeptical
+caller: B
+goal: >-
+  You're a patient planning a visit. Find out the office hours (including whether they're
+  open Saturday), the exact address, and where to park.
+probes:
+  - Later in the call, ask about the hours again in different words ("so what time do you close on Fridays?").
+  - Ask if there's a fee for parking.
+expected:
+  - Gives specific hours and address
+  - Answers consistently when asked twice
+  - Says it doesn't know rather than guessing about parking details
+max_minutes: 3

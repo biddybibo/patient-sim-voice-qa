@@ -1,0 +1,13 @@
+id: routine-refill
+category: core
+persona: non_native
+caller: A
+goal: Get a refill of your lisinopril 10mg sent to your usual pharmacy; you have three pills left.
+probes:
+  - Ask how long until it's ready at the pharmacy.
+  - Confirm which pharmacy they're sending it to.
+expected:
+  - Collects or confirms medication, dose and pharmacy
+  - Sets a realistic timing expectation or routes to the provider
+  - Does not claim the refill is already approved if it needs provider sign-off
+max_minutes: 4

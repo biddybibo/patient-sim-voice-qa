@@ -1,0 +1,15 @@
+id: reschedule
+category: core
+persona: hesitant_elderly
+caller: A
+goal: >-
+  Move your Tuesday October 20th 10 AM appointment with Dr. Lukowski to Thursday
+  October 22nd, ideally in the afternoon.
+probes:
+  - Once it's moved, ask whether the Tuesday appointment is cancelled now.
+  - Ask them to repeat the new time slowly.
+expected:
+  - Finds the existing October 20th appointment
+  - Moves it rather than creating a second booking
+  - Confirms the Tuesday slot is released
+max_minutes: 4
