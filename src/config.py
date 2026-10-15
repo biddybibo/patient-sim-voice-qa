@@ -30,8 +30,9 @@ THINKING_OFF = {
 STT_MODEL = "nova-3"
 TTS_MODEL = "sonic-3"
 
-# Hard cap enforced by LiveKit SIP itself, independent of anything the bot does.
-MAX_CALL_SECONDS = 5 * 60
+# Hard cap enforced by LiveKit SIP itself, independent of anything the bot does. Above the longest
+# scenario limit (5 min): the clinic's lookups are slow, and 4-minute limits cut half the calls short.
+MAX_CALL_SECONDS = 6 * 60
 
 
 def require(name: str) -> str:

@@ -1,0 +1,234 @@
+{
+  "call_id": "034-new-patient-spelled-name",
+  "scenario": "new-patient-spelled-name",
+  "persona": "hesitant_elderly",
+  "llm": "claude-haiku-5-5",
+  "room": "call-034-new-patient-spelled-name-1792049036",
+  "recording_started_at": 1792049037.421964,
+  "turns": [
+    {
+      "speaker": "CLINIC_AGENT",
+      "t_start": 4.65,
+      "t_end": 16.49,
+      "text": "This call may be recorded for quality and training purposes. Thanks for calling Pivot Point Orthopedics. Part of Pretty Good AI. How may I help you today?",
+      "interrupted": false,
+      "stt_confidence": 0.9913330075,
+      "latency": {
+        "transcription_delay": 0.279,
+        "end_of_turn_delay": 1.502
+      }
+    },
+    {
+      "speaker": "PATIENT_BOT",
+      "t_start": 19.15,
+      "t_end": 28.16,
+      "text": "Oh, hello. I'd like to make an appointment, please. I've never been to your office before, and I have some knee pain.",
+      "interrupted": false,
+      "stt_confidence": null,
+      "latency": {
+        "llm_node_ttft": 0.791,
+        "tts_node_ttfb": 0.172,
+        "e2e_latency": 2.658
+      }
+    },
+    {
+      "speaker": "CLINIC_AGENT",
+      "t_start": 33.0,
+      "t_end": 35.09,
+      "text": "Could you please provide your full name and date of birth?",
+      "interrupted": false,
+      "stt_confidence": 1.0,
+      "latency": {
+        "transcription_delay": 0.276,
+        "end_of_turn_delay": 0.6
+      }
+    },
+    {
+      "speaker": "PATIENT_BOT",
+      "t_start": 36.56,
+      "t_end": 59.97,
+      "text": "Yes, of course. My name is Siobhan Okafor. That's S-I-O-B-H-A-N, and the last name is O-K-A-F-O-R. My date of birth is March 12th, 1951.",
+      "interrupted": false,
+      "stt_confidence": null,
+      "latency": {
+        "llm_node_ttft": 0.791,
+        "tts_node_ttfb": 0.138,
+        "e2e_latency": 1.472
+      }
+    },
+    {
+      "speaker": "CLINIC_AGENT",
+      "t_start": 64.75,
+      "t_end": 72.29,
+      "text": "Just to confirm, I have your name as Siobhan Okafor, and your date of birth as March twelfth nineteen fifty one. Is that correct?",
+      "interrupted": false,
+      "stt_confidence": 0.9889323,
+      "latency": {
+        "transcription_delay": 0.408,
+        "end_of_turn_delay": 0.6
+      }
+    },
+    {
+      "speaker": "PATIENT_BOT",
+      "t_start": 74.16,
+      "t_end": 77.0,
+      "text": "Yes, that's right. Thank you.",
+      "interrupted": false,
+      "stt_confidence": null,
+      "latency": {
+        "llm_node_ttft": 1.26,
+        "tts_node_ttfb": 0.179,
+        "e2e_latency": 1.876
+      }
+    },
+    {
+      "speaker": "CLINIC_AGENT",
+      "t_start": 82.05,
+      "t_end": 87.84,
+      "text": "Would you like me to look up your record using your phone number? If so, please provide the number you have on file with us.",
+      "interrupted": false,
+      "stt_confidence": 1.0,
+      "latency": {
+        "transcription_delay": 0.293,
+        "end_of_turn_delay": 0.601
+      }
+    },
+    {
+      "speaker": "CLINIC_AGENT",
+      "t_start": 88.45,
+      "t_end": 89.89,
+      "text": "If you're not sure, just let me know.",
+      "interrupted": false,
+      "stt_confidence": 1.0,
+      "latency": {
+        "transcription_delay": 0.225,
+        "end_of_turn_delay": 3.001
+      }
+    },
+    {
+      "speaker": "PATIENT_BOT",
+      "t_start": 93.04,
+      "t_end": 106.97,
+      "text": "Yes, please look it up. My phone number is 650-555-0143.",
+      "interrupted": false,
+      "stt_confidence": null,
+      "latency": {
+        "llm_node_ttft": 1.433,
+        "tts_node_ttfb": 0.144,
+        "e2e_latency": 3.15
+      }
+    },
+    {
+      "speaker": "CLINIC_AGENT",
+      "t_start": 112.0,
+      "t_end": 117.89,
+      "text": "I have your phone number as six five zero five five five zero one four three. Is that correct?",
+      "interrupted": false,
+      "stt_confidence": 0.99975586,
+      "latency": {
+        "transcription_delay": 0.312,
+        "end_of_turn_delay": 0.601
+      }
+    },
+    {
+      "speaker": "PATIENT_BOT",
+      "t_start": 120.15,
+      "t_end": 121.96,
+      "text": "Yes, that's correct.",
+      "interrupted": false,
+      "stt_confidence": null,
+      "latency": {
+        "llm_node_ttft": 1.309,
+        "tts_node_ttfb": 0.135,
+        "e2e_latency": 2.26
+      }
+    },
+    {
+      "speaker": "CLINIC_AGENT",
+      "t_start": 126.8,
+      "t_end": 138.69,
+      "text": "Just to confirm, your name is Siobhan Okafor. Your date of birth is March twelfth nineteen fifty one, and your phone number is six five zero five five five zero one four three. Is all of that correct?",
+      "interrupted": false,
+      "stt_confidence": 0.9995117233333333,
+      "latency": {
+        "transcription_delay": 0.326,
+        "end_of_turn_delay": 0.601
+      }
+    },
+    {
+      "speaker": "PATIENT_BOT",
+      "t_start": 140.88,
+      "t_end": 145.16,
+      "text": "Yes, all of that is correct. Thank you.",
+      "interrupted": false,
+      "stt_confidence": null,
+      "latency": {
+        "llm_node_ttft": 1.45,
+        "tts_node_ttfb": 0.134,
+        "e2e_latency": 2.196
+      }
+    },
+    {
+      "speaker": "CLINIC_AGENT",
+      "t_start": 147.75,
+      "t_end": 151.84,
+      "text": "I can't proceed further right now, but I can make sure our clinic support team follows up with you.",
+      "interrupted": false,
+      "stt_confidence": 0.9992675799999999,
+      "latency": {
+        "transcription_delay": 0.271,
+        "end_of_turn_delay": 0.6
+      }
+    },
+    {
+      "speaker": "CLINIC_AGENT",
+      "t_start": 152.4,
+      "t_end": 154.94,
+      "text": "Would you like me to connect you to our patient support team?",
+      "interrupted": false,
+      "stt_confidence": 1.0,
+      "latency": {
+        "transcription_delay": 0.376,
+        "end_of_turn_delay": 3.001
+      }
+    },
+    {
+      "speaker": "PATIENT_BOT",
+      "t_start": 158.09,
+      "t_end": 165.57,
+      "text": "Oh, yes please, that would be helpful. I just want to get in to see someone about my knee.",
+      "interrupted": false,
+      "stt_confidence": null,
+      "latency": {
+        "llm_node_ttft": 1.523,
+        "tts_node_ttfb": 0.141,
+        "e2e_latency": 3.15
+      }
+    },
+    {
+      "speaker": "CLINIC_AGENT",
+      "t_start": 164.65,
+      "t_end": 165.94,
+      "text": "You.",
+      "interrupted": false,
+      "stt_confidence": 0.8359375,
+      "latency": {
+        "transcription_delay": 0.216,
+        "end_of_turn_delay": 0.6
+      }
+    },
+    {
+      "speaker": "PATIENT_BOT",
+      "t_start": 167.1,
+      "t_end": 173.14,
+      "text": "Oh, I'm sorry, I didn't catch that. Could you say that again, please?",
+      "interrupted": false,
+      "stt_confidence": null,
+      "latency": {
+        "llm_node_ttft": 0.528,
+        "tts_node_ttfb": 0.141,
+        "e2e_latency": 1.166
+      }
+    }
+  ]
+}

@@ -1,0 +1,28 @@
+[00:05.7] CLINIC_AGENT: This call may be recorded for quality and training purposes. Thanks for calling Pivot Point Orthopaedics. Part of Pretty Good AI. How may I help you today?
+[00:20.3] PATIENT_BOT: Hi, this is Jane Doe. I'd like to book a check-up for this Friday, the 17th, at 9 AM, if you have it.
+[00:28.1] CLINIC_AGENT: Jane, can you please provide your date of birth?
+[00:31.2] PATIENT_BOT: July 4th, 2000.
+[00:38.2] CLINIC_AGENT: Are you looking to book a general office visit for your checkup? Or is there another reason for your appointment?
+[00:44.6] PATIENT_BOT: Just a general check-up, please.
+[00:49.7] CLINIC_AGENT: Do you have a specific provider you'd like to see, or are you open to any available provider?
+[00:55.2] PATIENT_BOT: Any provider is fine, whoever has the 9 AM slot.
+[01:03.7] CLINIC_AGENT: You already have a general office visit? Booked for Friday, October sixteenth at nine thirty AM. With doctor Zedigni Lukowski at Pivot Point Orthopaedics
+[01:15.5] CLINIC_AGENT: Would you like to keep this appointment? Reschedule it, or cancel it?
+[01:20.0] PATIENT_BOT: Oh, I don't remember that one. Can you tell me more about it? I'd like the 9 AM on Friday the 17th if I can get it.
+[01:29.7] CLINIC_AGENT: Your current appointment is set for Friday, October sixteenth at nine thirty AM with doctor Zebigniew Lakoski at Pivot Point Orthopedics. I'm unable to book another general checkup while this one is scheduled. Would you like to reschedule your appointment to Friday, October seventeenth nine AM if it's available?
+[01:50.2] PATIENT_BOT: Yes, please reschedule it to Friday the 17th at 9 AM. Can you confirm the exact date and day of the week for me?
+[02:00.8] CLINIC_AGENT: You have a general office visit scheduled for tomorrow, Friday, October sixteenth. At nine thirty AM with doctor Zid Bigniew Lukowski at Pivot Point Orthopedics.
+[02:12.6] CLINIC_AGENT: Also, I have a follow-up on Monday October nineteenth at ten AM with doctor Judy Hauser. You like to move your Friday, October sixteenth appointment to Friday, October seventeenth at nine AM if it's available?
+[02:27.0] PATIENT_BOT: Yes, please move it to Friday, October 17th at 9 AM. And just to confirm, is October 17th a Friday this year?
+[02:35.6] CLINIC_AGENT: October seventeenth this year is a Saturday. Your current appointment is for Friday, October sixteenth. Would you like to move it to Saturday, October seventeenth at nine AM, if that's available, or would you prefer another Friday?
+[02:49.5] PATIENT_BOT: Oh, I thought the 17th was a Friday. Let's keep it on a Friday then. What other Friday do you have at 9 AM?
+[03:02.8] CLINIC_AGENT: The next Friday opening at nine AM is on October twenty third with doctor Zeebigniew Lakoski at Visit Point Orthopedics.
+[03:09.8] CLINIC_AGENT: Would you like to move your appointment to that date and time?
+[03:15.6] PATIENT_BOT: Yes, that works. Please move it to Friday, October 23rd at 9 AM.
+[03:24.4] CLINIC_AGENT: Can you tell me the reason you need to reschedule your appointment? For example, is it a schedule conflict? Personal reason, or something else?
+[03:33.6] PATIENT_BOT: Just a schedule conflict, I'm sorry. I'm between meetings and the Friday the 16th doesn't work for me.
+[03:40.8] CLINIC_AGENT: No problem.
+[03:42.0] CLINIC_AGENT: Confirm you'd like to move your appointment with doctor Zibignu Lukowski to Friday, October twenty third at nine AM at Pivot Point Orthopedics.
+[03:50.6] CLINIC_AGENT: Is that correct?
+[03:52.4] PATIENT_BOT: Yes, that's correct. Thank you.
+[04:10.1] PATIENT_BOT: Okay, got it. Sorry, I'm getting pulled into a meeting, I'll call back. Thanks, bye.

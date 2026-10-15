@@ -12,4 +12,4 @@ expected:
   - Gives specific hours and address
   - Answers consistently when asked twice
   - Says it doesn't know rather than guessing about parking details
-max_minutes: 4
+max_minutes: 5

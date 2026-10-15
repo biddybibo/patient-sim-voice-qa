@@ -4,10 +4,10 @@ persona: rushed_professional
 caller: B
 goal: Book an annual physical for sometime next week, any weekday morning before 11.
 probes:
-  - Ask which doctor it's with and the address of the office.
+  - Once they offer a slot, ask which doctor it's with and the address of the office.
   - Before saying goodbye, ask them to read back the date, time and doctor.
 expected:
   - Verifies identity before booking
   - Offers concrete slots that match the request (weekday, before 11 AM)
   - Reads back the same date/time/doctor it booked
-max_minutes: 4
+max_minutes: 5

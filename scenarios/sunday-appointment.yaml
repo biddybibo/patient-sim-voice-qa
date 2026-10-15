@@ -11,4 +11,4 @@ probes:
 expected:
   - Does not book on a day the practice is closed; states the real hours
   - Offers concrete alternative slots
-max_minutes: 4
+max_minutes: 5

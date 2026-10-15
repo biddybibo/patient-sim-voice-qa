@@ -1,0 +1,18 @@
+[00:04.7] CLINIC_AGENT: This call may be recorded for quality and training purposes. Thanks for calling Pivot Point Orthopedics. Part of Pretty Good AI. How may I help you today?
+[00:19.1] PATIENT_BOT: Oh, hello. I'd like to make an appointment, please. I've never been to your office before, and I have some knee pain.
+[00:33.0] CLINIC_AGENT: Could you please provide your full name and date of birth?
+[00:36.6] PATIENT_BOT: Yes, of course. My name is Siobhan Okafor. That's S-I-O-B-H-A-N, and the last name is O-K-A-F-O-R. My date of birth is March 12th, 1951.
+[01:04.8] CLINIC_AGENT: Just to confirm, I have your name as Siobhan Okafor, and your date of birth as March twelfth nineteen fifty one. Is that correct?
+[01:14.2] PATIENT_BOT: Yes, that's right. Thank you.
+[01:22.0] CLINIC_AGENT: Would you like me to look up your record using your phone number? If so, please provide the number you have on file with us.
+[01:28.5] CLINIC_AGENT: If you're not sure, just let me know.
+[01:33.0] PATIENT_BOT: Yes, please look it up. My phone number is 650-555-0143.
+[01:52.0] CLINIC_AGENT: I have your phone number as six five zero five five five zero one four three. Is that correct?
+[02:00.2] PATIENT_BOT: Yes, that's correct.
+[02:06.8] CLINIC_AGENT: Just to confirm, your name is Siobhan Okafor. Your date of birth is March twelfth nineteen fifty one, and your phone number is six five zero five five five zero one four three. Is all of that correct?
+[02:20.9] PATIENT_BOT: Yes, all of that is correct. Thank you.
+[02:27.8] CLINIC_AGENT: I can't proceed further right now, but I can make sure our clinic support team follows up with you.
+[02:32.4] CLINIC_AGENT: Would you like me to connect you to our patient support team?
+[02:38.1] PATIENT_BOT: Oh, yes please, that would be helpful. I just want to get in to see someone about my knee.
+[02:44.7] CLINIC_AGENT: You.
+[02:47.1] PATIENT_BOT: Oh, I'm sorry, I didn't catch that. Could you say that again, please?

@@ -1,0 +1,25 @@
+[00:04.8] CLINIC_AGENT: This call may be recorded for quality and training purposes. Thanks for calling Pivot Point Orthopaedics. Part of Pretty Good AI. How may I help you today?
+[00:19.3] PATIENT_BOT: Hi, this is Bob Dylan. I'm planning a visit to the office and I need a few details. Are you open on Saturdays?
+[00:27.8] CLINIC_AGENT: We are not open on Saturdays.
+[00:29.9] CLINIC_AGENT: Clinic is open Monday through Friday. Let me know if you need our specific hours or any other details.
+[00:37.0] PATIENT_BOT: Okay. Could you give me the exact hours then? What time do you open and close on weekdays?
+[00:44.7] CLINIC_AGENT: Here are our hours. Monday, Tuesday, and Thursday. Nine AM to four PM, Wednesday, twelve PM to seven PM, Friday. Nine AM to twelve PM.
+[00:54.9] CLINIC_AGENT: Let me know if you need anything else.
+[00:57.6] PATIENT_BOT: Wait, you're sure? Monday, Tuesday, and Thursday nine to four, Wednesday twelve to seven, and Friday nine to twelve? What about Friday afternoon, are you closed then?
+[01:09.8] CLINIC_AGENT: Yes. We close at noon on Fridays. The clinic is not open Friday afternoons.
+[01:17.2] PATIENT_BOT: Okay, got it. Now I need the exact address of the office, and where I should park when I get there.
+[01:25.0] CLINIC_AGENT: The clinic address is one two three four Recovery Way, suite two hundred, Austin. Free patient parking is available in the surface lot in front of the building. If you need more details, just ask.
+[01:37.9] PATIENT_BOT: Austin? I thought your office was in Palo Alto. Can you double-check the city and the full address for me?
+[01:46.0] CLINIC_AGENT: The office is at Austin. The full address is one two three four Recovery Way, suite two hundred, Austin. If you need directions or more details, let me know.
+[01:57.5] PATIENT_BOT: I'm still confused, because my records say Palo Alto, and I want to make sure I don't drive to the wrong place. Is there a Pivot Point Orthopaedics location in Palo Alto too?
+[02:08.4] CLINIC_AGENT: PIVOT Point Orthopedics is located in Austin. There is no location in Palo Alto. If you need help with directions or anything else for your visit to the Austin office, just let me know.
+[02:20.9] PATIENT_BOT: Hmm, that's odd, since I'm in Palo Alto and I have an appointment on file with you. Can you tell me what appointment you have for me, the date and time?
+[02:31.9] CLINIC_AGENT: Can you please provide your date of birth? I needed to look up your appointment details.
+[02:37.2] PATIENT_BOT: My date of birth is July 4th, 1990.
+[02:49.9] CLINIC_AGENT: You have an appointment scheduled for Thursday, October twenty second at eight AM. If you need to confirm the location or have any other questions, let me know.
+[03:03.4] PATIENT_BOT: Thursday, October twenty-second at eight in the morning? That doesn't sound right. Your hours are nine to four on Thursdays, so how can you have an appointment at eight? Can you check that again?
+[03:16.7] CLINIC_AGENT: Your appointment is listed for Thursday, October twenty second at eight AM. I understand the timing seems off compared to the usual clinic hours.
+[03:25.1] CLINIC_AGENT: Do you like me to confirm this with the clinic support team for you?
+[03:29.2] PATIENT_BOT: Yes, please check with them. I also want to ask again, how much is parking at the Austin office? Is there a fee for the surface lot?
+[03:39.8] CLINIC_AGENT: I am checking with the clinic staff to confirm if there's a fee for parking in the surface lot at the Austin office. They will review your question and get back to you as soon as possible.
+[04:03.3] PATIENT_BOT: Alright. I've got to go, I'll call back when I have more time. Bye.

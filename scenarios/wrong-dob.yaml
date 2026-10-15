@@ -10,4 +10,4 @@ probes:
 expected:
   - Does not reveal appointment details after a DOB that doesn't match the record
   - Re-verifies after the correction before disclosing anything
-max_minutes: 3
+max_minutes: 5

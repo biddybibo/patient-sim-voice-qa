@@ -1,0 +1,222 @@
+{
+  "call_id": "038-insurance-question",
+  "scenario": "insurance-question",
+  "persona": "neutral",
+  "llm": "claude-haiku-5-5",
+  "room": "call-038-insurance-question-1792089248",
+  "recording_started_at": 1792089250.544086,
+  "turns": [
+    {
+      "speaker": "CLINIC_AGENT",
+      "t_start": 5.2,
+      "t_end": 17.04,
+      "text": "This call may be recorded for quality and training purposes. Thanks for calling Pivot Point Orthopedic. We're a pretty good AI. How may I help you today?",
+      "interrupted": false,
+      "stt_confidence": 0.9884033249999999,
+      "latency": {
+        "transcription_delay": 0.281,
+        "end_of_turn_delay": 1.501
+      }
+    },
+    {
+      "speaker": "PATIENT_BOT",
+      "t_start": 19.71,
+      "t_end": 29.33,
+      "text": "Hi, um, I'm calling to check whether your office takes Aetna PPO. I have an appointment coming up on Thursday, October 22nd at 2 PM with Dr. Lukowski.",
+      "interrupted": false,
+      "stt_confidence": null,
+      "latency": {
+        "llm_node_ttft": 0.853,
+        "tts_node_ttfb": 0.201,
+        "e2e_latency": 2.675
+      }
+    },
+    {
+      "speaker": "CLINIC_AGENT",
+      "t_start": 32.9,
+      "t_end": 36.84,
+      "text": "I see you're calling from the number we have on file. Am I speaking with Jane?",
+      "interrupted": false,
+      "stt_confidence": 0.9618326833333333,
+      "latency": {
+        "transcription_delay": 0.375,
+        "end_of_turn_delay": 0.601
+      }
+    },
+    {
+      "speaker": "PATIENT_BOT",
+      "t_start": 38.14,
+      "t_end": 39.39,
+      "text": "Yes, this is Jane Doe.",
+      "interrupted": false,
+      "stt_confidence": null,
+      "latency": {
+        "llm_node_ttft": 0.721,
+        "tts_node_ttfb": 0.145,
+        "e2e_latency": 1.294
+      }
+    },
+    {
+      "speaker": "CLINIC_AGENT",
+      "t_start": 41.7,
+      "t_end": 43.14,
+      "text": "Please provide your date of birth.",
+      "interrupted": false,
+      "stt_confidence": 0.99902344,
+      "latency": {
+        "transcription_delay": 0.366,
+        "end_of_turn_delay": 3.001
+      }
+    },
+    {
+      "speaker": "PATIENT_BOT",
+      "t_start": 46.36,
+      "t_end": 49.2,
+      "text": "My date of birth is July 4th, 2000.",
+      "interrupted": false,
+      "stt_confidence": null,
+      "latency": {
+        "llm_node_ttft": 1.257,
+        "tts_node_ttfb": 0.215,
+        "e2e_latency": 3.223
+      }
+    },
+    {
+      "speaker": "CLINIC_AGENT",
+      "t_start": 52.7,
+      "t_end": 75.59,
+      "text": "Thanks, Jane. Yes, Pivot Point Orthopedics accepts most PPO insurance plans, I'll check your upcoming appointment details now. One moment. Jane, I see you have an appointment scheduled for Monday, October nineteenth. At ten AM with doctor Duggehauser. There is no appointment on October twenty second in your record.",
+      "interrupted": false,
+      "stt_confidence": 0.9494375227272727,
+      "latency": {
+        "transcription_delay": 0.432,
+        "end_of_turn_delay": 0.601
+      }
+    },
+    {
+      "speaker": "CLINIC_AGENT",
+      "t_start": 76.15,
+      "t_end": 78.84,
+      "text": "Would you like to keep this appointment? Or make any changes?",
+      "interrupted": false,
+      "stt_confidence": 1.0,
+      "latency": {
+        "transcription_delay": 0.382,
+        "end_of_turn_delay": 0.6
+      }
+    },
+    {
+      "speaker": "PATIENT_BOT",
+      "t_start": 80.27,
+      "t_end": 89.79,
+      "text": "Hmm, that doesn't sound right to me. I have an appointment on Thursday, October 22nd at 2 PM with Dr. Lukowski. Could you check again for that one?",
+      "interrupted": false,
+      "stt_confidence": null,
+      "latency": {
+        "llm_node_ttft": 0.742,
+        "tts_node_ttfb": 0.157,
+        "e2e_latency": 1.427
+      }
+    },
+    {
+      "speaker": "CLINIC_AGENT",
+      "t_start": 92.8,
+      "t_end": 111.49,
+      "text": "I double checked your records and the only upcoming appointment I see is on Monday, October nineteenth at ten AM with doctor Dugi Hauser. There is no appointment listed for October twenty second or with a provider named Drive Leukauska Would you like help rescheduling, booking a new appointment? Or do you have another question?",
+      "interrupted": false,
+      "stt_confidence": 0.99837239,
+      "latency": {
+        "transcription_delay": 0.33,
+        "end_of_turn_delay": 0.601
+      }
+    },
+    {
+      "speaker": "PATIENT_BOT",
+      "t_start": 113.24,
+      "t_end": 123.51,
+      "text": "Okay, um, that's a little confusing. Could you just confirm that you do take Aetna PPO for me? And then I also wanted to ask whether you take Medi-Cal, since I'm checking that for my mother.",
+      "interrupted": false,
+      "stt_confidence": null,
+      "latency": {
+        "llm_node_ttft": 0.775,
+        "tts_node_ttfb": 0.173,
+        "e2e_latency": 1.753
+      }
+    },
+    {
+      "speaker": "CLINIC_AGENT",
+      "t_start": 127.0,
+      "t_end": 140.54,
+      "text": "Pivot Point Orthopedics accepts most PPO insurance plans including Aetna PPO. For Medi Cal, we do not accept it at this time. If you have more insurance questions or need to update your insurance, let me know.",
+      "interrupted": false,
+      "stt_confidence": 0.998046875,
+      "latency": {
+        "transcription_delay": 0.273,
+        "end_of_turn_delay": 3.001
+      }
+    },
+    {
+      "speaker": "PATIENT_BOT",
+      "t_start": 144.86,
+      "t_end": 156.94,
+      "text": "Thanks, that helps. Since you take Aetna PPO, I'm wondering, does that cover Dr. Lukowski specifically, or the whole practice? And if the doctor turned out to be out of network, what would I owe for the visit?",
+      "interrupted": false,
+      "stt_confidence": null,
+      "latency": {
+        "llm_node_ttft": 0.846,
+        "tts_node_ttfb": 0.169,
+        "e2e_latency": 4.325
+      }
+    },
+    {
+      "speaker": "CLINIC_AGENT",
+      "t_start": 160.5,
+      "t_end": 183.64,
+      "text": "Aetna PPO coverage usually applies to the whole practice if the clinic is in network. Not just one doctor, If a provider is out of network, your costs could be higher often including a larger deductible and more out of pocket expenses, For exact details about your coverage and costs, it's best to call the number on your Aetna card. Would you like help updating your insurance on file or have other questions?",
+      "interrupted": false,
+      "stt_confidence": 0.9994419628571428,
+      "latency": {
+        "transcription_delay": 0.238,
+        "end_of_turn_delay": 0.601
+      }
+    },
+    {
+      "speaker": "PATIENT_BOT",
+      "t_start": 185.32,
+      "t_end": 193.73,
+      "text": "Okay, that's helpful, thank you. No, I think that's everything I needed for today. Thank you so much for your help.",
+      "interrupted": false,
+      "stt_confidence": null,
+      "latency": {
+        "llm_node_ttft": 0.814,
+        "tts_node_ttfb": 0.162,
+        "e2e_latency": 1.687
+      }
+    },
+    {
+      "speaker": "CLINIC_AGENT",
+      "t_start": 196.7,
+      "t_end": 204.09,
+      "text": "You're welcome. Jane. If you have more questions or need help with appointments or insurance, just call us anytime. Have a great day.",
+      "interrupted": false,
+      "stt_confidence": 0.99139405,
+      "latency": {
+        "transcription_delay": 0.374,
+        "end_of_turn_delay": 0.601
+      }
+    },
+    {
+      "speaker": "PATIENT_BOT",
+      "t_start": 205.8,
+      "t_end": 208.7,
+      "text": "Thanks, you too. Bye",
+      "interrupted": true,
+      "stt_confidence": null,
+      "latency": {
+        "llm_node_ttft": 0.976,
+        "tts_node_ttfb": 0.125,
+        "e2e_latency": 1.713
+      }
+    }
+  ]
+}

@@ -402,8 +402,25 @@ async def entrypoint(ctx: JobContext) -> None:
                     await asyncio.wait_for(current.wait_for_playout(), WRAP_UP_PLAYOUT_SECONDS)
                 else:
                     current.interrupt(force=True)
-            goodbye = session.say(plan.goodbye, allow_interruptions=False)
-            await asyncio.wait_for(goodbye.wait_for_playout(), WRAP_UP_PLAYOUT_SECONDS)
+            # A goodbye that fits the moment (a fixed line "thanked" answers that never came and promised to
+            # call back after a booking was done: calls 040-044). Bounded: one sentence, and we hang up after it
+            # plays whatever it says. The persona's fixed line is the fallback.
+            try:
+                goodbye = session.generate_reply(
+                    instructions=(
+                        "You're out of time and must hang up now. Say ONE short, warm sentence that fits where the "
+                        "call is: if what you called about got done, thank them for it; if not, say you'll call back. "
+                        "Then say bye. No questions."
+                    ),
+                    # Tools stay available (tool_choice="none" sends an empty tool list, which the API rejects
+                    # when earlier turns contain tool calls); we hang up after playout either way.
+                    allow_interruptions=False,
+                )
+                await asyncio.wait_for(goodbye.wait_for_playout(), WRAP_UP_PLAYOUT_SECONDS)
+            except Exception:
+                logger.exception("contextual goodbye failed; using the persona's fixed line")
+                goodbye = session.say(plan.goodbye, allow_interruptions=False)
+                await asyncio.wait_for(goodbye.wait_for_playout(), WRAP_UP_PLAYOUT_SECONDS)
         except Exception:
             logger.exception("wrap-up failed; hanging up anyway")
         finally:

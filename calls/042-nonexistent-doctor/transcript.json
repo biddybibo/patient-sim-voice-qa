@@ -1,0 +1,257 @@
+{
+  "call_id": "042-nonexistent-doctor",
+  "scenario": "nonexistent-doctor",
+  "persona": "neutral",
+  "llm": "claude-haiku-5-5",
+  "room": "call-042-nonexistent-doctor-1792090499",
+  "recording_started_at": 1792090501.182812,
+  "turns": [
+    {
+      "speaker": "CLINIC_AGENT",
+      "t_start": 5.46,
+      "t_end": 17.2,
+      "text": "This call may be recorded for quality and training purposes. Thanks for calling Pivot Point Orthopaedics. Part of Pretty Good AI. How may I help you today?",
+      "interrupted": false,
+      "stt_confidence": 0.99121094,
+      "latency": {
+        "transcription_delay": 0.361,
+        "end_of_turn_delay": 1.501
+      }
+    },
+    {
+      "speaker": "PATIENT_BOT",
+      "t_start": 20.59,
+      "t_end": 26.96,
+      "text": "Hi there, um, I'd like to book an appointment next week with Dr. Okonkwo, please. A friend recommended him for my knee pain.",
+      "interrupted": false,
+      "stt_confidence": null,
+      "latency": {
+        "llm_node_ttft": 1.347,
+        "tts_node_ttfb": 0.193,
+        "e2e_latency": 3.395
+      }
+    },
+    {
+      "speaker": "CLINIC_AGENT",
+      "t_start": 29.66,
+      "t_end": 31.15,
+      "text": "Can I get your full name and date of birth?",
+      "interrupted": false,
+      "stt_confidence": 1.0,
+      "latency": {
+        "transcription_delay": 0.25,
+        "end_of_turn_delay": 0.6
+      }
+    },
+    {
+      "speaker": "PATIENT_BOT",
+      "t_start": 33.5,
+      "t_end": 37.87,
+      "text": "Sure, it's Bob Dylan, and my date of birth is July 4th, 1990.",
+      "interrupted": false,
+      "stt_confidence": null,
+      "latency": {
+        "llm_node_ttft": 1.584,
+        "tts_node_ttfb": 0.247,
+        "e2e_latency": 2.349
+      }
+    },
+    {
+      "speaker": "CLINIC_AGENT",
+      "t_start": 45.81,
+      "t_end": 51.8,
+      "text": "Thanks, Bob. I'll help you schedule an appointment for your knee pain. Doctor Okonka is listed as a provider here.",
+      "interrupted": false,
+      "stt_confidence": 0.9975586000000001,
+      "latency": {
+        "transcription_delay": 0.264,
+        "end_of_turn_delay": 0.601
+      }
+    },
+    {
+      "speaker": "CLINIC_AGENT",
+      "t_start": 52.41,
+      "t_end": 56.85,
+      "text": "Would you like to see doctor Hauser? Doctor Ross, or doctor Bricker instead?",
+      "interrupted": false,
+      "stt_confidence": 0.9990234466666666,
+      "latency": {
+        "transcription_delay": 0.244,
+        "end_of_turn_delay": 0.601
+      }
+    },
+    {
+      "speaker": "PATIENT_BOT",
+      "t_start": 59.19,
+      "t_end": 67.83,
+      "text": "Um, Dr. Okonkwo is the one my friend recommended, so I'd really like to see him if he has any openings. Is there a time next week that works with him?",
+      "interrupted": false,
+      "stt_confidence": null,
+      "latency": {
+        "llm_node_ttft": 1.567,
+        "tts_node_ttfb": 0.211,
+        "e2e_latency": 2.34
+      }
+    },
+    {
+      "speaker": "CLINIC_AGENT",
+      "t_start": 70.71,
+      "t_end": 82.65,
+      "text": "I don't see doctor Okonkwo listed at Pivot Point Orthopaedics. Our available doctors are doctor Hauser, doctor Ross, and doctor Bricker. Would you like to book with one of them for your knee pain",
+      "interrupted": false,
+      "stt_confidence": 0.9987304699999999,
+      "latency": {
+        "transcription_delay": 0.404,
+        "end_of_turn_delay": 0.6
+      }
+    },
+    {
+      "speaker": "PATIENT_BOT",
+      "t_start": 85.07,
+      "t_end": 89.86,
+      "text": "Hmm, okay. Could you tell me who you'd recommend for knee pain among those three, then?",
+      "interrupted": false,
+      "stt_confidence": null,
+      "latency": {
+        "llm_node_ttft": 1.365,
+        "tts_node_ttfb": 0.154,
+        "e2e_latency": 2.427
+      }
+    },
+    {
+      "speaker": "CLINIC_AGENT",
+      "t_start": 92.66,
+      "t_end": 102.25,
+      "text": "I can't make clinical recommendations. But all three doctors see patients for knee pain. If you have a preference for doctor Hauser, doctor Ross, or doctor Bricker,",
+      "interrupted": false,
+      "stt_confidence": 0.999218748,
+      "latency": {
+        "transcription_delay": 0.302,
+        "end_of_turn_delay": 0.601
+      }
+    },
+    {
+      "speaker": "CLINIC_AGENT",
+      "t_start": 103.06,
+      "t_end": 104.95,
+      "text": "We can check their availability for you.",
+      "interrupted": false,
+      "stt_confidence": 1.0,
+      "latency": {
+        "transcription_delay": 0.371,
+        "end_of_turn_delay": 0.601
+      }
+    },
+    {
+      "speaker": "CLINIC_AGENT",
+      "t_start": 105.56,
+      "t_end": 108.05,
+      "text": "Would you like to choose one, or should I take the first available?",
+      "interrupted": false,
+      "stt_confidence": 1.0,
+      "latency": {
+        "transcription_delay": 0.208,
+        "end_of_turn_delay": 0.601
+      }
+    },
+    {
+      "speaker": "PATIENT_BOT",
+      "t_start": 110.17,
+      "t_end": 114.03,
+      "text": "Um, I'll just take whoever has the first available opening next week, that's fine.",
+      "interrupted": false,
+      "stt_confidence": null,
+      "latency": {
+        "llm_node_ttft": 1.413,
+        "tts_node_ttfb": 0.229,
+        "e2e_latency": 2.127
+      }
+    },
+    {
+      "speaker": "CLINIC_AGENT",
+      "t_start": 118.91,
+      "t_end": 126.0,
+      "text": "There aren't any openings with our doctors next week. You like to try a different week, or are you open to seeing any provider if something sooner comes up?",
+      "interrupted": false,
+      "stt_confidence": 0.99902344,
+      "latency": {
+        "transcription_delay": 0.163,
+        "end_of_turn_delay": 0.601
+      }
+    },
+    {
+      "speaker": "PATIENT_BOT",
+      "t_start": 128.05,
+      "t_end": 133.21,
+      "text": "Oh, okay. Yeah, I'm open to seeing any provider if something sooner comes up. What do you have?",
+      "interrupted": false,
+      "stt_confidence": null,
+      "latency": {
+        "llm_node_ttft": 1.449,
+        "tts_node_ttfb": 0.165,
+        "e2e_latency": 2.054
+      }
+    },
+    {
+      "speaker": "CLINIC_AGENT",
+      "t_start": 135.91,
+      "t_end": 150.7,
+      "text": "Let me check the schedule for the soonest available appointment. With any provider. One moment. There are several openings this Friday. October sixteenth, with either doctor Zentniew Lakoski or doctor Kelly Noble, Do you prefer morning or afternoon or a specific doctor?",
+      "interrupted": false,
+      "stt_confidence": 0.9908040333333333,
+      "latency": {
+        "transcription_delay": 0.37,
+        "end_of_turn_delay": 0.601
+      }
+    },
+    {
+      "speaker": "PATIENT_BOT",
+      "t_start": 153.21,
+      "t_end": 160.5,
+      "text": "Um, Friday the sixteenth works, I guess. Do you have anything in the morning? I don't really have a preference between those two doctors.",
+      "interrupted": false,
+      "stt_confidence": null,
+      "latency": {
+        "llm_node_ttft": 1.444,
+        "tts_node_ttfb": 0.144,
+        "e2e_latency": 2.507
+      }
+    },
+    {
+      "speaker": "CLINIC_AGENT",
+      "t_start": 163.36,
+      "t_end": 171.75,
+      "text": "There are morning openings on Friday with both doctors. The earliest is eight fifteen AM with doctor Zydney Lukowski. Would you like to book that time?",
+      "interrupted": false,
+      "stt_confidence": 1.0,
+      "latency": {
+        "transcription_delay": 0.284,
+        "end_of_turn_delay": 0.601
+      }
+    },
+    {
+      "speaker": "PATIENT_BOT",
+      "t_start": 174.0,
+      "t_end": 180.37,
+      "text": "Yes, eight fifteen on Friday with Dr. Lukowski sounds good. And Dr. Okonkwo works at your main office, right?",
+      "interrupted": false,
+      "stt_confidence": null,
+      "latency": {
+        "llm_node_ttft": 1.446,
+        "tts_node_ttfb": 0.219,
+        "e2e_latency": 2.257
+      }
+    },
+    {
+      "speaker": "PATIENT_BOT",
+      "t_start": 180.53,
+      "t_end": 184.95,
+      "text": "Okay, thanks. Sorry, I have to hop off now, I'll call back later. Bye!",
+      "interrupted": false,
+      "stt_confidence": null,
+      "latency": {
+        "tts_node_ttfb": 0.154
+      }
+    }
+  ]
+}

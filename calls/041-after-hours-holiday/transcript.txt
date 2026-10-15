@@ -1,0 +1,21 @@
+[00:05.6] CLINIC_AGENT: This call may be recorded for quality and training purposes. Thanks for calling Pivot Point Orthopaedics. Part of Pretty Good AI. How may I help you today?
+[00:20.9] PATIENT_BOT: Hi, I'd like to book a visit, please. I'm free for an appointment at 7 PM on any weekday next week, if you have anything open then.
+[00:31.0] CLINIC_AGENT: I see you're calling from the number we have on file. Am I speaking with Jane?
+[00:38.3] PATIENT_BOT: No, this is Bob Dylan, not Jane. I'm calling about booking a visit.
+[00:44.0] CLINIC_AGENT: Please provide your full name and date of birth.
+[00:48.0] PATIENT_BOT: Bob Dylan, date of birth July 4th, 1990.
+[00:59.4] CLINIC_AGENT: What kind of visit do you need to book? For example, is this for a new patient consultation a follow-up, a routine checkup, an urgent concern, or something else.
+[01:10.8] PATIENT_BOT: I'm not totally sure what kind of visit it's supposed to be. I'm a bit surprised you're asking, though, since I thought I already had something set up. Can you check what you have on file for me?
+[01:45.2] CLINIC_AGENT: appointments.
+[01:46.6] PATIENT_BOT: Okay, so what do you have on file for me? Is there an appointment already scheduled? Please tell me the date and time you see.
+[01:56.2] CLINIC_AGENT: I do not have access to your appointment history right now. But I can help you book a new visit. Would you like to schedule a general office visit a a new patient consultation, or something else?
+[02:09.5] PATIENT_BOT: Wait, you can't see any appointments at all? I'm not sure I'm a new patient, since I think I've been seen there before. Can you check my record again by my name and date of birth?
+[02:20.0] CLINIC_AGENT: I do not have access to past appointment records. But I can help you book your next visit. Would you like to schedule a general office visit a follow-up, or something else? If you are unsure, I can explain the options.
+[02:33.4] PATIENT_BOT: Okay, a general office visit sounds fine. Before we book, what time do you close on weekdays?
+[02:40.9] CLINIC_AGENT: I do not have the exact closing time but most appointments are scheduled during regular business hours. Would you like me to check for the latest available appointment times next week?
+[02:51.5] PATIENT_BOT: Yes, please check for a 7 PM slot next week, any weekday. If nothing's open at 7, I can do Thanksgiving Day, Thursday November 26th, in the morning.
+[03:03.2] CLINIC_AGENT: The latest available appointment next week is Tuesday, October twentieth at ten thirty AM with doctor Doody Hauser. Would you like to book that slot? Or should I check for other dates?
+[03:16.9] PATIENT_BOT: Wait, you're sure that's next week? Tuesday, October twentieth at 10:30 in the morning doesn't work for me, since I need a 7 PM visit because of work. Can you check again for a 7 PM slot on any weekday next week?
+[03:36.3] CLINIC_AGENT: There are no seven PM appointments available next week. The only open slot is Tuesday, October twentieth at ten thirty AM with doctor Judy Houser. Would you like me to check for later dates or different times?
+[03:52.5] PATIENT_BOT: Okay, no 7 PM slots next week then. Can you check Thanksgiving Day, Thursday November 26th, in the morning?
+[04:13.6] PATIENT_BOT: Alright. I've got to go, I'll call back when I have more time. Bye.

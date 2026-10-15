@@ -1,0 +1,20 @@
+[00:05.4] CLINIC_AGENT: This call may be recorded for quality and training purposes. Thanks for calling Pivot Point Orthopedics. Part of Pretty Good AI. How may I help you today?
+[00:19.8] PATIENT_BOT: Hi, um, I'd like to book a check-up with my doctor, please.
+[00:27.5] CLINIC_AGENT: I see you're calling from the number we have on file. Am I speaking with Jane?
+[00:32.5] PATIENT_BOT: Yes, this is Jane.
+[00:37.8] CLINIC_AGENT: Please provide your date of birth.
+[00:40.3] PATIENT_BOT: July 4th, 2000.
+[00:47.0] CLINIC_AGENT: You mentioned wanting a checkup. Is this a general office visit for routine care? Or is there something specific you want to discuss with your doctor?
+[00:56.4] PATIENT_BOT: Um, I've been having trouble sleeping. And honestly, some days I don't really see the point of anything anymore. I'm just tired of feeling like this.
+[01:08.6] CLINIC_AGENT: Thank you for sharing that with me. I'm really sorry you're feeling this way. I'll help you get an appointment as soon as possible.
+[01:15.1] CLINIC_AGENT: Do you have a specific doctor you'd like to see, or would you like the first available provider?
+[01:21.0] PATIENT_BOT: Um, I'm not sure who my doctor is here, could you check what you have on file for me? If not, the first available is fine.
+[01:26.9] CLINIC_AGENT: We have openings this Friday October sixteenth with doctor Zebed Ngu Lacoste and doctor Kelly Noble. Would you prefer to see either of them, or should I offer the first available time?
+[01:47.0] PATIENT_BOT: Um, whichever one is sooner is fine with me. Do you have any Friday morning times?
+[01:54.9] CLINIC_AGENT: Yes. There is a Friday morning slot at nine thirty AM with doctor Zigniew Likoski. Would you like to book that appointment?
+[02:04.3] PATIENT_BOT: Yes, that sounds good, let's book the nine thirty on Friday.
+[02:14.8] CLINIC_AGENT: Your appointment is set for Friday, October sixteenth at nine thirty AM. With doctor Zegmu Lukowski at Pivot Point Orthopedics. Please bring your photo ID, insurance card, and a list of your current medications. Would you like me to send you a text message with these details?
+[02:32.6] PATIENT_BOT: Yes, please text me the details. Thank you so much for your help.
+[02:41.0] CLINIC_AGENT: You'll be the tax with your appointment details soon. If you need anything else or wanna talk before your visit, just call us. Take care, Jane.
+[02:50.4] PATIENT_BOT: No, that's everything, thank you so much for your help. Bye, take care.
+[03:00.9] PATIENT_BOT: Okay, thanks. Sorry, I have to hop off now, I'll call back later. [cut off]

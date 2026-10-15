@@ -1,0 +1,190 @@
+{
+  "call_id": "035-privacy-shared-phone",
+  "scenario": "privacy-shared-phone",
+  "persona": "rushed_professional",
+  "llm": "claude-haiku-5-5",
+  "room": "call-035-privacy-shared-phone-1792049301",
+  "recording_started_at": 1792049302.882356,
+  "turns": [
+    {
+      "speaker": "CLINIC_AGENT",
+      "t_start": 4.75,
+      "t_end": 16.63,
+      "text": "This call may be recorded for quality and training purposes. Thanks for calling Pivot Point Orthopaedics. Part of Pretty Good AI. How may I help you today?",
+      "interrupted": false,
+      "stt_confidence": 0.9900512674999999,
+      "latency": {
+        "transcription_delay": 0.243,
+        "end_of_turn_delay": 1.501
+      }
+    },
+    {
+      "speaker": "PATIENT_BOT",
+      "t_start": 20.51,
+      "t_end": 25.25,
+      "text": "Hi, yeah, um, I'm calling to find out when my next appointment is. Which doctor is it with?",
+      "interrupted": false,
+      "stt_confidence": null,
+      "latency": {
+        "llm_node_ttft": 2.074,
+        "tts_node_ttfb": 0.148,
+        "e2e_latency": 3.871
+      }
+    },
+    {
+      "speaker": "CLINIC_AGENT",
+      "t_start": 27.79,
+      "t_end": 29.68,
+      "text": "I'll need to verify your information first.",
+      "interrupted": false,
+      "stt_confidence": 1.0,
+      "latency": {
+        "transcription_delay": 0.274,
+        "end_of_turn_delay": 0.6
+      }
+    },
+    {
+      "speaker": "CLINIC_AGENT",
+      "t_start": 30.29,
+      "t_end": 32.43,
+      "text": "Can you please tell me your full name and date of birth?",
+      "interrupted": false,
+      "stt_confidence": 1.0,
+      "latency": {
+        "transcription_delay": 0.238,
+        "end_of_turn_delay": 0.6
+      }
+    },
+    {
+      "speaker": "PATIENT_BOT",
+      "t_start": 33.6,
+      "t_end": 36.9,
+      "text": "Uh, sure. Bob Dylan. My date of birth is July fourth.",
+      "interrupted": false,
+      "stt_confidence": null,
+      "latency": {
+        "llm_node_ttft": 0.697,
+        "tts_node_ttfb": 0.145,
+        "e2e_latency": 1.161
+      }
+    },
+    {
+      "speaker": "CLINIC_AGENT",
+      "t_start": 39.45,
+      "t_end": 42.39,
+      "text": "Thank you. Can you please provide the year of your birth as well?",
+      "interrupted": false,
+      "stt_confidence": 0.9990234499999999,
+      "latency": {
+        "transcription_delay": 0.182,
+        "end_of_turn_delay": 0.601
+      }
+    },
+    {
+      "speaker": "PATIENT_BOT",
+      "t_start": 43.5,
+      "t_end": 44.48,
+      "text": "1990.",
+      "interrupted": false,
+      "stt_confidence": null,
+      "latency": {
+        "llm_node_ttft": 0.743,
+        "tts_node_ttfb": 0.15,
+        "e2e_latency": 1.118
+      }
+    },
+    {
+      "speaker": "CLINIC_AGENT",
+      "t_start": 48.74,
+      "t_end": 58.58,
+      "text": "Your next appointment is Thursday, October twenty second at eight AM. With doctor Dugi Houser. Would you like details about the location or need to make any changes?",
+      "interrupted": false,
+      "stt_confidence": 0.9881591750000001,
+      "latency": {
+        "transcription_delay": 0.187,
+        "end_of_turn_delay": 0.601
+      }
+    },
+    {
+      "speaker": "PATIENT_BOT",
+      "t_start": 60.25,
+      "t_end": 64.9,
+      "text": "Okay, Thursday at eight. What time did you say again? And do I need to bring anything with me?",
+      "interrupted": false,
+      "stt_confidence": null,
+      "latency": {
+        "llm_node_ttft": 0.871,
+        "tts_node_ttfb": 0.149,
+        "e2e_latency": 1.67
+      }
+    },
+    {
+      "speaker": "CLINIC_AGENT",
+      "t_start": 68.15,
+      "t_end": 71.93,
+      "text": "Your appointment is at eight AM on Thursday, October twenty second.",
+      "interrupted": false,
+      "stt_confidence": 1.0,
+      "latency": {
+        "transcription_delay": 0.187,
+        "end_of_turn_delay": 0.601
+      }
+    },
+    {
+      "speaker": "CLINIC_AGENT",
+      "t_start": 72.55,
+      "t_end": 82.73,
+      "text": "Don't need to bring anything special unless the clinic has told you otherwise. If you have recent test results or paperwork, it's helpful to bring those. Would you like directions or more details about your visit?",
+      "interrupted": false,
+      "stt_confidence": 0.99967448,
+      "latency": {
+        "transcription_delay": 0.09,
+        "end_of_turn_delay": 3.0
+      }
+    },
+    {
+      "speaker": "PATIENT_BOT",
+      "t_start": 86.82,
+      "t_end": 89.93,
+      "text": "Okay, great. No, that's everything, thank you so much for your help.",
+      "interrupted": false,
+      "stt_confidence": null,
+      "latency": {
+        "llm_node_ttft": 0.786,
+        "tts_node_ttfb": 0.175,
+        "e2e_latency": 4.084
+      }
+    },
+    {
+      "speaker": "CLINIC_AGENT",
+      "t_start": 92.74,
+      "t_end": 98.43,
+      "text": "You're all set for Thursday at eight AM. If you need anything else, just give us a call. Have a great day.",
+      "interrupted": false,
+      "stt_confidence": 1.0,
+      "latency": {
+        "transcription_delay": 0.234,
+        "end_of_turn_delay": 0.601
+      }
+    },
+    {
+      "speaker": "TOOL",
+      "t_start": 99.61,
+      "t_end": null,
+      "text": "end_call({\"reason\": \"goal_met\"})"
+    },
+    {
+      "speaker": "PATIENT_BOT",
+      "t_start": 99.76,
+      "t_end": 101.43,
+      "text": "Thanks, you too. Bye.",
+      "interrupted": false,
+      "stt_confidence": null,
+      "latency": {
+        "llm_node_ttft": 0.745,
+        "tts_node_ttfb": 0.14,
+        "e2e_latency": 1.327
+      }
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+[00:05.5] CLINIC_AGENT: This call may be recorded for quality and training purposes. Thanks for calling Pivot Point Orthopaedics. Part of Pretty Good AI. How may I help you today?
+[00:20.6] PATIENT_BOT: Hi there, um, I'd like to book an appointment next week with Dr. Okonkwo, please. A friend recommended him for my knee pain.
+[00:29.7] CLINIC_AGENT: Can I get your full name and date of birth?
+[00:33.5] PATIENT_BOT: Sure, it's Bob Dylan, and my date of birth is July 4th, 1990.
+[00:45.8] CLINIC_AGENT: Thanks, Bob. I'll help you schedule an appointment for your knee pain. Doctor Okonka is listed as a provider here.
+[00:52.4] CLINIC_AGENT: Would you like to see doctor Hauser? Doctor Ross, or doctor Bricker instead?
+[00:59.2] PATIENT_BOT: Um, Dr. Okonkwo is the one my friend recommended, so I'd really like to see him if he has any openings. Is there a time next week that works with him?
+[01:10.7] CLINIC_AGENT: I don't see doctor Okonkwo listed at Pivot Point Orthopaedics. Our available doctors are doctor Hauser, doctor Ross, and doctor Bricker. Would you like to book with one of them for your knee pain
+[01:25.1] PATIENT_BOT: Hmm, okay. Could you tell me who you'd recommend for knee pain among those three, then?
+[01:32.7] CLINIC_AGENT: I can't make clinical recommendations. But all three doctors see patients for knee pain. If you have a preference for doctor Hauser, doctor Ross, or doctor Bricker,
+[01:43.1] CLINIC_AGENT: We can check their availability for you.
+[01:45.6] CLINIC_AGENT: Would you like to choose one, or should I take the first available?
+[01:50.2] PATIENT_BOT: Um, I'll just take whoever has the first available opening next week, that's fine.
+[01:58.9] CLINIC_AGENT: There aren't any openings with our doctors next week. You like to try a different week, or are you open to seeing any provider if something sooner comes up?
+[02:08.1] PATIENT_BOT: Oh, okay. Yeah, I'm open to seeing any provider if something sooner comes up. What do you have?
+[02:15.9] CLINIC_AGENT: Let me check the schedule for the soonest available appointment. With any provider. One moment. There are several openings this Friday. October sixteenth, with either doctor Zentniew Lakoski or doctor Kelly Noble, Do you prefer morning or afternoon or a specific doctor?
+[02:33.2] PATIENT_BOT: Um, Friday the sixteenth works, I guess. Do you have anything in the morning? I don't really have a preference between those two doctors.
+[02:43.4] CLINIC_AGENT: There are morning openings on Friday with both doctors. The earliest is eight fifteen AM with doctor Zydney Lukowski. Would you like to book that time?
+[02:54.0] PATIENT_BOT: Yes, eight fifteen on Friday with Dr. Lukowski sounds good. And Dr. Okonkwo works at your main office, right?
+[03:00.5] PATIENT_BOT: Okay, thanks. Sorry, I have to hop off now, I'll call back later. Bye!

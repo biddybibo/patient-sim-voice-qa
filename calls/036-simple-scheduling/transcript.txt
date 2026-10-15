@@ -1,0 +1,22 @@
+[00:04.8] CLINIC_AGENT: This call may be recorded for quality and training purposes. Thanks for calling Pivot Point Orthopedics. Part of Pretty Good AI. How may I help you today?
+[00:19.8] PATIENT_BOT: Hi, I'd like to book an annual physical for next week, sometime on a weekday morning before 11.
+[00:28.8] CLINIC_AGENT: I see you're calling from the number we have on file. Am I speaking with Jane?
+[00:35.7] PATIENT_BOT: No, this is Bob Dylan. Sorry, I think I may have called the wrong office, or is this the one for my doctor?
+[00:42.7] CLINIC_AGENT: No problem. To check if you're in the right place, can you please provide your full date of birth?
+[00:51.3] PATIENT_BOT: July 4th, 1990.
+[00:56.0] CLINIC_AGENT: Thanks, Bob. You've reached Pivot Point Orthopedics. We help with joint, muscle, and bone care and offer both doctor visits and physical therapy. Would you like to book your annual physical here, or were you looking for a different type of doctor?
+[01:14.4] PATIENT_BOT: Hmm, I think I wanted my primary care doctor, not an orthopedic office. Do you have one of those, or can you tell me who my appointment is with?
+[01:27.8] CLINIC_AGENT: To the point where the Orthopedics is a specialty clinic for orthopedic care, not primary care. We don't have primary care doctors here. If you'd like, I can check if you have any upcoming appointments scheduled with us. Would you like me to look that up?
+[01:45.5] PATIENT_BOT: Yes, please check. I don't remember any appointments, so tell me what you have on file.
+[01:53.2] CLINIC_AGENT: You have a follow-up appointment scheduled for Thursday, October twenty second at eight AM with Doovie Hauser. Would you like to keep this appointment, or do you need to make any changes?
+[02:04.3] PATIENT_BOT: Hmm, I don't remember that appointment. Can you tell me what it's for and which doctor it's with? I still need an annual physical next week, morning before 11.
+[02:15.3] CLINIC_AGENT: Your appointment on Thursday, October twenty second at eight AM is a follow-up visit with Duvit Houser. This is at our Nashville location. We don't offer annual physicals here, since we're an orthopedic clinic. Would you like to keep your follow-up appointment? Or do you want to cancel or reschedule it?
+[02:37.6] PATIENT_BOT: Okay. I'll keep that one for now. Can you tell me the office address? And is there any other place nearby that does annual physicals?
+[02:46.4] CLINIC_AGENT: I don't have information about other clinics or primary care offices nearby. To this point, orthopedics only handles orthopedic care. For an annual physical, you'll need to contact a primary care provider in your area. Would you like any more information about your upcoming appointment with us?
+[03:06.3] PATIENT_BOT: No, that's fine. Can you give me the address of the Nashville office, though?
+[03:12.2] CLINIC_AGENT: The Nashville office address is Pivot Point Orthopedics. Two two zero Athens Lay, Nashville.
+[03:20.1] PATIENT_BOT: Thanks. Can you read back the appointment details for me: the date, time, and doctor?
+[03:27.8] CLINIC_AGENT: Your appointment is Thursday. October twenty second at eight AM with Dizzy Hauser.
+[03:35.6] PATIENT_BOT: Thanks, that's everything, thank you so much for your help.
+[03:41.7] CLINIC_AGENT: You're welcome. If you need anything else, just give us a call. Have a great day.
+[03:49.7] PATIENT_BOT: Thanks, you too. [cut off]

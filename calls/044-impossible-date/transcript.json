@@ -1,0 +1,356 @@
+{
+  "call_id": "044-impossible-date",
+  "scenario": "impossible-date",
+  "persona": "rushed_professional",
+  "llm": "claude-haiku-5-5",
+  "room": "call-044-impossible-date-1792091024",
+  "recording_started_at": 1792091025.758817,
+  "turns": [
+    {
+      "speaker": "CLINIC_AGENT",
+      "t_start": 5.72,
+      "t_end": 17.65,
+      "text": "This call may be recorded for quality and training purposes. Thanks for calling Pivot Point Orthopaedics. Part of Pretty Good AI. How may I help you today?",
+      "interrupted": false,
+      "stt_confidence": 0.9925537074999999,
+      "latency": {
+        "transcription_delay": 0.301,
+        "end_of_turn_delay": 1.5
+      }
+    },
+    {
+      "speaker": "PATIENT_BOT",
+      "t_start": 20.27,
+      "t_end": 24.83,
+      "text": "Hi, this is Jane Doe. I'd like to book a check-up for this Friday, the 17th, at 9 AM, if you have it.",
+      "interrupted": false,
+      "stt_confidence": null,
+      "latency": {
+        "llm_node_ttft": 0.916,
+        "tts_node_ttfb": 0.158,
+        "e2e_latency": 2.623
+      }
+    },
+    {
+      "speaker": "CLINIC_AGENT",
+      "t_start": 28.06,
+      "t_end": 29.85,
+      "text": "Jane, can you please provide your date of birth?",
+      "interrupted": false,
+      "stt_confidence": 1.0,
+      "latency": {
+        "transcription_delay": 0.294,
+        "end_of_turn_delay": 0.6
+      }
+    },
+    {
+      "speaker": "PATIENT_BOT",
+      "t_start": 31.23,
+      "t_end": 32.53,
+      "text": "July 4th, 2000.",
+      "interrupted": false,
+      "stt_confidence": null,
+      "latency": {
+        "llm_node_ttft": 0.815,
+        "tts_node_ttfb": 0.161,
+        "e2e_latency": 1.376
+      }
+    },
+    {
+      "speaker": "CLINIC_AGENT",
+      "t_start": 38.21,
+      "t_end": 43.4,
+      "text": "Are you looking to book a general office visit for your checkup? Or is there another reason for your appointment?",
+      "interrupted": false,
+      "stt_confidence": 1.0,
+      "latency": {
+        "transcription_delay": 0.247,
+        "end_of_turn_delay": 0.6
+      }
+    },
+    {
+      "speaker": "PATIENT_BOT",
+      "t_start": 44.57,
+      "t_end": 45.88,
+      "text": "Just a general check-up, please.",
+      "interrupted": false,
+      "stt_confidence": null,
+      "latency": {
+        "llm_node_ttft": 0.686,
+        "tts_node_ttfb": 0.208,
+        "e2e_latency": 1.165
+      }
+    },
+    {
+      "speaker": "CLINIC_AGENT",
+      "t_start": 49.71,
+      "t_end": 53.8,
+      "text": "Do you have a specific provider you'd like to see, or are you open to any available provider?",
+      "interrupted": false,
+      "stt_confidence": 1.0,
+      "latency": {
+        "transcription_delay": 0.326,
+        "end_of_turn_delay": 0.601
+      }
+    },
+    {
+      "speaker": "PATIENT_BOT",
+      "t_start": 55.22,
+      "t_end": 57.73,
+      "text": "Any provider is fine, whoever has the 9 AM slot.",
+      "interrupted": false,
+      "stt_confidence": null,
+      "latency": {
+        "llm_node_ttft": 0.843,
+        "tts_node_ttfb": 0.15,
+        "e2e_latency": 1.418
+      }
+    },
+    {
+      "speaker": "CLINIC_AGENT",
+      "t_start": 63.67,
+      "t_end": 74.9,
+      "text": "You already have a general office visit? Booked for Friday, October sixteenth at nine thirty AM. With doctor Zedigni Lukowski at Pivot Point Orthopaedics",
+      "interrupted": false,
+      "stt_confidence": 0.934765638,
+      "latency": {
+        "transcription_delay": 0.392,
+        "end_of_turn_delay": 0.602
+      }
+    },
+    {
+      "speaker": "CLINIC_AGENT",
+      "t_start": 75.46,
+      "t_end": 78.55,
+      "text": "Would you like to keep this appointment? Reschedule it, or cancel it?",
+      "interrupted": false,
+      "stt_confidence": 0.9990234499999999,
+      "latency": {
+        "transcription_delay": 0.305,
+        "end_of_turn_delay": 0.601
+      }
+    },
+    {
+      "speaker": "PATIENT_BOT",
+      "t_start": 80.02,
+      "t_end": 86.02,
+      "text": "Oh, I don't remember that one. Can you tell me more about it? I'd like the 9 AM on Friday the 17th if I can get it.",
+      "interrupted": false,
+      "stt_confidence": null,
+      "latency": {
+        "llm_node_ttft": 0.777,
+        "tts_node_ttfb": 0.157,
+        "e2e_latency": 1.471
+      }
+    },
+    {
+      "speaker": "CLINIC_AGENT",
+      "t_start": 89.72,
+      "t_end": 106.1,
+      "text": "Your current appointment is set for Friday, October sixteenth at nine thirty AM with doctor Zebigniew Lakoski at Pivot Point Orthopedics. I'm unable to book another general checkup while this one is scheduled. Would you like to reschedule your appointment to Friday, October seventeenth nine AM if it's available?",
+      "interrupted": false,
+      "stt_confidence": 0.99726562,
+      "latency": {
+        "transcription_delay": 0.143,
+        "end_of_turn_delay": 3.001
+      }
+    },
+    {
+      "speaker": "PATIENT_BOT",
+      "t_start": 110.23,
+      "t_end": 115.67,
+      "text": "Yes, please reschedule it to Friday the 17th at 9 AM. Can you confirm the exact date and day of the week for me?",
+      "interrupted": false,
+      "stt_confidence": null,
+      "latency": {
+        "llm_node_ttft": 0.673,
+        "tts_node_ttfb": 0.287,
+        "e2e_latency": 4.126
+      }
+    },
+    {
+      "speaker": "CLINIC_AGENT",
+      "t_start": 120.76,
+      "t_end": 131.95,
+      "text": "You have a general office visit scheduled for tomorrow, Friday, October sixteenth. At nine thirty AM with doctor Zid Bigniew Lukowski at Pivot Point Orthopedics.",
+      "interrupted": false,
+      "stt_confidence": 0.98144531,
+      "latency": {
+        "transcription_delay": 0.296,
+        "end_of_turn_delay": 0.601
+      }
+    },
+    {
+      "speaker": "CLINIC_AGENT",
+      "t_start": 132.61,
+      "t_end": 145.2,
+      "text": "Also, I have a follow-up on Monday October nineteenth at ten AM with doctor Judy Hauser. You like to move your Friday, October sixteenth appointment to Friday, October seventeenth at nine AM if it's available?",
+      "interrupted": false,
+      "stt_confidence": 0.987304685,
+      "latency": {
+        "transcription_delay": 0.214,
+        "end_of_turn_delay": 0.601
+      }
+    },
+    {
+      "speaker": "PATIENT_BOT",
+      "t_start": 146.97,
+      "t_end": 152.27,
+      "text": "Yes, please move it to Friday, October 17th at 9 AM. And just to confirm, is October 17th a Friday this year?",
+      "interrupted": false,
+      "stt_confidence": null,
+      "latency": {
+        "llm_node_ttft": 0.782,
+        "tts_node_ttfb": 0.22,
+        "e2e_latency": 1.767
+      }
+    },
+    {
+      "speaker": "CLINIC_AGENT",
+      "t_start": 155.57,
+      "t_end": 167.7,
+      "text": "October seventeenth this year is a Saturday. Your current appointment is for Friday, October sixteenth. Would you like to move it to Saturday, October seventeenth at nine AM, if that's available, or would you prefer another Friday?",
+      "interrupted": false,
+      "stt_confidence": 0.9987793,
+      "latency": {
+        "transcription_delay": 0.196,
+        "end_of_turn_delay": 0.601
+      }
+    },
+    {
+      "speaker": "PATIENT_BOT",
+      "t_start": 169.48,
+      "t_end": 173.89,
+      "text": "Oh, I thought the 17th was a Friday. Let's keep it on a Friday then. What other Friday do you have at 9 AM?",
+      "interrupted": false,
+      "stt_confidence": null,
+      "latency": {
+        "llm_node_ttft": 0.742,
+        "tts_node_ttfb": 0.243,
+        "e2e_latency": 1.773
+      }
+    },
+    {
+      "speaker": "CLINIC_AGENT",
+      "t_start": 182.76,
+      "t_end": 189.2,
+      "text": "The next Friday opening at nine AM is on October twenty third with doctor Zeebigniew Lakoski at Visit Point Orthopedics.",
+      "interrupted": false,
+      "stt_confidence": 0.99316407,
+      "latency": {
+        "transcription_delay": 0.273,
+        "end_of_turn_delay": 0.601
+      }
+    },
+    {
+      "speaker": "CLINIC_AGENT",
+      "t_start": 189.82,
+      "t_end": 192.3,
+      "text": "Would you like to move your appointment to that date and time?",
+      "interrupted": false,
+      "stt_confidence": 1.0,
+      "latency": {
+        "transcription_delay": 0.25,
+        "end_of_turn_delay": 3.001
+      }
+    },
+    {
+      "speaker": "PATIENT_BOT",
+      "t_start": 195.55,
+      "t_end": 199.32,
+      "text": "Yes, that works. Please move it to Friday, October 23rd at 9 AM.",
+      "interrupted": false,
+      "stt_confidence": null,
+      "latency": {
+        "llm_node_ttft": 1.042,
+        "tts_node_ttfb": 0.247,
+        "e2e_latency": 3.251
+      }
+    },
+    {
+      "speaker": "CLINIC_AGENT",
+      "t_start": 204.41,
+      "t_end": 212.3,
+      "text": "Can you tell me the reason you need to reschedule your appointment? For example, is it a schedule conflict? Personal reason, or something else?",
+      "interrupted": false,
+      "stt_confidence": 0.99967448,
+      "latency": {
+        "transcription_delay": 0.32,
+        "end_of_turn_delay": 0.6
+      }
+    },
+    {
+      "speaker": "PATIENT_BOT",
+      "t_start": 213.59,
+      "t_end": 217.96,
+      "text": "Just a schedule conflict, I'm sorry. I'm between meetings and the Friday the 16th doesn't work for me.",
+      "interrupted": false,
+      "stt_confidence": null,
+      "latency": {
+        "llm_node_ttft": 0.637,
+        "tts_node_ttfb": 0.194,
+        "e2e_latency": 1.291
+      }
+    },
+    {
+      "speaker": "CLINIC_AGENT",
+      "t_start": 220.82,
+      "t_end": 221.35,
+      "text": "No problem.",
+      "interrupted": false,
+      "stt_confidence": 0.99853516,
+      "latency": {
+        "transcription_delay": 0.228,
+        "end_of_turn_delay": 0.601
+      }
+    },
+    {
+      "speaker": "CLINIC_AGENT",
+      "t_start": 221.97,
+      "t_end": 230.05,
+      "text": "Confirm you'd like to move your appointment with doctor Zibignu Lukowski to Friday, October twenty third at nine AM at Pivot Point Orthopedics.",
+      "interrupted": false,
+      "stt_confidence": 0.9990234499999999,
+      "latency": {
+        "transcription_delay": 0.316,
+        "end_of_turn_delay": 0.6
+      }
+    },
+    {
+      "speaker": "CLINIC_AGENT",
+      "t_start": 230.61,
+      "t_end": 231.26,
+      "text": "Is that correct?",
+      "interrupted": false,
+      "stt_confidence": 0.9995117,
+      "latency": {
+        "transcription_delay": 0.192,
+        "end_of_turn_delay": 0.6
+      }
+    },
+    {
+      "speaker": "PATIENT_BOT",
+      "t_start": 232.43,
+      "t_end": 234.29,
+      "text": "Yes, that's correct. Thank you.",
+      "interrupted": false,
+      "stt_confidence": null,
+      "latency": {
+        "llm_node_ttft": 0.795,
+        "tts_node_ttfb": 0.162,
+        "e2e_latency": 1.173
+      }
+    },
+    {
+      "speaker": "PATIENT_BOT",
+      "t_start": 250.09,
+      "t_end": 255.02,
+      "text": "Okay, got it. Sorry, I'm getting pulled into a meeting, I'll call back. Thanks, bye.",
+      "interrupted": false,
+      "stt_confidence": null,
+      "latency": {
+        "tts_node_ttfb": 0.179
+      }
+    }
+  ]
+}

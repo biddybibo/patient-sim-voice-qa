@@ -1,0 +1,319 @@
+{
+  "call_id": "039-hours-location-parking",
+  "scenario": "hours-location-parking",
+  "persona": "skeptical",
+  "llm": "claude-haiku-5-5",
+  "room": "call-039-hours-location-parking-1792089546",
+  "recording_started_at": 1792089547.535455,
+  "turns": [
+    {
+      "speaker": "CLINIC_AGENT",
+      "t_start": 4.84,
+      "t_end": 16.83,
+      "text": "This call may be recorded for quality and training purposes. Thanks for calling Pivot Point Orthopaedics. Part of Pretty Good AI. How may I help you today?",
+      "interrupted": false,
+      "stt_confidence": 0.994018555,
+      "latency": {
+        "transcription_delay": 0.278,
+        "end_of_turn_delay": 1.5
+      }
+    },
+    {
+      "speaker": "PATIENT_BOT",
+      "t_start": 19.3,
+      "t_end": 24.93,
+      "text": "Hi, this is Bob Dylan. I'm planning a visit to the office and I need a few details. Are you open on Saturdays?",
+      "interrupted": false,
+      "stt_confidence": null,
+      "latency": {
+        "llm_node_ttft": 0.7,
+        "tts_node_ttfb": 0.14,
+        "e2e_latency": 2.475
+      }
+    },
+    {
+      "speaker": "CLINIC_AGENT",
+      "t_start": 27.79,
+      "t_end": 29.18,
+      "text": "We are not open on Saturdays.",
+      "interrupted": false,
+      "stt_confidence": 1.0,
+      "latency": {
+        "transcription_delay": 0.277,
+        "end_of_turn_delay": 0.601
+      }
+    },
+    {
+      "speaker": "CLINIC_AGENT",
+      "t_start": 29.89,
+      "t_end": 35.08,
+      "text": "Clinic is open Monday through Friday. Let me know if you need our specific hours or any other details.",
+      "interrupted": false,
+      "stt_confidence": 0.99951172,
+      "latency": {
+        "transcription_delay": 0.314,
+        "end_of_turn_delay": 0.601
+      }
+    },
+    {
+      "speaker": "PATIENT_BOT",
+      "t_start": 37.01,
+      "t_end": 41.47,
+      "text": "Okay. Could you give me the exact hours then? What time do you open and close on weekdays?",
+      "interrupted": false,
+      "stt_confidence": null,
+      "latency": {
+        "llm_node_ttft": 1.296,
+        "tts_node_ttfb": 0.19,
+        "e2e_latency": 1.927
+      }
+    },
+    {
+      "speaker": "CLINIC_AGENT",
+      "t_start": 44.74,
+      "t_end": 53.78,
+      "text": "Here are our hours. Monday, Tuesday, and Thursday. Nine AM to four PM, Wednesday, twelve PM to seven PM, Friday. Nine AM to twelve PM.",
+      "interrupted": false,
+      "stt_confidence": 0.998925782,
+      "latency": {
+        "transcription_delay": 0.216,
+        "end_of_turn_delay": 0.601
+      }
+    },
+    {
+      "speaker": "CLINIC_AGENT",
+      "t_start": 54.94,
+      "t_end": 56.18,
+      "text": "Let me know if you need anything else.",
+      "interrupted": false,
+      "stt_confidence": 1.0,
+      "latency": {
+        "transcription_delay": 0.293,
+        "end_of_turn_delay": 0.601
+      }
+    },
+    {
+      "speaker": "PATIENT_BOT",
+      "t_start": 57.6,
+      "t_end": 66.98,
+      "text": "Wait, you're sure? Monday, Tuesday, and Thursday nine to four, Wednesday twelve to seven, and Friday nine to twelve? What about Friday afternoon, are you closed then?",
+      "interrupted": false,
+      "stt_confidence": null,
+      "latency": {
+        "llm_node_ttft": 0.777,
+        "tts_node_ttfb": 0.141,
+        "e2e_latency": 1.418
+      }
+    },
+    {
+      "speaker": "CLINIC_AGENT",
+      "t_start": 69.84,
+      "t_end": 75.28,
+      "text": "Yes. We close at noon on Fridays. The clinic is not open Friday afternoons.",
+      "interrupted": false,
+      "stt_confidence": 0.9887695333333334,
+      "latency": {
+        "transcription_delay": 0.33,
+        "end_of_turn_delay": 0.601
+      }
+    },
+    {
+      "speaker": "PATIENT_BOT",
+      "t_start": 77.17,
+      "t_end": 81.03,
+      "text": "Okay, got it. Now I need the exact address of the office, and where I should park when I get there.",
+      "interrupted": false,
+      "stt_confidence": null,
+      "latency": {
+        "llm_node_ttft": 1.282,
+        "tts_node_ttfb": 0.139,
+        "e2e_latency": 1.893
+      }
+    },
+    {
+      "speaker": "CLINIC_AGENT",
+      "t_start": 85.04,
+      "t_end": 96.03,
+      "text": "The clinic address is one two three four Recovery Way, suite two hundred, Austin. Free patient parking is available in the surface lot in front of the building. If you need more details, just ask.",
+      "interrupted": false,
+      "stt_confidence": 0.9989013675,
+      "latency": {
+        "transcription_delay": 0.354,
+        "end_of_turn_delay": 0.601
+      }
+    },
+    {
+      "speaker": "PATIENT_BOT",
+      "t_start": 97.92,
+      "t_end": 103.03,
+      "text": "Austin? I thought your office was in Palo Alto. Can you double-check the city and the full address for me?",
+      "interrupted": false,
+      "stt_confidence": null,
+      "latency": {
+        "llm_node_ttft": 0.932,
+        "tts_node_ttfb": 0.136,
+        "e2e_latency": 1.893
+      }
+    },
+    {
+      "speaker": "CLINIC_AGENT",
+      "t_start": 106.04,
+      "t_end": 115.82,
+      "text": "The office is at Austin. The full address is one two three four Recovery Way, suite two hundred, Austin. If you need directions or more details, let me know.",
+      "interrupted": false,
+      "stt_confidence": 0.9904296880000001,
+      "latency": {
+        "transcription_delay": 0.309,
+        "end_of_turn_delay": 0.601
+      }
+    },
+    {
+      "speaker": "PATIENT_BOT",
+      "t_start": 117.51,
+      "t_end": 125.22,
+      "text": "I'm still confused, because my records say Palo Alto, and I want to make sure I don't drive to the wrong place. Is there a Pivot Point Orthopaedics location in Palo Alto too?",
+      "interrupted": false,
+      "stt_confidence": null,
+      "latency": {
+        "llm_node_ttft": 0.791,
+        "tts_node_ttfb": 0.134,
+        "e2e_latency": 1.682
+      }
+    },
+    {
+      "speaker": "CLINIC_AGENT",
+      "t_start": 128.39,
+      "t_end": 137.73,
+      "text": "PIVOT Point Orthopedics is located in Austin. There is no location in Palo Alto. If you need help with directions or anything else for your visit to the Austin office, just let me know.",
+      "interrupted": false,
+      "stt_confidence": 0.9662272133333333,
+      "latency": {
+        "transcription_delay": 0.196,
+        "end_of_turn_delay": 3.001
+      }
+    },
+    {
+      "speaker": "PATIENT_BOT",
+      "t_start": 140.9,
+      "t_end": 148.15,
+      "text": "Hmm, that's odd, since I'm in Palo Alto and I have an appointment on file with you. Can you tell me what appointment you have for me, the date and time?",
+      "interrupted": false,
+      "stt_confidence": null,
+      "latency": {
+        "llm_node_ttft": 0.754,
+        "tts_node_ttfb": 0.164,
+        "e2e_latency": 3.176
+      }
+    },
+    {
+      "speaker": "CLINIC_AGENT",
+      "t_start": 151.94,
+      "t_end": 156.03,
+      "text": "Can you please provide your date of birth? I needed to look up your appointment details.",
+      "interrupted": false,
+      "stt_confidence": 1.0,
+      "latency": {
+        "transcription_delay": 0.251,
+        "end_of_turn_delay": 0.601
+      }
+    },
+    {
+      "speaker": "PATIENT_BOT",
+      "t_start": 157.22,
+      "t_end": 160.34,
+      "text": "My date of birth is July 4th, 1990.",
+      "interrupted": false,
+      "stt_confidence": null,
+      "latency": {
+        "llm_node_ttft": 0.75,
+        "tts_node_ttfb": 0.172,
+        "e2e_latency": 1.198
+      }
+    },
+    {
+      "speaker": "CLINIC_AGENT",
+      "t_start": 169.94,
+      "t_end": 179.23,
+      "text": "You have an appointment scheduled for Thursday, October twenty second at eight AM. If you need to confirm the location or have any other questions, let me know.",
+      "interrupted": false,
+      "stt_confidence": 0.99975586,
+      "latency": {
+        "transcription_delay": 0.186,
+        "end_of_turn_delay": 3.001
+      }
+    },
+    {
+      "speaker": "PATIENT_BOT",
+      "t_start": 183.39,
+      "t_end": 193.52,
+      "text": "Thursday, October twenty-second at eight in the morning? That doesn't sound right. Your hours are nine to four on Thursdays, so how can you have an appointment at eight? Can you check that again?",
+      "interrupted": false,
+      "stt_confidence": null,
+      "latency": {
+        "llm_node_ttft": 0.772,
+        "tts_node_ttfb": 0.115,
+        "e2e_latency": 4.165
+      }
+    },
+    {
+      "speaker": "CLINIC_AGENT",
+      "t_start": 196.69,
+      "t_end": 204.48,
+      "text": "Your appointment is listed for Thursday, October twenty second at eight AM. I understand the timing seems off compared to the usual clinic hours.",
+      "interrupted": false,
+      "stt_confidence": 1.0,
+      "latency": {
+        "transcription_delay": 0.318,
+        "end_of_turn_delay": 0.601
+      }
+    },
+    {
+      "speaker": "CLINIC_AGENT",
+      "t_start": 205.13,
+      "t_end": 207.83,
+      "text": "Do you like me to confirm this with the clinic support team for you?",
+      "interrupted": false,
+      "stt_confidence": 1.0,
+      "latency": {
+        "transcription_delay": 0.255,
+        "end_of_turn_delay": 0.6
+      }
+    },
+    {
+      "speaker": "PATIENT_BOT",
+      "t_start": 209.15,
+      "t_end": 216.63,
+      "text": "Yes, please check with them. I also want to ask again, how much is parking at the Austin office? Is there a fee for the surface lot?",
+      "interrupted": false,
+      "stt_confidence": null,
+      "latency": {
+        "llm_node_ttft": 0.742,
+        "tts_node_ttfb": 0.145,
+        "e2e_latency": 1.323
+      }
+    },
+    {
+      "speaker": "CLINIC_AGENT",
+      "t_start": 219.79,
+      "t_end": 228.48,
+      "text": "I am checking with the clinic staff to confirm if there's a fee for parking in the surface lot at the Austin office. They will review your question and get back to you as soon as possible.",
+      "interrupted": false,
+      "stt_confidence": 0.99934896,
+      "latency": {
+        "transcription_delay": 0.219,
+        "end_of_turn_delay": 0.601
+      }
+    },
+    {
+      "speaker": "PATIENT_BOT",
+      "t_start": 243.34,
+      "t_end": 247.15,
+      "text": "Alright. I've got to go, I'll call back when I have more time. Bye.",
+      "interrupted": false,
+      "stt_confidence": null,
+      "latency": {
+        "tts_node_ttfb": 0.125
+      }
+    }
+  ]
+}

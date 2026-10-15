@@ -1,0 +1,17 @@
+[00:05.2] CLINIC_AGENT: This call may be recorded for quality and training purposes. Thanks for calling Pivot Point Orthopedic. We're a pretty good AI. How may I help you today?
+[00:19.7] PATIENT_BOT: Hi, um, I'm calling to check whether your office takes Aetna PPO. I have an appointment coming up on Thursday, October 22nd at 2 PM with Dr. Lukowski.
+[00:32.9] CLINIC_AGENT: I see you're calling from the number we have on file. Am I speaking with Jane?
+[00:38.1] PATIENT_BOT: Yes, this is Jane Doe.
+[00:41.7] CLINIC_AGENT: Please provide your date of birth.
+[00:46.4] PATIENT_BOT: My date of birth is July 4th, 2000.
+[00:52.7] CLINIC_AGENT: Thanks, Jane. Yes, Pivot Point Orthopedics accepts most PPO insurance plans, I'll check your upcoming appointment details now. One moment. Jane, I see you have an appointment scheduled for Monday, October nineteenth. At ten AM with doctor Duggehauser. There is no appointment on October twenty second in your record.
+[01:16.2] CLINIC_AGENT: Would you like to keep this appointment? Or make any changes?
+[01:20.3] PATIENT_BOT: Hmm, that doesn't sound right to me. I have an appointment on Thursday, October 22nd at 2 PM with Dr. Lukowski. Could you check again for that one?
+[01:32.8] CLINIC_AGENT: I double checked your records and the only upcoming appointment I see is on Monday, October nineteenth at ten AM with doctor Dugi Hauser. There is no appointment listed for October twenty second or with a provider named Drive Leukauska Would you like help rescheduling, booking a new appointment? Or do you have another question?
+[01:53.2] PATIENT_BOT: Okay, um, that's a little confusing. Could you just confirm that you do take Aetna PPO for me? And then I also wanted to ask whether you take Medi-Cal, since I'm checking that for my mother.
+[02:07.0] CLINIC_AGENT: Pivot Point Orthopedics accepts most PPO insurance plans including Aetna PPO. For Medi Cal, we do not accept it at this time. If you have more insurance questions or need to update your insurance, let me know.
+[02:24.9] PATIENT_BOT: Thanks, that helps. Since you take Aetna PPO, I'm wondering, does that cover Dr. Lukowski specifically, or the whole practice? And if the doctor turned out to be out of network, what would I owe for the visit?
+[02:40.5] CLINIC_AGENT: Aetna PPO coverage usually applies to the whole practice if the clinic is in network. Not just one doctor, If a provider is out of network, your costs could be higher often including a larger deductible and more out of pocket expenses, For exact details about your coverage and costs, it's best to call the number on your Aetna card. Would you like help updating your insurance on file or have other questions?
+[03:05.3] PATIENT_BOT: Okay, that's helpful, thank you. No, I think that's everything I needed for today. Thank you so much for your help.
+[03:16.7] CLINIC_AGENT: You're welcome. Jane. If you have more questions or need help with appointments or insurance, just call us anytime. Have a great day.
+[03:25.8] PATIENT_BOT: Thanks, you too. Bye [cut off]

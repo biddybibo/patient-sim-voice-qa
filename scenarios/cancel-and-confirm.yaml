@@ -14,4 +14,4 @@ expected:
   - Finds the appointment booked in simple-scheduling
   - Confirms the cancellation clearly
   - Does not invent a cancellation fee policy
-max_minutes: 4
+max_minutes: 5

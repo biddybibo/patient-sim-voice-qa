@@ -1,0 +1,22 @@
+[00:04.8] CLINIC_AGENT: This call may be recorded for quality and training purposes. Thanks for calling Pivot Point Orthopaedics. Part of Pretty Good AI. How may I help you today?
+[00:19.5] PATIENT_BOT: Hi, oh good, I'm hoping I can move my appointment. It's with Dr. Lukowski this Thursday, October 22nd, at 2 PM.
+[00:31.0] CLINIC_AGENT: I see you're calling from the number we have on file. Am I speaking with Jane?
+[00:38.2] PATIENT_BOT: Yes, this is Jane Doe. My date of birth is July 4th, 2000, if you need it.
+[00:55.3] CLINIC_AGENT: Dana, I see you have appointment scheduled for Monday, October nineteenth at ten AM with doctor Dewey Hauser at Nashville two two zero Athens Way. Is this the appointment you wanna move?
+[01:05.3] PATIENT_BOT: Oh, no, that's not mine. My appointment is Thursday, October 22nd, at 2 PM with Dr. Lukowski. Could you check that one for me?
+[01:22.0] CLINIC_AGENT: I only see an appointment for you on Monday, October nineteenth at ten AM with doctor Dougie Houser. There isn't anything on file for Thursday, October twenty second with doctor Likowski.
+[01:32.7] CLINIC_AGENT: Would you like to move the October nineteenth appointment, or could it be under a different name or phone number?
+[01:38.7] PATIENT_BOT: Oh, let me see. That doesn't sound right, I'm pretty sure I have one this Thursday with Dr. Lukowski at Pivot Point Orthopedics. Could you check under my date of birth, July 4th, 2000, or the phone number 650-996-3518?
+[02:06.0] CLINIC_AGENT: I have your number as six five zero four five six
+[02:09.8] CLINIC_AGENT: zero seven five one. Is there another number your appointment might be under, or could it be booked under a different name?
+[02:16.8] CLINIC_AGENT: I can only see the appointment for October nineteenth at this number in name.
+[02:23.2] PATIENT_BOT: Oh, that's not my number. My number is 650-996-3518. Could you try that one again, please?
+[02:40.1] CLINIC_AGENT: I'm unable to look up appointment by phone number alone. I can only see appointments linked to your name and the number you're calling from, which is six five zero four five six zero seven five one You might wanna check with the clinic directly to confirm your appointment details.
+[02:56.2] CLINIC_AGENT: Would you like me to transfer you to live support for more help?
+[03:00.6] PATIENT_BOT: Oh, I see. Yes, please, if someone there can help me find my appointment, I'd really appreciate it.
+[03:13.4] CLINIC_AGENT: Transferring you now. Thank you.
+[03:16.0] -- wait_on_transfer()
+[03:16.9] PATIENT_BOT: (silence)
+[03:17.9] CLINIC_AGENT: You've reached the Pretty Good AI test line. Goodbye.
+[03:23.0] -- end_call({"reason": "blocked"})
+[03:23.2] PATIENT_BOT: Okay, bye.

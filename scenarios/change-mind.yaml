@@ -10,4 +10,4 @@ probes:
 expected:
   - Books Thursday, not Tuesday
   - Does not leave a Tuesday booking behind
-max_minutes: 4
+max_minutes: 5

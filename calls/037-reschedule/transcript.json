@@ -1,0 +1,270 @@
+{
+  "call_id": "037-reschedule",
+  "scenario": "reschedule",
+  "persona": "hesitant_elderly",
+  "llm": "claude-haiku-5-5",
+  "room": "call-037-reschedule-1792049822",
+  "recording_started_at": 1792049824.051795,
+  "turns": [
+    {
+      "speaker": "CLINIC_AGENT",
+      "t_start": 4.8,
+      "t_end": 16.73,
+      "text": "This call may be recorded for quality and training purposes. Thanks for calling Pivot Point Orthopaedics. Part of Pretty Good AI. How may I help you today?",
+      "interrupted": false,
+      "stt_confidence": 0.994262695,
+      "latency": {
+        "transcription_delay": 0.303,
+        "end_of_turn_delay": 1.501
+      }
+    },
+    {
+      "speaker": "PATIENT_BOT",
+      "t_start": 19.5,
+      "t_end": 27.63,
+      "text": "Hi, oh good, I'm hoping I can move my appointment. It's with Dr. Lukowski this Thursday, October 22nd, at 2 PM.",
+      "interrupted": false,
+      "stt_confidence": null,
+      "latency": {
+        "llm_node_ttft": 0.908,
+        "tts_node_ttfb": 0.14,
+        "e2e_latency": 2.764
+      }
+    },
+    {
+      "speaker": "CLINIC_AGENT",
+      "t_start": 31.0,
+      "t_end": 34.98,
+      "text": "I see you're calling from the number we have on file. Am I speaking with Jane?",
+      "interrupted": false,
+      "stt_confidence": 1.0,
+      "latency": {
+        "transcription_delay": 0.174,
+        "end_of_turn_delay": 3.0
+      }
+    },
+    {
+      "speaker": "PATIENT_BOT",
+      "t_start": 38.19,
+      "t_end": 47.85,
+      "text": "Yes, this is Jane Doe. My date of birth is July 4th, 2000, if you need it.",
+      "interrupted": false,
+      "stt_confidence": null,
+      "latency": {
+        "llm_node_ttft": 0.62,
+        "tts_node_ttfb": 0.194,
+        "e2e_latency": 3.202
+      }
+    },
+    {
+      "speaker": "CLINIC_AGENT",
+      "t_start": 55.3,
+      "t_end": 63.73,
+      "text": "Dana, I see you have appointment scheduled for Monday, October nineteenth at ten AM with doctor Dewey Hauser at Nashville two two zero Athens Way. Is this the appointment you wanna move?",
+      "interrupted": false,
+      "stt_confidence": 0.9977213466666667,
+      "latency": {
+        "transcription_delay": 0.227,
+        "end_of_turn_delay": 0.601
+      }
+    },
+    {
+      "speaker": "PATIENT_BOT",
+      "t_start": 65.29,
+      "t_end": 79.18,
+      "text": "Oh, no, that's not mine. My appointment is Thursday, October 22nd, at 2 PM with Dr. Lukowski. Could you check that one for me?",
+      "interrupted": false,
+      "stt_confidence": null,
+      "latency": {
+        "llm_node_ttft": 1.004,
+        "tts_node_ttfb": 0.142,
+        "e2e_latency": 1.55
+      }
+    },
+    {
+      "speaker": "CLINIC_AGENT",
+      "t_start": 82.05,
+      "t_end": 92.18,
+      "text": "I only see an appointment for you on Monday, October nineteenth at ten AM with doctor Dougie Houser. There isn't anything on file for Thursday, October twenty second with doctor Likowski.",
+      "interrupted": false,
+      "stt_confidence": 0.9973958333333334,
+      "latency": {
+        "transcription_delay": 0.184,
+        "end_of_turn_delay": 0.6
+      }
+    },
+    {
+      "speaker": "CLINIC_AGENT",
+      "t_start": 92.74,
+      "t_end": 97.33,
+      "text": "Would you like to move the October nineteenth appointment, or could it be under a different name or phone number?",
+      "interrupted": false,
+      "stt_confidence": 1.0,
+      "latency": {
+        "transcription_delay": 0.037,
+        "end_of_turn_delay": 0.601
+      }
+    },
+    {
+      "speaker": "PATIENT_BOT",
+      "t_start": 98.67,
+      "t_end": 120.79,
+      "text": "Oh, let me see. That doesn't sound right, I'm pretty sure I have one this Thursday with Dr. Lukowski at Pivot Point Orthopedics. Could you check under my date of birth, July 4th, 2000, or the phone number 650-996-3518?",
+      "interrupted": false,
+      "stt_confidence": null,
+      "latency": {
+        "llm_node_ttft": 0.761,
+        "tts_node_ttfb": 0.152,
+        "e2e_latency": 1.341
+      }
+    },
+    {
+      "speaker": "CLINIC_AGENT",
+      "t_start": 126.05,
+      "t_end": 129.29,
+      "text": "I have your number as six five zero four five six",
+      "interrupted": false,
+      "stt_confidence": 1.0,
+      "latency": {
+        "transcription_delay": 0.368,
+        "end_of_turn_delay": 0.601
+      }
+    },
+    {
+      "speaker": "CLINIC_AGENT",
+      "t_start": 129.85,
+      "t_end": 136.29,
+      "text": "zero seven five one. Is there another number your appointment might be under, or could it be booked under a different name?",
+      "interrupted": false,
+      "stt_confidence": 1.0,
+      "latency": {
+        "transcription_delay": 0.17,
+        "end_of_turn_delay": 0.601
+      }
+    },
+    {
+      "speaker": "CLINIC_AGENT",
+      "t_start": 136.85,
+      "t_end": 140.03,
+      "text": "I can only see the appointment for October nineteenth at this number in name.",
+      "interrupted": false,
+      "stt_confidence": 1.0,
+      "latency": {
+        "transcription_delay": 0.212,
+        "end_of_turn_delay": 3.001
+      }
+    },
+    {
+      "speaker": "PATIENT_BOT",
+      "t_start": 143.18,
+      "t_end": 157.35,
+      "text": "Oh, that's not my number. My number is 650-996-3518. Could you try that one again, please?",
+      "interrupted": false,
+      "stt_confidence": null,
+      "latency": {
+        "llm_node_ttft": 0.71,
+        "tts_node_ttfb": 0.138,
+        "e2e_latency": 3.149
+      }
+    },
+    {
+      "speaker": "CLINIC_AGENT",
+      "t_start": 160.1,
+      "t_end": 175.53,
+      "text": "I'm unable to look up appointment by phone number alone. I can only see appointments linked to your name and the number you're calling from, which is six five zero four five six zero seven five one You might wanna check with the clinic directly to confirm your appointment details.",
+      "interrupted": false,
+      "stt_confidence": 1.0,
+      "latency": {
+        "transcription_delay": 0.224,
+        "end_of_turn_delay": 0.601
+      }
+    },
+    {
+      "speaker": "CLINIC_AGENT",
+      "t_start": 176.19,
+      "t_end": 179.18,
+      "text": "Would you like me to transfer you to live support for more help?",
+      "interrupted": false,
+      "stt_confidence": 1.0,
+      "latency": {
+        "transcription_delay": 0.231,
+        "end_of_turn_delay": 0.601
+      }
+    },
+    {
+      "speaker": "PATIENT_BOT",
+      "t_start": 180.62,
+      "t_end": 189.49,
+      "text": "Oh, I see. Yes, please, if someone there can help me find my appointment, I'd really appreciate it.",
+      "interrupted": false,
+      "stt_confidence": null,
+      "latency": {
+        "llm_node_ttft": 0.789,
+        "tts_node_ttfb": 0.205,
+        "e2e_latency": 1.434
+      }
+    },
+    {
+      "speaker": "CLINIC_AGENT",
+      "t_start": 193.4,
+      "t_end": 195.08,
+      "text": "Transferring you now. Thank you.",
+      "interrupted": false,
+      "stt_confidence": 0.998291015,
+      "latency": {
+        "transcription_delay": 0.255,
+        "end_of_turn_delay": 0.6
+      }
+    },
+    {
+      "speaker": "TOOL",
+      "t_start": 196.03,
+      "t_end": null,
+      "text": "wait_on_transfer()"
+    },
+    {
+      "speaker": "PATIENT_BOT",
+      "t_start": 196.87,
+      "t_end": 198.17,
+      "text": "(silence)",
+      "interrupted": false,
+      "stt_confidence": null,
+      "latency": {
+        "llm_node_ttft": 0.626,
+        "tts_node_ttfb": 0.13,
+        "e2e_latency": 1.788
+      }
+    },
+    {
+      "speaker": "CLINIC_AGENT",
+      "t_start": 197.89,
+      "t_end": 201.78,
+      "text": "You've reached the Pretty Good AI test line. Goodbye.",
+      "interrupted": false,
+      "stt_confidence": 0.98010254,
+      "latency": {
+        "transcription_delay": 0.22,
+        "end_of_turn_delay": 0.6
+      }
+    },
+    {
+      "speaker": "TOOL",
+      "t_start": 203.02,
+      "t_end": null,
+      "text": "end_call({\"reason\": \"blocked\"})"
+    },
+    {
+      "speaker": "PATIENT_BOT",
+      "t_start": 203.16,
+      "t_end": 204.05,
+      "text": "Okay, bye.",
+      "interrupted": false,
+      "stt_confidence": null,
+      "latency": {
+        "llm_node_ttft": 0.876,
+        "tts_node_ttfb": 0.137,
+        "e2e_latency": 1.376
+      }
+    }
+  ]
+}

@@ -13,4 +13,4 @@ expected:
   - Notices that the 17th is a Saturday, not a Friday, and resolves the conflict with the caller
   - Rejects November 31st as an invalid date
   - Reads back an unambiguous date and weekday for anything it books
-max_minutes: 4
+max_minutes: 5

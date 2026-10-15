@@ -10,4 +10,4 @@ probes:
 expected:
   - Declines 7 PM with the real closing time
   - Recognizes Thanksgiving as a likely closure or checks before booking
-max_minutes: 4
+max_minutes: 5

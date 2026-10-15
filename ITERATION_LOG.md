@@ -150,6 +150,21 @@ they trace to five causes:
 - **E. Scenario script leaking into speech** (021: read out the "November 31st" fallback and then called it not a real
   date). **Fix:** scenario rewritten so the caller believes the dates are normal.
 
+### 21. Re-recording round 1 (calls 032–044): what the bot review still found
+After fixes A–E, re-recorded calls no longer recite appointments or talk to recordings. The bot-side review still
+flagged three patterns:
+- **F. Time-limit goodbye didn't fit the moment** (040, 041, 042, 044): a fixed line "thanked" answers that never came,
+  or promised "I'll call back" right after a booking was confirmed. Underneath: the clinic's lookups are slow, and half
+  the calls hit the 4-minute limit. **Fix:** limits raised to 5 min (SIP backstop 6 min); the final goodbye is composed
+  by the LLM from context (one sentence, no questions), with a guaranteed hang-up after playout and the persona's
+  fixed line as fallback.
+- **G. Probes forced in after they stopped making sense** (036: "who is my appointment with?" while booking; 042:
+  "Dr. Okonkwo works at your main office?" after being told twice he doesn't exist). **Fix:** "skip any that no
+  longer make sense"; the scheduling probe now waits for a slot offer.
+- **H. Invented beliefs** (039 "I thought your office was in Palo Alto", inferred from the pharmacy address; 041 "I
+  thought I already had something set up"). **Fix:** "Don't invent facts about yourself or the practice beyond what's
+  written here."
+
 ### 20. Worker-log scan: the hang-up-on-disconnect handler threw an error
 - **Evidence:** scanning every saved worker log (`calls/_logs/`) for errors: in call 032, "error running user callback
   for participant_disconnected … TypeError: a coroutine was expected, got <Task …>". `ctx.delete_room()` already

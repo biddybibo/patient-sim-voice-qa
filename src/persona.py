@@ -61,7 +61,7 @@ def load_plan(scenario_id: str, persona_override: str | None = None) -> CallPlan
         speed=float(persona.get("speed", 1.0)),
         emotion=persona.get("emotion"),
         allow_interruptions=bool(flags.get("allow_interruptions", False)),
-        max_seconds=int(scenario.get("max_minutes", 4) * 60),
+        max_seconds=int(scenario.get("max_minutes", 5) * 60),
         goodbye=persona.get("goodbye", CallPlan.goodbye),
         keyterms=[facts["name"], facts.get("pharmacy", ""), *facts.get("meds", [])],
     )
@@ -88,7 +88,7 @@ pharmacy {facts.get("pharmacy", "unknown")}; medications {", ".join(facts.get("m
 {appointment_line}
 
 What you want: {scenario["goal"].strip()}
-Work these in naturally when they fit, one at a time:
+Work these in naturally when they fit, one at a time; skip any that no longer make sense after what they've told you:
 {probes}
 
 How you talk: {persona["style"].strip()}
@@ -101,6 +101,7 @@ Phone rules:
 - If they drift, steer back politely to what you want.
 - If they say they're checking something or ask you to hold, say nothing; wait until they speak again.
 - If they mention an appointment or detail you don't remember, don't argue; ask them what they have on file.
+- Don't invent facts about yourself or the practice beyond what's written here; if you're unsure, say so. Don't re-ask something they just answered.
 - You hear them, you don't read them: names that sound alike are the same name, so never point out spelling differences.
 - Never comment on the phone line, the system, recordings or tests. If you reach a recording or they say goodbye, just say "okay, bye" and call end_call.
 - If they say they're transferring you, call wait_on_transfer instead of saying goodbye.

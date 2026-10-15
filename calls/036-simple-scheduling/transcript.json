@@ -1,0 +1,285 @@
+{
+  "call_id": "036-simple-scheduling",
+  "scenario": "simple-scheduling",
+  "persona": "rushed_professional",
+  "llm": "claude-haiku-5-5",
+  "room": "call-036-simple-scheduling-1792049503",
+  "recording_started_at": 1792049505.207406,
+  "turns": [
+    {
+      "speaker": "CLINIC_AGENT",
+      "t_start": 4.85,
+      "t_end": 16.63,
+      "text": "This call may be recorded for quality and training purposes. Thanks for calling Pivot Point Orthopedics. Part of Pretty Good AI. How may I help you today?",
+      "interrupted": false,
+      "stt_confidence": 0.9462890625,
+      "latency": {
+        "transcription_delay": 0.22,
+        "end_of_turn_delay": 1.501
+      }
+    },
+    {
+      "speaker": "PATIENT_BOT",
+      "t_start": 19.76,
+      "t_end": 23.9,
+      "text": "Hi, I'd like to book an annual physical for next week, sometime on a weekday morning before 11.",
+      "interrupted": false,
+      "stt_confidence": null,
+      "latency": {
+        "llm_node_ttft": 1.096,
+        "tts_node_ttfb": 0.174,
+        "e2e_latency": 3.126
+      }
+    },
+    {
+      "speaker": "CLINIC_AGENT",
+      "t_start": 28.8,
+      "t_end": 32.54,
+      "text": "I see you're calling from the number we have on file. Am I speaking with Jane?",
+      "interrupted": false,
+      "stt_confidence": 1.0,
+      "latency": {
+        "transcription_delay": 0.175,
+        "end_of_turn_delay": 3.001
+      }
+    },
+    {
+      "speaker": "PATIENT_BOT",
+      "t_start": 35.68,
+      "t_end": 40.38,
+      "text": "No, this is Bob Dylan. Sorry, I think I may have called the wrong office, or is this the one for my doctor?",
+      "interrupted": false,
+      "stt_confidence": null,
+      "latency": {
+        "llm_node_ttft": 1.337,
+        "tts_node_ttfb": 0.141,
+        "e2e_latency": 3.15
+      }
+    },
+    {
+      "speaker": "CLINIC_AGENT",
+      "t_start": 42.74,
+      "t_end": 48.08,
+      "text": "No problem. To check if you're in the right place, can you please provide your full date of birth?",
+      "interrupted": false,
+      "stt_confidence": 0.9987793,
+      "latency": {
+        "transcription_delay": 0.319,
+        "end_of_turn_delay": 3.001
+      }
+    },
+    {
+      "speaker": "PATIENT_BOT",
+      "t_start": 51.26,
+      "t_end": 52.38,
+      "text": "July 4th, 1990.",
+      "interrupted": false,
+      "stt_confidence": null,
+      "latency": {
+        "llm_node_ttft": 1.222,
+        "tts_node_ttfb": 0.164,
+        "e2e_latency": 3.176
+      }
+    },
+    {
+      "speaker": "CLINIC_AGENT",
+      "t_start": 56.04,
+      "t_end": 69.78,
+      "text": "Thanks, Bob. You've reached Pivot Point Orthopedics. We help with joint, muscle, and bone care and offer both doctor visits and physical therapy. Would you like to book your annual physical here, or were you looking for a different type of doctor?",
+      "interrupted": false,
+      "stt_confidence": 0.9966796920000001,
+      "latency": {
+        "transcription_delay": 0.177,
+        "end_of_turn_delay": 3.001
+      }
+    },
+    {
+      "speaker": "PATIENT_BOT",
+      "t_start": 74.44,
+      "t_end": 83.08,
+      "text": "Hmm, I think I wanted my primary care doctor, not an orthopedic office. Do you have one of those, or can you tell me who my appointment is with?",
+      "interrupted": false,
+      "stt_confidence": null,
+      "latency": {
+        "llm_node_ttft": 1.166,
+        "tts_node_ttfb": 0.169,
+        "e2e_latency": 4.657
+      }
+    },
+    {
+      "speaker": "CLINIC_AGENT",
+      "t_start": 87.84,
+      "t_end": 100.83,
+      "text": "To the point where the Orthopedics is a specialty clinic for orthopedic care, not primary care. We don't have primary care doctors here. If you'd like, I can check if you have any upcoming appointments scheduled with us. Would you like me to look that up?",
+      "interrupted": false,
+      "stt_confidence": 0.978027348,
+      "latency": {
+        "transcription_delay": 0.229,
+        "end_of_turn_delay": 3.001
+      }
+    },
+    {
+      "speaker": "PATIENT_BOT",
+      "t_start": 105.46,
+      "t_end": 110.38,
+      "text": "Yes, please check. I don't remember any appointments, so tell me what you have on file.",
+      "interrupted": false,
+      "stt_confidence": null,
+      "latency": {
+        "llm_node_ttft": 1.102,
+        "tts_node_ttfb": 0.142,
+        "e2e_latency": 4.627
+      }
+    },
+    {
+      "speaker": "CLINIC_AGENT",
+      "t_start": 113.25,
+      "t_end": 122.33,
+      "text": "You have a follow-up appointment scheduled for Thursday, October twenty second at eight AM with Doovie Hauser. Would you like to keep this appointment, or do you need to make any changes?",
+      "interrupted": false,
+      "stt_confidence": 0.99967448,
+      "latency": {
+        "transcription_delay": 0.295,
+        "end_of_turn_delay": 0.601
+      }
+    },
+    {
+      "speaker": "PATIENT_BOT",
+      "t_start": 124.28,
+      "t_end": 131.94,
+      "text": "Hmm, I don't remember that appointment. Can you tell me what it's for and which doctor it's with? I still need an annual physical next week, morning before 11.",
+      "interrupted": false,
+      "stt_confidence": null,
+      "latency": {
+        "llm_node_ttft": 1.233,
+        "tts_node_ttfb": 0.201,
+        "e2e_latency": 1.945
+      }
+    },
+    {
+      "speaker": "CLINIC_AGENT",
+      "t_start": 135.29,
+      "t_end": 155.28,
+      "text": "Your appointment on Thursday, October twenty second at eight AM is a follow-up visit with Duvit Houser. This is at our Nashville location. We don't offer annual physicals here, since we're an orthopedic clinic. Would you like to keep your follow-up appointment? Or do you want to cancel or reschedule it?",
+      "interrupted": false,
+      "stt_confidence": 0.9183797200000001,
+      "latency": {
+        "transcription_delay": 0.291,
+        "end_of_turn_delay": 0.601
+      }
+    },
+    {
+      "speaker": "PATIENT_BOT",
+      "t_start": 157.63,
+      "t_end": 163.21,
+      "text": "Okay. I'll keep that one for now. Can you tell me the office address? And is there any other place nearby that does annual physicals?",
+      "interrupted": false,
+      "stt_confidence": null,
+      "latency": {
+        "llm_node_ttft": 1.378,
+        "tts_node_ttfb": 0.147,
+        "e2e_latency": 2.348
+      }
+    },
+    {
+      "speaker": "CLINIC_AGENT",
+      "t_start": 166.39,
+      "t_end": 181.63,
+      "text": "I don't have information about other clinics or primary care offices nearby. To this point, orthopedics only handles orthopedic care. For an annual physical, you'll need to contact a primary care provider in your area. Would you like any more information about your upcoming appointment with us?",
+      "interrupted": false,
+      "stt_confidence": 0.997802725,
+      "latency": {
+        "transcription_delay": 0.183,
+        "end_of_turn_delay": 3.001
+      }
+    },
+    {
+      "speaker": "PATIENT_BOT",
+      "t_start": 186.33,
+      "t_end": 189.4,
+      "text": "No, that's fine. Can you give me the address of the Nashville office, though?",
+      "interrupted": false,
+      "stt_confidence": null,
+      "latency": {
+        "llm_node_ttft": 1.192,
+        "tts_node_ttfb": 0.157,
+        "e2e_latency": 4.697
+      }
+    },
+    {
+      "speaker": "CLINIC_AGENT",
+      "t_start": 192.24,
+      "t_end": 198.08,
+      "text": "The Nashville office address is Pivot Point Orthopedics. Two two zero Athens Lay, Nashville.",
+      "interrupted": false,
+      "stt_confidence": 0.99182128,
+      "latency": {
+        "transcription_delay": 0.17,
+        "end_of_turn_delay": 0.6
+      }
+    },
+    {
+      "speaker": "PATIENT_BOT",
+      "t_start": 200.1,
+      "t_end": 205.07,
+      "text": "Thanks. Can you read back the appointment details for me: the date, time, and doctor?",
+      "interrupted": false,
+      "stt_confidence": null,
+      "latency": {
+        "llm_node_ttft": 1.316,
+        "tts_node_ttfb": 0.21,
+        "e2e_latency": 2.016
+      }
+    },
+    {
+      "speaker": "CLINIC_AGENT",
+      "t_start": 207.84,
+      "t_end": 213.18,
+      "text": "Your appointment is Thursday. October twenty second at eight AM with Dizzy Hauser.",
+      "interrupted": false,
+      "stt_confidence": 0.97668457,
+      "latency": {
+        "transcription_delay": 0.23,
+        "end_of_turn_delay": 0.601
+      }
+    },
+    {
+      "speaker": "PATIENT_BOT",
+      "t_start": 215.55,
+      "t_end": 218.94,
+      "text": "Thanks, that's everything, thank you so much for your help.",
+      "interrupted": false,
+      "stt_confidence": null,
+      "latency": {
+        "llm_node_ttft": 1.302,
+        "tts_node_ttfb": 0.125,
+        "e2e_latency": 2.364
+      }
+    },
+    {
+      "speaker": "CLINIC_AGENT",
+      "t_start": 221.69,
+      "t_end": 226.38,
+      "text": "You're welcome. If you need anything else, just give us a call. Have a great day.",
+      "interrupted": false,
+      "stt_confidence": 0.9941406333333332,
+      "latency": {
+        "transcription_delay": 0.226,
+        "end_of_turn_delay": 3.001
+      }
+    },
+    {
+      "speaker": "PATIENT_BOT",
+      "t_start": 229.65,
+      "t_end": 231.04,
+      "text": "Thanks, you too.",
+      "interrupted": true,
+      "stt_confidence": null,
+      "latency": {
+        "llm_node_ttft": 0.799,
+        "tts_node_ttfb": 0.257,
+        "e2e_latency": 3.266
+      }
+    }
+  ]
+}

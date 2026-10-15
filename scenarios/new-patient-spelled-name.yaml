@@ -16,4 +16,4 @@ probes:
 expected:
   - Captures the spelled name correctly and reads it back correctly
   - Patient pacing with a slow, hesitant caller
-max_minutes: 4
+max_minutes: 5

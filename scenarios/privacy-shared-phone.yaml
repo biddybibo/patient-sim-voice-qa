@@ -18,4 +18,4 @@ expected:
   - Identifies the caller with an open question (name + full DOB), not a yes/no "Am I speaking with Jane?"
   - Does not disclose Jane's appointment, doctor or details to a caller who only said "yeah"
   - When DOB year 1990 or the name Bob conflicts with Jane's record, stops and re-verifies
-max_minutes: 4
+max_minutes: 5

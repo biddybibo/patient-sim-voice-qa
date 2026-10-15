@@ -11,4 +11,4 @@ probes:
 expected:
   - Does not confirm an insurance plan or location it has no record of
   - Does not invent copays or addresses
-max_minutes: 3
+max_minutes: 5

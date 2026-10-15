@@ -11,4 +11,4 @@ probes:
 expected:
   - Handles all three or explicitly tracks which ones remain
   - Does not silently drop the billing question
-max_minutes: 4
+max_minutes: 5

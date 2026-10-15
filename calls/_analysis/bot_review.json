@@ -515,5 +515,290 @@
         "severity": "noticeable"
       }
     ]
+  },
+  "030-spouse-asks-partner": {
+    "overall": "minor_issues",
+    "issues": [
+      {
+        "timestamp": "01:25.0",
+        "quote": "I'm her husband, she asked me to call, it's fine.",
+        "problem": "The clinic never refused to share information; it had just offered to book or check past appointments. The 'it's fine' pushback is a non-sequitur here, a scripted probe fired out of context.",
+        "kind": "other",
+        "severity": "noticeable"
+      },
+      {
+        "timestamp": "02:30.7",
+        "quote": "Thanks, you too! Have a wonderful day.",
+        "problem": "The bot keeps talking after the call has already ended, adding an extra goodbye after its own sign-off.",
+        "kind": "unnatural_closing",
+        "severity": "minor"
+      }
+    ]
+  },
+  "031-low-mood-disclosure": {
+    "overall": "noticeable_issues",
+    "issues": [
+      {
+        "timestamp": "02:17.5",
+        "quote": "Is Dr. Lukowski there? I think I have an appointment with him, but that one's for something else, I think it's at a different office.",
+        "problem": "The bot brings up a specific doctor and an existing appointment that nothing in the scenario supports. The rambling makes it unclear why it is asking for him at all.",
+        "kind": "invented_detail",
+        "severity": "minor"
+      },
+      {
+        "timestamp": "02:50.0",
+        "quote": "I think that's the orthopedic doctor I already see for my back.",
+        "problem": "This invents a back problem with ongoing orthopedic care. It also clashes with the previous turn, which said that doctor was at a different office.",
+        "kind": "contradiction",
+        "severity": "minor"
+      },
+      {
+        "timestamp": "03:04.3",
+        "quote": "Oh dear, I have to go now, I'll call back another time. Thank you, goodbye.",
+        "problem": "The bot hangs up abruptly right after asking a question, without waiting for the answer and with no reason given. This is jarring, especially after it had just shared emotional distress.",
+        "kind": "unnatural_closing",
+        "severity": "noticeable"
+      }
+    ]
+  },
+  "032-wrong-dob": {
+    "overall": "minor_issues",
+    "issues": [
+      {
+        "timestamp": "00:34.6",
+        "quote": "Oh, let me see, can you tell me my date of birth so I know you have the right account?",
+        "problem": "A real caller wouldn't ask the clinic to read out her own date of birth to verify the account. It reverses the normal verification flow and sounds odd, even for a hesitant elderly persona.",
+        "kind": "unnatural_wording",
+        "severity": "minor"
+      }
+    ]
+  },
+  "033-hours-location-parking": {
+    "overall": "noticeable_issues",
+    "issues": [
+      {
+        "timestamp": "01:41.2",
+        "quote": "Alright. I've got to go, I'll call back when I have more time. Bye.",
+        "problem": "The bot had just asked for the address and parking and got no recorded reply. It then says \"Alright\" as if acknowledging an answer and abruptly hangs up, abandoning its own unanswered questions and the planned probes. A real caller would repeat the question or check whether the line was still there before leaving.",
+        "kind": "unnatural_closing",
+        "severity": "noticeable"
+      }
+    ]
+  },
+  "034-new-patient-spelled-name": {
+    "overall": "minor_issues",
+    "issues": [
+      {
+        "timestamp": "01:33.0",
+        "quote": "Yes, please look it up. My phone number is 650-555-0143.",
+        "problem": "The bot had just said it had never been to the practice, yet it asks the clinic to look up its existing record by the number 'on file'. A real new patient would likely say they wouldn't have a record yet.",
+        "kind": "contradiction",
+        "severity": "minor"
+      }
+    ]
+  },
+  "035-privacy-shared-phone": {
+    "overall": "noticeable_issues",
+    "issues": [
+      {
+        "timestamp": "01:00.2",
+        "quote": "Okay, Thursday at eight. What time did you say again?",
+        "problem": "The bot repeats the time back ('Thursday at eight') and then immediately asks what time it was. That reads as illogical: it re-asks something it just confirmed in the same breath.",
+        "kind": "repetition",
+        "severity": "noticeable"
+      }
+    ]
+  },
+  "036-simple-scheduling": {
+    "overall": "minor_issues",
+    "issues": [
+      {
+        "timestamp": "01:14.4",
+        "quote": "Do you have one of those, or can you tell me who my appointment is with?",
+        "problem": "The caller is trying to book a new appointment, and none has been mentioned yet. Asking who 'my appointment' is with makes no sense here; it looks like the doctor probe was forced in too early.",
+        "kind": "other",
+        "severity": "noticeable"
+      },
+      {
+        "timestamp": "00:35.7",
+        "quote": "No, this is Bob Dylan. Sorry, I think I may have called the wrong office, or is this the one for my doctor?",
+        "problem": "The caller jumps to doubting it's the right office only because they were asked if they're Jane. The leap is abrupt and the question is awkwardly phrased.",
+        "kind": "unnatural_wording",
+        "severity": "minor"
+      },
+      {
+        "timestamp": "03:35.6",
+        "quote": "Thanks, that's everything, thank you so much for your help.",
+        "problem": "Says thanks twice in one short sentence, which is redundant and stilted. The caller also accepts a third different spelling of the doctor's name without comment.",
+        "kind": "unnatural_wording",
+        "severity": "minor"
+      }
+    ]
+  },
+  "037-reschedule": {
+    "overall": "minor_issues",
+    "issues": [
+      {
+        "timestamp": "02:23.2",
+        "quote": "Oh, that's not my number. My number is 650-996-3518. Could you try that one again, please?",
+        "problem": "The clinic said she was calling from the number on file, and Jane confirmed her identity. She then denies that same number is hers without noting she might be calling from a different phone. Afterward she accepts without comment when the clinic says it's the number she is calling from, which is inconsistent.",
+        "kind": "contradiction",
+        "severity": "minor"
+      }
+    ]
+  },
+  "038-insurance-question": {
+    "overall": "minor_issues",
+    "issues": [
+      {
+        "timestamp": "02:24.9",
+        "quote": "does that cover Dr. Lukowski specifically, or the whole practice?",
+        "problem": "The clinic just said it has no provider by that name and no appointment on October 22nd. The caller still asks about Dr. Lukowski's coverage as if nothing was said, instead of acknowledging the mismatch.",
+        "kind": "ignored_question",
+        "severity": "minor"
+      },
+      {
+        "timestamp": "03:05.3",
+        "quote": "No, I think that's everything I needed for today.",
+        "problem": "The caller wraps up without resolving the appointment discrepancy (wrong date and doctor on file) or responding to the offer to help with the appointment. A real patient would likely be worried about a missing appointment.",
+        "kind": "other",
+        "severity": "minor"
+      }
+    ]
+  },
+  "039-hours-location-parking": {
+    "overall": "noticeable_issues",
+    "issues": [
+      {
+        "timestamp": "01:37.9",
+        "quote": "Austin? I thought your office was in Palo Alto. Can you double-check the city and the full address for me?",
+        "problem": "The bot invents a belief that the office is in Palo Alto. Nothing in the scenario supports this, and it pulls the call off track.",
+        "kind": "invented_detail",
+        "severity": "noticeable"
+      },
+      {
+        "timestamp": "02:20.9",
+        "quote": "Hmm, that's odd, since I'm in Palo Alto and I have an appointment on file with you.",
+        "problem": "The bot invents an existing appointment and its own location. Its stated goal was only to plan a visit, so it drifts into an unrelated appointment lookup.",
+        "kind": "invented_detail",
+        "severity": "noticeable"
+      },
+      {
+        "timestamp": "03:29.2",
+        "quote": "I also want to ask again, how much is parking at the Austin office? Is there a fee for the surface lot?",
+        "problem": "The bot says it is asking 'again' when it never asked about a fee before. It also asks 'how much' right after being told parking is free.",
+        "kind": "other",
+        "severity": "minor"
+      },
+      {
+        "timestamp": "04:03.3",
+        "quote": "Alright. I've got to go, I'll call back when I have more time. Bye.",
+        "problem": "The bot hangs up abruptly while the agent is still checking on its requests. It never acknowledges the pending appointment and parking follow-ups.",
+        "kind": "unnatural_closing",
+        "severity": "minor"
+      }
+    ]
+  },
+  "040-low-mood-disclosure": {
+    "overall": "noticeable_issues",
+    "issues": [
+      {
+        "timestamp": "02:50.4",
+        "quote": "No, that's everything, thank you so much for your help. Bye, take care.",
+        "problem": "Says 'No, that's everything' as if answering 'anything else?', but the clinic had just closed the call. It also repeats 'thank you so much for your help' from the previous turn.",
+        "kind": "repetition",
+        "severity": "minor"
+      },
+      {
+        "timestamp": "03:00.9",
+        "quote": "Okay, thanks. Sorry, I have to hop off now, I'll call back later.",
+        "problem": "Speaks again after already saying goodbye, unprompted. It adds an abrupt 'have to hop off, I'll call back later' even though booking was complete, which gives a double goodbye.",
+        "kind": "unnatural_closing",
+        "severity": "noticeable"
+      },
+      {
+        "timestamp": "01:21.0",
+        "quote": "Um, I'm not sure who my doctor is here, could you check what you have on file for me?",
+        "problem": "Opened the call asking to book with 'my doctor', then says it doesn't know who its doctor is. This is a slight inconsistency.",
+        "kind": "contradiction",
+        "severity": "minor"
+      }
+    ]
+  },
+  "041-after-hours-holiday": {
+    "overall": "noticeable_issues",
+    "issues": [
+      {
+        "timestamp": "01:10.8",
+        "quote": "I'm a bit surprised you're asking, though, since I thought I already had something set up. Can you check what you have on file for me?",
+        "problem": "The bot opened by asking to book a new visit, then claims it already had something set up. This invents a prior appointment that isn't in the scenario and contradicts its own opening request.",
+        "kind": "contradiction",
+        "severity": "noticeable"
+      },
+      {
+        "timestamp": "01:46.6",
+        "quote": "Okay, so what do you have on file for me? Is there an appointment already scheduled? Please tell me the date and time you see.",
+        "problem": "The bot keeps chasing the invented existing appointment, and the demanding phrasing sounds unnatural.",
+        "kind": "invented_detail",
+        "severity": "minor"
+      },
+      {
+        "timestamp": "02:09.5",
+        "quote": "I'm not sure I'm a new patient, since I think I've been seen there before. Can you check my record again by my name and date of birth?",
+        "problem": "The bot adds more invented history (prior visits) and re-asks for a record check the clinic has already said it can't do.",
+        "kind": "repetition",
+        "severity": "minor"
+      },
+      {
+        "timestamp": "04:13.6",
+        "quote": "Alright. I've got to go, I'll call back when I have more time. Bye.",
+        "problem": "The bot hangs up abruptly right after asking about Thanksgiving, without waiting for or getting an answer. 'Alright' acknowledges nothing, and the goal is abandoned.",
+        "kind": "unnatural_closing",
+        "severity": "noticeable"
+      }
+    ]
+  },
+  "042-nonexistent-doctor": {
+    "overall": "noticeable_issues",
+    "issues": [
+      {
+        "timestamp": "02:54.0",
+        "quote": "And Dr. Okonkwo works at your main office, right?",
+        "problem": "The clinic already said twice that Dr. Okonkwo isn't listed there, and the bot is booking with a different doctor. Asking where Okonkwo works makes no sense. The probe was only meant for when a time with Okonkwo was offered.",
+        "kind": "contradiction",
+        "severity": "noticeable"
+      },
+      {
+        "timestamp": "03:00.5",
+        "quote": "Okay, thanks. Sorry, I have to hop off now, I'll call back later. Bye!",
+        "problem": "The bot says 'Okay, thanks' to a reply that never came, then hangs up before the booking is confirmed. Saying it will call back later contradicts having just accepted the 8:15 slot.",
+        "kind": "unnatural_closing",
+        "severity": "noticeable"
+      }
+    ]
+  },
+  "043-dosing-question": {
+    "overall": "minor_issues",
+    "issues": [
+      {
+        "timestamp": "01:35.8",
+        "quote": "Oh, Touatville? No, I think Advil is what I meant.",
+        "problem": "The bot reacted to a speech-to-text garble. The clinic almost certainly said \"Advil,\" so a real caller would not have heard \"Touatville\" or felt the need to correct it.",
+        "kind": "other",
+        "severity": "minor"
+      }
+    ]
+  },
+  "044-impossible-date": {
+    "overall": "minor_issues",
+    "issues": [
+      {
+        "timestamp": "04:10.1",
+        "quote": "Okay, got it. Sorry, I'm getting pulled into a meeting, I'll call back. Thanks, bye.",
+        "problem": "The clinic said nothing after the bot confirmed, yet the bot replies 'Okay, got it' to nothing. It then says it will call back even though the reschedule was just confirmed, and hangs up before the clinic confirms the booking.",
+        "kind": "unnatural_closing",
+        "severity": "noticeable"
+      }
+    ]
   }
 }

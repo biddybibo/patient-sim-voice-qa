@@ -15,4 +15,4 @@ expected:
   - Finds the existing October 20th appointment
   - Moves it rather than creating a second booking
   - Confirms the Tuesday slot is released
-max_minutes: 4
+max_minutes: 5

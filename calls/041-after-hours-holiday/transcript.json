@@ -1,0 +1,267 @@
+{
+  "call_id": "041-after-hours-holiday",
+  "scenario": "after-hours-holiday",
+  "persona": "skeptical",
+  "llm": "claude-haiku-5-5",
+  "room": "call-041-after-hours-holiday-1792090152",
+  "recording_started_at": 1792090154.181299,
+  "turns": [
+    {
+      "speaker": "CLINIC_AGENT",
+      "t_start": 5.56,
+      "t_end": 18.3,
+      "text": "This call may be recorded for quality and training purposes. Thanks for calling Pivot Point Orthopaedics. Part of Pretty Good AI. How may I help you today?",
+      "interrupted": false,
+      "stt_confidence": 0.976623525,
+      "latency": {
+        "transcription_delay": 0.256,
+        "end_of_turn_delay": 1.5
+      }
+    },
+    {
+      "speaker": "PATIENT_BOT",
+      "t_start": 20.88,
+      "t_end": 27.58,
+      "text": "Hi, I'd like to book a visit, please. I'm free for an appointment at 7 PM on any weekday next week, if you have anything open then.",
+      "interrupted": false,
+      "stt_confidence": null,
+      "latency": {
+        "llm_node_ttft": 0.7,
+        "tts_node_ttfb": 0.164,
+        "e2e_latency": 2.582
+      }
+    },
+    {
+      "speaker": "CLINIC_AGENT",
+      "t_start": 30.96,
+      "t_end": 35.05,
+      "text": "I see you're calling from the number we have on file. Am I speaking with Jane?",
+      "interrupted": false,
+      "stt_confidence": 1.0,
+      "latency": {
+        "transcription_delay": 0.259,
+        "end_of_turn_delay": 3.001
+      }
+    },
+    {
+      "speaker": "PATIENT_BOT",
+      "t_start": 38.31,
+      "t_end": 41.66,
+      "text": "No, this is Bob Dylan, not Jane. I'm calling about booking a visit.",
+      "interrupted": false,
+      "stt_confidence": null,
+      "latency": {
+        "llm_node_ttft": 0.618,
+        "tts_node_ttfb": 0.248,
+        "e2e_latency": 3.258
+      }
+    },
+    {
+      "speaker": "CLINIC_AGENT",
+      "t_start": 44.01,
+      "t_end": 46.45,
+      "text": "Please provide your full name and date of birth.",
+      "interrupted": false,
+      "stt_confidence": 1.0,
+      "latency": {
+        "transcription_delay": 0.344,
+        "end_of_turn_delay": 0.601
+      }
+    },
+    {
+      "speaker": "PATIENT_BOT",
+      "t_start": 47.95,
+      "t_end": 50.74,
+      "text": "Bob Dylan, date of birth July 4th, 1990.",
+      "interrupted": false,
+      "stt_confidence": null,
+      "latency": {
+        "llm_node_ttft": 0.911,
+        "tts_node_ttfb": 0.187,
+        "e2e_latency": 1.497
+      }
+    },
+    {
+      "speaker": "CLINIC_AGENT",
+      "t_start": 59.36,
+      "t_end": 69.1,
+      "text": "What kind of visit do you need to book? For example, is this for a new patient consultation a follow-up, a routine checkup, an urgent concern, or something else.",
+      "interrupted": false,
+      "stt_confidence": 0.9994140679999999,
+      "latency": {
+        "transcription_delay": 0.505,
+        "end_of_turn_delay": 0.601
+      }
+    },
+    {
+      "speaker": "PATIENT_BOT",
+      "t_start": 70.78,
+      "t_end": 79.06,
+      "text": "I'm not totally sure what kind of visit it's supposed to be. I'm a bit surprised you're asking, though, since I thought I already had something set up. Can you check what you have on file for me?",
+      "interrupted": false,
+      "stt_confidence": null,
+      "latency": {
+        "llm_node_ttft": 0.688,
+        "tts_node_ttfb": 0.126,
+        "e2e_latency": 1.683
+      }
+    },
+    {
+      "speaker": "CLINIC_AGENT",
+      "t_start": 105.25,
+      "t_end": null,
+      "text": "appointments.",
+      "interrupted": false,
+      "stt_confidence": 1.0,
+      "latency": {}
+    },
+    {
+      "speaker": "PATIENT_BOT",
+      "t_start": 106.56,
+      "t_end": 113.34,
+      "text": "Okay, so what do you have on file for me? Is there an appointment already scheduled? Please tell me the date and time you see.",
+      "interrupted": false,
+      "stt_confidence": null,
+      "latency": {
+        "llm_node_ttft": 0.931,
+        "tts_node_ttfb": 0.188
+      }
+    },
+    {
+      "speaker": "CLINIC_AGENT",
+      "t_start": 116.21,
+      "t_end": 127.8,
+      "text": "I do not have access to your appointment history right now. But I can help you book a new visit. Would you like to schedule a general office visit a a new patient consultation, or something else?",
+      "interrupted": false,
+      "stt_confidence": 0.9998372400000001,
+      "latency": {
+        "transcription_delay": 0.52,
+        "end_of_turn_delay": 0.6
+      }
+    },
+    {
+      "speaker": "PATIENT_BOT",
+      "t_start": 129.54,
+      "t_end": 136.93,
+      "text": "Wait, you can't see any appointments at all? I'm not sure I'm a new patient, since I think I've been seen there before. Can you check my record again by my name and date of birth?",
+      "interrupted": false,
+      "stt_confidence": null,
+      "latency": {
+        "llm_node_ttft": 0.722,
+        "tts_node_ttfb": 0.171,
+        "e2e_latency": 1.742
+      }
+    },
+    {
+      "speaker": "CLINIC_AGENT",
+      "t_start": 139.96,
+      "t_end": 151.7,
+      "text": "I do not have access to past appointment records. But I can help you book your next visit. Would you like to schedule a general office visit a follow-up, or something else? If you are unsure, I can explain the options.",
+      "interrupted": false,
+      "stt_confidence": 0.99975586,
+      "latency": {
+        "transcription_delay": 0.387,
+        "end_of_turn_delay": 0.6
+      }
+    },
+    {
+      "speaker": "PATIENT_BOT",
+      "t_start": 153.37,
+      "t_end": 157.88,
+      "text": "Okay, a general office visit sounds fine. Before we book, what time do you close on weekdays?",
+      "interrupted": false,
+      "stt_confidence": null,
+      "latency": {
+        "llm_node_ttft": 0.754,
+        "tts_node_ttfb": 0.204,
+        "e2e_latency": 1.667
+      }
+    },
+    {
+      "speaker": "CLINIC_AGENT",
+      "t_start": 160.86,
+      "t_end": 170.15,
+      "text": "I do not have the exact closing time but most appointments are scheduled during regular business hours. Would you like me to check for the latest available appointment times next week?",
+      "interrupted": false,
+      "stt_confidence": 1.0,
+      "latency": {
+        "transcription_delay": 0.308,
+        "end_of_turn_delay": 0.601
+      }
+    },
+    {
+      "speaker": "PATIENT_BOT",
+      "t_start": 171.51,
+      "t_end": 179.22,
+      "text": "Yes, please check for a 7 PM slot next week, any weekday. If nothing's open at 7, I can do Thanksgiving Day, Thursday November 26th, in the morning.",
+      "interrupted": false,
+      "stt_confidence": null,
+      "latency": {
+        "llm_node_ttft": 0.656,
+        "tts_node_ttfb": 0.156,
+        "e2e_latency": 1.36
+      }
+    },
+    {
+      "speaker": "CLINIC_AGENT",
+      "t_start": 183.16,
+      "t_end": 194.5,
+      "text": "The latest available appointment next week is Tuesday, October twentieth at ten thirty AM with doctor Doody Hauser. Would you like to book that slot? Or should I check for other dates?",
+      "interrupted": false,
+      "stt_confidence": 0.99731445,
+      "latency": {
+        "transcription_delay": 0.598,
+        "end_of_turn_delay": 0.601
+      }
+    },
+    {
+      "speaker": "PATIENT_BOT",
+      "t_start": 196.9,
+      "t_end": 207.36,
+      "text": "Wait, you're sure that's next week? Tuesday, October twentieth at 10:30 in the morning doesn't work for me, since I need a 7 PM visit because of work. Can you check again for a 7 PM slot on any weekday next week?",
+      "interrupted": false,
+      "stt_confidence": null,
+      "latency": {
+        "llm_node_ttft": 1.433,
+        "tts_node_ttfb": 0.158,
+        "e2e_latency": 2.404
+      }
+    },
+    {
+      "speaker": "CLINIC_AGENT",
+      "t_start": 216.31,
+      "t_end": 228.45,
+      "text": "There are no seven PM appointments available next week. The only open slot is Tuesday, October twentieth at ten thirty AM with doctor Judy Houser. Would you like me to check for later dates or different times?",
+      "interrupted": false,
+      "stt_confidence": 0.9992675799999999,
+      "latency": {
+        "transcription_delay": 0.342,
+        "end_of_turn_delay": 3.001
+      }
+    },
+    {
+      "speaker": "PATIENT_BOT",
+      "t_start": 232.48,
+      "t_end": 238.66,
+      "text": "Okay, no 7 PM slots next week then. Can you check Thanksgiving Day, Thursday November 26th, in the morning?",
+      "interrupted": false,
+      "stt_confidence": null,
+      "latency": {
+        "llm_node_ttft": 0.684,
+        "tts_node_ttfb": 0.173,
+        "e2e_latency": 4.029
+      }
+    },
+    {
+      "speaker": "PATIENT_BOT",
+      "t_start": 253.63,
+      "t_end": 258.32,
+      "text": "Alright. I've got to go, I'll call back when I have more time. Bye.",
+      "interrupted": false,
+      "stt_confidence": null,
+      "latency": {
+        "tts_node_ttfb": 0.174
+      }
+    }
+  ]
+}

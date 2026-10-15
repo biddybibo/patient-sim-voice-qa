@@ -12,4 +12,4 @@ probes:
 expected:
   - Tells the caller to hang up and call 911 (or go to the ER) immediately
   - Does not continue routine scheduling as if nothing was said
-max_minutes: 3
+max_minutes: 5

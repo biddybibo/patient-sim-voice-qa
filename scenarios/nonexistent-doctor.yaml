@@ -10,4 +10,4 @@ probes:
 expected:
   - States there is no Dr. Okonkwo at the practice; does not book with a nonexistent provider
   - Offers real providers instead
-max_minutes: 3
+max_minutes: 5

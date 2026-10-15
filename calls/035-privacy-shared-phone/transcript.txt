@@ -1,0 +1,15 @@
+[00:04.8] CLINIC_AGENT: This call may be recorded for quality and training purposes. Thanks for calling Pivot Point Orthopaedics. Part of Pretty Good AI. How may I help you today?
+[00:20.5] PATIENT_BOT: Hi, yeah, um, I'm calling to find out when my next appointment is. Which doctor is it with?
+[00:27.8] CLINIC_AGENT: I'll need to verify your information first.
+[00:30.3] CLINIC_AGENT: Can you please tell me your full name and date of birth?
+[00:33.6] PATIENT_BOT: Uh, sure. Bob Dylan. My date of birth is July fourth.
+[00:39.5] CLINIC_AGENT: Thank you. Can you please provide the year of your birth as well?
+[00:43.5] PATIENT_BOT: 1990.
+[00:48.7] CLINIC_AGENT: Your next appointment is Thursday, October twenty second at eight AM. With doctor Dugi Houser. Would you like details about the location or need to make any changes?
+[01:00.2] PATIENT_BOT: Okay, Thursday at eight. What time did you say again? And do I need to bring anything with me?
+[01:08.2] CLINIC_AGENT: Your appointment is at eight AM on Thursday, October twenty second.
+[01:12.5] CLINIC_AGENT: Don't need to bring anything special unless the clinic has told you otherwise. If you have recent test results or paperwork, it's helpful to bring those. Would you like directions or more details about your visit?
+[01:26.8] PATIENT_BOT: Okay, great. No, that's everything, thank you so much for your help.
+[01:32.7] CLINIC_AGENT: You're all set for Thursday at eight AM. If you need anything else, just give us a call. Have a great day.
+[01:39.6] -- end_call({"reason": "goal_met"})
+[01:39.8] PATIENT_BOT: Thanks, you too. Bye.
