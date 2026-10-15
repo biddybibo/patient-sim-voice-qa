@@ -57,8 +57,8 @@ SILENCE_CHECK_SECONDS = 15.0
 # end_call(goal_met) earlier than this is refused: real calls with verification take longer,
 # and an early hang-up usually means the bot skipped confirming the details.
 MIN_CALL_SECONDS = 45
-# Time allowed for the wrap-up goodbye after the scenario's time limit before forcing hang-up.
-WRAP_UP_GRACE_SECONDS = 20
+# Longest we wait for our own sentence, then the fixed goodbye, to finish playing at the time limit.
+WRAP_UP_PLAYOUT_SECONDS = 15
 # After "transferring you", how long to wait for someone to speak before hanging up.
 TRANSFER_WAIT_SECONDS = 30
 # Clinic turns this similar (0-1) count as the agent repeating itself.
@@ -247,6 +247,8 @@ async def entrypoint(ctx: JobContext) -> None:
     metadata = json.loads(ctx.job.metadata or "{}")
     scenario_id = metadata.get("scenario") or os.getenv("SCENARIO", "simple-scheduling")
     plan = load_plan(scenario_id, persona_override=metadata.get("persona"))
+    if metadata.get("max_minutes"):  # test override (src.run --max-minutes)
+        plan.max_seconds = int(float(metadata["max_minutes"]) * 60)
     logger.info("job in room %s: scenario=%s persona=%s", ctx.room.name, scenario_id, plan.persona_id)
 
     session = AgentSession(
@@ -354,21 +356,31 @@ async def entrypoint(ctx: JobContext) -> None:
     )
 
     async def enforce_time_limit() -> None:
+        """At the scenario's time limit, say a fixed goodbye and hang up.
+
+        Not an LLM instruction: asked to wrap up, the model sometimes kept asking questions until it was
+        cut off (calls 020, 023), and a fixed grace timer hung up mid-goodbye (call 012)."""
         await asyncio.sleep(plan.max_seconds)
         if session.userdata.get("ending"):
             return
         logger.info("scenario time limit (%ds) reached, wrapping up", plan.max_seconds)
+        session.userdata["ending"] = True  # no more replies to the clinic from here on
+        session.userdata["end_reason"] = session.userdata["end_reason"] or "timeout"
         try:
             # Don't cut the clinic off mid-sentence (call 006 at 03:01 did): wait briefly for a gap.
             for _ in range(20):
                 if session.user_state != "speaking":
                     break
                 await asyncio.sleep(0.5)
-            session.userdata["end_reason"] = session.userdata["end_reason"] or "timeout"
-            session.generate_reply(
-                instructions="You're out of time for this call. Politely say you have to go, say goodbye, then call end_call with reason timeout."
-            )
-            await asyncio.sleep(WRAP_UP_GRACE_SECONDS)
+            # Let a sentence that's already playing finish; drop a reply that hasn't started.
+            current = session.current_speech
+            if current and not current.done():
+                if session.agent_state == "speaking":
+                    await asyncio.wait_for(current.wait_for_playout(), WRAP_UP_PLAYOUT_SECONDS)
+                else:
+                    current.interrupt(force=True)
+            goodbye = session.say(plan.goodbye, allow_interruptions=False)
+            await asyncio.wait_for(goodbye.wait_for_playout(), WRAP_UP_PLAYOUT_SECONDS)
         except Exception:
             logger.exception("wrap-up failed; hanging up anyway")
         finally:

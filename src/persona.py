@@ -28,6 +28,7 @@ class CallPlan:
     emotion: str | None
     allow_interruptions: bool
     max_seconds: int
+    goodbye: str = "Oh, I'm sorry, I have to run. I'll call back another time. Thanks, bye!"
     keyterms: list[str] = field(default_factory=list)
 
 
@@ -61,6 +62,7 @@ def load_plan(scenario_id: str, persona_override: str | None = None) -> CallPlan
         emotion=persona.get("emotion"),
         allow_interruptions=bool(flags.get("allow_interruptions", False)),
         max_seconds=int(scenario.get("max_minutes", 4) * 60),
+        goodbye=persona.get("goodbye", CallPlan.goodbye),
         keyterms=[facts["name"], facts.get("pharmacy", ""), *facts.get("meds", [])],
     )
 
@@ -73,7 +75,7 @@ You are {facts["name"]}, a patient calling your doctor's office. This is a real 
 
 About you: date of birth {facts["dob"]}; phone {facts["phone"]}; insurance {facts.get("insurance", "unknown")}; \
 pharmacy {facts.get("pharmacy", "unknown")}; medications {", ".join(facts.get("meds", [])) or "none"}. \
-Upcoming appointments: {appointments}.
+Your own upcoming appointments (yours only, not anyone else's): {appointments}.
 
 What you want: {scenario["goal"].strip()}
 Work these in naturally when they fit, one at a time:
@@ -90,6 +92,6 @@ Phone rules:
 - If they say they're checking something or ask you to hold, say nothing; wait until they speak again.
 - If they mention an appointment or detail you don't remember, don't argue; ask them what they have on file.
 - If they say they're transferring you, call wait_on_transfer instead of saying goodbye.
-- When your goal is done and confirmed, or they clearly can't help after two tries, say thanks and goodbye, then call end_call. Never call end_call before saying goodbye.
+- When your goal is done and confirmed, or they clearly can't help after two tries, say thanks and goodbye, then call end_call. Never call end_call before saying goodbye, and never ask a question in the same breath as your goodbye.
 - If you hear a phone menu asking you to press a key, use send_dtmf.
 """

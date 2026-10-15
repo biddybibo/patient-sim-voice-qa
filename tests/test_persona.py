@@ -29,3 +29,16 @@ def test_persona_override(persona_id):
 def test_unknown_scenario_is_rejected():
     with pytest.raises(ValueError, match="Unknown scenario"):
         load_plan("does-not-exist")
+
+
+@pytest.mark.parametrize("persona_id", list(PERSONAS))
+def test_every_persona_has_a_spoken_goodbye(persona_id):
+    # Used verbatim at the time limit (not an LLM instruction): must be a real goodbye, no question.
+    plan = load_plan("simple-scheduling", persona_override=persona_id)
+    assert "bye" in plan.goodbye.lower() and "?" not in plan.goodbye
+
+
+def test_caller_appointments_are_labelled_as_their_own():
+    # Call 011: calling about his wife, the bot offered its own appointment as hers.
+    plan = load_plan("spouse-asks-partner")
+    assert "Your own upcoming appointments (yours only" in plan.instructions

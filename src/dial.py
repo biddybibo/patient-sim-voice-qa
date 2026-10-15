@@ -29,7 +29,9 @@ class CallInfo:
     answered_at: float
 
 
-async def place_call(scenario: str, persona: str | None = None) -> CallInfo:
+async def place_call(
+    scenario: str, persona: str | None = None, max_minutes: float | None = None
+) -> CallInfo:
     target = check_dial_target(os.getenv("TARGET_NUMBER", "+18054398008"))
     trunk_id = config.require("SIP_OUTBOUND_TRUNK_ID")
     call_id = next_call_id(scenario)
@@ -45,7 +47,10 @@ async def place_call(scenario: str, persona: str | None = None) -> CallInfo:
             api.CreateAgentDispatchRequest(
                 agent_name=config.AGENT_NAME,
                 room=room_name,
-                metadata=json.dumps({"scenario": scenario, "persona": persona, "call_id": call_id}),
+                metadata=json.dumps(
+                    {"scenario": scenario, "persona": persona, "call_id": call_id,
+                     "max_minutes": max_minutes}
+                ),
             )
         )
 

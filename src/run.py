@@ -67,6 +67,7 @@ def main() -> None:
     parser.add_argument("--scenario", default="simple-scheduling", help=", ".join(list_scenarios()))
     parser.add_argument("--persona", help="override the scenario's persona (see scenarios/personas.yaml)")
     parser.add_argument("--llm", help="live LLM model id, e.g. claude-sonnet-5-5 (default: config.LIVE_LLM_MODEL)")
+    parser.add_argument("--max-minutes", type=float, help="override the scenario's time limit (testing)")
     parser.add_argument(
         "--no-worker", action="store_true", help="use a worker you already started"
     )
@@ -75,11 +76,13 @@ def main() -> None:
     if args.llm:
         os.environ["LIVE_LLM_MODEL"] = args.llm  # inherited by the worker subprocess
     plan = load_plan(args.scenario, args.persona)  # fail fast before starting anything
+    if args.max_minutes:
+        plan.max_seconds = int(args.max_minutes * 60)
     print(f"Scenario {args.scenario} as {plan.facts['name']} ({plan.persona_id}), limit {plan.max_seconds}s")
 
     worker = None if args.no_worker else start_worker()
     try:
-        call = asyncio.run(place_call(args.scenario, args.persona))
+        call = asyncio.run(place_call(args.scenario, args.persona, args.max_minutes))
         asyncio.run(wait_for_call_end(call.room_name, plan.max_seconds + WATCHDOG_GRACE))
         print(f"Call ended after {time.time() - call.answered_at:.0f}s")
         call_dir = CALLS_DIR / call.call_id
