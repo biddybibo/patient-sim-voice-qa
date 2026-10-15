@@ -29,5 +29,6 @@ accounts:
     insurance: Blue Shield of California PPO
     pharmacy: Walgreens on University Avenue in Palo Alto
     meds: [atorvastatin 20mg]
-    # History: call 003 booked Tue Oct 20 10 AM with Dr. Howser; call 004 cancelled it.
-    known_appointments: []
+    # History: call 003 booked Tue Oct 20 10 AM with Dr. Howser; call 004 cancelled it; call 009 booked it again.
+    known_appointments:
+      - Tuesday October 20th at 10 AM with Dr. Doogie Howser at Pivot Point Orthopedics, 1234 Recovery Way, Austin
