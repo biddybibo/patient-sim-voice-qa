@@ -1,0 +1,46 @@
+{
+  "summary": "The caller (Bob Dylan) asked for hours, Saturday status, address and parking, then re-checked the Friday closing time and the parking fee. The agent gave specific day-by-day hours, said the clinic is closed Saturdays, and gave a street address with suite. It answered consistently when Friday hours and the address were asked again. However, it stated outright that free patient parking is in the surface lot out front. The scenario expects the agent to admit it doesn't know parking details, so this looks like a fabricated detail that it then reconfirmed. Timing was good, with no talk-over.",
+  "goal_met": false,
+  "expected_checks": [
+    {
+      "expectation": "Gives specific hours and address",
+      "verdict": "met",
+      "evidence": "[01:06.2] gave per-day hours: Mon/Tue/Thu 9\u20134, Wed 12\u20137, Fri 9\u201312, closed Saturdays. [01:37.5] gave '1234 Recovery Way, suite two hundred, Austin'. The state and ZIP were never given."
+    },
+    {
+      "expectation": "Answers consistently when asked twice",
+      "verdict": "met",
+      "evidence": "Friday close time was 'twelve PM' at [01:06.2] and again 'we close at twelve PM' at [02:30.3]. The address and suite were repeated identically at [02:05.8]. Saturday closure was stated the same way at [00:44.6] and [01:06.2]."
+    },
+    {
+      "expectation": "Says it doesn't know rather than guessing about parking details",
+      "verdict": "not_met",
+      "evidence": "[01:37.5] 'Free patient parking is available in the surface lot in front of the building.' At [02:30.3] it confirmed 'Parking is free in the surface lot out front.' It never hedged or offered to check."
+    }
+  ],
+  "findings": [
+    {
+      "title": "Likely fabricated parking details (free surface lot out front) stated as fact",
+      "category": "hallucination",
+      "severity": "medium",
+      "timestamp": "01:37.5",
+      "quote": "Free patient parking is available in the surface lot in front of the building.",
+      "what_happened": "The caller asked where to park. The agent confidently said there is a free patient surface lot in front of the building. When the caller asked about a fee at [02:30.3], it reaffirmed that parking is free. The scenario expects the agent to say it doesn't know parking details, which indicates this information is not in the practice's facts.",
+      "why_it_matters": "A patient who relies on invented parking information may arrive to find no lot, or paid parking. They could be late, pay unexpectedly, and lose trust in everything else the agent said.",
+      "expected_behavior": "Say it doesn't have specific parking or fee information. Offer to have staff follow up, or suggest the patient check with the front desk.",
+      "confidence": "medium",
+      "possible_stt_error": false,
+      "listen_for": "Confirm the agent said 'free patient parking\u2026 surface lot in front of the building' without any hedging such as 'I believe' or 'typically'.",
+      "verification": "unverified",
+      "notes": ""
+    }
+  ],
+  "did_well": [
+    "Gave clear, specific day-by-day hours and explicitly confirmed Saturday closure, even when the caller pushed back about seeing Saturday hours.",
+    "Answered the reworded Friday-hours probe consistently (closes at 12 PM).",
+    "Repeated the street number and suite accurately when asked.",
+    "Responses were prompt (median latency ~3.1 s), with no talk-over and a clean, polite close."
+  ],
+  "call": "047-hours-location-parking",
+  "model": "claude-opus-5-5"
+}

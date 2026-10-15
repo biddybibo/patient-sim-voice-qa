@@ -1,0 +1,76 @@
+{
+  "summary": "Jane asked to book a check-up for \"Friday the 17th\" at 9 AM. The agent correctly said the 17th is a Saturday and offered Friday Oct 16 instead. It then blocked the booking because of an existing office visit it described as Fri Oct 23 at 9 AM with Dr. Lukowski. Ground truth has no such appointment. What is on file is Fri Oct 16 at 9:30 AM with Dr. Lukowski, plus the Mon Oct 19 follow-up. The agent then offered Oct 16 at 9:30 AM as an \"opening\", which is the slot Jane already holds. When the caller asked for Palo Alto, the agent said it would check Palo Alto, then repeated only Nashville times without saying whether a Palo Alto location exists. After the caller asked for \"the thirty-first of November\", the agent stayed silent for about 18 s and ended the call. Nothing was booked and the invalid-date probe was never answered.",
+  "goal_met": false,
+  "expected_checks": [
+    {
+      "expectation": "Notices that the 17th is a Saturday, not a Friday, and resolves the conflict with the caller",
+      "verdict": "met",
+      "evidence": "[01:54.7] \"This Friday is October sixteenth. October seventeenth falls on a Saturday. You like to book your checkup for Friday, October sixteenth at nine AM or another day?\""
+    },
+    {
+      "expectation": "Rejects November 31st as an invalid date",
+      "verdict": "not_tested",
+      "evidence": "The caller asked for \"the thirty-first of November\" at [04:41.6]. The agent never responded and the call ended via end_call at [05:09.0]."
+    },
+    {
+      "expectation": "Reads back an unambiguous date and weekday for anything it books",
+      "verdict": "not_tested",
+      "evidence": "Nothing was booked. Every proposed slot was stated with weekday and date (e.g. \"Friday, October sixteenth at nine AM\"), which is good, but no booking readback occurred."
+    }
+  ],
+  "findings": [
+    {
+      "title": "Reports a non-existent Fri Oct 23 9 AM appointment and misses the real Fri Oct 16 9:30 AM booking",
+      "category": "inconsistency",
+      "severity": "medium",
+      "timestamp": "01:15.2",
+      "quote": "You already have an office visit scheduled for Friday, October twenty third at nine AM with doctor Zebignew",
+      "what_happened": "Per ground truth (calls 040/044), Jane's Lukowski visit is Fri Oct 16 at 9:30 AM. The agent instead described it as Fri Oct 23 at 9 AM, repeated that several times, and used it to block the new booking. At [03:34.6] it then offered Fri Oct 16 at 9:30 AM as an open slot, which is the slot Jane already holds.",
+      "why_it_matters": "The caller gets a wrong picture of her schedule. She was nearly walked into rescheduling a phantom appointment, and could have been double-booked or had her real appointment overwritten.",
+      "expected_behavior": "Accurately report the appointments on file (Fri Oct 16 9:30 AM with Dr. Lukowski and Mon Oct 19 10 AM with Dr. Hauser). Recognise that the requested Oct 16 9 AM visit is adjacent to her existing Oct 16 booking.",
+      "confidence": "medium",
+      "possible_stt_error": true,
+      "listen_for": "Whether the agent actually says \"twenty third\" / \"nine AM\" (it is repeated consistently across 5 turns, so STT error is unlikely), and whether \"nine thirty\" on Oct 16 is offered as an opening.",
+      "verification": "unverified",
+      "notes": ""
+    },
+    {
+      "title": "Agent goes silent and ends the call instead of answering the caller's date request",
+      "category": "conversation",
+      "severity": "medium",
+      "timestamp": "05:09.0",
+      "quote": "-- end_call({\"reason\": \"blocked\"})",
+      "what_happened": "The caller asked whether anything was open in Palo Alto on \"the thirty-first of November\". The agent gave no response for about 18 s (the longest silence in the call), then ended the call without telling the caller the date does not exist or offering alternatives.",
+      "why_it_matters": "The caller is left with no booking and no explanation. An invalid date was neither rejected nor clarified, so the caller may still believe Nov 31 is valid.",
+      "expected_behavior": "Tell the caller November has only 30 days, offer Nov 30 or Dec 1 or other dates, and keep helping rather than hanging up.",
+      "confidence": "high",
+      "possible_stt_error": false,
+      "listen_for": "The roughly 18 s of dead air after the caller's Nov 31 request, and whether the agent says anything before disconnecting.",
+      "verification": "unverified",
+      "notes": ""
+    },
+    {
+      "title": "Says it will check Palo Alto, then repeats Nashville slots without addressing Palo Alto",
+      "category": "conversation",
+      "severity": "low",
+      "timestamp": "04:24.8",
+      "quote": "The next opening I see is Friday. October sixteenth at nine thirty AM in Nashville.",
+      "what_happened": "At [04:02.6] the agent offered to check Palo Alto openings. When the caller agreed, it returned only the same Nashville times. It never said whether a Palo Alto location exists or has availability.",
+      "why_it_matters": "The caller cannot tell whether Palo Alto was actually searched or whether the practice simply has no Palo Alto site. This led to frustration and an unresolved call.",
+      "expected_behavior": "State clearly which locations the practice has. If there is no Palo Alto location, say so rather than implying a search will be done.",
+      "confidence": "medium",
+      "possible_stt_error": false,
+      "listen_for": "Any mention of a Palo Alto search result or an explanation of the practice's locations.",
+      "verification": "unverified",
+      "notes": ""
+    }
+  ],
+  "did_well": [
+    "Caught that October 17th falls on a Saturday, not a Friday, and offered Friday October 16th as the resolution.",
+    "Verified identity by asking for the date of birth before discussing appointments.",
+    "Checked existing appointments before booking and asked whether to keep, reschedule or cancel instead of silently double-booking.",
+    "Gave each appointment with weekday, date, time and provider when listing them, and kept the Monday follow-up untouched as requested."
+  ],
+  "call": "051-impossible-date",
+  "model": "claude-opus-5-5"
+}

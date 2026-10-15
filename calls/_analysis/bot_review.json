@@ -800,5 +800,122 @@
         "severity": "noticeable"
       }
     ]
+  },
+  "045-routine-refill": {
+    "overall": "natural",
+    "issues": []
+  },
+  "046-simple-scheduling": {
+    "overall": "natural",
+    "issues": []
+  },
+  "047-hours-location-parking": {
+    "overall": "minor_issues",
+    "issues": [
+      {
+        "timestamp": "01:55.9",
+        "quote": "Recovery Way in Austin? I'm in Palo Alto, so I want to be sure.",
+        "problem": "The caller volunteers an unsupported location detail. Saying they live in Palo Alto while planning an in-person visit to an Austin clinic is odd, and the caller never follows up on the mismatch.",
+        "kind": "invented_detail",
+        "severity": "minor"
+      }
+    ]
+  },
+  "048-low-mood-disclosure": {
+    "overall": "minor_issues",
+    "issues": [
+      {
+        "timestamp": "01:59.5",
+        "quote": "Can you tell me if it's for my sleep?",
+        "problem": "The caller asks whether an appointment she supposedly already has is for her sleep, as though someone else booked it. She also drops her original request for a check-up without comment. Both are slightly odd for a real patient.",
+        "kind": "other",
+        "severity": "minor"
+      },
+      {
+        "timestamp": "03:40.6",
+        "quote": "Thanks, you too. Bye.",
+        "problem": "This extra goodbye comes after the bot had already triggered end_call. It also follows an earlier thank-you, so the closing feels slightly drawn out and mistimed.",
+        "kind": "unnatural_closing",
+        "severity": "minor"
+      }
+    ]
+  },
+  "049-after-hours-holiday": {
+    "overall": "noticeable_issues",
+    "issues": [
+      {
+        "timestamp": "00:35.0",
+        "quote": "Yes, this is Bob Dylan. Sorry, I'm not sure who Jane is, but I'm the one calling.",
+        "problem": "Says 'Yes' to 'Speaking with Jane?' and then says it doesn't know who Jane is, which is self-contradictory.",
+        "kind": "unnatural_wording",
+        "severity": "minor"
+      },
+      {
+        "timestamp": "03:43.4",
+        "quote": "Then I'll take the latest one, and I'd like to know which day it's on.",
+        "problem": "Commits to taking the latest slot, which it was just told is 2 PM, then flatly rejects 2 PM in the next turn as too early.",
+        "kind": "contradiction",
+        "severity": "noticeable"
+      },
+      {
+        "timestamp": "04:35.2",
+        "quote": "And before we book, what time do you close on weekdays?",
+        "problem": "Asks the closing-time question again even though the clinic already said it doesn't have that information.",
+        "kind": "repetition",
+        "severity": "noticeable"
+      },
+      {
+        "timestamp": "05:02.4",
+        "quote": "Hold on, I haven't confirmed the ten AM booking yet.",
+        "problem": "The clinic only said 10 AM was open and didn't book it, so the objection makes no sense. The bot then immediately asks to book it anyway.",
+        "kind": "other",
+        "severity": "noticeable"
+      }
+    ]
+  },
+  "050-nonexistent-doctor": {
+    "overall": "minor_issues",
+    "issues": [
+      {
+        "timestamp": "[00:40.5]",
+        "quote": "Dylan, that's D-Y-L-A-N. Sorry, I should have said that first.",
+        "problem": "The bot apologizes for not giving its last name first, but it had already given its full name. The apology doesn't make sense.",
+        "kind": "unnatural_wording",
+        "severity": "minor"
+      },
+      {
+        "timestamp": "[00:50.3]",
+        "quote": "Sorry, I think I'm being a bit slow here. My last name is Dylan.",
+        "problem": "The bot blames itself for being slow when it was the clinic that kept re-asking. A real caller would more likely just repeat the name or point out they already said it.",
+        "kind": "unnatural_wording",
+        "severity": "minor"
+      },
+      {
+        "timestamp": "[03:06.8]",
+        "quote": "I don't remember booking any of them, so could you just keep them as they are for now? And I'd really like to see Dr. Okonkwo next week for my knee.",
+        "problem": "It is illogical to ask the clinic to keep three appointments you say you never booked. The bot also repeats its Okonkwo request for the third time.",
+        "kind": "other",
+        "severity": "minor"
+      },
+      {
+        "timestamp": "[05:02.6]",
+        "quote": "Okay, thanks so much for your help. Bye.",
+        "problem": "The bot says goodbye before the clinic checked Dr. Bricker's schedule or booked anything. The goal of booking next week is left unfinished, so the call ends prematurely.",
+        "kind": "unnatural_closing",
+        "severity": "noticeable"
+      }
+    ]
+  },
+  "051-impossible-date": {
+    "overall": "minor_issues",
+    "issues": [
+      {
+        "timestamp": "03:46.6",
+        "quote": "Nashville? No, I'm not going to Nashville. I need a time here in Palo Alto.",
+        "problem": "The bot brings up Palo Alto as its home location even though nothing in the scenario or the call establishes it. This appears to be an invented detail, and it sends the call off on a location tangent.",
+        "kind": "invented_detail",
+        "severity": "minor"
+      }
+    ]
   }
 }

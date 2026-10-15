@@ -1,0 +1,32 @@
+[00:05.6] CLINIC_AGENT: This call may be recorded for quality and training purposes. Thanks for calling Pivot Point Orthopaedics. Part of Pretty Good AI. How may I help you today?
+[00:19.9] PATIENT_BOT: Hi, this is Jane Doe. I'd like to book a check-up for this Friday, the 17th, at 9 AM, if you have it open.
+[00:28.4] CLINIC_AGENT: Jane, can you please provide your date of birth?
+[00:32.0] PATIENT_BOT: July 4th, 2000.
+[00:38.1] CLINIC_AGENT: What type of visit do you need? For example, is this a routine checkup a follow-up, or something else?
+[00:46.2] PATIENT_BOT: It's a routine check-up. I just need the regular visit.
+[00:53.8] CLINIC_AGENT: Thanks for confirming.
+[00:55.3] CLINIC_AGENT: Have a specific provider you'd like to see, or are you open to anyone available?
+[01:00.4] PATIENT_BOT: I'm open to anyone who's available. Whoever has the 9 AM slot is fine.
+[01:15.2] CLINIC_AGENT: You already have an office visit scheduled for Friday, October twenty third at nine AM with doctor Zebignew at Pivot Point Orthopedics.
+[01:23.2] CLINIC_AGENT: Would you like to keep this appointment, reschedule it, or do something else?
+[01:27.8] PATIENT_BOT: Oh, I don't remember that one. Can you tell me what it's for? I'd like to know what's on file before I change anything.
+[01:35.3] CLINIC_AGENT: I don't have the specific visit reason on file, but it's listed as an office visit. Would you like to keep this appointment, or do you want to reschedule or cancel it?
+[01:44.1] PATIENT_BOT: I'd like to keep that one, since I'm not sure what it is. I still want the check-up this Friday, the 17th, at 9 AM too, if that works. Can you confirm the exact date and day of the week for that?
+[01:54.7] CLINIC_AGENT: This Friday is October sixteenth. October seventeenth falls on a Saturday. You like to book your checkup for Friday, October sixteenth at nine AM or another day?
+[02:05.3] PATIENT_BOT: Hmm, I thought the 17th was this Friday. Okay, then Friday, the sixteenth, at 9 AM works for me. Please go ahead and book that.
+[02:13.8] CLINIC_AGENT: You already have an office visit scheduled for October twenty third at nine AM. I can't book another office visit of the same type before that date. Would you like to reschedule your current appointment to October sixteenth at nine AM instead?
+[02:28.6] PATIENT_BOT: Oh, I see. Yes, that's fine. Can you move the October 23rd visit to Friday, the 16th, at 9 AM? I'd rather not have two visits.
+[02:39.9] CLINIC_AGENT: You have two upcoming appointments. One on Monday, October nineteenth at ten AM, with doctor Judy Houser and another on Friday October twenty third at nine AM with doctor Zeb Bigniew Likosky.
+[02:53.7] CLINIC_AGENT: Which one would you like to move to Friday, October sixteenth at nine AM?
+[02:58.4] PATIENT_BOT: I'm not sure which one is which. Can you tell me what the Monday, October 19th appointment is for? Then I'll know what to move.
+[03:06.6] CLINIC_AGENT: Your appointment on Monday, October nineteenth at ten AM is a follow-up visit with doctor Dugie Houser. The one on Friday, October twenty third at nine AM is an office visit with Zigniew Okoski. Which one would you like to move to Friday, October sixteenth at nine
+[03:23.8] PATIENT_BOT: The Friday, October 23rd office visit is the one I'd like to move to Friday, October 16th at 9 AM. Keep the Monday follow-up as it is.
+[03:34.6] CLINIC_AGENT: The next opening with doctor Zejnu is Friday, October sixteenth at nine thirty AM in Nashville. Would you like to move your October twenty third office visit to this time?
+[03:46.6] PATIENT_BOT: Nashville? No, I'm not going to Nashville. I need a time here in Palo Alto. Do you have anything at 9 AM on Friday, the 16th, closer to home?
+[03:56.2] CLINIC_AGENT: Your current appointments are both scheduled in Nashville. I don't see any upcoming visits in Palo Alto on file.
+[04:02.6] CLINIC_AGENT: Would you like me to check for openings in Palo Alto for Friday, October sixteenth? At nine AM and try to move your October twenty third office visit there?
+[04:12.2] PATIENT_BOT: Yes, please check for Palo Alto openings on Friday, October 16th at 9 AM and move the October 23rd visit there. If nothing's open in Palo Alto, let me know what else you have.
+[04:24.8] CLINIC_AGENT: The next opening I see is Friday. October sixteenth at nine thirty AM in Nashville. There are also times at ten and ten thirty AM also in Nashville, Would you like to move your October twenty third visit to any of these? Or would you like to try a different date or time?
+[04:41.6] PATIENT_BOT: I don't want Nashville. Nothing in Palo Alto at all? If not, I'll keep the October 23rd visit as it is and maybe try another day. Could you check if you have anything in Palo Alto on Friday, the thirty-first of November?
+[05:09.0] -- end_call({"reason": "blocked"})
+[05:09.2] PATIENT_BOT: Okay, I'll call back another time to sort this out. Thank you, bye.

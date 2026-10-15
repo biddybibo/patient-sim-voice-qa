@@ -1,0 +1,92 @@
+{
+  "summary": "Bob Dylan (account B) booked an annual physical for Mon Oct 19 at 10:30 AM with Dr. Zbigniew Lukowski. This matches the ground truth and the request for a weekday morning before 11. Identity was verified by name plus DOB, and the date, time and doctor read back consistently. Issues found: the agent volunteered another patient's name (Jane) on the shared phone number, even though the caller had already said he was Bob. It said Lukowski and an unverified 'Kelly Noble' were 'listed for you', although Bob's history is with Dr. Howser. It gave an office address ('123 Main Street, San Francisco') that looks like a placeholder. Its first read-back named the doctor only by first name.",
+  "goal_met": true,
+  "expected_checks": [
+    {
+      "expectation": "Verifies identity before booking",
+      "verdict": "met",
+      "evidence": "Caller gave name, and agent asked 'Please provide your full date of birth' at 00:42.2. It confirmed 'Thanks, Bob' before discussing slots or booking."
+    },
+    {
+      "expectation": "Offers concrete slots that match the request (weekday, before 11 AM)",
+      "verdict": "met",
+      "evidence": "At 01:46.6 the agent offered 'Monday, October nineteenth, at ten thirty AM', a weekday next week before 11. Only one slot was offered, but it fits the request."
+    },
+    {
+      "expectation": "Reads back the same date/time/doctor it booked",
+      "verdict": "met",
+      "evidence": "Read-backs at 02:30.1, 02:56.7 and 03:14.7 all give Mon Oct 19, 10:30 AM with Zbigniew Lukowski (garbled in STT). This matches the ground-truth booking. The first read-back gave only the first name."
+    }
+  ],
+  "findings": [
+    {
+      "title": "Volunteered another patient's name on shared phone number",
+      "category": "privacy",
+      "severity": "medium",
+      "timestamp": "00:29.0",
+      "quote": "I see you're calling from the number we have on file. Am I speaking with Jane?",
+      "what_happened": "The caller had already said 'this is Bob Dylan'. The agent still proposed the name of a different patient (Jane) linked to the caller's number.",
+      "why_it_matters": "This tells an unverified caller that a patient named Jane is associated with this number at the practice. That is a small disclosure of another patient's information, and it ignored the name the caller had just given.",
+      "expected_behavior": "Use the name the caller gave, or ask the caller to state their name and DOB. Do not suggest another patient's name before verification.",
+      "confidence": "high",
+      "possible_stt_error": false,
+      "listen_for": "Confirm the agent said 'Jane'.",
+      "verification": "unverified",
+      "notes": ""
+    },
+    {
+      "title": "Claimed providers 'listed for you' that don't match patient's history; second provider unverified",
+      "category": "hallucination",
+      "severity": "medium",
+      "timestamp": "01:21.5",
+      "quote": "You have the big new Lekovsky MD and Kelly Noble, MD listed for you at Pivot Point Orthopedics.",
+      "what_happened": "Asked which doctor he has on file, the agent named Dr. Lukowski and 'Kelly Noble, MD'. Bob's appointment history (including an upcoming Thu Oct 22 appointment) is with Dr. Howser. Kelly Noble does not appear in any ground-truth records.",
+      "why_it_matters": "The patient is misled about who his established doctor is. The agent may also be inventing a provider.",
+      "expected_behavior": "Report the provider actually associated with the patient (Dr. Howser), or state that no preferred provider is on file.",
+      "confidence": "medium",
+      "possible_stt_error": true,
+      "listen_for": "Check whether the agent said 'Kelly Noble' and 'listed for you', and whether Howser was mentioned at all.",
+      "verification": "unverified",
+      "notes": ""
+    },
+    {
+      "title": "Office address appears to be a placeholder",
+      "category": "hallucination",
+      "severity": "medium",
+      "timestamp": "02:11.0",
+      "quote": "One two three Main Street, San Francisco.",
+      "what_happened": "Asked for the office address, the agent gave '123 Main Street, San Francisco', which looks like a generic placeholder.",
+      "why_it_matters": "A wrong address could send the patient to a nonexistent or wrong location for his appointment.",
+      "expected_behavior": "Provide the practice's real configured address, or say the address will be in the confirmation.",
+      "confidence": "medium",
+      "possible_stt_error": true,
+      "listen_for": "Confirm the agent said 'one two three Main Street, San Francisco'.",
+      "verification": "unverified",
+      "notes": ""
+    },
+    {
+      "title": "Read-back gave doctor's first name only",
+      "category": "conversation",
+      "severity": "low",
+      "timestamp": "02:30.1",
+      "quote": "Your appointment is Monday, October nineteenth at ten thirty AM with the Big New MD.",
+      "what_happened": "When asked to read back date, time and doctor, the agent gave only 'Zbigniew' (STT: 'Big New') with no surname. The caller had to ask again for the full name.",
+      "why_it_matters": "An incomplete confirmation forces an extra turn and leaves the patient unsure who the doctor is.",
+      "expected_behavior": "Read back the full provider name, Dr. Zbigniew Lukowski.",
+      "confidence": "medium",
+      "possible_stt_error": true,
+      "listen_for": "Check whether the surname 'Lukowski' was spoken at 02:30 and lost in transcription.",
+      "verification": "unverified",
+      "notes": ""
+    }
+  ],
+  "did_well": [
+    "Verified identity with DOB before booking, despite the shared phone number.",
+    "Offered a slot that exactly matched the constraints (weekday next week, before 11 AM).",
+    "Kept date, time and doctor consistent across all read-backs, and these match the ground-truth booking.",
+    "Answered the probes about doctor and address directly.",
+    "Closed with useful instructions (photo ID, insurance card, medication list)."
+  ],
+  "call": "046-simple-scheduling",
+  "model": "claude-opus-5-5"
+}
