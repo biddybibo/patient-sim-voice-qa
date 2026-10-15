@@ -27,6 +27,7 @@ class CallPlan:
     speed: float
     emotion: str | None
     allow_interruptions: bool
+    barge_in: bool
     max_seconds: int
     goodbye: str = "Oh, I'm sorry, I have to run. I'll call back another time. Thanks, bye!"
     keyterms: list[str] = field(default_factory=list)
@@ -61,6 +62,7 @@ def load_plan(scenario_id: str, persona_override: str | None = None) -> CallPlan
         speed=float(persona.get("speed", 1.0)),
         emotion=persona.get("emotion"),
         allow_interruptions=bool(flags.get("allow_interruptions", False)),
+        barge_in=bool(flags.get("barge_in", False)),
         max_seconds=int(scenario.get("max_minutes", 5) * 60),
         goodbye=persona.get("goodbye", CallPlan.goodbye),
         keyterms=[facts["name"], facts.get("pharmacy", ""), *facts.get("meds", [])],

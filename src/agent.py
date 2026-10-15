@@ -63,6 +63,10 @@ WRAP_UP_PLAYOUT_SECONDS = 15
 WRAP_UP_ANSWER_SECONDS = 25
 # After "transferring you", how long to wait for someone to speak before hanging up.
 TRANSFER_WAIT_SECONDS = 30
+# Barge-in scenarios: cut in once, after the clinic has been talking this long in one turn...
+BARGE_IN_AFTER_SECONDS = 4.0
+# ...but not during the opening (greeting and identity checks).
+BARGE_IN_NOT_BEFORE_SECONDS = 25.0
 # Clinic turns this similar (0-1) count as the agent repeating itself.
 REPEAT_SIMILARITY = 0.8
 
@@ -240,6 +244,10 @@ async def save_call(ctx: JobContext) -> None:
             "scenario": meta.get("scenario"),
             "persona": session.userdata.get("persona"),
             "llm": session.userdata.get("llm"),
+            "barge_in_at_s": (
+                round(session.userdata["barge_in_at"] - t0, 2)
+                if session.userdata.get("barge_in_at") else None
+            ),
             "room": report.room,
             "recording_started_at": t0,
         },
@@ -293,6 +301,7 @@ async def entrypoint(ctx: JobContext) -> None:
         if ev.new_state == "speaking":
             heard_clinic.set()
             session.userdata["last_clinic_speech"] = time.time()
+            session.userdata.setdefault("clinic_speaking_since", time.time())
             # The clinic kept talking after we decided their turn was over: drop the queued
             # reply if none of it has played yet (call 002 at 00:08.8). Interruptions are
             # off, so LiveKit won't do this for us.
@@ -302,10 +311,13 @@ async def entrypoint(ctx: JobContext) -> None:
                 and not speech.done()
                 and session.agent_state != "speaking"
                 and not session.userdata.get("ending")
+                and not session.userdata.get("barging")  # a deliberate interruption must play
             ):
                 logger.info("clinic resumed before our reply played; dropping it")
                 speech.interrupt(force=True)
-        elif ev.new_state == "away" and heard_clinic.is_set() and not session.userdata.get("ending"):
+        if ev.new_state != "speaking":
+            session.userdata.pop("clinic_speaking_since", None)
+        if ev.new_state == "away" and heard_clinic.is_set() and not session.userdata.get("ending"):
             # Long silence mid-call (e.g. a lookup that never came back): check once per silence.
             logger.info("line silent for %.0fs, checking in", SILENCE_CHECK_SECONDS)
             session.generate_reply(
@@ -427,10 +439,47 @@ async def entrypoint(ctx: JobContext) -> None:
             # Always hang up, whatever happened above.
             await ctx.delete_room()
 
+    async def barge_in_once() -> None:
+        """Interruption scenarios: cut in once while the clinic is mid-turn (e.g. reading out a list of slots),
+        the way real callers do, to test whether the agent stops, listens and keeps context. Everywhere else
+        the bot never talks over the clinic."""
+        while not session.userdata.get("ending"):
+            await asyncio.sleep(0.25)
+            since = session.userdata.get("clinic_speaking_since")
+            now = time.time()
+            if (
+                since
+                and session.user_state == "speaking"
+                and session.agent_state != "speaking"
+                and now - since >= BARGE_IN_AFTER_SECONDS
+                and now - session.userdata["started_at"] >= BARGE_IN_NOT_BEFORE_SECONDS
+            ):
+                logger.info("barge-in: cutting in after the clinic has talked %.1fs", now - since)
+                session.userdata["barging"] = True
+                session.userdata["barge_in_at"] = now
+                try:
+                    handle = session.generate_reply(
+                        instructions=(
+                            "Cut in right now, mid-sentence, the way people do on the phone: one short sentence "
+                            "starting with something like 'Sorry to jump in' that redirects them to what you want "
+                            "(see your goal). Don't comment on what they were saying."
+                        ),
+                        allow_interruptions=False,
+                    )
+                    await asyncio.wait_for(handle.wait_for_playout(), 15)
+                except Exception:
+                    logger.exception("barge-in failed")
+                finally:
+                    session.userdata["barging"] = False
+                return
+
     time_limit = asyncio.create_task(enforce_time_limit())
+    barge_in = asyncio.create_task(barge_in_once()) if plan.barge_in else None
 
     async def cancel_time_limit() -> None:
         time_limit.cancel()
+        if barge_in:
+            barge_in.cancel()
 
     ctx.add_shutdown_callback(cancel_time_limit)
 

@@ -1,0 +1,17 @@
+id: barge-in
+category: conversational
+persona: rushed_professional
+caller: B
+# flags.barge_in: the bot cuts in once while the clinic is mid-turn (src/agent.py barge_in_once). Tests the
+# brief's "interruptions" edge case: does the agent stop talking, take in the new request, and keep context?
+goal: >-
+  Book a follow-up visit next week. You're in a hurry and only Thursday afternoon works for you. If they
+  start reading out a list of times or days, interrupt to ask for Thursday afternoon.
+probes:
+  - After they answer, confirm the day and time they're booking you for.
+expected:
+  - Stops talking promptly when the caller cuts in (no long talk-over)
+  - Responds to the interruption (Thursday afternoon) instead of finishing or restarting the list
+  - "Keeps context: doesn't re-verify identity or lose the request after the interruption"
+flags: {barge_in: true}
+max_minutes: 5
