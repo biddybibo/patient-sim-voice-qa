@@ -1,0 +1,153 @@
+{
+  "call_id": "011-spouse-asks-partner",
+  "scenario": "spouse-asks-partner",
+  "persona": "chatty_oversharer",
+  "llm": "claude-haiku-5-5",
+  "room": "call-011-spouse-asks-partner-1792036594",
+  "recording_started_at": 1792036596.088394,
+  "turns": [
+    {
+      "speaker": "CLINIC_AGENT",
+      "t_start": 4.92,
+      "t_end": 16.6,
+      "text": "This call may be recorded for quality and training purposes. Thanks for calling Pivot Point Orthopaedics. Part of Pretty Good AI. How may I help you today?",
+      "interrupted": false,
+      "stt_confidence": 0.990234375,
+      "latency": {
+        "transcription_delay": 0.236,
+        "end_of_turn_delay": 1.5
+      }
+    },
+    {
+      "speaker": "PATIENT_BOT",
+      "t_start": 19.24,
+      "t_end": 28.76,
+      "text": "Hi there, this is Bob Dylan calling. I'm checking on my wife's next appointment, Jane Doe. She lost the reminder and asked me to find out when it is and which doctor she's seeing.",
+      "interrupted": false,
+      "stt_confidence": null,
+      "latency": {
+        "llm_node_ttft": 0.796,
+        "tts_node_ttfb": 0.128,
+        "e2e_latency": 2.637
+      }
+    },
+    {
+      "speaker": "CLINIC_AGENT",
+      "t_start": 33.22,
+      "t_end": 35.75,
+      "text": "Can you please provide Jane Doe's full date of birth?",
+      "interrupted": false,
+      "stt_confidence": 0.99902344,
+      "latency": {
+        "transcription_delay": 0.26,
+        "end_of_turn_delay": 0.601
+      }
+    },
+    {
+      "speaker": "PATIENT_BOT",
+      "t_start": 37.06,
+      "t_end": 39.85,
+      "text": "Sure, her date of birth is July 4th, 2000.",
+      "interrupted": false,
+      "stt_confidence": null,
+      "latency": {
+        "llm_node_ttft": 0.734,
+        "tts_node_ttfb": 0.232,
+        "e2e_latency": 1.311
+      }
+    },
+    {
+      "speaker": "CLINIC_AGENT",
+      "t_start": 53.71,
+      "t_end": 58.05,
+      "text": "Jane does not have any upcoming appointments scheduled. Would you like to book one for her?",
+      "interrupted": false,
+      "stt_confidence": 0.9615885466666666,
+      "latency": {
+        "transcription_delay": 0.227,
+        "end_of_turn_delay": 0.601
+      }
+    },
+    {
+      "speaker": "PATIENT_BOT",
+      "t_start": 59.82,
+      "t_end": 68.83,
+      "text": "That's odd, because she definitely told me she has one. Could you double-check under her name and date of birth? I'm pretty sure it's Tuesday, October 20th at 10 AM with Dr. Doogie Howser.",
+      "interrupted": false,
+      "stt_confidence": null,
+      "latency": {
+        "llm_node_ttft": 1.177,
+        "tts_node_ttfb": 0.14,
+        "e2e_latency": 1.767
+      }
+    },
+    {
+      "speaker": "CLINIC_AGENT",
+      "t_start": 71.82,
+      "t_end": 87.05,
+      "text": "I checked Jane's chart, and there are no upcoming appointments listed. Sometimes appointments may not appear if they were booked outside our system or recently changed. Would you like me to help book a new appointment for her? Or should I have the clinic support team follow-up to double check?",
+      "interrupted": false,
+      "stt_confidence": 1.0,
+      "latency": {
+        "transcription_delay": 0.343,
+        "end_of_turn_delay": 0.601
+      }
+    },
+    {
+      "speaker": "PATIENT_BOT",
+      "t_start": 89.53,
+      "t_end": 100.31,
+      "text": "Hmm, okay. I'd rather not book something new until we know what's already on the books, so could you have the clinic support team follow up and double-check? Could you also tell me whether they can at least confirm the day of her appointment?",
+      "interrupted": false,
+      "stt_confidence": null,
+      "latency": {
+        "llm_node_ttft": 1.125,
+        "tts_node_ttfb": 0.151,
+        "e2e_latency": 2.477
+      }
+    },
+    {
+      "speaker": "CLINIC_AGENT",
+      "t_start": 107.11,
+      "t_end": 116.65,
+      "text": "I've asked the clinic support team to double check Jane's appointment details and follow-up with you. They'll get back to you as soon as they can. Is there anything else I can help with right now?",
+      "interrupted": false,
+      "stt_confidence": 0.99975586,
+      "latency": {
+        "transcription_delay": 0.168,
+        "end_of_turn_delay": 0.601
+      }
+    },
+    {
+      "speaker": "PATIENT_BOT",
+      "t_start": 118.68,
+      "t_end": 128.2,
+      "text": "Thanks so much, that's a big help. The best number to reach me is 650-996-3518. That's all I needed, so have a great day!",
+      "interrupted": false,
+      "stt_confidence": null,
+      "latency": {
+        "llm_node_ttft": 1.091,
+        "tts_node_ttfb": 0.13,
+        "e2e_latency": 2.028
+      }
+    },
+    {
+      "speaker": "CLINIC_AGENT",
+      "t_start": 131.32,
+      "t_end": 139.7,
+      "text": "I have your number as six five zero nine nine six three five one eight. The clinic team will follow-up soon. Take care.",
+      "interrupted": false,
+      "stt_confidence": 1.0,
+      "latency": {
+        "transcription_delay": 0.282,
+        "end_of_turn_delay": 3.001
+      }
+    },
+    {
+      "speaker": "TOOL",
+      "t_start": 144.3,
+      "t_end": null,
+      "text": "end_call({\"reason\": \"goal_met\"})"
+    }
+  ]
+}

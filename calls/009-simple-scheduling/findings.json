@@ -1,0 +1,47 @@
+{
+  "summary": "Bob Dylan called to book an annual physical next week on a weekday morning before 11. The agent verified him by name and date of birth and offered Tuesday Oct 20 at 10 AM with Dr. Howser. It booked the slot, gave the office address and read back the same date, time and doctor. This matches the ground truth (call 009 booked Tue Oct 20, 10 AM, Dr. Howser). There was no talk-over and latency was acceptable. The only notable issue is that the agent guessed the caller was 'Jane' from the shared phone number, revealing another patient's first name to an unverified caller.",
+  "goal_met": true,
+  "expected_checks": [
+    {
+      "expectation": "Verifies identity before booking",
+      "verdict": "met",
+      "evidence": "The agent asked for the full date of birth after the caller gave his name (00:38.6). It confirmed 'Thanks, Bob' (00:48.7) before offering or booking any slot."
+    },
+    {
+      "expectation": "Offers concrete slots that match the request (weekday, before 11 AM)",
+      "verdict": "met",
+      "evidence": "At 01:05.7 it offered 'Tuesday, October twentieth at ten AM', a weekday morning before 11 next week. Only one slot was offered, but it fit the request."
+    },
+    {
+      "expectation": "Reads back the same date/time/doctor it booked",
+      "verdict": "met",
+      "evidence": "It confirmed at 01:23.0 and read back at 01:49.2: 'Tuesday, October twentieth at ten AM with doctor Dugi Hauser'. This is consistent across turns and with the record (Dr. Doogie Howser, Tue Oct 20 10 AM)."
+    }
+  ],
+  "findings": [
+    {
+      "title": "Agent volunteers another patient's name to an unverified caller",
+      "category": "privacy",
+      "severity": "medium",
+      "timestamp": "00:28.7",
+      "quote": "I see you're calling from the number we have on file. Am I speaking with Jane?",
+      "what_happened": "The agent matched the caller ID to a patient record before any identity check. It then asked whether the caller was 'Jane', disclosing that a patient named Jane is associated with this number. The caller was actually Bob Dylan, a different patient who shares the same phone number on file.",
+      "why_it_matters": "An unverified caller learns the name of another patient linked to that number, a small but real disclosure. Shared household or family numbers are common, so guessing a name from caller ID can leak who else is a patient at the practice.",
+      "expected_behavior": "Ask the caller to state their own name and date of birth without suggesting a name from the record. Alternatively, say a record matches the number and ask who is calling.",
+      "confidence": "medium",
+      "possible_stt_error": false,
+      "listen_for": "Confirm the agent actually said the name 'Jane' at 00:28.7 rather than a generic prompt.",
+      "verification": "unverified",
+      "notes": ""
+    }
+  ],
+  "did_well": [
+    "Did not accept the caller-ID match blindly. When the caller said he was not Jane, it switched to the correct patient and verified by date of birth.",
+    "Offered a slot that matched every constraint (next week, weekday, before 11 AM) without extra back-and-forth.",
+    "Read back date, time, doctor and full address, including suite number. Details stayed consistent across the confirmation and the final read-back and match the booked record.",
+    "Gave useful preparation instructions (photo ID, insurance card, medication list) and offered a text confirmation, respecting the caller's decline.",
+    "Kept the call short and efficient for a rushed caller, with no talk-over and reasonable response latency."
+  ],
+  "call": "009-simple-scheduling",
+  "model": "claude-opus-5-5"
+}

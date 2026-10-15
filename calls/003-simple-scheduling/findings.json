@@ -1,0 +1,78 @@
+{
+  "summary": "Rushed caller Bob Dylan (account B) booked an annual physical. The agent checked his date of birth and offered Tue Oct 20 at 10 AM, a weekday morning before 11. It booked that slot with Dr. Howser at the correct address, 1234 Recovery Way, Austin, which matches ground truth. The booking succeeded. Problems: the doctor's spoken name changed across turns (Judy Hauser, Dugi Houser, Doo Dehauser, Duvi Hauser) until the caller asked for a spelling. The agent also offered to text the details, then ignored the caller's yes and the number he gave. There was one long silence of about 8.7 s.",
+  "goal_met": true,
+  "expected_checks": [
+    {
+      "expectation": "Verifies identity before booking",
+      "verdict": "met",
+      "evidence": "After the caller gave his name, the agent asked 'Can you please provide your date of birth?' [00:27.1]. It searched for slots only after receiving July 4th, 1990."
+    },
+    {
+      "expectation": "Offers concrete slots that match the request (weekday, before 11 AM)",
+      "verdict": "met",
+      "evidence": "[00:57.9] 'The first available slot is Tuesday, October twentieth, at ten AM' is a weekday morning before 11 next week. Only one slot was offered, but it was concrete and matched the request."
+    },
+    {
+      "expectation": "Reads back the same date/time/doctor it booked",
+      "verdict": "met",
+      "evidence": "Date and time were read back the same way each time (Tue Oct 20, 10 AM), matching the call 003 history. The doctor was spelled H-O-W-S-E-R, matching Dr. Howser. However, the spoken name varied across turns and needed clarification (see finding)."
+    }
+  ],
+  "findings": [
+    {
+      "title": "Doctor's name pronounced inconsistently across turns; first offer may have named 'Judy Hauser'",
+      "category": "inconsistency",
+      "severity": "medium",
+      "timestamp": "00:57.9",
+      "quote": "at ten AM with doctor Judy Hauser",
+      "what_happened": "The agent first offered the slot with 'doctor Judy Hauser'. It then said 'Dugi Houser' [01:22.2], 'Doo Dehauser' [01:57.3] and 'Duvi Hauser' [02:12.3]. When the caller explicitly asked which name was correct, the agent repeated yet another variant without acknowledging the confusion. Only when asked to spell did it give H-O-W-S-E-R.",
+      "why_it_matters": "The caller could not tell which provider he was booked with. 'Judy' versus 'Doogie' could suggest a different provider, which erodes trust and could cause confusion at check-in.",
+      "expected_behavior": "Say the provider's full name consistently (Dr. Doogie Howser). When the caller flags confusion, clearly state the full name and offer to spell it.",
+      "confidence": "medium",
+      "possible_stt_error": true,
+      "listen_for": "Listen at 00:57.9 for whether the TTS says 'Judy' or a mispronounced 'Doogie'. Also check whether the later variants are TTS mispronunciations or our transcription.",
+      "verification": "unverified",
+      "notes": ""
+    },
+    {
+      "title": "Offered to text appointment details, then ignored the caller's request",
+      "category": "conversation",
+      "severity": "medium",
+      "timestamp": "01:57.3",
+      "quote": "Your appointment is Tuesday, October twentieth at ten AM with doctor Doo Dehauser.",
+      "what_happened": "At 01:22.2 the agent asked 'Would you like me to text you these details?' The caller said yes and gave 650-996-3518, which differs from the number on file ending 0751. The agent never confirmed or declined the text, never addressed the different number, and closed with 'You're all set'.",
+      "why_it_matters": "The caller may expect a confirmation text that never arrives. A request to send to an unverified number different from the one on file should also be addressed explicitly.",
+      "expected_behavior": "Confirm whether the text will be sent and to which number. If policy only allows the number on file, explain that and offer to send there.",
+      "confidence": "high",
+      "possible_stt_error": false,
+      "listen_for": "Check whether any text-confirmation acknowledgement was spoken but missed in the transcript.",
+      "verification": "unverified",
+      "notes": ""
+    },
+    {
+      "title": "Long silence after the date of birth was given",
+      "category": "conversation",
+      "severity": "low",
+      "timestamp": "00:40.9",
+      "quote": "Just to confirm, are you looking for a general office visit for your annual physical?",
+      "what_happened": "About 10 seconds passed between the caller giving his DOB [00:30.4] and the agent's next turn. The measured longest silence was 8.69 s.",
+      "why_it_matters": "A rushed caller may think the call dropped.",
+      "expected_behavior": "Respond within a few seconds or use a brief holding phrase while looking up the record.",
+      "confidence": "medium",
+      "possible_stt_error": false,
+      "listen_for": "Confirm that the 8.69 s silence falls between 00:30.4 and 00:40.9.",
+      "verification": "unverified",
+      "notes": ""
+    }
+  ],
+  "did_well": [
+    "Verified date of birth before searching for or booking slots.",
+    "Offered a concrete slot that matched every constraint (next week, weekday, before 11 AM).",
+    "Gave the correct office address, including suite number, when asked.",
+    "Kept the date and time consistent across every read-back.",
+    "Gave useful prep instructions (photo ID, insurance card, medication list).",
+    "Spelled the doctor's last name correctly when asked."
+  ],
+  "call": "003-simple-scheduling",
+  "model": "claude-opus-5-5"
+}

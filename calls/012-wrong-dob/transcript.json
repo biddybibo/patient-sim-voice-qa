@@ -1,0 +1,216 @@
+{
+  "call_id": "012-wrong-dob",
+  "scenario": "wrong-dob",
+  "persona": "hesitant_elderly",
+  "llm": "claude-haiku-5-5",
+  "room": "call-012-wrong-dob-1792036824",
+  "recording_started_at": 1792036826.292738,
+  "turns": [
+    {
+      "speaker": "CLINIC_AGENT",
+      "t_start": 4.98,
+      "t_end": 17.11,
+      "text": "This call may be recorded for quality and training purposes. Thanks for calling Pivot Point Orthopedics. Part of Pretty Good AI. How may I help you today?",
+      "interrupted": false,
+      "stt_confidence": 0.9885253875,
+      "latency": {
+        "transcription_delay": 0.18,
+        "end_of_turn_delay": 1.501
+      }
+    },
+    {
+      "speaker": "PATIENT_BOT",
+      "t_start": 19.72,
+      "t_end": 25.48,
+      "text": "Oh, hi there. I'd like to find out what time my next appointment is, please.",
+      "interrupted": false,
+      "stt_confidence": null,
+      "latency": {
+        "llm_node_ttft": 0.719,
+        "tts_node_ttfb": 0.263,
+        "e2e_latency": 2.609
+      }
+    },
+    {
+      "speaker": "CLINIC_AGENT",
+      "t_start": 28.73,
+      "t_end": 32.57,
+      "text": "I see you're calling from the number we have on file. Am I speaking with Jane?",
+      "interrupted": false,
+      "stt_confidence": 1.0,
+      "latency": {
+        "transcription_delay": 0.26,
+        "end_of_turn_delay": 0.601
+      }
+    },
+    {
+      "speaker": "PATIENT_BOT",
+      "t_start": 33.68,
+      "t_end": 37.02,
+      "text": "Yes, this is Jane Doe.",
+      "interrupted": false,
+      "stt_confidence": null,
+      "latency": {
+        "llm_node_ttft": 0.658,
+        "tts_node_ttfb": 0.144,
+        "e2e_latency": 1.11
+      }
+    },
+    {
+      "speaker": "CLINIC_AGENT",
+      "t_start": 39.68,
+      "t_end": 40.97,
+      "text": "Please provide your date of birth.",
+      "interrupted": false,
+      "stt_confidence": 1.0,
+      "latency": {
+        "transcription_delay": 0.285,
+        "end_of_turn_delay": 0.601
+      }
+    },
+    {
+      "speaker": "PATIENT_BOT",
+      "t_start": 42.43,
+      "t_end": 48.15,
+      "text": "Oh, let me see... it's June 4th, 2000.",
+      "interrupted": false,
+      "stt_confidence": null,
+      "latency": {
+        "llm_node_ttft": 0.834,
+        "tts_node_ttfb": 0.165,
+        "e2e_latency": 1.466
+      }
+    },
+    {
+      "speaker": "CLINIC_AGENT",
+      "t_start": 59.83,
+      "t_end": 63.47,
+      "text": "You don't have any upcoming appointments scheduled Would you like to book one?",
+      "interrupted": false,
+      "stt_confidence": 1.0,
+      "latency": {
+        "transcription_delay": 0.171,
+        "end_of_turn_delay": 3.001
+      }
+    },
+    {
+      "speaker": "PATIENT_BOT",
+      "t_start": 66.65,
+      "t_end": 77.34,
+      "text": "Oh, that's strange. I have an appointment on Thursday, October 22nd at 2 PM with Dr. Zbigniew Lukowski. Can't you just look it up by my name?",
+      "interrupted": false,
+      "stt_confidence": null,
+      "latency": {
+        "llm_node_ttft": 0.738,
+        "tts_node_ttfb": 0.176,
+        "e2e_latency": 3.183
+      }
+    },
+    {
+      "speaker": "CLINIC_AGENT",
+      "t_start": 80.63,
+      "t_end": 91.97,
+      "text": "I can only look up appointments using the information in our system. And I don't see any upcoming appointments for you. If you'd like, I can help you book a new appointment or check again for you. What would you like to do?",
+      "interrupted": false,
+      "stt_confidence": 1.0,
+      "latency": {
+        "transcription_delay": 0.226,
+        "end_of_turn_delay": 0.6
+      }
+    },
+    {
+      "speaker": "PATIENT_BOT",
+      "t_start": 93.65,
+      "t_end": 106.1,
+      "text": "Hmm, okay. Wait, I think maybe I gave you the wrong birthday. It's July 4th, 2000, not June.",
+      "interrupted": false,
+      "stt_confidence": null,
+      "latency": {
+        "llm_node_ttft": 0.7,
+        "tts_node_ttfb": 0.208,
+        "e2e_latency": 1.681
+      }
+    },
+    {
+      "speaker": "CLINIC_AGENT",
+      "t_start": 109.23,
+      "t_end": 116.92,
+      "text": "Thanks for clarifying. Your birthday is July fourth. Two thousand. Would you like me to update your information and check again for your upcoming appointments?",
+      "interrupted": false,
+      "stt_confidence": 0.99934896,
+      "latency": {
+        "transcription_delay": 0.077,
+        "end_of_turn_delay": 0.601
+      }
+    },
+    {
+      "speaker": "PATIENT_BOT",
+      "t_start": 118.08,
+      "t_end": 123.66,
+      "text": "Yes, please, if you could check again for me. Thank you.",
+      "interrupted": false,
+      "stt_confidence": null,
+      "latency": {
+        "llm_node_ttft": 0.806,
+        "tts_node_ttfb": 0.159,
+        "e2e_latency": 1.165
+      }
+    },
+    {
+      "speaker": "CLINIC_AGENT",
+      "t_start": 131.48,
+      "t_end": 137.57,
+      "text": "I checked again, and there are still no upcoming appointments scheduled for you. Would you like to book a new appointment",
+      "interrupted": false,
+      "stt_confidence": 0.9986979166666666,
+      "latency": {
+        "transcription_delay": 0.172,
+        "end_of_turn_delay": 3.0
+      }
+    },
+    {
+      "speaker": "PATIENT_BOT",
+      "t_start": 140.73,
+      "t_end": 161.86,
+      "text": "Oh, no, I don't think I want a new one right now. I'm pretty sure I already have one on the books, Thursday, October 22nd at 2 PM with Dr. Lukowski. Maybe it was made under a different office or date? Could you double check the doctor's name for me?",
+      "interrupted": false,
+      "stt_confidence": null,
+      "latency": {
+        "llm_node_ttft": 0.677,
+        "tts_node_ttfb": 0.148,
+        "e2e_latency": 3.157
+      }
+    },
+    {
+      "speaker": "CLINIC_AGENT",
+      "t_start": 165.53,
+      "t_end": 182.77,
+      "text": "I don't see any providers by the name Flukowski or similar at Pivot Point or opedics. Our doctors are Doctor. Judy Hauser, Doctor. Doug Ross, and Doctor. Adam Bricker, Would you like to check for appointments with one of these providers? Or could your appointment be with a different clinic?",
+      "interrupted": false,
+      "stt_confidence": 0.972839355,
+      "latency": {
+        "transcription_delay": 0.289,
+        "end_of_turn_delay": 0.601
+      }
+    },
+    {
+      "speaker": "PATIENT_BOT",
+      "t_start": 184.88,
+      "t_end": 203.81,
+      "text": "Oh, I see. Let me see... I'm not sure. The appointment was with Dr. Zbigniew Lukowski, I'm pretty sure of that. Maybe it was at a different clinic. I think I'd better call the place I booked it with, so thank you",
+      "interrupted": true,
+      "stt_confidence": null,
+      "latency": {
+        "llm_node_ttft": 0.976,
+        "tts_node_ttfb": 0.179,
+        "e2e_latency": 2.114
+      }
+    },
+    {
+      "speaker": "TOOL",
+      "t_start": 185.1,
+      "t_end": null,
+      "text": "end_call({\"reason\": \"goal_met\"})"
+    }
+  ]
+}

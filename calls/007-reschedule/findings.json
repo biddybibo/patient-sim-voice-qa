@@ -1,0 +1,64 @@
+{
+  "summary": "The agent found Jane Doe's Tue Oct 20 10 AM appointment with Dr. Lukowski after verifying her name and DOB. It offered Thu Oct 22 at 2 PM, which matches the afternoon preference, and read back the details before acting. It moved the appointment rather than double-booking and confirmed the Tuesday slot was cancelled. Ground truth agrees: the appointment was moved to Thu Oct 22 2 PM and Tue Oct 20 was cancelled. The only concerns are a possibly wrong practice location (Nashville, 220 Athens Way, while other records show 1234 Recovery Way, Austin) and one turn where the provider name was dropped.",
+  "goal_met": true,
+  "expected_checks": [
+    {
+      "expectation": "Finds the existing October 20th appointment",
+      "verdict": "met",
+      "evidence": "[00:52.6] \"I see you have an appointment on Tuesday. October twentieth at ten AM with doctor Lukowski\" \u2014 matches call 002 booking."
+    },
+    {
+      "expectation": "Moves it rather than creating a second booking",
+      "verdict": "met",
+      "evidence": "[01:51.7] \"Is everything correct before I move your appointment?\" and [02:10.8] \"canceled and replaced with the new one\". Ground truth shows only the Thu Oct 22 2 PM appointment remains."
+    },
+    {
+      "expectation": "Confirms the Tuesday slot is released",
+      "verdict": "met",
+      "evidence": "[02:10.8] \"Your Tuesday appointment is now canceled and replaced with the new one on Thursday at two PM.\""
+    }
+  ],
+  "findings": [
+    {
+      "title": "Appointment location given as Nashville, possibly inconsistent with practice address on file",
+      "category": "inconsistency",
+      "severity": "medium",
+      "timestamp": "01:40.7",
+      "quote": "with doctor Lukowski at Nashville, two two zero Athens Way",
+      "what_happened": "The agent twice stated the appointment location as Nashville, 220 Athens Way. The other test patient's appointment at the same practice is recorded at 1234 Recovery Way, Austin.",
+      "why_it_matters": "If the location is wrong, an elderly patient could travel to the wrong city or address and miss the appointment.",
+      "expected_behavior": "State the correct practice location for the rescheduled appointment, consistent with clinic records.",
+      "confidence": "low",
+      "possible_stt_error": true,
+      "listen_for": "Check whether the agent actually says 'Nashville' and '220 Athens Way'. Then confirm whether the practice has a Nashville location, or whether Pivot Point's address is 1234 Recovery Way, Austin.",
+      "verification": "unverified",
+      "notes": ""
+    },
+    {
+      "title": "Provider name dropped when offering the new slot",
+      "category": "conversation",
+      "severity": "low",
+      "timestamp": "01:15.0",
+      "quote": "at two PM with doctor at Nashville",
+      "what_happened": "When offering the Thursday slot, the agent said 'with doctor' without naming the provider. It named Dr. Lukowski correctly at 01:40.7.",
+      "why_it_matters": "A hesitant caller may not know whether the offered slot is with her own doctor before agreeing to it.",
+      "expected_behavior": "Name the provider when offering the slot, e.g. 'with Dr. Lukowski'.",
+      "confidence": "medium",
+      "possible_stt_error": true,
+      "listen_for": "Check whether the provider name was spoken but lost in transcription between 'doctor' and 'at Nashville'.",
+      "verification": "unverified",
+      "notes": ""
+    }
+  ],
+  "did_well": [
+    "Verified identity with full name and DOB before discussing appointment details.",
+    "Located the correct existing appointment and proactively read it back.",
+    "Offered an afternoon slot on the requested day, matching the caller's preference.",
+    "Read back the full new appointment details and asked for confirmation before making the change.",
+    "Repeated the new time clearly when asked and clearly confirmed the Tuesday appointment was cancelled.",
+    "Offered a text confirmation and read back the phone number the caller provided.",
+    "No talk-over, and response latencies were reasonable for a slower-paced elderly caller."
+  ],
+  "call": "007-reschedule",
+  "model": "claude-opus-5-5"
+}

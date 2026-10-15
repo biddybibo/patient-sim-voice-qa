@@ -14,10 +14,16 @@ accounts:
     gender: female
     dob: July 4th, 2000
     phone: 650-996-3518
+    # The clinic's own records hold our caller ID for this patient (profiles were created by our calls).
+    phone_on_file_with_clinic: "+1 650-456-0751 (ends in 0751)"
     insurance: Aetna PPO
     pharmacy: CVS on El Camino Real in Palo Alto
     meds: [lisinopril 10mg once a day]
-    # History: call 002 booked Tue Oct 20 10 AM with Dr. Lukowski; call 007 moved it to Thu Oct 22 2 PM.
+    # Changes made by our calls (call ids are chronological). Analysis uses this to know what was on file
+    # at the time of any call; the bot only sees known_appointments (the current state).
+    appointment_history:
+      - "call 002: booked Tue Oct 20, 10 AM, Dr. Lukowski"
+      - "call 007: moved to Thu Oct 22, 2 PM, Dr. Lukowski (Tue Oct 20 cancelled)"
     known_appointments:
       - Thursday October 22nd at 2 PM with Dr. Zbigniew Lukowski at Pivot Point Orthopedics
 
@@ -26,9 +32,14 @@ accounts:
     gender: male
     dob: July 4th, 1990
     phone: 650-996-3518
+    # The clinic's own records hold our caller ID for this patient (profiles were created by our calls).
+    phone_on_file_with_clinic: "+1 650-456-0751 (ends in 0751)"
     insurance: Blue Shield of California PPO
     pharmacy: Walgreens on University Avenue in Palo Alto
     meds: [atorvastatin 20mg]
-    # History: call 003 booked Tue Oct 20 10 AM with Dr. Howser; call 004 cancelled it; call 009 booked it again.
+    appointment_history:
+      - "call 003: booked Tue Oct 20, 10 AM, Dr. Howser (annual physical)"
+      - "call 004: cancelled it (at the caller's request)"
+      - "call 009: booked Tue Oct 20, 10 AM, Dr. Howser again"
     known_appointments:
       - Tuesday October 20th at 10 AM with Dr. Doogie Howser at Pivot Point Orthopedics, 1234 Recovery Way, Austin

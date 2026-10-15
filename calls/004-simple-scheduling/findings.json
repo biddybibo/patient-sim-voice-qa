@@ -1,0 +1,77 @@
+{
+  "summary": "The agent verified Bob Dylan by name and DOB. It correctly found his existing Tue Oct 20 10 AM appointment with Dr. Howser, which was booked in call 003. It kept to that record when the caller disputed it, then cancelled it after explicit confirmation. When asked for the office address, it gave a wrong address (123 Main Street, San Francisco) instead of 1234 Recovery Way, Austin. It then offered the slot it had just cancelled as the 'first' and 'only' option, without saying so. It went silent after the caller asked for later dates, and the caller left with no appointment booked. The read-back probe was never reached.",
+  "goal_met": false,
+  "expected_checks": [
+    {
+      "expectation": "Verifies identity before booking",
+      "verdict": "met",
+      "evidence": "The caller gave his name. The agent asked 'You please provide your date of birth?' at 00:30.2 and only then looked up and discussed appointments."
+    },
+    {
+      "expectation": "Offers concrete slots that match the request (weekday, before 11 AM)",
+      "verdict": "met",
+      "evidence": "At 03:02.3 and 03:33.4 the agent offered Tue Oct 20 at 10 AM, a weekday before 11. Call 003 booked Oct 20 for the same 'next week' request, so it is likely in range. It was only one slot, though, and it was the one just cancelled."
+    },
+    {
+      "expectation": "Reads back the same date/time/doctor it booked",
+      "verdict": "not_tested",
+      "evidence": "No booking was made. The caller left at 04:01 before any read-back."
+    }
+  ],
+  "findings": [
+    {
+      "title": "Hallucinated office address",
+      "category": "hallucination",
+      "severity": "medium",
+      "timestamp": "03:02.3",
+      "quote": "The office is located at Pivot Point Orthopedics one two three Main Street, San Francisco.",
+      "what_happened": "The caller asked for the office address. The agent said 123 Main Street, San Francisco. The practice is at 1234 Recovery Way, Austin.",
+      "why_it_matters": "A patient going by this address would go to the wrong city entirely and miss the appointment.",
+      "expected_behavior": "Give the practice's real address from its records (1234 Recovery Way, Austin), or say it can't confirm the address rather than invent one.",
+      "confidence": "high",
+      "possible_stt_error": true,
+      "listen_for": "Check whether the agent says 'one two three Main Street, San Francisco' or something closer to '1234 Recovery Way, Austin'. City and street are so different that a transcription error is unlikely.",
+      "verification": "unverified",
+      "notes": ""
+    },
+    {
+      "title": "Offers the just-cancelled slot as the only option without acknowledging it",
+      "category": "scheduling",
+      "severity": "low",
+      "timestamp": "03:33.4",
+      "quote": "The only available week morning slot next week is Tuesday, October twentieth at ten AM with doctor Duggehauser.",
+      "what_happened": "Seconds after cancelling the Tue Oct 20 10 AM appointment, the agent offered that same slot as the first and then the only option. It never said this was the appointment just cancelled.",
+      "why_it_matters": "The caller was confused and frustrated, and the call turned into a cancel-and-rebook of the same slot. The patient ended up with nothing booked.",
+      "expected_behavior": "Acknowledge that the only matching opening is the slot just freed, and suggest keeping or rebooking it. Ideally, check availability before cancelling so the caller isn't left without an appointment.",
+      "confidence": "medium",
+      "possible_stt_error": false,
+      "listen_for": "",
+      "verification": "unverified",
+      "notes": ""
+    },
+    {
+      "title": "No response to request for later dates; caller gave up",
+      "category": "conversation",
+      "severity": "low",
+      "timestamp": "04:01.3",
+      "quote": "end_call({\"reason\": \"timeout\"})",
+      "what_happened": "The caller asked at 03:49 for the earliest weekday morning after next week. The agent gave no answer for about 8 seconds, the longest silence in the call, and the caller left without an appointment.",
+      "why_it_matters": "Dead air at the key scheduling moment made a rushed caller hang up with nothing booked, after already losing his existing appointment.",
+      "expected_behavior": "Respond promptly, or say 'one moment, checking later dates', and offer concrete slots.",
+      "confidence": "medium",
+      "possible_stt_error": false,
+      "listen_for": "Check whether the agent started speaking at the very end (talk-over at 241.4 s).",
+      "verification": "unverified",
+      "notes": ""
+    }
+  ],
+  "did_well": [
+    "Verified identity with name and DOB before discussing or changing appointments.",
+    "Kept to the accurate record of the existing Oct 20 appointment when the caller insisted he had none.",
+    "Got explicit confirmation before cancelling and clearly confirmed the cancellation afterwards.",
+    "Answered the probe about which doctor (Dr. Howser), consistent with records.",
+    "Restated the caller's constraints (next week, weekday morning before 11) correctly."
+  ],
+  "call": "004-simple-scheduling",
+  "model": "claude-opus-5-5"
+}

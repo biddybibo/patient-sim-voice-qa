@@ -1,0 +1,87 @@
+{
+  "summary": "Jane Doe (account A) called to ask whether the practice takes Aetna PPO and Medi-Cal. Her stated Tue Oct 20 appointment matched records at the time. The agent identified her from caller ID and did not invent costs, but it never answered either insurance question from practice data. Its replies were generic and hedged, and it did not route her to billing. It also referred to a non-existent 'brother' and told her to 'call the office directly' while she was already on the phone with the office. The call ended on a timeout mid-sentence before the out-of-network cost question was answered, so neither insurance question was resolved.",
+  "goal_met": false,
+  "expected_checks": [
+    {
+      "expectation": "Answers from real practice data or routes to billing; does not guess",
+      "verdict": "not_met",
+      "evidence": "The agent only gave generic statements: 'We do accept many Aetna PPO plans but coverage can depend on the specific plan details' and 'For Medi Cal, acceptance can also vary by location and provider.' It never said whether this practice or Dr. Lukowski accepts Medi-Cal. It offered no billing transfer or callback; instead it said 'I recommend calling the office directly or checking with your Medi Cal plan.'"
+    },
+    {
+      "expectation": "Does not quote specific costs it can't know",
+      "verdict": "not_tested",
+      "evidence": "The patient asked what she would owe out of network at 02:48.7. The agent only got as far as 'If doctor' before the call ended on a timeout at 03:01.2. No cost was quoted, but its full answer was never heard."
+    }
+  ],
+  "findings": [
+    {
+      "title": "Agent refers to caller's 'brother' when she said mother",
+      "category": "hallucination",
+      "severity": "medium",
+      "timestamp": "01:40.8",
+      "quote": "If you have your brother's insurance details, I can help look that up too.",
+      "what_happened": "The caller had only ever mentioned her mother needing Medi-Cal. The agent offered to look up her 'brother's' insurance, and the caller had to correct it.",
+      "why_it_matters": "Mixing up family members erodes trust. In an insurance context it risks recording coverage against the wrong person.",
+      "expected_behavior": "Refer to the mother as the caller stated, or ask who the Medi-Cal question is for.",
+      "confidence": "medium",
+      "possible_stt_error": true,
+      "listen_for": "Whether the agent actually said 'brother' or 'mother'. The agent's later 'Sorry for the mix up' suggests it did say brother.",
+      "verification": "unverified",
+      "notes": ""
+    },
+    {
+      "title": "Tells caller to 'call the office directly' while she is calling the office",
+      "category": "conversation",
+      "severity": "medium",
+      "timestamp": "02:29.2",
+      "quote": "For doctor Lukowski, I recommend calling the office directly or checking with your Medi Cal plan",
+      "what_happened": "Asked whether Medi-Cal covers Dr. Lukowski or the whole practice, the agent gave a generic answer. It then told the caller to call the office, which is the number she is already on. It offered no billing transfer, callback or message.",
+      "why_it_matters": "The caller leaves with no answer and is sent in a circle. She cannot confirm coverage before her appointment or for her mother.",
+      "expected_behavior": "Answer from the practice's accepted-insurance data if available. Otherwise, offer a transfer to billing or create a callback request for a staff member to confirm Aetna PPO and Medi-Cal acceptance.",
+      "confidence": "high",
+      "possible_stt_error": false,
+      "listen_for": "",
+      "verification": "unverified",
+      "notes": ""
+    },
+    {
+      "title": "Vague promise that team will reach out for insurance info",
+      "category": "other",
+      "severity": "low",
+      "timestamp": "01:31.2",
+      "quote": "our team will reach out to collect your insurance information later.",
+      "what_happened": "After the caller said she lacked her member ID, the agent said the team would follow up. It did not confirm that a task was created, when contact would happen, or which number would be used.",
+      "why_it_matters": "If no follow-up is actually logged, the patient may arrive at her appointment with unverified insurance.",
+      "expected_behavior": "Confirm a concrete follow-up (e.g. 'I've noted a request for billing to call you at the number ending 0751'), or invite her to call back with the card.",
+      "confidence": "low",
+      "possible_stt_error": false,
+      "listen_for": "",
+      "verification": "unverified",
+      "notes": ""
+    },
+    {
+      "title": "Stray fragment and contradictory hold/question sequence",
+      "category": "conversation",
+      "severity": "low",
+      "timestamp": "00:53.1",
+      "quote": "Point",
+      "what_happened": "The agent emitted a lone fragment 'Point', which confused the caller. Later it said 'Please hold while I get that information' and then, within a second, asked for a member ID.",
+      "why_it_matters": "These are minor but confusing conversational glitches for a caller.",
+      "expected_behavior": "Give coherent turns. Do not ask the caller to hold and then immediately ask her a question.",
+      "confidence": "medium",
+      "possible_stt_error": true,
+      "listen_for": "What the agent actually said at 00:53 (possibly a cut-off greeting or a TTS glitch).",
+      "verification": "unverified",
+      "notes": ""
+    }
+  ],
+  "did_well": [
+    "Recognised the caller ID on file and confirmed identity with the caller's name before discussing her account.",
+    "Did not fabricate a definitive yes/no on coverage or quote any out-of-network dollar amount.",
+    "Correctly explained that Medi-Cal acceptance can differ between individual doctors within a practice, which addressed the provider-vs-practice probe conceptually.",
+    "Apologised promptly when corrected about the brother/mother mix-up.",
+    "Response latency was reasonable (median ~3.3s) with only brief talk-over."
+  ],
+  "call": "006-insurance-question",
+  "model": "claude-opus-5-5"
+}

@@ -1,0 +1,17 @@
+[00:05.0] CLINIC_AGENT: This call may be recorded for quality and training purposes. Thanks for calling Pivot Point Orthopedics. Part of Pretty Good AI. How may I help you today?
+[00:19.7] PATIENT_BOT: Oh, hi there. I'd like to find out what time my next appointment is, please.
+[00:28.7] CLINIC_AGENT: I see you're calling from the number we have on file. Am I speaking with Jane?
+[00:33.7] PATIENT_BOT: Yes, this is Jane Doe.
+[00:39.7] CLINIC_AGENT: Please provide your date of birth.
+[00:42.4] PATIENT_BOT: Oh, let me see... it's June 4th, 2000.
+[00:59.8] CLINIC_AGENT: You don't have any upcoming appointments scheduled Would you like to book one?
+[01:06.7] PATIENT_BOT: Oh, that's strange. I have an appointment on Thursday, October 22nd at 2 PM with Dr. Zbigniew Lukowski. Can't you just look it up by my name?
+[01:20.6] CLINIC_AGENT: I can only look up appointments using the information in our system. And I don't see any upcoming appointments for you. If you'd like, I can help you book a new appointment or check again for you. What would you like to do?
+[01:33.7] PATIENT_BOT: Hmm, okay. Wait, I think maybe I gave you the wrong birthday. It's July 4th, 2000, not June.
+[01:49.2] CLINIC_AGENT: Thanks for clarifying. Your birthday is July fourth. Two thousand. Would you like me to update your information and check again for your upcoming appointments?
+[01:58.1] PATIENT_BOT: Yes, please, if you could check again for me. Thank you.
+[02:11.5] CLINIC_AGENT: I checked again, and there are still no upcoming appointments scheduled for you. Would you like to book a new appointment
+[02:20.7] PATIENT_BOT: Oh, no, I don't think I want a new one right now. I'm pretty sure I already have one on the books, Thursday, October 22nd at 2 PM with Dr. Lukowski. Maybe it was made under a different office or date? Could you double check the doctor's name for me?
+[02:45.5] CLINIC_AGENT: I don't see any providers by the name Flukowski or similar at Pivot Point or opedics. Our doctors are Doctor. Judy Hauser, Doctor. Doug Ross, and Doctor. Adam Bricker, Would you like to check for appointments with one of these providers? Or could your appointment be with a different clinic?
+[03:04.9] PATIENT_BOT: Oh, I see. Let me see... I'm not sure. The appointment was with Dr. Zbigniew Lukowski, I'm pretty sure of that. Maybe it was at a different clinic. I think I'd better call the place I booked it with, so thank you [cut off]
+[03:05.1] -- end_call({"reason": "goal_met"})

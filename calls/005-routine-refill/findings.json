@@ -1,0 +1,76 @@
+{
+  "summary": "Jane Doe called for a lisinopril 10mg refill to CVS on El Camino Real. She has three pills left. The agent looked up her chart and found no medications it could refill. It offered a transfer to clinic support and transferred the call. It never claimed the refill was approved, which is correct. However, it never confirmed the medication, dose or pharmacy, never acknowledged that she was nearly out, and transferred her without answering her direct question about pharmacy timing. There was also an 11.2 s silence while it looked up her chart. The refill was not arranged in this call.",
+  "goal_met": false,
+  "expected_checks": [
+    {
+      "expectation": "Collects or confirms medication, dose and pharmacy",
+      "verdict": "not_met",
+      "evidence": "The patient volunteered lisinopril 10mg and CVS on El Camino Real. The agent never repeated or confirmed any of these details. At 01:00.7 it only said 'there's nothing listed on your chart for me to process.' It did not acknowledge the pharmacy and did not say the request would be passed along."
+    },
+    {
+      "expectation": "Sets a realistic timing expectation or routes to the provider",
+      "verdict": "met",
+      "evidence": "At 01:05.6 the agent offered to connect her with clinic support and transferred at 01:21.4. This counts as routing. It gave no timing expectation, though, even when asked directly."
+    },
+    {
+      "expectation": "Does not claim the refill is already approved if it needs provider sign-off",
+      "verdict": "met",
+      "evidence": "At 01:00.7 the agent said 'I'm not able to send the refill directly.' It made no false claim of approval."
+    }
+  ],
+  "findings": [
+    {
+      "title": "Patient's timing question ignored at transfer",
+      "category": "conversation",
+      "severity": "low",
+      "timestamp": "01:21.4",
+      "quote": "Transferring you now. Thank you.",
+      "what_happened": "The patient asked how long the refill would take at CVS once sent. The agent transferred immediately without answering. It did not even say the support team could answer that.",
+      "why_it_matters": "She has only three pills left and asked a direct question. Ignoring it leaves her with no expectation and may erode trust.",
+      "expected_behavior": "Briefly address the question before transferring, e.g. 'Refills typically take 1\u20132 business days once approved; the team can confirm.' Or explicitly say the support team will answer it.",
+      "confidence": "high",
+      "possible_stt_error": false,
+      "listen_for": "",
+      "verification": "unverified",
+      "notes": ""
+    },
+    {
+      "title": "Refill details and urgency not captured before transfer",
+      "category": "other",
+      "severity": "low",
+      "timestamp": "01:00.7",
+      "quote": "I'm not able to send the refill directly since there's nothing listed on your chart for me to process.",
+      "what_happened": "The patient said she had three pills left and named her pharmacy. The agent did not acknowledge the urgency, did not confirm the medication, dose or pharmacy, and did not say any of it would be passed to support.",
+      "why_it_matters": "The patient may have to repeat everything to staff. Her low supply of a blood pressure medication was never flagged as time-sensitive.",
+      "expected_behavior": "Acknowledge the low supply. Confirm lisinopril 10mg once daily and CVS El Camino Real, Palo Alto. Note that these details are being handed off with the transfer.",
+      "confidence": "medium",
+      "possible_stt_error": false,
+      "listen_for": "",
+      "verification": "unverified",
+      "notes": ""
+    },
+    {
+      "title": "Long dead air after initial request",
+      "category": "conversation",
+      "severity": "low",
+      "timestamp": "00:39.1",
+      "quote": "I don't see any medications on your chart that I can refill right now.",
+      "what_happened": "After the patient gave her name, DOB and request, the agent was silent for about 11.2 s with no 'one moment while I look that up.'",
+      "why_it_matters": "A caller, especially a non-native speaker, may think the line dropped during 11 seconds of silence.",
+      "expected_behavior": "Use a brief filler such as 'Let me pull up your chart' during lookups.",
+      "confidence": "high",
+      "possible_stt_error": false,
+      "listen_for": "",
+      "verification": "unverified",
+      "notes": ""
+    }
+  ],
+  "did_well": [
+    "It did not falsely claim the refill was sent or approved; it was honest that it couldn't process the refill.",
+    "It offered and completed a transfer to clinic support, a reasonable escalation path.",
+    "It used clear, simple language suited to a non-native speaker.",
+    "It did not talk over the caller."
+  ],
+  "call": "005-routine-refill",
+  "model": "claude-opus-5-5"
+}
