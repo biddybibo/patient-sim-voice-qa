@@ -16,6 +16,9 @@ Each entry: symptom → evidence → cause → fix → before/after. Commits are
 | Talk-over events (bot over clinic) | 1 (4.5 s, at the greeting) | 0 |
 | Call outcome | Booked, hung up itself (`goal_met`), 2:50 | |
 
+Call 003 (`simple-scheduling`, rushed persona, Phase 3 prompt): median response 1.71 s (p90 1.91 s),
+Claude TTFT 0.88 s, 1 talk-over (0.9 s, issue 9), booked and hung up itself, 2:51.
+
 ---
 
 ## Open
@@ -28,6 +31,8 @@ Each entry: symptom → evidence → cause → fix → before/after. Commits are
   because uninterruptible bot speech discards incoming audio before STT.
 - **Suspected cause:** the 0.6 s endpointing delay treated the pause after the recorded
   disclaimer ("This call may be recorded…", ends 00:08.2) as the end of the clinic's turn.
+- **Reproduction:** 1/2. Did **not** happen in call 003, where the clinic delivered disclaimer and greeting
+  as one continuous turn (04.9–16.7) with no pause; the bot waited and spoke at 18.6.
 - **Status:** left unfixed on purpose to debug on camera (Loom 2). Fix + after-metrics go here.
 
 ### 7. Bot response latency above target
@@ -42,7 +47,18 @@ Each entry: symptom → evidence → cause → fix → before/after. Commits are
 - **Evidence:** `calls/002-hello-world/transcript.txt` at 00:27.1.
 - **Fix (prompt, commit `1314aa7`):** persona prompt now says "If they offer to set up or look up a
   profile, go along with it."
-- **Status:** needs a call to confirm.
+- **Status:** no recurrence in call 003.
+
+### 9. Bot says "Sure, thanks" over the clinic's answer after "let me check"
+- **Evidence:** `calls/003-simple-scheduling/transcript.txt` at 00:58.5; `metrics.json` → talk-over 0.93 s.
+  Clinic said "Let me check…" (ends 57.2), started the slot offer at 57.9; bot's filler landed on top of it.
+- **Cause:** our own prompt rule: "If they say they're checking something, just wait or say 'sure'."
+- **Status:** Phase 4: change to "stay silent while they check".
+
+### 10. Bot says goodbye twice
+- **Evidence:** `calls/003-simple-scheduling/transcript.txt` at 02:30.1 (goodbye) and again at 02:47.0 after
+  `end_call` ran at 02:46.8.
+- **Status:** Phase 4 (low priority): suppress speech after `end_call`.
 
 ---
 

@@ -1,0 +1,265 @@
+{
+  "call_id": "003-simple-scheduling",
+  "scenario": "simple-scheduling",
+  "persona": "rushed_professional",
+  "room": "call-003-simple-scheduling-1792022175",
+  "recording_started_at": 1792022176.668674,
+  "turns": [
+    {
+      "speaker": "CLINIC_AGENT",
+      "t_start": 4.85,
+      "t_end": 16.69,
+      "text": "This call may be recorded for quality and training purposes. Thanks for calling Pivot Point Orthopaedics. Part of Pretty Good AI. How may I help you today?",
+      "interrupted": false,
+      "stt_confidence": 0.9945068375,
+      "latency": {
+        "transcription_delay": 0.354,
+        "end_of_turn_delay": 0.601
+      }
+    },
+    {
+      "speaker": "PATIENT_BOT",
+      "t_start": 18.6,
+      "t_end": 24.64,
+      "text": "Hi, this is Bob Dylan. I'd like to book an annual physical for sometime next week, any weekday morning before 11.",
+      "interrupted": false,
+      "stt_confidence": null,
+      "latency": {
+        "llm_node_ttft": 1.068,
+        "tts_node_ttfb": 0.14,
+        "e2e_latency": 1.908
+      }
+    },
+    {
+      "speaker": "CLINIC_AGENT",
+      "t_start": 27.15,
+      "t_end": 28.94,
+      "text": "Can you please provide your date of birth?",
+      "interrupted": false,
+      "stt_confidence": 1.0,
+      "latency": {
+        "transcription_delay": 0.323,
+        "end_of_turn_delay": 0.601
+      }
+    },
+    {
+      "speaker": "PATIENT_BOT",
+      "t_start": 30.39,
+      "t_end": 32.2,
+      "text": "July 4th, 1990.",
+      "interrupted": false,
+      "stt_confidence": null,
+      "latency": {
+        "llm_node_ttft": 0.925,
+        "tts_node_ttfb": 0.164,
+        "e2e_latency": 1.447
+      }
+    },
+    {
+      "speaker": "CLINIC_AGENT",
+      "t_start": 40.89,
+      "t_end": 44.73,
+      "text": "Just to confirm, are you looking for a general office visit for your annual physical?",
+      "interrupted": false,
+      "stt_confidence": 1.0,
+      "latency": {
+        "transcription_delay": 0.091,
+        "end_of_turn_delay": 0.601
+      }
+    },
+    {
+      "speaker": "PATIENT_BOT",
+      "t_start": 45.82,
+      "t_end": 48.56,
+      "text": "Yes, that's right. A general annual physical.",
+      "interrupted": false,
+      "stt_confidence": null,
+      "latency": {
+        "llm_node_ttft": 0.779,
+        "tts_node_ttfb": 0.152,
+        "e2e_latency": 1.093
+      }
+    },
+    {
+      "speaker": "CLINIC_AGENT",
+      "t_start": 51.44,
+      "t_end": 57.17,
+      "text": "Thanks for confirming. Let me check for weekday morning openings before eleven next week for your annual physical.",
+      "interrupted": false,
+      "stt_confidence": 0.99658203,
+      "latency": {
+        "transcription_delay": 0.226,
+        "end_of_turn_delay": 0.601
+      }
+    },
+    {
+      "speaker": "CLINIC_AGENT",
+      "t_start": 57.94,
+      "t_end": 70.22,
+      "text": "The first available slot is Tuesday, October twentieth, at ten AM with doctor Judy Hauser. Would you like to book that time?",
+      "interrupted": false,
+      "stt_confidence": 0.996826175,
+      "latency": {
+        "transcription_delay": 0.231,
+        "end_of_turn_delay": 0.6
+      }
+    },
+    {
+      "speaker": "PATIENT_BOT",
+      "t_start": 58.45,
+      "t_end": 59.38,
+      "text": "Sure, thanks.",
+      "interrupted": false,
+      "stt_confidence": null,
+      "latency": {
+        "llm_node_ttft": 0.824,
+        "tts_node_ttfb": 0.205,
+        "e2e_latency": 1.278
+      }
+    },
+    {
+      "speaker": "PATIENT_BOT",
+      "t_start": 72.03,
+      "t_end": 75.37,
+      "text": "Yes, that works. Can you tell me which doctor it's with, and what the office address is?",
+      "interrupted": false,
+      "stt_confidence": null,
+      "latency": {
+        "llm_node_ttft": 0.795,
+        "tts_node_ttfb": 0.266,
+        "e2e_latency": 1.806
+      }
+    },
+    {
+      "speaker": "CLINIC_AGENT",
+      "t_start": 82.18,
+      "t_end": 103.22,
+      "text": "Appointment is set for Tuesday, October twentieth at ten AM. With doctor Dugi Houser. At Pivot Point Orthopedics. The office address is one two three four Recovery Way, suite two hundred. Austin. Please bring your photo ID, insurance card, and a list of current medications. Would you like me to text you these details?",
+      "interrupted": false,
+      "stt_confidence": 0.99026925,
+      "latency": {
+        "transcription_delay": 0.378,
+        "end_of_turn_delay": 0.601
+      }
+    },
+    {
+      "speaker": "PATIENT_BOT",
+      "t_start": 104.87,
+      "t_end": 114.49,
+      "text": "Yes, please text those details to me at 650-996-3518. Also, can you read back the date, time, and doctor's name one more time?",
+      "interrupted": false,
+      "stt_confidence": null,
+      "latency": {
+        "llm_node_ttft": 0.699,
+        "tts_node_ttfb": 0.191,
+        "e2e_latency": 1.651
+      }
+    },
+    {
+      "speaker": "CLINIC_AGENT",
+      "t_start": 117.33,
+      "t_end": 122.22,
+      "text": "Your appointment is Tuesday, October twentieth at ten AM with doctor Doo Dehauser.",
+      "interrupted": false,
+      "stt_confidence": 0.99609375,
+      "latency": {
+        "transcription_delay": 0.192,
+        "end_of_turn_delay": 0.601
+      }
+    },
+    {
+      "speaker": "PATIENT_BOT",
+      "t_start": 123.67,
+      "t_end": 129.38,
+      "text": "Thanks. Just to be sure, earlier you said Judy Hauser, and then Dugi Houser. Which doctor's name is it?",
+      "interrupted": false,
+      "stt_confidence": null,
+      "latency": {
+        "llm_node_ttft": 0.995,
+        "tts_node_ttfb": 0.147,
+        "e2e_latency": 1.449
+      }
+    },
+    {
+      "speaker": "CLINIC_AGENT",
+      "t_start": 132.33,
+      "t_end": 135.02,
+      "text": "Your appointment is with doctor Duvi Hauser.",
+      "interrupted": false,
+      "stt_confidence": 0.9980469,
+      "latency": {
+        "transcription_delay": 0.224,
+        "end_of_turn_delay": 0.6
+      }
+    },
+    {
+      "speaker": "PATIENT_BOT",
+      "t_start": 136.85,
+      "t_end": 140.85,
+      "text": "Okay, so the name keeps changing on my end. Could you spell the doctor's last name for me?",
+      "interrupted": false,
+      "stt_confidence": null,
+      "latency": {
+        "llm_node_ttft": 1.271,
+        "tts_node_ttfb": 0.199,
+        "e2e_latency": 1.832
+      }
+    },
+    {
+      "speaker": "CLINIC_AGENT",
+      "t_start": 143.73,
+      "t_end": 146.97,
+      "text": "The doctor's last name is spelled h o w s e r.",
+      "interrupted": false,
+      "stt_confidence": 1.0,
+      "latency": {
+        "transcription_delay": 0.229,
+        "end_of_turn_delay": 3.001
+      }
+    },
+    {
+      "speaker": "PATIENT_BOT",
+      "t_start": 150.14,
+      "t_end": 159.95,
+      "text": "Got it, H-O-W-S-E-R. So that's Tuesday, October twentieth, at ten AM, with Doctor Howser. Thanks, that's all I need. Goodbye.",
+      "interrupted": false,
+      "stt_confidence": null,
+      "latency": {
+        "llm_node_ttft": 0.707,
+        "tts_node_ttfb": 0.165,
+        "e2e_latency": 3.173
+      }
+    },
+    {
+      "speaker": "CLINIC_AGENT",
+      "t_start": 162.68,
+      "t_end": 165.27,
+      "text": "You're all set. Have a great day. Goodbye.",
+      "interrupted": false,
+      "stt_confidence": 0.9523112,
+      "latency": {
+        "transcription_delay": 0.238,
+        "end_of_turn_delay": 0.6
+      }
+    },
+    {
+      "speaker": "TOOL",
+      "t_start": 166.82,
+      "t_end": null,
+      "text": "end_call({\"reason\": \"goal_met\"})"
+    },
+    {
+      "speaker": "PATIENT_BOT",
+      "t_start": 167.04,
+      "t_end": 167.83,
+      "text": "Thanks, goodbye.",
+      "interrupted": false,
+      "stt_confidence": null,
+      "latency": {
+        "llm_node_ttft": 1.11,
+        "tts_node_ttfb": 0.21,
+        "e2e_latency": 1.768
+      }
+    }
+  ]
+}

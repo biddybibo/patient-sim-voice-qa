@@ -1,0 +1,52 @@
+{
+  "duration_s": 170.5,
+  "end_reason": "goal_met",
+  "turns": {
+    "clinic": 10,
+    "bot": 10
+  },
+  "bot_latency_s": {
+    "response_e2e": {
+      "n": 10,
+      "median": 1.71,
+      "p90": 1.908,
+      "max": 3.173
+    },
+    "end_of_turn_delay": {
+      "n": 10,
+      "median": 0.601,
+      "p90": 0.601,
+      "max": 3.001
+    },
+    "llm_ttft": {
+      "n": 10,
+      "median": 0.875,
+      "p90": 1.11,
+      "max": 1.271
+    },
+    "tts_ttfb": {
+      "n": 10,
+      "median": 0.178,
+      "p90": 0.21,
+      "max": 0.266
+    }
+  },
+  "clinic_response_latency_s": {
+    "n": 8,
+    "median": 2.88,
+    "p90": 6.81,
+    "max": 8.69
+  },
+  "talk_over": {
+    "count": 1,
+    "events": [
+      {
+        "at": 58.45,
+        "speaker": "PATIENT_BOT",
+        "seconds": 0.93
+      }
+    ]
+  },
+  "longest_silence_s": 8.69,
+  "bot_turns_cut_off": 0
+}
