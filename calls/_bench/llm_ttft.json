@@ -4,24 +4,27 @@
   "results": {
     "haiku-5.5 thinking off, effort low (current)": {
       "model": "claude-haiku-5-5",
-      "ttft_median_s": 0.654,
-      "ttft_p90_s": 0.751,
-      "full_reply_median_s": 0.783,
-      "sample_reply": "Yes, Tuesday the twentieth at ten works. Which doctor is that with, and what's the address of the office?"
+      "replies_without_text": 0,
+      "ttft_median_s": 0.71,
+      "ttft_p90_s": 0.768,
+      "full_reply_median_s": 0.818,
+      "sample_reply": "Tuesday at ten works for me. Which doctor is that with, and what's the office address?"
     },
     "haiku-5.5 default (adaptive thinking)": {
       "model": "claude-haiku-5-5",
-      "ttft_median_s": 1.123,
-      "ttft_p90_s": 1.693,
-      "full_reply_median_s": 1.422,
-      "sample_reply": "Yes, Tuesday at ten works. Which doctor is that with, and what's the office address?"
+      "replies_without_text": 1,
+      "ttft_median_s": 1.431,
+      "ttft_p90_s": 1.68,
+      "full_reply_median_s": 1.562,
+      "sample_reply": "Yes, Tuesday at ten works for me. Can you also tell me the office address?"
     },
     "sonnet-5.5 thinking between_tools, effort low": {
       "model": "claude-sonnet-5-5",
-      "ttft_median_s": 0.546,
-      "ttft_p90_s": 0.583,
-      "full_reply_median_s": 1.07,
-      "sample_reply": "That works. Where is the office, what's the address?"
+      "replies_without_text": 0,
+      "ttft_median_s": 1.15,
+      "ttft_p90_s": 1.197,
+      "full_reply_median_s": 1.316,
+      "sample_reply": "Yes, that works. What's the office address?"
     }
   }
 }

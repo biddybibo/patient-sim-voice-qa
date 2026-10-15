@@ -1,0 +1,15 @@
+[00:04.8] CLINIC_AGENT: This call may be recorded for quality and training purposes. Thanks for calling Pivot Point Orthopedics. Part of Pretty Good AI. How may I help you today?
+[00:21.1] PATIENT_BOT: Hi, I'd like to book an annual physical for next week, any weekday morning before eleven.
+[00:28.7] CLINIC_AGENT: I see you're calling from the number we have on file. Am I speaking with Jane?
+[00:34.6] PATIENT_BOT: No, this is Bob Dylan.
+[00:38.6] CLINIC_AGENT: Please provide your full date of birth.
+[00:42.2] PATIENT_BOT: July fourth, nineteen ninety.
+[00:48.7] CLINIC_AGENT: Thanks, Bob. Just to confirm, are you looking to schedule a general office visit for your annual physical?
+[00:57.0] PATIENT_BOT: Yes, an annual physical. Next week, any weekday morning before eleven.
+[01:05.7] CLINIC_AGENT: There are openings next week with doctor Dugi Hauser The earliest is Tuesday, October twentieth at ten AM. Would you like to book that time?
+[01:16.1] PATIENT_BOT: That works. What's the office address?
+[01:23.0] CLINIC_AGENT: Your appointment is set for two Tuesday, October twentieth at ten AM with doctor Dugie Hauser at Pivot Point Orthopedic The address is one two three four Recovery Way, suite two hundred, Austin. Please bring your photo ID, insurance card, and a list of your current medications. Would you like me to text you these details?
+[01:43.5] PATIENT_BOT: No text needed. Can you read back the date, time, and doctor?
+[01:49.2] CLINIC_AGENT: Your appointment is Tuesday, October twentieth at ten AM with doctor Dugi Hauser.
+[01:56.8] -- end_call({"reason": "goal_met"})
+[01:56.9] PATIENT_BOT: Great, thanks. Goodbye.

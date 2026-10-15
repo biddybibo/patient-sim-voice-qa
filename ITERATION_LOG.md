@@ -17,6 +17,7 @@ All numbers below come from `calls/<id>/metrics.json` (regenerate with `scripts/
 | 006 | insurance-question / neutral | + greeting fix | 3:17 | timeout | 1.73 s | 0.70 s | 0.75 s | 1.52 s |
 | 007 | reschedule / hesitant elderly | + fixes 9–14 | 3:09 | goal_met | 2.13 s | 1.52 s | 1.40 s | 0.00 s |
 | 008 | privacy-shared-phone / rushed | + fixes 9–14 | 2:33 | goal_met | 1.67 s | 0.96 s | 0.85 s | 0.00 s |
+| 009 | simple-scheduling / rushed | Sonnet 5.5 (A/B vs 003) | 2:01 | goal_met | 2.16 s | 1.07 s | 1.27 s | 0.00 s |
 
 "Response" includes the bot deliberately waiting up to 3 s through the clinic's "let me check…" pauses;
 "after end-of-turn decided" isolates the bot's own speed (LLM + TTS). Target for the latter: < 0.8 s.
@@ -29,20 +30,25 @@ All numbers below come from `calls/<id>/metrics.json` (regenerate with `scripts/
 - **Evidence:** table above. Once the bot decides the clinic is done it takes 0.70–1.26 s to start speaking
   (median per call); Claude Haiku 5.5's time-to-first-token (0.71–0.90 s, thinking off, effort `low`) is most of it.
 - **Offline benchmark** (`scripts/bench_llm.py`, results in `calls/_bench/llm_ttft.json`): replays the real
-  persona prompt + the first turns of call 003, ending on the clinic's slot offer, 8 trials per config.
+  persona prompt + the bot's tool definitions + the first turns of call 003, ending on the clinic's slot offer,
+  8 trials per config.
 
   | Live LLM config | TTFT median | TTFT p90 | Full reply median |
   |---|---|---|---|
-  | Haiku 5.5, thinking off, effort `low` (current) | 0.65 s | 0.75 s | 0.78 s |
-  | Haiku 5.5, default adaptive thinking | 1.12 s | 1.69 s | 1.42 s |
-  | Sonnet 5.5, `thinking: between_tools`, effort `low` | 0.55 s | 0.58 s | 1.07 s |
+  | **Haiku 5.5, thinking off, effort `low` (chosen)** | **0.71 s** | **0.77 s** | 0.82 s |
+  | Haiku 5.5, default adaptive thinking | 1.43 s | 1.68 s | 1.56 s |
+  | Sonnet 5.5, `thinking: between_tools`, effort `low` | 1.15 s | 1.20 s | 1.32 s |
 
-  Turning thinking off saves ~0.5 s median / ~0.9 s p90 per reply, which confirms the original design choice.
-  Sonnet 5.5 reaches its first token *sooner* and more consistently than Haiku; it writes the rest of the reply
-  more slowly, but TTS starts on the first sentence, so TTFT is what the caller hears. Cost difference is ~20x per
-  token, about $0.07 vs $0.004 per call.
-- **Next:** make the live model configurable (each model needs a different thinking-off setting: Haiku accepts
-  `disabled`, Sonnet 5.5 rejects it and uses `between_tools`), then confirm on a real call before switching.
+- **A misleading first result, caught by a live call:** the first version of the benchmark sent no tool
+  definitions, and there Sonnet 5.5 looked *faster* than Haiku (0.55 s vs 0.65 s TTFT). A real Sonnet call (009,
+  same scenario and persona as 003) measured 1.27 s. Re-running with and without the bot's three tools showed why:
+  tools take Sonnet from 0.57 s to 1.24 s, and leave Haiku unchanged (0.73–0.85 s). The benchmark now always
+  includes the tools, so it measures what production sends.
+- **Decision:** keep Claude Haiku 5.5 with thinking off and effort `low` as the live model: fastest in the real
+  configuration and ~20x cheaper. Thinking off is worth ~0.7 s median per reply. `src.run --llm claude-sonnet-5-5`
+  stays available (each model gets its own thinking-off setting from `config.THINKING_OFF`).
+- **Remaining gap to the 0.8 s target:** 0.70–1.52 s per call after end-of-turn. TTFT is the bulk; TTS first
+  audio is ~0.15 s. Next lever would be shortening the prompt or trying a non-Anthropic fast model, not pursued.
 
 ### 11. Ground-truth drift: the bot argued with correct clinic records
 - **Evidence:** `calls/004-simple-scheduling/transcript.txt` at 01:13.8. The clinic said Bob already had an
