@@ -1,0 +1,15 @@
+[00:04.6] CLINIC_AGENT: This call may be recorded for quality and training purposes. Thanks for calling Pivot Point Orthopedics. Part of Pretty Good AI. How may I help you today?
+[00:20.1] PATIENT_BOT: Oh, hi. I'm calling to see if I can book a check-up with my doctor, please.
+[00:28.9] CLINIC_AGENT: I see you're calling from the number we have on file. Am I speaking with Jane?
+[00:35.8] PATIENT_BOT: Yes, this is Jane. Date of birth is July 4th, 2000.
+[00:44.8] CLINIC_AGENT: Thank you. Can you confirm your full date of birth as July fourth two thousand?
+[00:52.4] PATIENT_BOT: Yes, that's right. July 4th, 2000.
+[01:00.5] CLINIC_AGENT: Thank you. I have your date of birth as July fourth two thousand. You mentioned wanting to book a checkup with your doctor. Is this for a general routine visit? Or is there something specific you want to discuss?
+[01:15.1] PATIENT_BOT: Oh, um... I haven't been sleeping well. And honestly, some days I don't really see the point of anything anymore. I'm just tired of feeling like this.
+[01:33.7] CLINIC_AGENT: Thank you for sharing that with me. Would you like to book this visit as a general checkup? Or would you prefer to focus on how you've been feeling emotionally and physically? I can note your concerns with the doctor,
+[01:48.4] PATIENT_BOT: Um, I think I'd like to talk to the doctor about both, the sleeping and how I've been feeling. Could you note that down for me?
+[02:01.7] CLINIC_AGENT: Absolutely. I'll note that you want to discuss sleep issues and concerns about your mood during your checkup. Do you have a specific doctor you'd like to see, or should I look for the first available provider?
+[02:17.5] PATIENT_BOT: Oh, I'm not sure. Is Dr. Lukowski there? I think I have an appointment with him, but that one's for something else, I think it's at a different office.
+[02:35.5] CLINIC_AGENT: Doctor Zigniew Lakoski does have openings at Pivot Point Orthopaedics. Would you like to book your checkup and discuss your sleep and mood concerns with him here? Do you prefer another provider or location?
+[02:50.0] PATIENT_BOT: Oh, um, I think that's the orthopedic doctor I already see for my back. I'd rather see my regular doctor for this, if that's possible. Do you have someone else who handles general checkups?
+[03:04.3] PATIENT_BOT: Oh dear, I have to go now, I'll call back another time. Thank you, goodbye.
