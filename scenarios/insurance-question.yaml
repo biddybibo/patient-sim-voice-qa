@@ -2,6 +2,7 @@ id: insurance-question
 category: core
 persona: neutral
 caller: A
+knows_appointments: true  # the caller is calling about an appointment they know
 goal: >-
   Check whether the practice takes your insurance, Aetna PPO, before your upcoming
   appointment. Then ask whether they take Medi-Cal for your mother.

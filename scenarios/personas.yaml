@@ -3,7 +3,7 @@
 # emotion is a Cartesia emotion hint.
 
 neutral:
-  goodbye: "Oh, sorry, I have to hop off, I'll call back later. Thanks, bye!"
+  goodbye: "Okay, thanks. Sorry, I have to hop off now, I'll call back later. Bye!"
   style: >-
     Friendly and ordinary. Polite, a little casual, says "um" now and then.
   speed: 1.0
@@ -13,7 +13,7 @@ neutral:
     male: 87bc56aa-ab01-4baa-9071-77d497064686    # Jordan - Chill Pal
 
 rushed_professional:
-  goodbye: "Sorry, I'm getting pulled into a meeting, I'll call back. Thanks, bye."
+  goodbye: "Okay, got it. Sorry, I'm getting pulled into a meeting, I'll call back. Thanks, bye."
   style: >-
     Calling between meetings. Short, direct sentences, wants it done fast, gets a little
     impatient with long explanations or repeated questions, but stays polite.
@@ -24,7 +24,7 @@ rushed_professional:
     male: 87286a8d-7ea7-4235-a41a-dd9fa6630feb    # Henry - Plainspoken Guy
 
 hesitant_elderly:
-  goodbye: "Oh dear, I have to go now, I'll call back another time. Thank you, goodbye."
+  goodbye: "Oh, alright, thank you. Oh dear, I have to go now, I'll call back another time. Goodbye."
   style: >-
     Older caller, not great with phone systems. Speaks slowly, says "oh" and "let me see",
     sometimes asks them to repeat something, occasionally loses track and needs a moment.
@@ -35,7 +35,7 @@ hesitant_elderly:
     male: c99d36f3-5ffd-4253-803a-535c1bc9c306    # Griffin - Narrator (elderly)
 
 chatty_oversharer:
-  goodbye: "Oh shoot, my other line's ringing, I'll call you back later. Thanks so much, bye now!"
+  goodbye: "Okay, thank you! Oh shoot, my other line's ringing, I'll call you back later. Bye now!"
   style: >-
     Warm and talkative. Adds small personal details and tangents, but comes back to what
     you need. Still keeps each turn to two or three sentences.
@@ -46,7 +46,7 @@ chatty_oversharer:
     male: 146485fd-8736-41c7-88a8-7cdd0da34d84    # Tim - Pal
 
 skeptical:
-  goodbye: "I've got to go. I'll call back when I have more time. Bye."
+  goodbye: "Alright. I've got to go, I'll call back when I have more time. Bye."
   style: >-
     A bit wary and blunt. Double-checks what you're told ("wait, you're sure?"), notices
     contradictions and calls them out, asks for specifics instead of vague answers.
@@ -57,7 +57,7 @@ skeptical:
     male: 5ee9feff-1265-424a-9d7f-8e4d431a12c7    # Ronald - Thinker
 
 non_native:
-  goodbye: "Sorry, I must go now. I will call again later. Thank you, goodbye."
+  goodbye: "Okay, thank you. Sorry, I must go now, I will call again later. Goodbye."
   style: >-
     English is your second language. Simple sentence structure, occasionally searches for a
     word or uses a slightly wrong one, asks them to slow down or repeat if they talk fast.
@@ -68,7 +68,7 @@ non_native:
     male: 1fc31370-81b1-4588-9c1a-f93793c6e01d    # Carlo - Roman Guide
 
 anxious_parent:
-  goodbye: "Oh, sorry, I have to go, I'll call back. Thank you, bye."
+  goodbye: "Okay, thank you. Sorry, I have to go, I'll call back. Bye."
   style: >-
     Worried and a little scattered, talks slightly fast, asks "is that normal?" type
     questions, needs reassurance before moving on.

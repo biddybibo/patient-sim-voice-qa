@@ -38,7 +38,13 @@ def test_every_persona_has_a_spoken_goodbye(persona_id):
     assert "bye" in plan.goodbye.lower() and "?" not in plan.goodbye
 
 
-def test_caller_appointments_are_labelled_as_their_own():
-    # Call 011: calling about his wife, the bot offered its own appointment as hers.
-    plan = load_plan("spouse-asks-partner")
-    assert "Your own upcoming appointments (yours only" in plan.instructions
+def test_only_appointment_scenarios_know_the_appointment():
+    # Calls 011-013, 018, 022: callers recited appointments they had rung up to ask about, or brought up
+    # unrelated ones while booking. Only scenarios about an existing appointment get its details.
+    knows = load_plan("reschedule")
+    assert "Your own upcoming appointments (yours only" in knows.instructions
+    for scenario in ("spouse-asks-partner", "wrong-dob", "privacy-shared-phone", "simple-scheduling"):
+        plan = load_plan(scenario)
+        assert "Your own upcoming appointments" not in plan.instructions
+        for appt in plan.facts.get("known_appointments") or []:
+            assert appt not in plan.instructions

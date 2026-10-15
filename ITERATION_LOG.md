@@ -114,11 +114,41 @@ All numbers below come from `calls/<id>/metrics.json` (regenerate with `scripts/
 - **Status:** open. Fix: make the wrap-up a fixed spoken line (`session.say`) rather than an LLM instruction, and
   raise limits for scenarios where the clinic is slow. These calls aren't used as showcase calls.
 
-### 17. Bot attributed its own appointment to the person it was calling about
+### 17. Bot attributed its own appointment to the person it was calling about (fixed: see 19A)
 - **Evidence:** 011 @ 00:59.8: calling about his wife Jane, the bot offered Bob's own appointment ("Tuesday,
   October 20th at 10 AM with Dr. Doogie Howser") as hers.
 - **Cause:** the persona prompt lists the caller's appointments; nothing says they're his, not hers.
 - **Status:** open (minor). Fix: label `known_appointments` as "your own" in the prompt for on-behalf scenarios.
+
+### 18. Unnatural closings: "bye" as the answer to "anything else?", then a second goodbye
+- **Evidence:** 008 @ 02:19.9 "Okay, thanks. That's all I needed. Bye." in reply to "Would you like directions or any
+  other details?", then "Thanks, you too. Bye." after the clinic's farewell (spotted by listening).
+- **Cause:** our prompt rule "when your goal is done, say thanks and goodbye, then call end_call".
+- **Fix:** closing in steps, the way people do it: answer "anything else?" ("No, that's everything, thank you so
+  much"), let them say goodbye, then one short goodbye + `end_call`. If the clinic goes quiet after "that's
+  everything", the silence check says goodbye instead of "are you still there?".
+
+### 19. Bot-side review of all calls: incoherent responses, five root causes
+A second reviewer pass (`src/analysis/bot_review.py`, Claude Opus 5.5) judged **our** bot's turns in all 27 calls for
+ignored questions, contradictions, invented details, repetition, broken character and unnatural closings
+(`calls/_analysis/bot_review.json`). 15 calls had a noticeable issue; after discarding reviewer false positives
+(007 was judged against a goal edited after the call; 008's contradictions are the scenario's deliberate probe),
+they trace to five causes:
+- **A. Recites appointments it called to ask about** (012 @ 01:06.7, 013 @ 01:00.5) or brings up unrelated ones
+  while booking (018, 021, 022, 029). Cause: every prompt listed the caller's appointments. **Fix:** only scenarios
+  about an existing appointment (`knows_appointments: true`: reschedule, cancel, multi-intent, insurance) get them;
+  others are told "you don't remember the details; ask what they have on file". This also fixes issue 17.
+- **B. Time-limit goodbye lands right after the bot's own question** (004, 018, 029). **Fix:** at the limit, if the
+  bot spoke last it waits up to 25 s for the clinic's answer; goodbye lines now start by acknowledging it
+  ("Okay, thanks. Sorry, I have to hop off…").
+- **C. Talks to a dead line / comments on the system** (027 @ 02:33.9 "Is this the right line for that?" after a
+  transfer reached a recorded goodbye, spotted by listening; 026, 020). **Fix:** prompt and `wait_on_transfer`
+  say "if it's a recording or they say goodbye, just say okay, bye"; never comment on the line or tests; plus
+  issue 15's hang-up-on-disconnect.
+- **D. Reacts to transcription spelling** (023 @ 01:56.4 "you said Howser, earlier Hauser"). **Fix:** "you hear them,
+  you don't read them: names that sound alike are the same name."
+- **E. Scenario script leaking into speech** (021: read out the "November 31st" fallback and then called it not a real
+  date). **Fix:** scenario rewritten so the caller believes the dates are normal.
 
 ## Fixed and verified
 

@@ -68,14 +68,24 @@ def load_plan(scenario_id: str, persona_override: str | None = None) -> CallPlan
 
 
 def build_instructions(scenario: dict, persona: dict, facts: dict) -> str:
-    appointments = "; ".join(facts.get("known_appointments") or []) or "none"
+    # Only scenarios about an existing appointment (reschedule, cancel...) tell the caller its details.
+    # Otherwise a caller who rang to *find out* when their appointment is would recite it (calls 012, 013),
+    # and one booking something new would bring up an unrelated one (018, 022, 029).
+    if scenario.get("knows_appointments"):
+        appointments = "; ".join(facts.get("known_appointments") or []) or "none"
+        appointment_line = f"Your own upcoming appointments (yours only, not anyone else's): {appointments}."
+    else:
+        appointment_line = (
+            "You don't remember the details of any upcoming appointments; if they mention one, "
+            "ask them what they have on file."
+        )
     probes = "\n".join(f"- {p}" for p in scenario.get("probes", []))
     return f"""\
 You are {facts["name"]}, a patient calling your doctor's office. This is a real phone call.
 
 About you: date of birth {facts["dob"]}; phone {facts["phone"]}; insurance {facts.get("insurance", "unknown")}; \
 pharmacy {facts.get("pharmacy", "unknown")}; medications {", ".join(facts.get("meds", [])) or "none"}. \
-Your own upcoming appointments (yours only, not anyone else's): {appointments}.
+{appointment_line}
 
 What you want: {scenario["goal"].strip()}
 Work these in naturally when they fit, one at a time:
@@ -91,7 +101,9 @@ Phone rules:
 - If they drift, steer back politely to what you want.
 - If they say they're checking something or ask you to hold, say nothing; wait until they speak again.
 - If they mention an appointment or detail you don't remember, don't argue; ask them what they have on file.
+- You hear them, you don't read them: names that sound alike are the same name, so never point out spelling differences.
+- Never comment on the phone line, the system, recordings or tests. If you reach a recording or they say goodbye, just say "okay, bye" and call end_call.
 - If they say they're transferring you, call wait_on_transfer instead of saying goodbye.
-- When your goal is done and confirmed, or they clearly can't help after two tries, say thanks and goodbye, then call end_call. Never call end_call before saying goodbye, and never ask a question in the same breath as your goodbye.
+- Close the call the way people do, in steps. When your goal is done (or they clearly can't help after two tries) and they ask if there's anything else, answer that warmly first ("No, that's everything, thank you so much for your help") without saying bye yet. Once they say goodbye, reply with a short warm goodbye and call end_call. Never say goodbye twice, never call end_call before your goodbye, and never ask a question in the same breath as your goodbye.
 - If you hear a phone menu asking you to press a key, use send_dtmf.
 """

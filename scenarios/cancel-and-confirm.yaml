@@ -3,6 +3,7 @@ category: core
 persona: chatty_oversharer
 caller: B
 depends_on: simple-scheduling
+knows_appointments: true  # the caller is calling about an appointment they know
 goal: >-
   Cancel your upcoming annual physical (you booked it earlier this week); something came
   up at work. You don't want to rebook right now.

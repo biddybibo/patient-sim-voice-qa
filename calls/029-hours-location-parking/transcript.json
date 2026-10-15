@@ -1,0 +1,121 @@
+{
+  "call_id": "029-hours-location-parking",
+  "scenario": "hours-location-parking",
+  "persona": "skeptical",
+  "llm": "claude-haiku-5-5",
+  "room": "call-029-hours-location-parking-1792047939",
+  "recording_started_at": 1792047940.9788852,
+  "turns": [
+    {
+      "speaker": "CLINIC_AGENT",
+      "t_start": 4.77,
+      "t_end": 16.71,
+      "text": "This call may be recorded for quality and training purposes. Thanks for calling Pivot Point Orthopedics. Part of Pretty Good AI How may I help you today?",
+      "interrupted": false,
+      "stt_confidence": 0.9614257825,
+      "latency": {
+        "transcription_delay": 0.234,
+        "end_of_turn_delay": 1.501
+      }
+    },
+    {
+      "speaker": "PATIENT_BOT",
+      "t_start": 19.83,
+      "t_end": 24.43,
+      "text": "Hi, I'm calling to plan a visit. Can you tell me your office hours, and whether you're open on Saturdays?",
+      "interrupted": false,
+      "stt_confidence": null,
+      "latency": {
+        "llm_node_ttft": 1.095,
+        "tts_node_ttfb": 0.171,
+        "e2e_latency": 3.121
+      }
+    },
+    {
+      "speaker": "CLINIC_AGENT",
+      "t_start": 27.37,
+      "t_end": 32.81,
+      "text": "I can help with that. Before I share details about our hours, may I have your full name and date of birth?",
+      "interrupted": false,
+      "stt_confidence": 1.0,
+      "latency": {
+        "transcription_delay": 0.235,
+        "end_of_turn_delay": 3.0
+      }
+    },
+    {
+      "speaker": "PATIENT_BOT",
+      "t_start": 35.97,
+      "t_end": 40.43,
+      "text": "Sure. It's Bob Dylan, date of birth July 4th, 1990.",
+      "interrupted": false,
+      "stt_confidence": null,
+      "latency": {
+        "llm_node_ttft": 1.062,
+        "tts_node_ttfb": 0.164,
+        "e2e_latency": 3.167
+      }
+    },
+    {
+      "speaker": "CLINIC_AGENT",
+      "t_start": 48.02,
+      "t_end": 57.35,
+      "text": "Thanks, Bob. Pivot Point Orthopedics is open Monday through Friday. We are closed on Saturdays. Would you like to hear our specific hours for each day?",
+      "interrupted": false,
+      "stt_confidence": 0.992858885,
+      "latency": {
+        "transcription_delay": 0.276,
+        "end_of_turn_delay": 0.601
+      }
+    },
+    {
+      "speaker": "PATIENT_BOT",
+      "t_start": 59.67,
+      "t_end": 66.23,
+      "text": "Yes, please give me the specific hours for each day. And wait, you're sure you're closed all day Saturday?",
+      "interrupted": false,
+      "stt_confidence": null,
+      "latency": {
+        "llm_node_ttft": 1.193,
+        "tts_node_ttfb": 0.19,
+        "e2e_latency": 2.321
+      }
+    },
+    {
+      "speaker": "CLINIC_AGENT",
+      "t_start": 69.12,
+      "t_end": 84.6,
+      "text": "Yes. We are closed all day Saturday. Here are our hours. Monday, Tuesday, and Thursday, nine AM to four PM. Wednesday, twelve PM to seven PM, Friday, nine AM to twelve PM. Let me know if you want to schedule a visit or need more details.",
+      "interrupted": false,
+      "stt_confidence": 0.9954833975,
+      "latency": {
+        "transcription_delay": 0.144,
+        "end_of_turn_delay": 3.0
+      }
+    },
+    {
+      "speaker": "PATIENT_BOT",
+      "t_start": 89.28,
+      "t_end": 99.73,
+      "text": "Got it, thanks. Now I want to confirm my appointment: Tuesday, October 20th at 10 AM with Dr. Doogie Howser. Can you check that on your end, and also tell me the exact address?",
+      "interrupted": false,
+      "stt_confidence": null,
+      "latency": {
+        "llm_node_ttft": 1.097,
+        "tts_node_ttfb": 0.336,
+        "e2e_latency": 4.674
+      }
+    },
+    {
+      "speaker": "PATIENT_BOT",
+      "t_start": 99.86,
+      "t_end": 102.56,
+      "text": "I've got to go. I'll call back when I have more time. Bye.",
+      "interrupted": false,
+      "stt_confidence": null,
+      "latency": {
+        "tts_node_ttfb": 0.127
+      }
+    }
+  ]
+}

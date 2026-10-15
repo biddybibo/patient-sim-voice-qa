@@ -1,0 +1,9 @@
+[00:04.8] CLINIC_AGENT: This call may be recorded for quality and training purposes. Thanks for calling Pivot Point Orthopedics. Part of Pretty Good AI How may I help you today?
+[00:19.8] PATIENT_BOT: Hi, I'm calling to plan a visit. Can you tell me your office hours, and whether you're open on Saturdays?
+[00:27.4] CLINIC_AGENT: I can help with that. Before I share details about our hours, may I have your full name and date of birth?
+[00:36.0] PATIENT_BOT: Sure. It's Bob Dylan, date of birth July 4th, 1990.
+[00:48.0] CLINIC_AGENT: Thanks, Bob. Pivot Point Orthopedics is open Monday through Friday. We are closed on Saturdays. Would you like to hear our specific hours for each day?
+[00:59.7] PATIENT_BOT: Yes, please give me the specific hours for each day. And wait, you're sure you're closed all day Saturday?
+[01:09.1] CLINIC_AGENT: Yes. We are closed all day Saturday. Here are our hours. Monday, Tuesday, and Thursday, nine AM to four PM. Wednesday, twelve PM to seven PM, Friday, nine AM to twelve PM. Let me know if you want to schedule a visit or need more details.
+[01:29.3] PATIENT_BOT: Got it, thanks. Now I want to confirm my appointment: Tuesday, October 20th at 10 AM with Dr. Doogie Howser. Can you check that on your end, and also tell me the exact address?
+[01:39.9] PATIENT_BOT: I've got to go. I'll call back when I have more time. Bye.

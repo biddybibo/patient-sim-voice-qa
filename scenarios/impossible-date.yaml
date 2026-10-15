@@ -4,8 +4,9 @@ persona: rushed_professional
 caller: A
 # Oct 17th 2026 is a Saturday, not a Friday; there is no November 31st.
 goal: >-
-  Book a follow-up visit for "this Friday the 17th" at 9 AM. If that doesn't work out, ask for
-  November 31st instead.
+  Book a check-up for "this Friday the 17th" at 9 AM; you believe the 17th is a Friday. If the 17th
+  doesn't work out, ask for "the thirty-first of November" as casually as any other date; you don't
+  notice anything odd about it.
 probes:
   - If they book "Friday the 17th", ask them to confirm the exact date and day of the week.
 expected:

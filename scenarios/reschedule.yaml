@@ -4,6 +4,7 @@ persona: hesitant_elderly
 caller: A
 # Ran as call 007 (Oct 20 -> Oct 22). To rerun, first update the goal to the current appointment
 # in facts.yaml (now Thu Oct 22, 2 PM).
+knows_appointments: true  # the caller is calling about an appointment they know
 goal: >-
   Move your Thursday October 22nd 2 PM appointment with Dr. Lukowski to the following week,
   ideally a Tuesday or Wednesday morning.

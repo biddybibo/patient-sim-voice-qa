@@ -59,6 +59,8 @@ SILENCE_CHECK_SECONDS = 15.0
 MIN_CALL_SECONDS = 45
 # Longest we wait for our own sentence, then the fixed goodbye, to finish playing at the time limit.
 WRAP_UP_PLAYOUT_SECONDS = 15
+# At the time limit, if we just asked something, how long to wait for the clinic's answer before leaving.
+WRAP_UP_ANSWER_SECONDS = 25
 # After "transferring you", how long to wait for someone to speak before hanging up.
 TRANSFER_WAIT_SECONDS = 30
 # Clinic turns this similar (0-1) count as the agent repeating itself.
@@ -108,6 +110,10 @@ class PatientAgent(Agent):
         if self.session.userdata.get("ending"):
             # We've said goodbye; anything the clinic says now gets no reply (call 006 at 03:07.7
             # the bot started a new question after its goodbye).
+            raise StopResponse()
+        if answered := self.session.userdata.get("wrap_up_answered"):
+            # Time limit reached while we were waiting for this answer: the goodbye replies to it.
+            answered.set()
             raise StopResponse()
         text = (new_message.text_content or "").lower()
         if is_hold_only(text):
@@ -172,7 +178,10 @@ class PatientAgent(Agent):
                 await get_job_context().delete_room()
 
         asyncio.create_task(hang_up_if_nobody_answers())
-        return "You're on hold for the transfer. Stay silent until someone speaks, then explain what you need."
+        return (
+            "You're on hold for the transfer. Stay silent until someone speaks, then explain what you need. "
+            "If it's a recording or they say goodbye, just say \"okay, bye\" and call end_call."
+        )
 
     @function_tool
     async def send_dtmf(self, context: RunContext, digits: str) -> str:
@@ -299,7 +308,10 @@ async def entrypoint(ctx: JobContext) -> None:
             # Long silence mid-call (e.g. a lookup that never came back): check once per silence.
             logger.info("line silent for %.0fs, checking in", SILENCE_CHECK_SECONDS)
             session.generate_reply(
-                instructions="The line has been silent for a while. Briefly ask if they're still there."
+                instructions=(
+                    "The line has been silent for a while. If you've already told them that's everything, "
+                    "say a short warm goodbye and call end_call. Otherwise briefly ask if they're still there."
+                )
             )
 
     @session.on("agent_state_changed")
@@ -364,9 +376,19 @@ async def entrypoint(ctx: JobContext) -> None:
         if session.userdata.get("ending"):
             return
         logger.info("scenario time limit (%ds) reached, wrapping up", plan.max_seconds)
-        session.userdata["ending"] = True  # no more replies to the clinic from here on
         session.userdata["end_reason"] = session.userdata["end_reason"] or "timeout"
         try:
+            # If we spoke last, we probably asked something: let the clinic answer first, so the goodbye
+            # doesn't land right after our own question (calls 004, 018, 029).
+            last = next((i for i in reversed(session.history.items) if i.type == "message"), None)
+            if last is not None and last.role == "assistant":
+                answered = asyncio.Event()
+                session.userdata["wrap_up_answered"] = answered
+                try:
+                    await asyncio.wait_for(answered.wait(), WRAP_UP_ANSWER_SECONDS)
+                except asyncio.TimeoutError:
+                    pass
+            session.userdata["ending"] = True  # no more replies to the clinic from here on
             # Don't cut the clinic off mid-sentence (call 006 at 03:01 did): wait briefly for a gap.
             for _ in range(20):
                 if session.user_state != "speaking":
