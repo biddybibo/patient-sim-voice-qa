@@ -11,4 +11,4 @@ probes:
 expected:
   - Answers from real practice data or routes to billing; does not guess
   - Does not quote specific costs it can't know
-max_minutes: 3
+max_minutes: 4

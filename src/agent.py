@@ -27,6 +27,7 @@ from livekit.agents import (
     JobContext,
     JobProcess,
     RunContext,
+    StopResponse,
     cli,
     function_tool,
     get_job_context,
@@ -38,6 +39,7 @@ from livekit.agents.utils import is_given
 from livekit.plugins import anthropic, cartesia, deepgram, noise_cancellation, silero
 
 from src import metrics, transcript
+from src.audio_analysis import analyze
 from src.persona import CallPlan, load_plan
 from src.recording import save_audio
 
@@ -57,10 +59,25 @@ SILENCE_CHECK_SECONDS = 15.0
 MIN_CALL_SECONDS = 45
 # Time allowed for the wrap-up goodbye after the scenario's time limit before forcing hang-up.
 WRAP_UP_GRACE_SECONDS = 20
+# After "transferring you", how long to wait for someone to speak before hanging up.
+TRANSFER_WAIT_SECONDS = 30
 # Clinic turns this similar (0-1) count as the agent repeating itself.
 REPEAT_SIMILARITY = 0.8
 
 DTMF_CODES = {**{str(d): d for d in range(10)}, "*": 10, "#": 11}
+
+# A clinic turn that's only "let me check / one moment / please hold" gets no reply: a filler
+# like "Sure, take your time" lands on top of their answer (calls 003 at 00:58.5, 006 at 00:52.2).
+HOLD_PHRASES = (
+    "let me check", "let me look", "let me pull", "let me see", "let me get", "one moment",
+    "just a moment", "one second", "please hold", "bear with me", "while i check", "i'm checking",
+    "i am checking", "i'm processing", "i am processing",
+)
+
+
+def is_hold_only(text: str) -> bool:
+    text = text.lower().strip()
+    return "?" not in text and len(text.split()) <= 25 and any(p in text for p in HOLD_PHRASES)
 
 
 class FastClaude(anthropic.LLM):
@@ -87,7 +104,14 @@ class PatientAgent(Agent):
     ) -> None:
         """Loop guard: if the clinic agent asks essentially the same thing a third time,
         tell the caller to rephrase once more and then give up (a bug worth reporting)."""
+        if self.session.userdata.get("ending"):
+            # We've said goodbye; anything the clinic says now gets no reply (call 006 at 03:07.7
+            # the bot started a new question after its goodbye).
+            raise StopResponse()
         text = (new_message.text_content or "").lower()
+        if is_hold_only(text):
+            logger.info("clinic is checking something; staying quiet")
+            raise StopResponse()
         if len(text) < 25 or self._loop_warned:
             self._clinic_turns.append(text)
             return
@@ -131,6 +155,25 @@ class PatientAgent(Agent):
         return None
 
     @function_tool
+    async def wait_on_transfer(self, context: RunContext) -> str:
+        """Call this when they say they're transferring you or connecting you to someone.
+        You stay on the line; don't say goodbye."""
+        userdata = context.userdata
+        started = time.time()
+        logger.info("transfer started; waiting up to %ds for someone to pick up", TRANSFER_WAIT_SECONDS)
+
+        async def hang_up_if_nobody_answers() -> None:
+            await asyncio.sleep(TRANSFER_WAIT_SECONDS)
+            if userdata.get("last_clinic_speech", 0) < started:
+                logger.info("nobody picked up after transfer; hanging up")
+                userdata["end_reason"] = userdata.get("end_reason") or "transferred_no_answer"
+                userdata["ending"] = True
+                await get_job_context().delete_room()
+
+        asyncio.create_task(hang_up_if_nobody_answers())
+        return "You're on hold for the transfer. Stay silent until someone speaks, then explain what you need."
+
+    @function_tool
     async def send_dtmf(self, context: RunContext, digits: str) -> str:
         """Press keys on the phone keypad, for automated phone menus ("press 1 for...").
 
@@ -151,7 +194,9 @@ def prewarm(proc: JobProcess) -> None:
 
 
 # One call at a time, so one warm process is enough (production default is 10).
-server = AgentServer(setup_fnc=prewarm, num_idle_processes=1)
+# port=0: pick any free port for the worker's health server, so a worker that's still shutting
+# down from the previous call can't block the next one (address already in use on 8081).
+server = AgentServer(setup_fnc=prewarm, num_idle_processes=1, port=0)
 
 
 async def save_call(ctx: JobContext) -> None:
@@ -188,7 +233,9 @@ async def save_call(ctx: JobContext) -> None:
         },
     )
     end_reason = session.userdata.get("end_reason") or "remote_hangup"
-    call_metrics = metrics.compute(turns, report.duration, end_reason)
+    recording = call_dir / "recording.ogg"
+    audio = analyze(recording) if recording.exists() else None
+    call_metrics = metrics.compute(turns, report.duration, end_reason, audio)
     (call_dir / "metrics.json").write_text(json.dumps(call_metrics, indent=2))
     logger.info("saved call to %s", call_dir)
 
@@ -226,6 +273,7 @@ async def entrypoint(ctx: JobContext) -> None:
     def _on_user_state(ev) -> None:
         if ev.new_state == "speaking":
             heard_clinic.set()
+            session.userdata["last_clinic_speech"] = time.time()
             # The clinic kept talking after we decided their turn was over: drop the queued
             # reply if none of it has played yet (call 002 at 00:08.8). Interruptions are
             # off, so LiveKit won't do this for us.
@@ -238,7 +286,7 @@ async def entrypoint(ctx: JobContext) -> None:
             ):
                 logger.info("clinic resumed before our reply played; dropping it")
                 speech.interrupt(force=True)
-        elif ev.new_state == "away" and heard_clinic.is_set():
+        elif ev.new_state == "away" and heard_clinic.is_set() and not session.userdata.get("ending"):
             # Long silence mid-call (e.g. a lookup that never came back): check once per silence.
             logger.info("line silent for %.0fs, checking in", SILENCE_CHECK_SECONDS)
             session.generate_reply(
@@ -288,7 +336,14 @@ async def entrypoint(ctx: JobContext) -> None:
 
     async def enforce_time_limit() -> None:
         await asyncio.sleep(plan.max_seconds)
+        if session.userdata.get("ending"):
+            return
         logger.info("scenario time limit (%ds) reached, wrapping up", plan.max_seconds)
+        # Don't cut the clinic off mid-sentence (call 006 at 03:01 did): wait briefly for a gap.
+        for _ in range(20):
+            if session.user_state != "speaking":
+                break
+            await asyncio.sleep(0.5)
         session.userdata["end_reason"] = session.userdata["end_reason"] or "timeout"
         session.generate_reply(
             instructions="You're out of time for this call. Politely say you have to go, say goodbye, then call end_call with reason timeout."

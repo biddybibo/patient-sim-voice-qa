@@ -1,0 +1,11 @@
+[00:04.9] CLINIC_AGENT: This call may be recorded for quality and training purposes. Thanks for calling Pivot Point Orthopaedics. Part of Pretty Good AI. How may I help you today?
+[00:19.1] PATIENT_BOT: Hi, um, I need a refill for my lisinopril, the 10 milligram. My name is Jane Doe, date of birth July 4th, 2000.
+[00:39.1] CLINIC_AGENT: I don't see any medications on your chart that I can refill right now. If you'd like to speak with someone about this, just let me know.
+[00:46.5] PATIENT_BOT: Oh, okay. I have only three pills left, so I need it soon. Can you please send it to my pharmacy? It is the CVS on El Camino Real in Palo Alto.
+[01:00.7] CLINIC_AGENT: I'm not able to send the refill directly since there's nothing listed on your chart for me to process.
+[01:05.6] CLINIC_AGENT: Do you like me to connect you with our clinic support team to help with this?
+[01:10.2] PATIENT_BOT: Yes, please, that would be good. Thank you. Can you tell me how long it will take to get the refill ready at CVS once it is sent?
+[01:21.4] CLINIC_AGENT: Transferring you now. Thank you.
+[01:23.9] -- end_call({"reason": "transferred"})
+[01:24.2] PATIENT_BOT: Okay, thank you very much.
+[01:25.1] CLINIC_AGENT: At

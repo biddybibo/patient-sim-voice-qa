@@ -6,6 +6,7 @@ Run:  uv run python -m src.run --scenario hello-world
 
 import argparse
 import asyncio
+import collections
 import subprocess
 import sys
 import threading
@@ -29,18 +30,23 @@ def start_worker() -> subprocess.Popen:
         bufsize=1,
     )
     ready = threading.Event()
+    recent = collections.deque(maxlen=5)
 
     def pump() -> None:
         # Echo worker logs and watch for the registration line.
         for line in proc.stdout:
             sys.stdout.write("  [worker] " + line)
+            recent.append(line.strip())
             if WORKER_READY_LINE in line:
                 ready.set()
 
     threading.Thread(target=pump, daemon=True).start()
-    if not ready.wait(WORKER_START_TIMEOUT):
-        proc.terminate()
-        raise SystemExit("Worker did not register with LiveKit in time; check .env credentials.")
+    deadline = time.time() + WORKER_START_TIMEOUT
+    while not ready.wait(0.5):
+        if proc.poll() is not None or time.time() > deadline:
+            proc.terminate()
+            last = "\n  ".join(recent) or "(no output)"
+            raise SystemExit(f"Worker failed to register with LiveKit. Last worker output:\n  {last}")
     return proc
 
 

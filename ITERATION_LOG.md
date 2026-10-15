@@ -4,127 +4,127 @@ What went wrong with **our** bot and tooling, how we found it, and what changed.
 Bugs in the clinic agent under test are in [BUG_REPORT.md](BUG_REPORT.md).
 
 Each entry: symptom → evidence → cause → fix → before/after. Commits are in `git log`.
+All numbers below come from `calls/<id>/metrics.json` (regenerate with `scripts/recompute_metrics.py`).
 
-## Baseline (call 002, first full call)
+## Calls so far
 
-| Metric (from `calls/002-hello-world/metrics.json`) | Value | Target |
-|---|---|---|
-| Bot response latency, end of clinic speech → bot audio (median / p90) | 1.91 s / 2.24 s | < 1.2 s |
-| …of which end-of-turn wait (median) | 0.60 s | |
-| …of which Claude time-to-first-token (median) | 0.90 s | |
-| …of which TTS time-to-first-audio (median) | 0.17 s | |
-| Talk-over events (bot over clinic) | 1 (4.5 s, at the greeting) | 0 |
-| Call outcome | Booked, hung up itself (`goal_met`), 2:50 | |
+| Call | Scenario / persona | Bot build | Length | End | Response, end of clinic speech → bot audio (median) | …after end-of-turn decided (median) | Claude TTFT (median) | Real overlap (audio) |
+|---|---|---|---|---|---|---|---|---|
+| 002 | hello-world (placeholder) | Phase 1 | 2:50 | goal_met | 1.91 s | 1.26 s | 0.90 s | 0.00 s |
+| 003 | simple-scheduling / rushed | Phase 3 | 2:50 | goal_met | 1.71 s | 0.85 s | 0.88 s | 0.36 s |
+| 004 | simple-scheduling / rushed | + greeting fix | 4:07 | timeout | 3.05 s | 1.06 s | 0.71 s | 0.36 s |
+| 005 | routine-refill / non-native | + greeting fix | 1:28 | transferred | 1.60 s | 1.00 s | 0.79 s | 0.64 s |
+| 006 | insurance-question / neutral | + greeting fix | 3:17 | timeout | 1.73 s | 0.70 s | 0.75 s | 1.52 s |
 
-Call 003 (`simple-scheduling`, rushed persona, Phase 3 prompt): median response 1.71 s (p90 1.91 s),
-Claude TTFT 0.88 s, 1 talk-over (0.9 s, issue 9), booked and hung up itself, 2:51.
+"Response" includes the bot deliberately waiting up to 3 s through the clinic's "let me check…" pauses;
+"after end-of-turn decided" isolates the bot's own speed (LLM + TTS). Target for the latter: < 0.8 s.
 
 ---
 
 ## Open
 
-### 6. Bot talks over the clinic agent's greeting
-- **Symptom:** the bot started its request while the clinic agent was still greeting.
-- **Evidence:** `calls/002-hello-world/transcript.txt` at 00:10.4; `metrics.json` → `talk_over: 1 event, 4.46 s`;
-  audible in `recording.mp3` at ~00:08–00:15 (clinic on the left channel, bot on the right).
-  The clinic's words during the overlap are missing from the transcript (they are in the recording),
-  because uninterruptible bot speech discards incoming audio before STT.
-- **Suspected cause:** the 0.6 s endpointing delay treated the pause after the recorded
-  disclaimer ("This call may be recorded…", ends 00:08.2) as the end of the clinic's turn.
-- **Reproduction:** 1/2. Did **not** happen in call 003, where the clinic delivered disclaimer and greeting
-  as one continuous turn (04.9–16.7) with no pause; the bot waited and spoke at 18.6.
-- **Diagnosis (AI-assisted debugging session, recorded as Loom 2):**
-  - *H1, premature end of turn:* the disclaimer ended at 08.17 and the bot's end-of-turn fired at 08.77
-    (`end_of_turn_delay` = 0.601 s = the configured minimum, i.e. the turn detector was confident the
-    disclaimer was a finished turn). The clinic resumed at 08.78. The bot's `e2e_latency` 2.239 s
-    subtracted from its start at 10.41 lands exactly on 08.17: it was answering the disclaimer.
-    Call 003 is the control: no pause after the disclaimer, no talk-over.
-  - *H2, an uncancellable queued reply:* with interruptions off, a reply is uninterruptible from the moment
-    it's created, not just while playing, so the clinic resuming 1.6 s before the bot's audio couldn't cancel
-    it; meanwhile LiveKit discards incoming audio for STT (`discard_audio_if_uninterruptible`), which is why
-    the greeting is missing from the transcript.
-- **Fix (two small changes in `src/agent.py`):**
-  1. *Greeting-only endpointing:* end-of-turn wait is 1.5 s until the bot first speaks, then 0.6 s
-     (`session.update_options`). Rejected alternative: raising it to 1.0 s for every turn, since that adds
-     ~0.4 s to every reply while latency (issue 7) is already over target.
-  2. *Drop a queued reply the clinic talks over:* when the clinic starts speaking and the bot's reply
-     hasn't started playing, interrupt it; once audio is playing, interruptions stay off (no bot-vs-bot
-     overlap loops). Logs `clinic resumed before our reply played; dropping it` so the two fixes can be
-     told apart on a call.
-  3. *Follow-up from code review:* change 2 could cancel `end_call` if the clinic says goodbye while the
-     bot's goodbye is finishing; `end_call` now marks the call as ending and change 2 skips it.
-- **Status:** applied, **not yet verified** on a call (needs a call where the clinic pauses after the
-  disclaimer; check the left channel). After-metrics go here.
+### 7. Bot responsiveness
+- **Evidence:** table above. Once the bot decides the clinic is done it takes 0.70–1.26 s to start speaking
+  (median per call); Claude Haiku 5.5's time-to-first-token (0.71–0.90 s, thinking off, effort `low`) is most of it.
+- **Next:** measured comparison with Sonnet 5.5; check whether the prompt cache is actually hit.
 
-### 7. Bot response latency above target
-- **Evidence:** baseline table above. The largest component is Claude's time-to-first-token (0.9 s median),
-  even with thinking disabled and effort `low` on Claude Haiku 5.5.
-- **Status:** Phase 4. Candidates: compare Sonnet 5.5 with thinking off, check prompt caching
-  actually hits, tune endpointing per persona.
+### 11. Ground-truth drift: the bot argued with correct clinic records
+- **Evidence:** `calls/004-simple-scheduling/transcript.txt` at 01:13.8. The clinic said Bob already had an
+  appointment (true: booked in call 003); `facts.yaml` still listed none, so the bot insisted it had nothing
+  booked, the clinic cancelled the real appointment at the bot's request, and the call ran out of time.
+- **Fix:** `facts.yaml` now records each account's booking history; prompt rule "If they mention an appointment
+  or detail you don't remember, don't argue; ask them what they have on file."
+- **Status:** fixed, awaiting a call to confirm. Lesson: scenarios that change state (book/cancel/reschedule) need
+  `facts.yaml` updated after every call, or a run order that accounts for them.
 
-### 8. Bot broke character
-- **Symptom:** when the clinic agent offered to create a "demo patient profile", the bot replied
-  "I'm not really looking to make a demo profile, I'm an actual patient."
-- **Evidence:** `calls/002-hello-world/transcript.txt` at 00:27.1.
-- **Fix (prompt, commit `1314aa7`):** persona prompt now says "If they offer to set up or look up a
-  profile, go along with it."
-- **Status:** no recurrence in call 003.
-
-### 9. Bot says "Sure, thanks" over the clinic's answer after "let me check"
-- **Evidence:** `calls/003-simple-scheduling/transcript.txt` at 00:58.5; `metrics.json` → talk-over 0.93 s.
-  Clinic said "Let me check…" (ends 57.2), started the slot offer at 57.9; bot's filler landed on top of it.
-- **Cause:** our own prompt rule: "If they say they're checking something, just wait or say 'sure'."
-  Same mechanism as issue 6's H2: the bot's reply was queued when the clinic started the slot offer.
-- **Status:** issue 6's change 2 should drop that queued "sure". Prompt rule to be changed to
-  "stay silent while they check" in Phase 4. Not yet verified.
-
-### 10. Bot says goodbye twice
-- **Evidence:** `calls/003-simple-scheduling/transcript.txt` at 02:30.1 (goodbye) and again at 02:47.0 after
-  `end_call` ran at 02:46.8.
-- **Status:** Phase 4 (low priority): suppress speech after `end_call`.
+### Fixed in code, awaiting a verification call
+- **9. Fillers spoken over the clinic.** "Sure, thanks" (003 @ 00:58.5), "Sure, take your time" (006 @ 00:52.2,
+  cut the clinic off mid-word: "Point…"), "No problem, I'll hold" (006 @ 01:09.0). Cause: our prompt rule
+  "just wait or say 'sure'". **Fix:** a clinic turn that is only a hold phrase ("let me check", "one moment",
+  "please hold", "I'm processing…", no question) now gets no reply at all (`is_hold_only` + `StopResponse`,
+  tested on 8 real clinic lines); prompt changed to "say nothing; wait until they speak again".
+- **10. Bot kept talking after hanging up.** 003: goodbye said twice; 006 @ 03:07.7: after its goodbye and
+  `end_call`, the bot started a new question ("Sorry, I cut off there…"). **Fix:** once `end_call` runs, every
+  later clinic turn is ignored (`StopResponse`), and the silence check and time limit no longer speak.
+- **12. Hung up the moment it heard "Transferring you now".** 005 @ 01:21.4, so we never saw whether the transfer
+  reaches anyone. **Fix:** new `wait_on_transfer` tool keeps the bot on the line, silent; hangs up only if nobody
+  speaks within 30 s (`end_reason: transferred_no_answer`).
+- **13. Time-limit goodbye cut the clinic off mid-sentence** (006 @ 03:01, clinic: "If doctor…"). **Fix:** the
+  wrap-up waits up to 10 s for a gap in the clinic's speech. Limits raised from 3 to 4 min for scenarios where
+  the clinic puts you on hold.
+- **14. A worker still shutting down blocked the next call.** The batch's `reschedule` call failed:
+  `address already in use` on port 8081 (another session's worker was running), reported misleadingly as
+  "check .env credentials". **Fix:** worker binds any free port (`port=0`); `run.py` prints the worker's real error.
 
 ---
 
-## Fixed
+## Fixed and verified
+
+### 6. Bot answered the recorded disclaimer instead of waiting for the greeting
+- **Symptom (call 002):** the clinic plays "This call may be recorded…" (05.2–08.1), pauses 0.66 s, then greets.
+  The bot's end-of-turn fired at 08.77 after the minimum 0.6 s wait (the turn detector judged the disclaimer
+  a finished sentence), so it answered the disclaimer. Its reply was then uninterruptible, and while it was
+  pending LiveKit discarded the incoming audio for STT, so the greeting never reached the transcript.
+- **Diagnosis:** AI-assisted debugging session (recorded as Loom 2): H1 premature end-of-turn, H2 an
+  uncancellable queued reply. Evidence: `end_of_turn_delay` = 0.601 s (the configured minimum) and the bot's
+  `e2e_latency` 2.239 s subtracted from its start at 10.41 lands exactly on the disclaimer's end (08.17).
+- **Fix (`src/agent.py`):**
+  1. Greeting-only endpointing: 1.5 s until the bot first speaks, then 0.6 s (`session.update_options`).
+     Rejected: 1.0 s on every turn, since it adds ~0.4 s to every reply.
+  2. If the clinic starts speaking before any of the bot's queued reply has played, drop that reply.
+     Once audio is playing, interruptions stay off (avoids bot-vs-bot overlap loops).
+  3. From code review: change 2 could cancel `end_call` if the clinic says goodbye during the bot's goodbye;
+     `end_call` now marks the call as ending and change 2 skips it.
+- **After:** calls 004, 005, 006. The clinic paused after the disclaimer every time (0.64–0.66 s), and every
+  time the bot waited for the full greeting and spoke first at 19.3–21.5 s (call 002: 10.6 s). The full
+  greeting is in all three transcripts. Cost: the first reply only, about +0.9 s.
+
+### 8. Bot broke character
+- **Evidence:** 002 @ 00:27.1, "I'm not really looking to make a demo profile, I'm an actual patient."
+- **Fix:** prompt rule "If they offer to set up or look up a profile, go along with it" (commit `1314aa7`).
+- **After:** no recurrence in 003–006.
 
 ### 1. Calls rejected by Twilio: `403 No International Permission`
-- **Evidence:** attempt archived in `calls/_iterations/001-hello-world-failed-sip-403/` (no conversation).
-- **Cause:** the new Twilio account had voice dialing to United States/Canada disabled
-  (`low_risk_numbers_enabled: false`), despite the destination being domestic.
-- **Fix:** enabled standard US/Canada dialing via Twilio's Dialing Permissions API; high-risk and
-  premium-rate prefixes left disabled.
-- **After:** call 002 connected in 5.0 s.
+- **Evidence:** attempt archived in `calls/_iterations/001-hello-world-failed-sip-403/`.
+- **Cause:** the new Twilio account had dialing to United States/Canada disabled.
+- **Fix:** enabled standard US/Canada dialing via Twilio's Dialing Permissions API (high-risk and premium-rate
+  prefixes left off). **After:** call 002 connected in 5.0 s.
 
 ### 2. Dialer crashed before placing the call
-- **Cause:** `livekit.api` has no `Duration`; `max_call_duration` takes a protobuf `Duration`.
-- **Fix:** `google.protobuf.duration_pb2.Duration` (commit `964dd8d`).
+- **Fix:** `max_call_duration` takes a protobuf `Duration`, not `livekit.api.Duration` (commit `964dd8d`).
 
 ### 3. Failed dial left a room behind; the next run's worker picked up the stale job
-- **Evidence:** second attempt's worker joined the first attempt's room (`call-001-…`), which had no phone line.
-- **Fix:** `dial.py` deletes the room when the SIP call fails; `save_call` exits cleanly when no
-  session ever started (commit `964dd8d`).
+- **Fix:** `dial.py` deletes the room when the SIP call fails; `save_call` exits cleanly when no session
+  started (commit `964dd8d`).
 
 ### 4. Every HTTPS/WSS call failed certificate verification
-- **Evidence:** preflight: `SSLCertVerificationError … unable to get local issuer certificate` for Deepgram and Cartesia.
-- **Cause:** python.org builds of Python on macOS ship without CA certificates; aiohttp builds its
-  SSL context at import time.
-- **Fix:** `src/config.py` sets `SSL_CERT_FILE` to certifi's bundle and is imported before aiohttp in
-  every entry point (commit `37d233c`). Works on a reviewer's Mac too.
+- **Cause:** python.org builds of Python on macOS ship without CA certificates; aiohttp builds its SSL context
+  at import. **Fix:** `src/config.py` points `SSL_CERT_FILE` at certifi and is imported first (commit `37d233c`).
 
-### 5. Metrics overstated talk-over and silence
-- **Evidence:** call 002 first reported talk-over 15.26 s and longest silence 12.18 s; the audio shows
-  4.5 s of overlap and no 12 s silence.
-- **Cause:** overlap/silence compared each turn only with the previous one, but the clinic's long turn
-  (08.8–25.7) contained the bot's whole turn (10.4–14.9).
-- **Fix:** compare against whichever turn is still on air; regression test built from call 002's timings
-  (`tests/test_call_outputs.py::test_bot_talking_inside_a_long_clinic_turn`, commit `964dd8d`).
-- **After:** talk-over 4.46 s, longest silence 4.22 s.
+### 5. Talk-over was measured from the transcript, which is wrong (two rounds)
+- **Round 1 (commit `964dd8d`):** call 002 first reported 15.26 s of talk-over and a 12.18 s silence, because
+  overlap was only compared with the previous turn. Fixed to compare against the turn still on air: 4.46 s.
+- **Round 2:** measuring the stereo recording showed call 002 had **0.0 s** of simultaneous speech: the clinic's
+  chat "turn" (08.8–25.7) contained 6.8 s of silence. Chat-turn spans aren't speech spans. **Fix:**
+  `src/audio_analysis.py` measures overlap where both channels have sound at once; `metrics.json` now reports
+  `talk_over_audio` (ground truth) and keeps `talk_over_transcript_estimate` only for comparison.
+
+---
+
+## Corrections
+
+Two claims made earlier (in this log and in the Loom 2 debugging session) were wrong, found by measuring the audio:
+- **"Call 003 is the control: the clinic didn't pause after the disclaimer."** It did, by the same 0.66 s; the
+  transcript merged the two utterances into one line. The clinic pauses there on every call (002–006); whether the
+  bot jumped in depended on the turn detector, not on the pause. The fix is unaffected, and every call tests it.
+- **"4.5 s of talk-over in call 002."** That was the transcript-based estimate; there was no simultaneous speech.
+  What the audio shows instead is consistent with the bot cutting the clinic's greeting short: the greeting ran
+  ~2 s (vs ~8 s on every later call) and stopped as the bot started, then the clinic stayed silent for 6.8 s.
 
 ## Design changes after early results
 
-- **Recording:** switched from Room Composite Egress → S3 to LiveKit Agents' built-in session recorder.
-  Same stereo OGG (clinic L / bot R), no storage account or egress cost, and transcript timestamps align
-  with the audio by construction. Verified on call 002: transcript's first clinic line at 00:05.0 matches
-  the left channel's audio onset (RMS 0.17 vs 0.0 on the bot channel).
-- **No `mark_progress` tool:** each tool call adds a Claude round trip (~1 s of dead air). Goal completion
-  is judged offline from the transcript instead.
+- **Recording:** Room Composite Egress → S3 replaced by LiveKit Agents' built-in session recorder. Same stereo OGG
+  (clinic L / bot R), no storage account or egress cost, and timestamps align with the audio by construction.
+- **No `mark_progress` tool:** each tool call adds a Claude round trip (~1 s of dead air). Goal completion is
+  judged offline from the transcript instead.
+- **Audio-based metrics:** see issue 5.

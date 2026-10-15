@@ -1,0 +1,139 @@
+{
+  "call_id": "005-routine-refill",
+  "scenario": "routine-refill",
+  "persona": "non_native",
+  "room": "call-005-routine-refill-1792026931",
+  "recording_started_at": 1792026933.538193,
+  "turns": [
+    {
+      "speaker": "CLINIC_AGENT",
+      "t_start": 4.87,
+      "t_end": 16.51,
+      "text": "This call may be recorded for quality and training purposes. Thanks for calling Pivot Point Orthopaedics. Part of Pretty Good AI. How may I help you today?",
+      "interrupted": false,
+      "stt_confidence": 0.990844725,
+      "latency": {
+        "transcription_delay": 0.219,
+        "end_of_turn_delay": 1.5
+      }
+    },
+    {
+      "speaker": "PATIENT_BOT",
+      "t_start": 19.09,
+      "t_end": 27.92,
+      "text": "Hi, um, I need a refill for my lisinopril, the 10 milligram. My name is Jane Doe, date of birth July 4th, 2000.",
+      "interrupted": false,
+      "stt_confidence": null,
+      "latency": {
+        "llm_node_ttft": 0.691,
+        "tts_node_ttfb": 0.209,
+        "e2e_latency": 2.583
+      }
+    },
+    {
+      "speaker": "CLINIC_AGENT",
+      "t_start": 39.12,
+      "t_end": 45.01,
+      "text": "I don't see any medications on your chart that I can refill right now. If you'd like to speak with someone about this, just let me know.",
+      "interrupted": false,
+      "stt_confidence": 1.0,
+      "latency": {
+        "transcription_delay": 0.263,
+        "end_of_turn_delay": 0.601
+      }
+    },
+    {
+      "speaker": "PATIENT_BOT",
+      "t_start": 46.53,
+      "t_end": 57.54,
+      "text": "Oh, okay. I have only three pills left, so I need it soon. Can you please send it to my pharmacy? It is the CVS on El Camino Real in Palo Alto.",
+      "interrupted": false,
+      "stt_confidence": null,
+      "latency": {
+        "llm_node_ttft": 0.869,
+        "tts_node_ttfb": 0.202,
+        "e2e_latency": 1.522
+      }
+    },
+    {
+      "speaker": "CLINIC_AGENT",
+      "t_start": 60.72,
+      "t_end": 65.01,
+      "text": "I'm not able to send the refill directly since there's nothing listed on your chart for me to process.",
+      "interrupted": false,
+      "stt_confidence": 1.0,
+      "latency": {
+        "transcription_delay": 0.195,
+        "end_of_turn_delay": 0.601
+      }
+    },
+    {
+      "speaker": "CLINIC_AGENT",
+      "t_start": 65.62,
+      "t_end": 68.51,
+      "text": "Do you like me to connect you with our clinic support team to help with this?",
+      "interrupted": false,
+      "stt_confidence": 1.0,
+      "latency": {
+        "transcription_delay": 0.31,
+        "end_of_turn_delay": 0.601
+      }
+    },
+    {
+      "speaker": "PATIENT_BOT",
+      "t_start": 70.18,
+      "t_end": 78.22,
+      "text": "Yes, please, that would be good. Thank you. Can you tell me how long it will take to get the refill ready at CVS once it is sent?",
+      "interrupted": false,
+      "stt_confidence": null,
+      "latency": {
+        "llm_node_ttft": 1.05,
+        "tts_node_ttfb": 0.203,
+        "e2e_latency": 1.671
+      }
+    },
+    {
+      "speaker": "CLINIC_AGENT",
+      "t_start": 81.41,
+      "t_end": 82.76,
+      "text": "Transferring you now. Thank you.",
+      "interrupted": false,
+      "stt_confidence": 1.0,
+      "latency": {
+        "transcription_delay": 0.256,
+        "end_of_turn_delay": 0.601
+      }
+    },
+    {
+      "speaker": "TOOL",
+      "t_start": 83.92,
+      "t_end": null,
+      "text": "end_call({\"reason\": \"transferred\"})"
+    },
+    {
+      "speaker": "PATIENT_BOT",
+      "t_start": 84.23,
+      "t_end": 86.7,
+      "text": "Okay, thank you very much.",
+      "interrupted": false,
+      "stt_confidence": null,
+      "latency": {
+        "llm_node_ttft": 0.716,
+        "tts_node_ttfb": 0.297,
+        "e2e_latency": 1.474
+      }
+    },
+    {
+      "speaker": "CLINIC_AGENT",
+      "t_start": 85.07,
+      "t_end": 87.13,
+      "text": "At",
+      "interrupted": false,
+      "stt_confidence": 0.60498047,
+      "latency": {
+        "transcription_delay": 0.615,
+        "end_of_turn_delay": 0.615
+      }
+    }
+  ]
+}

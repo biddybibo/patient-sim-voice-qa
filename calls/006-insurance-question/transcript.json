@@ -1,0 +1,277 @@
+{
+  "call_id": "006-insurance-question",
+  "scenario": "insurance-question",
+  "persona": "neutral",
+  "room": "call-006-insurance-question-1792027086",
+  "recording_started_at": 1792027088.3445618,
+  "turns": [
+    {
+      "speaker": "CLINIC_AGENT",
+      "t_start": 5.05,
+      "t_end": 16.79,
+      "text": "This call may be recorded for quality and training purposes. Thanks for calling Pivot Point Orthopaedics. Part of Pretty Good AI. How may I help you today?",
+      "interrupted": false,
+      "stt_confidence": 0.971557625,
+      "latency": {
+        "transcription_delay": 0.287,
+        "end_of_turn_delay": 1.501
+      }
+    },
+    {
+      "speaker": "PATIENT_BOT",
+      "t_start": 19.57,
+      "t_end": 28.49,
+      "text": "Hi, um, good morning. I have an appointment coming up on Tuesday, October 20th at 10 AM with Dr. Lukowski, and I wanted to check whether you take Aetna PPO.",
+      "interrupted": false,
+      "stt_confidence": null,
+      "latency": {
+        "llm_node_ttft": 0.846,
+        "tts_node_ttfb": 0.167,
+        "e2e_latency": 2.776
+      }
+    },
+    {
+      "speaker": "CLINIC_AGENT",
+      "t_start": 31.9,
+      "t_end": 35.64,
+      "text": "I see you're calling from the number we have on file. Am I speaking with Jane?",
+      "interrupted": false,
+      "stt_confidence": 1.0,
+      "latency": {
+        "transcription_delay": 0.232,
+        "end_of_turn_delay": 0.6
+      }
+    },
+    {
+      "speaker": "PATIENT_BOT",
+      "t_start": 36.86,
+      "t_end": 43.74,
+      "text": "Yes, this is Jane Doe. My date of birth is July 4th, 2000, if you need to verify.",
+      "interrupted": false,
+      "stt_confidence": null,
+      "latency": {
+        "llm_node_ttft": 0.634,
+        "tts_node_ttfb": 0.157,
+        "e2e_latency": 1.218
+      }
+    },
+    {
+      "speaker": "CLINIC_AGENT",
+      "t_start": 47.2,
+      "t_end": 51.04,
+      "text": "Thanks, Jane. Let me check your upcoming appointment and insurance details.",
+      "interrupted": false,
+      "stt_confidence": 0.9992675799999999,
+      "latency": {
+        "transcription_delay": 0.336,
+        "end_of_turn_delay": 0.6
+      }
+    },
+    {
+      "speaker": "PATIENT_BOT",
+      "t_start": 52.25,
+      "t_end": 53.46,
+      "text": "Sure, take your time.",
+      "interrupted": false,
+      "stt_confidence": null,
+      "latency": {
+        "llm_node_ttft": 0.696,
+        "tts_node_ttfb": 0.145,
+        "e2e_latency": 1.204
+      }
+    },
+    {
+      "speaker": "CLINIC_AGENT",
+      "t_start": 53.06,
+      "t_end": 53.69,
+      "text": "Point",
+      "interrupted": false,
+      "stt_confidence": 0.9375,
+      "latency": {
+        "transcription_delay": 0.311,
+        "end_of_turn_delay": 0.601
+      }
+    },
+    {
+      "speaker": "PATIENT_BOT",
+      "t_start": 55.18,
+      "t_end": 58.86,
+      "text": "Sorry, I didn't catch that. Were you still checking on the Aetna PPO?",
+      "interrupted": false,
+      "stt_confidence": null,
+      "latency": {
+        "llm_node_ttft": 0.778,
+        "tts_node_ttfb": 0.132,
+        "e2e_latency": 1.491
+      }
+    },
+    {
+      "speaker": "CLINIC_AGENT",
+      "t_start": 62.25,
+      "t_end": 67.69,
+      "text": "I'm still working on your Aetna PPO insurance question. Please hold while I get that information.",
+      "interrupted": false,
+      "stt_confidence": 1.0,
+      "latency": {
+        "transcription_delay": 0.243,
+        "end_of_turn_delay": 0.6
+      }
+    },
+    {
+      "speaker": "PATIENT_BOT",
+      "t_start": 68.99,
+      "t_end": 70.94,
+      "text": "No problem, I'll hold.",
+      "interrupted": false,
+      "stt_confidence": null,
+      "latency": {
+        "llm_node_ttft": 0.744,
+        "tts_node_ttfb": 0.149,
+        "e2e_latency": 1.297
+      }
+    },
+    {
+      "speaker": "CLINIC_AGENT",
+      "t_start": 69.6,
+      "t_end": 76.74,
+      "text": "Could you please provide your Aetna PPE member ID number?",
+      "interrupted": false,
+      "stt_confidence": 0.9990234499999999,
+      "latency": {
+        "transcription_delay": 0.328,
+        "end_of_turn_delay": 3.0
+      }
+    },
+    {
+      "speaker": "PATIENT_BOT",
+      "t_start": 79.9,
+      "t_end": 85.85,
+      "text": "Sure, um, I don't have the card in front of me right now. Could you look me up using my name and date of birth instead?",
+      "interrupted": false,
+      "stt_confidence": null,
+      "latency": {
+        "llm_node_ttft": 0.752,
+        "tts_node_ttfb": 0.153,
+        "e2e_latency": 3.161
+      }
+    },
+    {
+      "speaker": "CLINIC_AGENT",
+      "t_start": 91.2,
+      "t_end": 99.49,
+      "text": "I can't look up your insurance details. It's just your name and date of birth. Since you don't have your card handy, our team will reach out to collect your insurance information later.",
+      "interrupted": false,
+      "stt_confidence": 1.0,
+      "latency": {
+        "transcription_delay": 0.246,
+        "end_of_turn_delay": 0.601
+      }
+    },
+    {
+      "speaker": "CLINIC_AGENT",
+      "t_start": 100.85,
+      "t_end": 131.49,
+      "text": "We do accept many Aetna PPO plans but coverage can depend on the specific plan details. For Medi Cal, acceptance can also vary by location and provider. It's best to check each plan individually. If you have your brother's insurance details, I can help look that up too.",
+      "interrupted": false,
+      "stt_confidence": 0.9943033899999999,
+      "latency": {
+        "transcription_delay": 0.31,
+        "end_of_turn_delay": 3.001
+      }
+    },
+    {
+      "speaker": "PATIENT_BOT",
+      "t_start": 100.89,
+      "t_end": 113.62,
+      "text": "Okay, that works. Before you go, could you tell me whether you take Aetna PPO in general, even without the member ID? And I also wanted to ask whether you accept Medi-Cal, since I'm calling for my mother too.",
+      "interrupted": false,
+      "stt_confidence": null,
+      "latency": {
+        "llm_node_ttft": 0.738,
+        "tts_node_ttfb": 0.164,
+        "e2e_latency": 1.398
+      }
+    },
+    {
+      "speaker": "PATIENT_BOT",
+      "t_start": 135.69,
+      "t_end": 146.33,
+      "text": "Um, I don't have my brother's details, and I'm actually asking about my mother, not my brother. Does Medi-Cal cover Dr. Lukowski specifically, or the whole practice?",
+      "interrupted": false,
+      "stt_confidence": null,
+      "latency": {
+        "llm_node_ttft": 0.766,
+        "tts_node_ttfb": 0.171,
+        "e2e_latency": 4.201
+      }
+    },
+    {
+      "speaker": "CLINIC_AGENT",
+      "t_start": 149.21,
+      "t_end": 166.69,
+      "text": "Sorry for the mix up. Minicow coverage can depend on both the provider and the practice. Some doctors within a practice may accept Medi Cal, while others may not. For doctor Lukowski, I recommend calling the office directly or checking with your Medi Cal plan to confirm if they are in network.",
+      "interrupted": false,
+      "stt_confidence": 0.99302455,
+      "latency": {
+        "transcription_delay": 0.228,
+        "end_of_turn_delay": 0.6
+      }
+    },
+    {
+      "speaker": "PATIENT_BOT",
+      "t_start": 168.65,
+      "t_end": 176.42,
+      "text": "No worries, thanks for clarifying. And if Dr. Lukowski turned out to be out of network for my Aetna PPO, what would I owe for the visit?",
+      "interrupted": false,
+      "stt_confidence": null,
+      "latency": {
+        "llm_node_ttft": 0.997,
+        "tts_node_ttfb": 0.134,
+        "e2e_latency": 1.962
+      }
+    },
+    {
+      "speaker": "CLINIC_AGENT",
+      "t_start": 179.66,
+      "t_end": 183.59,
+      "text": "If doctor",
+      "interrupted": false,
+      "stt_confidence": 0.96777344,
+      "latency": {
+        "transcription_delay": 0,
+        "end_of_turn_delay": 3.0
+      }
+    },
+    {
+      "speaker": "TOOL",
+      "t_start": 181.16,
+      "t_end": null,
+      "text": "end_call({\"reason\": \"timeout\"})"
+    },
+    {
+      "speaker": "PATIENT_BOT",
+      "t_start": 181.29,
+      "t_end": 186.13,
+      "text": "I'm sorry, I have to go now. Thanks so much for your help, goodbye!",
+      "interrupted": false,
+      "stt_confidence": null,
+      "latency": {
+        "llm_node_ttft": 0.841,
+        "tts_node_ttfb": 0.139
+      }
+    },
+    {
+      "speaker": "PATIENT_BOT",
+      "t_start": 187.74,
+      "t_end": 194.66,
+      "text": "Sorry, I cut off there. If Dr. Lukowski is out of network for my Aetna PPO, what would I owe for the visit?",
+      "interrupted": false,
+      "stt_confidence": null,
+      "latency": {
+        "llm_node_ttft": 0.739,
+        "tts_node_ttfb": 0.205,
+        "e2e_latency": 4.149
+      }
+    }
+  ]
+}

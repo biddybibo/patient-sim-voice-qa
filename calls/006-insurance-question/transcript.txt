@@ -1,0 +1,22 @@
+[00:05.0] CLINIC_AGENT: This call may be recorded for quality and training purposes. Thanks for calling Pivot Point Orthopaedics. Part of Pretty Good AI. How may I help you today?
+[00:19.6] PATIENT_BOT: Hi, um, good morning. I have an appointment coming up on Tuesday, October 20th at 10 AM with Dr. Lukowski, and I wanted to check whether you take Aetna PPO.
+[00:31.9] CLINIC_AGENT: I see you're calling from the number we have on file. Am I speaking with Jane?
+[00:36.9] PATIENT_BOT: Yes, this is Jane Doe. My date of birth is July 4th, 2000, if you need to verify.
+[00:47.2] CLINIC_AGENT: Thanks, Jane. Let me check your upcoming appointment and insurance details.
+[00:52.2] PATIENT_BOT: Sure, take your time.
+[00:53.1] CLINIC_AGENT: Point
+[00:55.2] PATIENT_BOT: Sorry, I didn't catch that. Were you still checking on the Aetna PPO?
+[01:02.2] CLINIC_AGENT: I'm still working on your Aetna PPO insurance question. Please hold while I get that information.
+[01:09.0] PATIENT_BOT: No problem, I'll hold.
+[01:09.6] CLINIC_AGENT: Could you please provide your Aetna PPE member ID number?
+[01:19.9] PATIENT_BOT: Sure, um, I don't have the card in front of me right now. Could you look me up using my name and date of birth instead?
+[01:31.2] CLINIC_AGENT: I can't look up your insurance details. It's just your name and date of birth. Since you don't have your card handy, our team will reach out to collect your insurance information later.
+[01:40.8] CLINIC_AGENT: We do accept many Aetna PPO plans but coverage can depend on the specific plan details. For Medi Cal, acceptance can also vary by location and provider. It's best to check each plan individually. If you have your brother's insurance details, I can help look that up too.
+[01:40.9] PATIENT_BOT: Okay, that works. Before you go, could you tell me whether you take Aetna PPO in general, even without the member ID? And I also wanted to ask whether you accept Medi-Cal, since I'm calling for my mother too.
+[02:15.7] PATIENT_BOT: Um, I don't have my brother's details, and I'm actually asking about my mother, not my brother. Does Medi-Cal cover Dr. Lukowski specifically, or the whole practice?
+[02:29.2] CLINIC_AGENT: Sorry for the mix up. Minicow coverage can depend on both the provider and the practice. Some doctors within a practice may accept Medi Cal, while others may not. For doctor Lukowski, I recommend calling the office directly or checking with your Medi Cal plan to confirm if they are in network.
+[02:48.7] PATIENT_BOT: No worries, thanks for clarifying. And if Dr. Lukowski turned out to be out of network for my Aetna PPO, what would I owe for the visit?
+[02:59.7] CLINIC_AGENT: If doctor
+[03:01.2] -- end_call({"reason": "timeout"})
+[03:01.3] PATIENT_BOT: I'm sorry, I have to go now. Thanks so much for your help, goodbye!
+[03:07.7] PATIENT_BOT: Sorry, I cut off there. If Dr. Lukowski is out of network for my Aetna PPO, what would I owe for the visit?

@@ -1,0 +1,277 @@
+{
+  "call_id": "004-simple-scheduling",
+  "scenario": "simple-scheduling",
+  "persona": "rushed_professional",
+  "room": "call-004-simple-scheduling-1792026575",
+  "recording_started_at": 1792026576.629245,
+  "turns": [
+    {
+      "speaker": "CLINIC_AGENT",
+      "t_start": 4.72,
+      "t_end": 17.75,
+      "text": "This call may be recorded for quality and training purposes. Thanks for calling Pivot Point Orthopedics. Part of Pretty Good AI. How may I help you today?",
+      "interrupted": false,
+      "stt_confidence": 0.947062175,
+      "latency": {
+        "transcription_delay": 0.225,
+        "end_of_turn_delay": 1.501
+      }
+    },
+    {
+      "speaker": "PATIENT_BOT",
+      "t_start": 20.67,
+      "t_end": 27.54,
+      "text": "Hi, this is Bob Dylan. I'd like to book an annual physical sometime next week, preferably a weekday morning before 11.",
+      "interrupted": false,
+      "stt_confidence": null,
+      "latency": {
+        "llm_node_ttft": 1.186,
+        "tts_node_ttfb": 0.171,
+        "e2e_latency": 2.914
+      }
+    },
+    {
+      "speaker": "CLINIC_AGENT",
+      "t_start": 30.21,
+      "t_end": 31.6,
+      "text": "You please provide your date of birth?",
+      "interrupted": false,
+      "stt_confidence": 1.0,
+      "latency": {
+        "transcription_delay": 0.267,
+        "end_of_turn_delay": 3.001
+      }
+    },
+    {
+      "speaker": "PATIENT_BOT",
+      "t_start": 34.8,
+      "t_end": 36.61,
+      "text": "July 4th, 1990.",
+      "interrupted": false,
+      "stt_confidence": null,
+      "latency": {
+        "llm_node_ttft": 0.721,
+        "tts_node_ttfb": 0.183,
+        "e2e_latency": 3.192
+      }
+    },
+    {
+      "speaker": "CLINIC_AGENT",
+      "t_start": 44.81,
+      "t_end": 49.65,
+      "text": "Just to confirm, are you looking to schedule a general office visit for your annual physical?",
+      "interrupted": false,
+      "stt_confidence": 0.9880371,
+      "latency": {
+        "transcription_delay": 0.198,
+        "end_of_turn_delay": 0.601
+      }
+    },
+    {
+      "speaker": "PATIENT_BOT",
+      "t_start": 50.75,
+      "t_end": 52.93,
+      "text": "Yes, that's right. A general annual physical.",
+      "interrupted": false,
+      "stt_confidence": null,
+      "latency": {
+        "llm_node_ttft": 0.679,
+        "tts_node_ttfb": 0.18,
+        "e2e_latency": 1.096
+      }
+    },
+    {
+      "speaker": "CLINIC_AGENT",
+      "t_start": 57.81,
+      "t_end": 69.6,
+      "text": "You already have an office visit scheduled with doctor Duveehauser on Tuesday, October twentieth at ten AM. At Pivot Point Orthopedics. Would you like to keep this appointment, reschedule it, or cancel it?",
+      "interrupted": false,
+      "stt_confidence": 0.98955079,
+      "latency": {
+        "transcription_delay": 0.189,
+        "end_of_turn_delay": 0.601
+      }
+    },
+    {
+      "speaker": "PATIENT_BOT",
+      "t_start": 73.75,
+      "t_end": 81.83,
+      "text": "Wait, I don't have anything scheduled with them. My notes say I have no upcoming appointments. Can you double-check the record? Maybe it's under a different name or it's for someone else.",
+      "interrupted": false,
+      "stt_confidence": null,
+      "latency": {
+        "llm_node_ttft": 3.197,
+        "tts_node_ttfb": 0.141,
+        "e2e_latency": 4.147
+      }
+    },
+    {
+      "speaker": "CLINIC_AGENT",
+      "t_start": 86.12,
+      "t_end": 99.3,
+      "text": "Our records show you have an office visit scheduled with doctor Dugie Hauser on Tuesday, October twentieth at ten AM. This is the only upcoming appointment on file. Would you like to keep, reschedule, or cancel this appointment?",
+      "interrupted": false,
+      "stt_confidence": 0.9994140679999999,
+      "latency": {
+        "transcription_delay": 0.176,
+        "end_of_turn_delay": 0.601
+      }
+    },
+    {
+      "speaker": "PATIENT_BOT",
+      "t_start": 100.95,
+      "t_end": 108.8,
+      "text": "I didn't book that, so I don't want to keep it. Please cancel it. Then I'd still like to book the annual physical for next week, weekday morning before 11.",
+      "interrupted": false,
+      "stt_confidence": null,
+      "latency": {
+        "llm_node_ttft": 0.746,
+        "tts_node_ttfb": 0.151,
+        "e2e_latency": 1.646
+      }
+    },
+    {
+      "speaker": "CLINIC_AGENT",
+      "t_start": 111.42,
+      "t_end": 122.3,
+      "text": "I'll cancel the appointment with doctor Judy Hauser on Tuesday, October twentieth, Just to confirm, you'd like to cancel your office visit with doctor Doobie Hauser on October twentieth. Correct?",
+      "interrupted": false,
+      "stt_confidence": 0.99975586,
+      "latency": {
+        "transcription_delay": 0.222,
+        "end_of_turn_delay": 0.6
+      }
+    },
+    {
+      "speaker": "PATIENT_BOT",
+      "t_start": 124.09,
+      "t_end": 126.64,
+      "text": "Yes, that's correct. Please cancel it.",
+      "interrupted": false,
+      "stt_confidence": null,
+      "latency": {
+        "llm_node_ttft": 0.99,
+        "tts_node_ttfb": 0.168,
+        "e2e_latency": 1.785
+      }
+    },
+    {
+      "speaker": "CLINIC_AGENT",
+      "t_start": 129.21,
+      "t_end": 151.3,
+      "text": "I am processing the cancellation for your appointment with doctor on October twentieth. Once that's complete, I'll help you schedule your annual physical for next week, weekday morning before eleven. Your appointment with doctor Dugie Hauser on Tuesday, October twentieth at ten AM has been canceled. Would you like me to look for available weekday morning slots for your annual physical next week?",
+      "interrupted": false,
+      "stt_confidence": 0.99818639,
+      "latency": {
+        "transcription_delay": 0.301,
+        "end_of_turn_delay": 3.001
+      }
+    },
+    {
+      "speaker": "PATIENT_BOT",
+      "t_start": 155.38,
+      "t_end": 159.65,
+      "text": "Yes, please. Which doctor is the physical with, and what's the office address?",
+      "interrupted": false,
+      "stt_confidence": null,
+      "latency": {
+        "llm_node_ttft": 0.682,
+        "tts_node_ttfb": 0.191,
+        "e2e_latency": 4.075
+      }
+    },
+    {
+      "speaker": "CLINIC_AGENT",
+      "t_start": 162.26,
+      "t_end": 170.6,
+      "text": "Let me check which doctor is available for your annual physical next week and confirm the office address. One moment while I fetch that information.",
+      "interrupted": false,
+      "stt_confidence": 0.9992675799999999,
+      "latency": {
+        "transcription_delay": 0.357,
+        "end_of_turn_delay": 3.001
+      }
+    },
+    {
+      "speaker": "PATIENT_BOT",
+      "t_start": 174.58,
+      "t_end": 175.75,
+      "text": "Sure, I'll wait.",
+      "interrupted": false,
+      "stt_confidence": null,
+      "latency": {
+        "llm_node_ttft": 0.714,
+        "tts_node_ttfb": 0.216,
+        "e2e_latency": 3.98
+      }
+    },
+    {
+      "speaker": "CLINIC_AGENT",
+      "t_start": 182.27,
+      "t_end": 200.8,
+      "text": "Doctor. Doobie Houser is available for annual physicals next week at Pivot Point Orthopedic The office is located at Pivot Point Orthopedics one two three Main Street, San Francisco. The first available slot is Tuesday, October twentieth at ten AM. Would you like to book that time?",
+      "interrupted": false,
+      "stt_confidence": 0.9935477142857143,
+      "latency": {
+        "transcription_delay": 0.177,
+        "end_of_turn_delay": 0.601
+      }
+    },
+    {
+      "speaker": "PATIENT_BOT",
+      "t_start": 202.52,
+      "t_end": 209.26,
+      "text": "That's the same slot you just canceled, and it's not next week. Do you have anything Monday through Friday next week, before 11 AM?",
+      "interrupted": false,
+      "stt_confidence": null,
+      "latency": {
+        "llm_node_ttft": 0.711,
+        "tts_node_ttfb": 0.14,
+        "e2e_latency": 1.72
+      }
+    },
+    {
+      "speaker": "CLINIC_AGENT",
+      "t_start": 213.41,
+      "t_end": 225.0,
+      "text": "The only available week morning slot next week is Tuesday, October twentieth at ten AM with doctor Duggehauser. Would you like to book this time, or should I look for later dates?",
+      "interrupted": false,
+      "stt_confidence": 0.99853516,
+      "latency": {
+        "transcription_delay": 0.224,
+        "end_of_turn_delay": 3.0
+      }
+    },
+    {
+      "speaker": "PATIENT_BOT",
+      "t_start": 228.98,
+      "t_end": 233.76,
+      "text": "Let's check later dates. What's the earliest you have after next week, on a weekday morning before 11?",
+      "interrupted": false,
+      "stt_confidence": null,
+      "latency": {
+        "llm_node_ttft": 0.678,
+        "tts_node_ttfb": 0.136,
+        "e2e_latency": 3.971
+      }
+    },
+    {
+      "speaker": "TOOL",
+      "t_start": 241.28,
+      "t_end": null,
+      "text": "end_call({\"reason\": \"timeout\"})"
+    },
+    {
+      "speaker": "PATIENT_BOT",
+      "t_start": 241.34,
+      "t_end": 244.36,
+      "text": "I'm sorry, I have to run to my next meeting. Thanks for your help, goodbye.",
+      "interrupted": false,
+      "stt_confidence": null,
+      "latency": {
+        "llm_node_ttft": 0.711,
+        "tts_node_ttfb": 0.155
+      }
+    }
+  ]
+}

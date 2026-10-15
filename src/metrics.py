@@ -1,14 +1,20 @@
-"""Per-call metrics computed from the transcript turns.
+"""Per-call metrics.
 
-Bot latency is what we control and tune (Phase 4 before/after evidence).
-Clinic latency, talk-over and silences describe the agent under test.
+Bot latency is what we control and tune (Phase 4 before/after evidence). Two views:
+- response_e2e: end of clinic speech -> bot audio. Includes deliberately waiting through
+  the clinic's "let me check..." pauses (end-of-turn up to 3 s), so it overstates slowness.
+- response_after_turn_end: e2e minus the end-of-turn wait, i.e. how fast the bot answers
+  once it has decided the clinic is done (LLM + TTS + overhead). This is responsiveness.
+
+Talk-over comes from the stereo recording (src/audio_analysis.py) when available; the
+transcript-based estimate is kept only for comparison because chat turns can span silences.
 """
 
 from statistics import median
 
 from src.transcript import BOT, CLINIC
 
-OVERLAP_TOLERANCE = 0.2  # seconds of overlap ignored as timing noise
+OVERLAP_TOLERANCE = 0.2  # seconds of transcript overlap ignored as timing noise
 
 
 def summarize(values: list[float]) -> dict | None:
@@ -24,11 +30,23 @@ def summarize(values: list[float]) -> dict | None:
     }
 
 
-def compute(turns: list[dict], duration: float | None, end_reason: str) -> dict:
+def compute(
+    turns: list[dict], duration: float | None, end_reason: str, audio: dict | None = None
+) -> dict:
     speech = [t for t in turns if t["speaker"] in (BOT, CLINIC)]
 
     def latency(key: str) -> list[float]:
         return [t["latency"][key] for t in speech if t["speaker"] == BOT and key in t["latency"]]
+
+    # Pair each bot reply with the end-of-turn wait of the clinic turn it answered.
+    after_turn_end = []
+    last_eot = None
+    for t in speech:
+        if t["speaker"] == CLINIC:
+            last_eot = t["latency"].get("end_of_turn_delay")
+        elif "e2e_latency" in t["latency"] and last_eot is not None:
+            after_turn_end.append(t["latency"]["e2e_latency"] - last_eot)
+            last_eot = None
 
     clinic_response, overlaps, gaps = [], [], []
     # Compare each turn with whichever earlier turn ends last (the one still "on air"),
@@ -60,6 +78,7 @@ def compute(turns: list[dict], duration: float | None, end_reason: str) -> dict:
         },
         "bot_latency_s": {
             "response_e2e": summarize(latency("e2e_latency")),
+            "response_after_turn_end": summarize(after_turn_end),
             "end_of_turn_delay": summarize(
                 [t["latency"]["end_of_turn_delay"] for t in speech
                  if t["speaker"] == CLINIC and "end_of_turn_delay" in t["latency"]]
@@ -68,7 +87,9 @@ def compute(turns: list[dict], duration: float | None, end_reason: str) -> dict:
             "tts_ttfb": summarize(latency("tts_node_ttfb")),
         },
         "clinic_response_latency_s": summarize(clinic_response),
-        "talk_over": {"count": len(overlaps), "events": overlaps},
+        "talk_over_audio": audio["talk_over"] if audio else None,
+        "opening_audio": audio["opening"] if audio else None,
+        "talk_over_transcript_estimate": {"count": len(overlaps), "events": overlaps},
         "longest_silence_s": round(max(gaps), 2) if gaps else None,
         "bot_turns_cut_off": sum(t["speaker"] == BOT and t["interrupted"] for t in speech),
     }

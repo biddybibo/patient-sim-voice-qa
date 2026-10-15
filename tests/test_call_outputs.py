@@ -1,20 +1,30 @@
 import av
 import numpy as np
+import pytest
 from livekit.agents.llm import ChatContext, ChatMessage, FunctionCall
 
 from src import metrics, transcript
+from src.audio_analysis import analyze
 from src.recording import next_call_id, ogg_to_mp3
 
 T0 = 1_000_000.0
 
 
-def make_stereo_ogg(path, seconds=2.0, rate=48000):
-    """Opus/OGG like LiveKit's recorder writes: left = 440 Hz, right = silence."""
+def make_stereo_ogg(path, seconds=2.0, rate=48000, left=(0.0, 2.0), right=None):
+    """Opus/OGG like LiveKit's recorder writes: a 440 Hz tone on each channel during the
+    given (start, end) seconds, silence elsewhere. Left = clinic, right = bot."""
     with av.open(str(path), "w", format="ogg") as out:
         stream = out.add_stream("libopus", rate=rate, layout="stereo")
         n = int(seconds * rate)
-        tone = np.sin(2 * np.pi * 440 * np.arange(n) / rate).astype(np.float32) * 0.3
-        samples = np.stack([tone, np.zeros(n, dtype=np.float32)])
+        t = np.arange(n) / rate
+        tone = np.sin(2 * np.pi * 440 * t).astype(np.float32) * 0.3
+
+        def channel(span):
+            if span is None:
+                return np.zeros(n, dtype=np.float32)
+            return np.where((t >= span[0]) & (t < span[1]), tone, 0).astype(np.float32)
+
+        samples = np.stack([channel(left), channel(right)])
         for start in range(0, n, 960):
             frame = av.AudioFrame.from_ndarray(
                 np.ascontiguousarray(samples[:, start : start + 960]), format="fltp", layout="stereo"
@@ -82,7 +92,8 @@ def test_metrics():
     assert m["turns"] == {"clinic": 3, "bot": 2}
     assert m["bot_latency_s"]["response_e2e"]["median"] == 1.2
     assert m["bot_latency_s"]["end_of_turn_delay"]["n"] == 2
-    assert m["talk_over"]["count"] == 1 and m["talk_over"]["events"][0]["speaker"] == "CLINIC_AGENT"
+    est = m["talk_over_transcript_estimate"]
+    assert est["count"] == 1 and est["events"][0]["speaker"] == "CLINIC_AGENT"
     assert m["longest_silence_s"] == 4.0  # 10.0 -> 14.0
     assert m["clinic_response_latency_s"]["n"] == 2
 
@@ -98,9 +109,34 @@ def test_bot_talking_inside_a_long_clinic_turn():
         msg("assistant", "I'm Jane Doe.", 27.1, 37.4, e2e_latency=1.4),
     ])
     m = metrics.compute(transcript.build_turns(ctx.items, T0), duration=40.0, end_reason="x")
-    assert m["talk_over"]["count"] == 1
-    assert m["talk_over"]["events"][0] == {"at": 10.4, "speaker": "PATIENT_BOT", "seconds": 4.5}
+    est = m["talk_over_transcript_estimate"]
+    assert est["count"] == 1
+    assert est["events"][0] == {"at": 10.4, "speaker": "PATIENT_BOT", "seconds": 4.5}
     assert m["longest_silence_s"] == 1.4  # 25.7 -> 27.1, not 14.9 -> 27.1
+
+
+def test_response_after_turn_end_excludes_endpointing_wait():
+    m = metrics.compute(transcript.build_turns(sample_chat().items, T0), duration=20.0, end_reason="x")
+    # bot replies: e2e 1.1 after eot 0.7 -> 0.4; e2e 1.3 after eot 0.6 -> 0.7
+    assert m["bot_latency_s"]["response_after_turn_end"]["median"] == 0.55
+
+
+def test_audio_overlap_is_measured_from_the_channels(tmp_path):
+    ogg = tmp_path / "call.ogg"
+    make_stereo_ogg(ogg, seconds=3.0, left=(0.0, 1.0), right=(0.5, 1.5))
+    audio = analyze(ogg)
+    assert 0.4 <= audio["talk_over"]["seconds"] <= 0.6
+    assert len(audio["talk_over"]["events"]) == 1
+    assert audio["opening"]["bot_first_sound"] == pytest.approx(0.5, abs=0.05)
+    assert audio["opening"]["bot_cut_in"] is True
+
+
+def test_no_overlap_when_turns_alternate(tmp_path):
+    ogg = tmp_path / "call.ogg"
+    make_stereo_ogg(ogg, seconds=3.0, left=(0.0, 1.0), right=(1.3, 2.3))
+    audio = analyze(ogg)
+    assert audio["talk_over"]["seconds"] == 0.0
+    assert audio["opening"]["bot_cut_in"] is False
 
 
 def test_call_ids_are_sequential(tmp_path, monkeypatch):
