@@ -1,0 +1,18 @@
+[00:04.9] CLINIC_AGENT: This call may be recorded for quality and training purposes. Thanks for calling Pivot Point Orthopaedics. Part of Pretty Good AI. How may I help you today?
+[00:19.8] PATIENT_BOT: Hi, this is Bob Dylan. I have an appointment coming up on Tuesday, October 20th at 10 AM with Dr. Howser, and I'm planning my visit. Can you tell me your office hours? I also want to know if you're open on Saturdays.
+[00:32.8] CLINIC_AGENT: Can you please provide your date of birth
+[00:36.4] PATIENT_BOT: My date of birth is July 4th, 1990.
+[00:43.9] CLINIC_AGENT: Just to confirm, can you please spell your first and last name for me?
+[00:49.0] PATIENT_BOT: Sure. First name is B-O-B, last name is D-Y-L-A-N.
+[00:58.1] CLINIC_AGENT: Can you confirm your date of birth is July fourth nineteen ninety?
+[01:05.0] PATIENT_BOT: Yes, that's correct. July 4th, 1990.
+[01:18.0] CLINIC_AGENT: Thanks, Bob. Our clinic hours are nine AM to four PM on Monday, Tuesday, and Thursday. Twelve PM to seven PM on Wednesday, and nine AM to twelve PM on Friday. We are closed on Saturdays, Would you like any more details about your upcoming appointment?
+[01:35.0] PATIENT_BOT: Wait, you're sure about that? You said nine to four on Tuesday, and my appointment is Tuesday at 10 AM, so that works. But you also said closed Saturdays, so can you confirm that's right? And I still need the exact address and where to park.
+[01:50.4] CLINIC_AGENT: Yes. That's right. Pivot Point Orthopedics is closed on Saturdays. Your Tuesday appointment at ten AM is during our open hours. The clinic is called Pivot Point Orthopedics located at two two zero Athens Way, suite two hundred, Nashville. Free patient parking is available in the surface lot in front of the building. Would you like any more details about your visit?
+[02:14.8] PATIENT_BOT: Hold on, you said Nashville, but my appointment is listed in Austin. Can you check which city the office is in? And you said 220 Athens Way, but I have 1234 Recovery Way on my record, so which address is right?
+[02:29.3] CLINIC_AGENT: Your appointment is at Pivot Point Orthopaedics located at one two three four Recovery Way, suite two hundred, Austin. Free patient parking is available in the surface lot in front of the building. Sorry for any confusion earlier. Let me know if you need anything else about your visit.
+[02:48.9] PATIENT_BOT: Okay, so it's 1234 Recovery Way, suite 200, in Austin. Let me make sure I have this right: you said parking is free in the surface lot out front, correct? And just to be clear, what time do you close on Fridays?
+[03:03.3] CLINIC_AGENT: That's correct.
+[03:04.7] CLINIC_AGENT: See patient parking is in the surface lot out front. On Fridays, the clinic closes at twelve PM. Let me know if you need anything else about your appointment or the clinic.
+[03:16.9] -- end_call({"reason": "goal_met"})
+[03:17.1] PATIENT_BOT: Thanks, that covers everything I needed. Have a good day, goodbye.

@@ -325,6 +325,18 @@ async def entrypoint(ctx: JobContext) -> None:
         participant_identity = participant.identity
         logger.info("phone line joined: %s", participant_identity)
 
+    @ctx.room.on("participant_disconnected")
+    def _on_participant_left(participant: rtc.RemoteParticipant) -> None:
+        # LiveKit only closes the session for some disconnect reasons; for others (call 025) the bot
+        # sat alone in the room for 84 minutes after the phone line was gone. Any reason ends the call.
+        if participant.kind != rtc.ParticipantKind.PARTICIPANT_KIND_SIP:
+            return
+        reason = rtc.DisconnectReason.Name(participant.disconnect_reason or 0)
+        logger.info("phone line left (%s); ending the call", reason)
+        session.userdata["end_reason"] = session.userdata.get("end_reason") or "remote_hangup"
+        session.userdata["ending"] = True
+        asyncio.create_task(ctx.delete_room())
+
     session.userdata["started_at"] = time.time()
     await session.start(
         agent=PatientAgent(plan),
@@ -346,17 +358,22 @@ async def entrypoint(ctx: JobContext) -> None:
         if session.userdata.get("ending"):
             return
         logger.info("scenario time limit (%ds) reached, wrapping up", plan.max_seconds)
-        # Don't cut the clinic off mid-sentence (call 006 at 03:01 did): wait briefly for a gap.
-        for _ in range(20):
-            if session.user_state != "speaking":
-                break
-            await asyncio.sleep(0.5)
-        session.userdata["end_reason"] = session.userdata["end_reason"] or "timeout"
-        session.generate_reply(
-            instructions="You're out of time for this call. Politely say you have to go, say goodbye, then call end_call with reason timeout."
-        )
-        await asyncio.sleep(WRAP_UP_GRACE_SECONDS)
-        await ctx.delete_room()
+        try:
+            # Don't cut the clinic off mid-sentence (call 006 at 03:01 did): wait briefly for a gap.
+            for _ in range(20):
+                if session.user_state != "speaking":
+                    break
+                await asyncio.sleep(0.5)
+            session.userdata["end_reason"] = session.userdata["end_reason"] or "timeout"
+            session.generate_reply(
+                instructions="You're out of time for this call. Politely say you have to go, say goodbye, then call end_call with reason timeout."
+            )
+            await asyncio.sleep(WRAP_UP_GRACE_SECONDS)
+        except Exception:
+            logger.exception("wrap-up failed; hanging up anyway")
+        finally:
+            # Always hang up, whatever happened above.
+            await ctx.delete_room()
 
     time_limit = asyncio.create_task(enforce_time_limit())
 

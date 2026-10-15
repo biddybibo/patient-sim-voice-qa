@@ -75,14 +75,27 @@ async def place_call(scenario: str, persona: str | None = None) -> CallInfo:
         await lkapi.aclose()
 
 
-async def wait_for_call_end(room_name: str, poll_seconds: float = 2.0) -> None:
-    """Block until the room is gone (bot hung up, clinic hung up, or timeout)."""
+async def wait_for_call_end(
+    room_name: str, deadline_seconds: float | None = None, poll_seconds: float = 2.0
+) -> bool:
+    """Block until the room is gone (bot hung up, clinic hung up, or timeout).
+
+    Watchdog: if the room still exists after `deadline_seconds`, delete it, which disconnects the
+    phone line. This runs outside the agent process, so it works even if the agent has frozen
+    (call 025 stayed connected for 84 minutes when the agent's own time limit never fired and the
+    SIP max_call_duration wasn't enforced). Returns True if the watchdog had to step in.
+    """
     lkapi = api.LiveKitAPI()
+    started = time.time()
     try:
         while True:
             rooms = await lkapi.room.list_rooms(api.ListRoomsRequest(names=[room_name]))
             if not rooms.rooms:
-                return
+                return False
+            if deadline_seconds and time.time() - started > deadline_seconds:
+                print(f"WATCHDOG: call still up after {deadline_seconds:.0f}s, deleting room {room_name}")
+                await lkapi.room.delete_room(api.DeleteRoomRequest(room=room_name))
+                return True
             await asyncio.sleep(poll_seconds)
     finally:
         await lkapi.aclose()

@@ -22,6 +22,9 @@ def call_folders() -> set[str]:
     return {p.name for p in CALLS_DIR.iterdir() if p.is_dir() and p.name[:3].isdigit()}
 
 
+LOG_DIR = CALLS_DIR / "_logs"  # full worker logs per run (gitignored), for diagnosing failures
+
+
 def run_one(scenario: str, persona: str | None) -> tuple[bool, str]:
     cmd = [sys.executable, "-m", "src.run", "--scenario", scenario]
     if persona:
@@ -29,8 +32,13 @@ def run_one(scenario: str, persona: str | None) -> tuple[bool, str]:
     before = call_folders()
     proc = subprocess.run(cmd, capture_output=True, text=True)
     new = sorted(call_folders() - before)
+    LOG_DIR.mkdir(exist_ok=True)
+    log_name = new[0] if new else f"{time.strftime('%Y%m%d-%H%M%S')}-{scenario}-failed"
+    (LOG_DIR / f"{log_name}.log").write_text(proc.stdout + proc.stderr)
     tail = (proc.stdout + proc.stderr).strip().splitlines()[-1:] or [""]
-    return proc.returncode == 0 and bool(new), (new[0] if new else tail[0])
+    watchdog = "WATCHDOG" in proc.stdout
+    return proc.returncode == 0 and bool(new), (new[0] + (" (watchdog hung up)" if watchdog else "")
+                                                if new else tail[0])
 
 
 def main() -> None:

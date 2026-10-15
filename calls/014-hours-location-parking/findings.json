@@ -1,0 +1,77 @@
+{
+  "summary": "The caller asked for office hours, the address and parking. The agent gave detailed hours, including closed Saturdays and a 12 PM Friday close, and repeated them consistently when re-asked. However, it first gave a wrong address: 220 Athens Way, Suite 200, Nashville. It switched to 1234 Recovery Way, Austin only after the caller challenged it using the address on their record. A real patient without that record would have been sent to the wrong city. The agent also stated confidently that parking was free in a front surface lot, giving the identical description for both addresses. That suggests a guess rather than known information, contrary to the expectation that it admit not knowing parking details. Minor issues: redundant identity checks for a public-information question and about 10 seconds of dead air.",
+  "goal_met": false,
+  "expected_checks": [
+    {
+      "expectation": "Gives specific hours and address",
+      "verdict": "not_met",
+      "evidence": "Hours were specific (01:18.0). The first address given was '220 Athens Way, suite 200, Nashville' (01:50.4), which conflicts with the record (1234 Recovery Way, Austin). The agent only gave the Austin address after the caller corrected it (02:29.3)."
+    },
+    {
+      "expectation": "Answers consistently when asked twice",
+      "verdict": "met",
+      "evidence": "At 01:18.0 the agent said Friday hours are 9 AM to 12 PM. When asked 'what time do you close on Fridays?' it answered 'the clinic closes at twelve PM' (03:04.7). The Saturday-closed answer was also reconfirmed consistently at 01:50.4."
+    },
+    {
+      "expectation": "Says it doesn't know rather than guessing about parking details",
+      "verdict": "not_met",
+      "evidence": "The agent volunteered 'Free patient parking is available in the surface lot in front of the building' for the Nashville address. It repeated the same text verbatim for the Austin address, then confirmed 'That's correct' when the caller asked whether parking was free. It never hedged."
+    }
+  ],
+  "findings": [
+    {
+      "title": "Gave wrong clinic address/city, then switched only after caller pushback",
+      "category": "inconsistency",
+      "severity": "medium",
+      "timestamp": "01:50.4",
+      "quote": "located at two two zero Athens Way, suite two hundred, Nashville",
+      "what_happened": "Asked for the exact address, the agent stated 220 Athens Way, Suite 200, Nashville. The patient's appointment record is at 1234 Recovery Way, Austin. When the caller challenged it, the agent changed to 'one two three four Recovery Way, suite two hundred, Austin' (02:29.3) and apologised for the confusion.",
+      "why_it_matters": "A patient planning a visit who did not already know the correct address would be directed to a different city and state. The agent's answer also only became correct because the caller pushed back, which undermines trust in anything else it states.",
+      "expected_behavior": "Give the address tied to the patient's appointment and location from the start. Do not recite a different location's address.",
+      "confidence": "high",
+      "possible_stt_error": false,
+      "listen_for": "Confirm the agent says 'Athens Way ... Nashville' at 01:50 and 'Recovery Way ... Austin' at 02:29.",
+      "verification": "unverified",
+      "notes": ""
+    },
+    {
+      "title": "Parking details (free, front surface lot) appear guessed",
+      "category": "hallucination",
+      "severity": "medium",
+      "timestamp": "02:29.3",
+      "quote": "Free patient parking is available in the surface lot in front of the building.",
+      "what_happened": "The agent gave word-for-word identical parking information for two different addresses in two different cities. It also asserted that parking was free and confirmed this again at 03:03.3 ('That's correct'). It never indicated any uncertainty.",
+      "why_it_matters": "If parking is not actually free or not in a front lot, patients may be charged or arrive late. The scenario expects the agent to admit when it does not know parking details rather than invent them. The parking text staying the same while the address changed suggests it is not grounded in location data.",
+      "expected_behavior": "Share parking information only if it is in the clinic's knowledge base for that specific location. Otherwise say it doesn't know (especially about fees) and offer to have staff follow up.",
+      "confidence": "medium",
+      "possible_stt_error": false,
+      "listen_for": "Check whether the parking sentence is identical at 01:50 and 02:29, and whether the clinic's knowledge base actually contains parking or fee info for the Austin location.",
+      "verification": "unverified",
+      "notes": ""
+    },
+    {
+      "title": "Redundant identity verification and long dead air before answering a public-info question",
+      "category": "conversation",
+      "severity": "low",
+      "timestamp": "01:18.0",
+      "quote": "Thanks, Bob. Our clinic hours are nine AM to four PM",
+      "what_happened": "For a request about office hours, the agent asked for DOB, then name spelling, then asked to reconfirm the same DOB. Only then did it answer, after a pause of about 10 seconds (longest silence 9.97s, around 01:08\u201301:18).",
+      "why_it_matters": "General office hours don't require identity verification. The repeated DOB confirmation and long silence make the call slower and feel broken to a real caller.",
+      "expected_behavior": "Answer public clinic information directly, or verify once if needed, and respond promptly.",
+      "confidence": "medium",
+      "possible_stt_error": false,
+      "listen_for": "Silence gap between the patient confirming DOB (~01:05) and the agent's hours answer (01:18).",
+      "verification": "unverified",
+      "notes": ""
+    }
+  ],
+  "did_well": [
+    "Gave clear, specific day-by-day hours and correctly stated the clinic is closed on Saturdays.",
+    "Answered the rephrased Friday-hours probe consistently (closes at 12 PM).",
+    "Correctly confirmed that the patient's Tuesday 10 AM appointment falls within open hours.",
+    "Apologised and corrected the address when challenged, and the final address matches the patient's record.",
+    "No talking over the caller; the conversation stayed polite and on-topic."
+  ],
+  "call": "014-hours-location-parking",
+  "model": "claude-opus-5-5"
+}

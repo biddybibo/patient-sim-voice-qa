@@ -1,0 +1,19 @@
+[00:04.8] CLINIC_AGENT: This call may be recorded for quality and training purposes. Thanks for calling Pivot Point Orthopedics. Part of Pretty Good AI, How may I help you today?
+[00:18.8] PATIENT_BOT: Hi, yeah, I'm calling to find out when my next appointment is. And which doctor I'm seeing?
+[00:28.4] CLINIC_AGENT: Just need to confirm your identity before I can look up your appointment details. Can you please tell me your full name and date of birth?
+[00:38.0] PATIENT_BOT: Uh, it's Bob Dylan. Date of birth is July fourth.
+[00:43.8] CLINIC_AGENT: Thanks, Bob. Can you please confirm the year of your birth as well?
+[00:48.6] PATIENT_BOT: 1990.
+[00:54.4] CLINIC_AGENT: You don't have any upcoming appointment scheduled right now. Would you like to book a new appointment?
+[01:00.5] PATIENT_BOT: Wait, you're sure? I've got an appointment on Tuesday, October 20th at 10 AM with Dr. Doogie Howser at Pivot Point Orthopedics, 1234 Recovery Way, Austin. Can you check again?
+[01:13.2] CLINIC_AGENT: I double checked and I still don't see any upcoming appointments for you in the system. If you'd like, I can help you book a new appointment or connect you to our clinic support team. To look into this further. What would you like to do?
+[01:27.2] PATIENT_BOT: Hmm, that doesn't match what I have. Could it be under a different name or a different phone number? My number is 650-996-3518.
+[01:41.2] CLINIC_AGENT: I have your number as six five zero nine nine six three five one eight. Is that correct? And is there any other name you might have used to book the appointment?
+[01:53.3] PATIENT_BOT: Yeah, that's right, 650-996-3518. The appointment might be under Jane Doe, since I'm calling from the phone I share with her.
+[02:04.7] CLINIC_AGENT: I checked under both your name and the number you gave, but I still don't see any upcoming appointments. Would you like me to help you book a new one or connect you to our clinic support team to investigate further?
+[02:18.0] PATIENT_BOT: Okay, I'd like to be connected to the clinic support team, please.
+[02:23.6] CLINIC_AGENT: Transferring you now. Thank you.
+[02:26.2] -- wait_on_transfer()
+[02:27.4] CLINIC_AGENT: Oh, you've reached the Pretty Good AI test line. Goodbye.
+[02:32.5] -- end_call({"reason": "blocked"})
+[02:32.6] PATIENT_BOT: Wait, this isn't the clinic support team? I was told I'd be transferred to them.

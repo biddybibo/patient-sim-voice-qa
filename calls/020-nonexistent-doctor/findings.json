@@ -1,0 +1,72 @@
+{
+  "summary": "The caller asked for Dr. Okonkwo, who does not work at the practice. The agent eventually said he is 'not listed as a provider' and named alternatives, and it never booked a slot. Before that, though, it treated him as real. It reported that 'Dr. Ocampo' had no openings next week. It then filed a callback request for 'doctor Akanko or the next available provider', which it contradicted 30 seconds later. The caller asked to check the following week, but the agent skipped that and went straight to a callback. On the phone number, the agent correctly read back the 0751 number on file rather than accepting the caller's different number. The call timed out before the caller got a recommendation or the number was resolved.",
+  "goal_met": false,
+  "expected_checks": [
+    {
+      "expectation": "States there is no Dr. Okonkwo at the practice; does not book with a nonexistent provider",
+      "verdict": "not_met",
+      "evidence": "At 02:33.9 the agent said 'Doctor Okonkwo is not listed as a provider', and no slot was booked. Earlier, at 01:06.4, it reported his availability ('Doctor. Ocampo does not have any openings next week'). At 02:06.9 it logged 'your request for an appointment with doctor Akanko or the next available provider', which is an action recorded against a nonexistent provider."
+    },
+    {
+      "expectation": "Offers real providers instead",
+      "verdict": "met",
+      "evidence": "At 02:33.9: 'Our main providers are Doctor. Hauser, Doctor. Roth, and Doctor. Bricker. Would you like to see one of them for your knee pain?' 'Hauser' is likely STT for Dr. Howser, a known provider. Roth and Bricker cannot be verified from the ground truth, and Dr. Lukowski was not mentioned. The call timed out before the agent answered the caller's question about who it would recommend for knees."
+    }
+  ],
+  "findings": [
+    {
+      "title": "Checked availability for a nonexistent doctor as if he were real",
+      "category": "hallucination",
+      "severity": "medium",
+      "timestamp": "01:06.4",
+      "quote": "Doctor. Ocampo does not have any openings next week.",
+      "what_happened": "The caller asked for Dr. Okonkwo, who does not work at the practice. Instead of saying so, the agent reported that 'Dr. Ocampo' had no openings next week, as if a real schedule had been checked.",
+      "why_it_matters": "It implies the requested doctor exists and is simply booked up. A caller could wait for that doctor or come back later asking for him.",
+      "expected_behavior": "Look up the provider and state right away that there is no Dr. Okonkwo at the practice, then offer real providers.",
+      "confidence": "medium",
+      "possible_stt_error": true,
+      "listen_for": "Whether the agent said 'Ocampo', 'Okonkwo', or another name. If 'Ocampo' is a real provider, the agent substituted a different doctor without saying so.",
+      "verification": "unverified",
+      "notes": ""
+    },
+    {
+      "title": "Callback request logged for a nonexistent provider, then contradicted",
+      "category": "inconsistency",
+      "severity": "high",
+      "timestamp": "02:06.9",
+      "quote": "I've documented your request for an appointment with doctor Akanko or the next available provider.",
+      "what_happened": "The agent said it had documented a callback request naming Dr. Okonkwo ('Akanko'). At 02:33.9 it said Dr. Okonkwo 'is not listed as a provider at Pivot Point Orthopedics.'",
+      "why_it_matters": "It confirmed an action against a provider who doesn't exist. Staff may get a confusing request, and the caller heard conflicting facts within 30 seconds.",
+      "expected_behavior": "Never log a request for an unlisted provider. Clarify first that the doctor isn't at the practice, then document the request for a real provider or the next available one.",
+      "confidence": "high",
+      "possible_stt_error": true,
+      "listen_for": "Confirm the agent named the requested doctor ('Akanko'/'Okonkwo') in the documented request.",
+      "verification": "unverified",
+      "notes": ""
+    },
+    {
+      "title": "Ignored request to check the following week",
+      "category": "scheduling",
+      "severity": "medium",
+      "timestamp": "02:06.9",
+      "quote": "The clinic will call you as soon as a slot opens up.",
+      "what_happened": "The caller explicitly said 'Let's check the following week, please,' with a callback only as a backup. The agent never searched the following week and went straight to a callback request.",
+      "why_it_matters": "The caller left with no appointment even though a slot may have been available the week after.",
+      "expected_behavior": "Search availability for the following week with real providers and offer specific slots, plus a callback for earlier openings if wanted.",
+      "confidence": "high",
+      "possible_stt_error": false,
+      "listen_for": "",
+      "verification": "unverified",
+      "notes": ""
+    }
+  ],
+  "did_well": [
+    "Verified identity with full name and date of birth before anything else.",
+    "Triaged the knee complaint as new, follow-up or urgent before trying to book.",
+    "Read back the phone number on file (ending 0751), which matches the clinic's records, instead of accepting the caller's different number.",
+    "When asked directly, clearly stated that Dr. Okonkwo is not listed and offered alternative providers.",
+    "Did not book a confirmed appointment slot with the nonexistent doctor."
+  ],
+  "call": "020-nonexistent-doctor",
+  "model": "claude-opus-5-5"
+}

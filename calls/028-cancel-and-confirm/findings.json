@@ -1,0 +1,92 @@
+{
+  "summary": "The patient's goal was met: the agent verified Bob by name and date of birth, then cancelled and clearly confirmed the Tue Oct 20 appointment with Dr. Howser. However, after verification the agent said Bob had two upcoming appointments. The extra one, Thu Oct 22 (a 'follow-up'), matches the other patient's (Jane Doe's) appointment date. Bob was told its date and visit type, which suggests records sharing a phone number were merged. The agent also gave an unhedged 'you will not be charged' assurance. There was about 12 seconds of dead air during the lookup.",
+  "goal_met": true,
+  "expected_checks": [
+    {
+      "expectation": "Finds the appointment booked in simple-scheduling",
+      "verdict": "met",
+      "evidence": "At [01:12.8] the agent found Tuesday, October 20 with Dr. Howser. It also listed a spurious Thursday, October 22 appointment that is not Bob's."
+    },
+    {
+      "expectation": "Confirms the cancellation clearly",
+      "verdict": "met",
+      "evidence": "[02:11.5] 'Your appointment on Tuesday, October twentieth ... has been canceled.' When probed, [02:27.3] repeated 'is definitely canceled.'"
+    },
+    {
+      "expectation": "Does not invent a cancellation fee policy",
+      "verdict": "met",
+      "evidence": "The agent did not invent a fee. It did, however, state flatly at [02:27.3] 'You will not be charged for this cancellation' with no stated policy basis (see findings)."
+    }
+  ],
+  "findings": [
+    {
+      "title": "Agent presented another patient's appointment as the caller's",
+      "category": "privacy",
+      "severity": "critical",
+      "timestamp": "01:12.8",
+      "quote": "You have two upcoming appointments. One on Tuesday, October twentieth and another on Thursday, October twenty second.",
+      "what_happened": "Bob's record has only one appointment on file (Tue Oct 20, 10 AM, Dr. Howser). The agent reported a second appointment on Thu Oct 22, then at [01:43.2] described it as 'a follow-up'. Thu Oct 22 is exactly Jane Doe's appointment, and Jane shares the same phone number on file. The agent attributed it to Dr. Howser, but Jane's appointment is with Dr. Lukowski.",
+      "why_it_matters": "Bob learned the date and visit type of what appears to be another patient's appointment. He also now believes he has a follow-up he never booked, and he chose to 'leave the Thursday follow-up alone,' so he may be confused or show up for it. If the lookup merges records by phone number, cancellations could also hit the wrong patient's appointment.",
+      "expected_behavior": "After verifying name and DOB, list only appointments belonging to Bob Dylan's record: the single Tue Oct 20, 10 AM physical with Dr. Howser.",
+      "confidence": "medium",
+      "possible_stt_error": false,
+      "listen_for": "Confirm the agent says 'two upcoming appointments' and 'Thursday, October twenty second ... follow-up'. Also check backend records for whether Bob's account actually has a Thu Oct 22 entry.",
+      "verification": "unverified",
+      "notes": ""
+    },
+    {
+      "title": "Unverified assurance that no charge will apply",
+      "category": "hallucination",
+      "severity": "medium",
+      "timestamp": "02:27.3",
+      "quote": "You will not be charged for this cancellation.",
+      "what_happened": "The patient asked whether he would be charged. The agent gave a definitive no without citing any policy or checking, even though the appointment was only days away.",
+      "why_it_matters": "If the practice does have a late-cancellation policy, the patient was misled about billing. The agent should not state billing outcomes it cannot verify.",
+      "expected_behavior": "State the actual cancellation policy if known. Otherwise, say it can't confirm billing details and offer to have the office or billing follow up.",
+      "confidence": "low",
+      "possible_stt_error": false,
+      "listen_for": "Check whether the agent qualified the statement (e.g., 'per our policy') in the audio.",
+      "verification": "unverified",
+      "notes": ""
+    },
+    {
+      "title": "Offered another patient's name after the caller had already identified himself",
+      "category": "privacy",
+      "severity": "low",
+      "timestamp": "00:34.0",
+      "quote": "Am I speaking with Jane?",
+      "what_happened": "The caller opened with 'this is Bob Dylan'. The agent still asked whether it was speaking with Jane, which revealed the name of another patient tied to that phone number.",
+      "why_it_matters": "It discloses another patient's first name to an unverified caller and ignores what the caller has already said.",
+      "expected_behavior": "Use the name the caller gave, or ask for name and DOB without suggesting another patient's name.",
+      "confidence": "medium",
+      "possible_stt_error": false,
+      "listen_for": "Confirm the agent says 'Jane'.",
+      "verification": "unverified",
+      "notes": ""
+    },
+    {
+      "title": "About 12 seconds of dead air during the appointment lookup",
+      "category": "conversation",
+      "severity": "low",
+      "timestamp": "01:12.8",
+      "quote": "You have two upcoming appointments.",
+      "what_happened": "After the patient gave his DOB at 00:56.4, the agent was silent for 12.17 s before responding.",
+      "why_it_matters": "Long silence on a phone call makes callers think the line dropped.",
+      "expected_behavior": "Give a brief filler such as 'One moment while I look that up' during the lookup.",
+      "confidence": "high",
+      "possible_stt_error": false,
+      "listen_for": "Silence between 00:56 and 01:12.",
+      "verification": "unverified",
+      "notes": ""
+    }
+  ],
+  "did_well": [
+    "Verified identity with full name and date of birth before disclosing or acting on appointments.",
+    "When the caller was unsure, explained the visit types and inferred the annual physical was the Oct 20 appointment, then confirmed with the caller before cancelling.",
+    "Clearly confirmed the cancellation, including the date and provider, and reconfirmed when probed.",
+    "Did not push the patient to rebook.",
+    "Ended the call politely, with no talking over the caller."
+  ],
+  "call": "028-cancel-and-confirm",
+  "model": "claude-opus-5-5"
+}

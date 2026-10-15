@@ -1,0 +1,228 @@
+{
+  "call_id": "028-cancel-and-confirm",
+  "scenario": "cancel-and-confirm",
+  "persona": "chatty_oversharer",
+  "llm": "claude-haiku-5-5",
+  "room": "call-028-cancel-and-confirm-1792045970",
+  "recording_started_at": 1792045972.157206,
+  "turns": [
+    {
+      "speaker": "CLINIC_AGENT",
+      "t_start": 5.48,
+      "t_end": 18.06,
+      "text": "This call may be recorded for quality and training purposes. Thanks for calling Pivot Point Orthopedics. Part of Pretty Good a. How may I help you today?",
+      "interrupted": false,
+      "stt_confidence": 0.9954834,
+      "latency": {
+        "transcription_delay": 0.225,
+        "end_of_turn_delay": 1.502
+      }
+    },
+    {
+      "speaker": "PATIENT_BOT",
+      "t_start": 21.57,
+      "t_end": 30.26,
+      "text": "Hi there, this is Bob Dylan. I need to cancel an appointment I booked earlier this week. It's my annual physical, and something came up at work.",
+      "interrupted": false,
+      "stt_confidence": null,
+      "latency": {
+        "llm_node_ttft": 1.704,
+        "tts_node_ttfb": 0.134,
+        "e2e_latency": 3.507
+      }
+    },
+    {
+      "speaker": "CLINIC_AGENT",
+      "t_start": 34.02,
+      "t_end": 38.01,
+      "text": "I see you're calling from the number we have on file. Am I speaking with Jane?",
+      "interrupted": false,
+      "stt_confidence": 1.0,
+      "latency": {
+        "transcription_delay": 0.184,
+        "end_of_turn_delay": 3.0
+      }
+    },
+    {
+      "speaker": "PATIENT_BOT",
+      "t_start": 41.17,
+      "t_end": 48.56,
+      "text": "No, this is Bob Dylan, not Jane. Sorry for any confusion. I'm calling to cancel my annual physical.",
+      "interrupted": false,
+      "stt_confidence": null,
+      "latency": {
+        "llm_node_ttft": 0.708,
+        "tts_node_ttfb": 0.154,
+        "e2e_latency": 3.162
+      }
+    },
+    {
+      "speaker": "CLINIC_AGENT",
+      "t_start": 50.98,
+      "t_end": 53.16,
+      "text": "Please provide your full name and date of birth.",
+      "interrupted": false,
+      "stt_confidence": 1.0,
+      "latency": {
+        "transcription_delay": 0.233,
+        "end_of_turn_delay": 3.002
+      }
+    },
+    {
+      "speaker": "PATIENT_BOT",
+      "t_start": 56.38,
+      "t_end": 60.66,
+      "text": "Sure, it's Bob Dylan, and my date of birth is July 4th, 1990.",
+      "interrupted": false,
+      "stt_confidence": null,
+      "latency": {
+        "llm_node_ttft": 0.821,
+        "tts_node_ttfb": 0.211,
+        "e2e_latency": 3.22
+      }
+    },
+    {
+      "speaker": "CLINIC_AGENT",
+      "t_start": 72.83,
+      "t_end": 83.21,
+      "text": "You have two upcoming appointments. One on Tuesday, October twentieth and another on Thursday, October twenty second. Both with Doobie Houser. Which one would you like to cancel?",
+      "interrupted": false,
+      "stt_confidence": 0.9998372400000001,
+      "latency": {
+        "transcription_delay": 0.228,
+        "end_of_turn_delay": 0.601
+      }
+    },
+    {
+      "speaker": "PATIENT_BOT",
+      "t_start": 85.01,
+      "t_end": 96.35,
+      "text": "Hmm, I only have one appointment I know of, on Tuesday, October twentieth at 10 AM, with Dr. Doogie Howser. Could you tell me what the Thursday one is for? I'd like to cancel my annual physical, whichever one that is.",
+      "interrupted": false,
+      "stt_confidence": null,
+      "latency": {
+        "llm_node_ttft": 0.784,
+        "tts_node_ttfb": 0.159,
+        "e2e_latency": 1.799
+      }
+    },
+    {
+      "speaker": "CLINIC_AGENT",
+      "t_start": 101.73,
+      "t_end": 102.51,
+      "text": "The appointment",
+      "interrupted": false,
+      "stt_confidence": 0.9980469,
+      "latency": {
+        "transcription_delay": 0.214,
+        "end_of_turn_delay": 0.601
+      }
+    },
+    {
+      "speaker": "CLINIC_AGENT",
+      "t_start": 103.23,
+      "t_end": 119.56,
+      "text": "on Tuesday October twentieth is an office visit. And the one on Thursday, October twenty second, is a follow-up. Since you mentioned canceling your annual physical, it sounds like you want to cancel the Tuesday, October twentieth appointment with doctor Dugie Houser. Is that correct?",
+      "interrupted": false,
+      "stt_confidence": 0.9990234383333334,
+      "latency": {
+        "transcription_delay": 0.383,
+        "end_of_turn_delay": 0.601
+      }
+    },
+    {
+      "speaker": "PATIENT_BOT",
+      "t_start": 121.22,
+      "t_end": 128.52,
+      "text": "Yes, that's the one. Please cancel the Tuesday, October twentieth appointment with Dr. Howser. I'll leave the Thursday follow-up alone for now.",
+      "interrupted": false,
+      "stt_confidence": null,
+      "latency": {
+        "llm_node_ttft": 0.828,
+        "tts_node_ttfb": 0.148,
+        "e2e_latency": 1.664
+      }
+    },
+    {
+      "speaker": "CLINIC_AGENT",
+      "t_start": 131.48,
+      "t_end": 138.76,
+      "text": "Your appointment on Tuesday, October twentieth with doctor Dugge Hauser has been canceled. Is there anything else I can help you with today?",
+      "interrupted": false,
+      "stt_confidence": 0.9895833333333334,
+      "latency": {
+        "transcription_delay": 0.178,
+        "end_of_turn_delay": 0.6
+      }
+    },
+    {
+      "speaker": "PATIENT_BOT",
+      "t_start": 140.0,
+      "t_end": 144.46,
+      "text": "Great, thanks. So it's definitely cancelled? I won't get charged for it?",
+      "interrupted": false,
+      "stt_confidence": null,
+      "latency": {
+        "llm_node_ttft": 0.776,
+        "tts_node_ttfb": 0.131,
+        "e2e_latency": 1.236
+      }
+    },
+    {
+      "speaker": "CLINIC_AGENT",
+      "t_start": 147.32,
+      "t_end": 158.62,
+      "text": "Yes. Your appointment for Tuesday, October twentieth with doctor Dudee Hauser is definitely canceled. You will not be charged for this cancellation. Let me know if you need anything else.",
+      "interrupted": false,
+      "stt_confidence": 0.9937337233333333,
+      "latency": {
+        "transcription_delay": 0.223,
+        "end_of_turn_delay": 0.601
+      }
+    },
+    {
+      "speaker": "PATIENT_BOT",
+      "t_start": 160.86,
+      "t_end": 163.83,
+      "text": "Perfect, thank you so much. I appreciate your help today.",
+      "interrupted": false,
+      "stt_confidence": null,
+      "latency": {
+        "llm_node_ttft": 1.468,
+        "tts_node_ttfb": 0.125,
+        "e2e_latency": 2.24
+      }
+    },
+    {
+      "speaker": "CLINIC_AGENT",
+      "t_start": 166.63,
+      "t_end": 170.96,
+      "text": "You're welcome. If you need anything else, just give us a call. Have a good day.",
+      "interrupted": false,
+      "stt_confidence": 0.9952799466666667,
+      "latency": {
+        "transcription_delay": 0.233,
+        "end_of_turn_delay": 0.601
+      }
+    },
+    {
+      "speaker": "TOOL",
+      "t_start": 172.27,
+      "t_end": null,
+      "text": "end_call({\"reason\": \"goal_met\"})"
+    },
+    {
+      "speaker": "PATIENT_BOT",
+      "t_start": 172.37,
+      "t_end": 174.79,
+      "text": "Thanks, you have a good day too. Goodbye!",
+      "interrupted": false,
+      "stt_confidence": null,
+      "latency": {
+        "llm_node_ttft": 0.872,
+        "tts_node_ttfb": 0.219,
+        "e2e_latency": 1.411
+      }
+    }
+  ]
+}

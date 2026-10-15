@@ -1,0 +1,78 @@
+{
+  "duration_s": 203.6,
+  "end_reason": "goal_met",
+  "turns": {
+    "clinic": 9,
+    "bot": 8
+  },
+  "bot_latency_s": {
+    "response_e2e": {
+      "n": 8,
+      "median": 2.437,
+      "p90": 3.167,
+      "max": 3.191
+    },
+    "response_after_turn_end": {
+      "n": 8,
+      "median": 1.394,
+      "p90": 1.792,
+      "max": 1.878
+    },
+    "end_of_turn_delay": {
+      "n": 9,
+      "median": 0.602,
+      "p90": 3.002,
+      "max": 3.002
+    },
+    "llm_ttft": {
+      "n": 8,
+      "median": 1.104,
+      "p90": 1.252,
+      "max": 1.381
+    },
+    "tts_ttfb": {
+      "n": 8,
+      "median": 0.16,
+      "p90": 0.179,
+      "max": 0.222
+    }
+  },
+  "clinic_response_latency_s": {
+    "n": 7,
+    "median": 4.19,
+    "p90": 5.57,
+    "max": 9.97
+  },
+  "talk_over_audio": {
+    "seconds": 0.0,
+    "events": []
+  },
+  "opening_audio": {
+    "pauses": [
+      {
+        "after": 7.98,
+        "seconds": 0.64
+      },
+      {
+        "after": 10.52,
+        "seconds": 0.8
+      },
+      {
+        "after": 13.18,
+        "seconds": 0.7
+      },
+      {
+        "after": 15.12,
+        "seconds": 0.46
+      }
+    ],
+    "bot_first_sound": 19.94,
+    "bot_cut_in": false
+  },
+  "talk_over_transcript_estimate": {
+    "count": 0,
+    "events": []
+  },
+  "longest_silence_s": 9.97,
+  "bot_turns_cut_off": 0
+}

@@ -1,0 +1,14 @@
+[00:05.4] CLINIC_AGENT: This call may be recorded for quality and training purposes. Thanks for calling Pivot Point Orthopedics. Part of Pretty Good AI. How may I help you today?
+[00:20.2] PATIENT_BOT: Hi, this is Jane Doe. I have three things. I need to move my appointment next week, get my lisinopril refilled, and find out why I got a forty dollar bill last month.
+[00:29.6] CLINIC_AGENT: Jane, please provide your date of birth.
+[00:32.8] PATIENT_BOT: July 4th, 2000.
+[00:39.8] CLINIC_AGENT: You have a follow-up appointment scheduled for Monday, October nineteenth ten AM with Judy Houser at Nashville two two zero Athens Way. Is this the appointment you wanna move?
+[00:49.0] PATIENT_BOT: Hmm, that's not the one I have. I have Thursday, October twenty-second at two PM with Dr. Lukowski. Can you check that one and move it to the following week?
+[00:59.1] CLINIC_AGENT: The only appointment I see on file is for Monday, October nineteenth at ten AM with Doogie Howser. There is nothing listed for Thursday, October twenty second with doctor Lukowski.
+[01:09.2] CLINIC_AGENT: Would you like to move the October nineteenth appointment instead? Do you want me to check again for another appointment?
+[01:37.2] PATIENT_BOT: Yes, let's check once more for the Thursday one. If it's not there, go ahead and move the Monday appointment to the following week.
+[01:46.8] CLINIC_AGENT: The next opening with Judy Houser in Nashville. Would you like to move your appoint appointment to this time, or would you prefer a later slot that day?
+[01:57.3] PATIENT_BOT: I'd like to move it to the following week. Can you tell me what's open with Judy Houser then? Any time that week is fine.
+[02:07.0] CLINIC_AGENT: I was not able to find any openings with Judy Houcher for the week of November second.
+[05:05.7] PATIENT_BOT: Okay. Can you check the week of November ninth instead? Or any opening with another provider in that area?
+[84:19.4] CLINIC_AGENT: Would you like to try a different week?

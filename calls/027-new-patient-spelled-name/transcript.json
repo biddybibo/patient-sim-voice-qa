@@ -1,0 +1,203 @@
+{
+  "call_id": "027-new-patient-spelled-name",
+  "scenario": "new-patient-spelled-name",
+  "persona": "hesitant_elderly",
+  "llm": "claude-haiku-5-5",
+  "room": "call-027-new-patient-spelled-name-1792045713",
+  "recording_started_at": 1792045714.304957,
+  "turns": [
+    {
+      "speaker": "CLINIC_AGENT",
+      "t_start": 5.35,
+      "t_end": 17.59,
+      "text": "This call may be recorded for quality and training purposes. Thanks for calling Pivot Point Orthopedics. Part of Pretty Good AI. How can I help you today?",
+      "interrupted": false,
+      "stt_confidence": 0.99165853,
+      "latency": {
+        "transcription_delay": 0.215,
+        "end_of_turn_delay": 3.001
+      }
+    },
+    {
+      "speaker": "PATIENT_BOT",
+      "t_start": 22.64,
+      "t_end": 31.75,
+      "text": "Oh, hello. Um, I'd like to make an appointment, please. I've never been to your office before, and I have some knee pain.",
+      "interrupted": false,
+      "stt_confidence": null,
+      "latency": {
+        "llm_node_ttft": 1.496,
+        "tts_node_ttfb": 0.152,
+        "e2e_latency": 5.055
+      }
+    },
+    {
+      "speaker": "CLINIC_AGENT",
+      "t_start": 34.4,
+      "t_end": 36.79,
+      "text": "You please provide your full name and date of birth?",
+      "interrupted": false,
+      "stt_confidence": 1.0,
+      "latency": {
+        "transcription_delay": 0.165,
+        "end_of_turn_delay": 3.001
+      }
+    },
+    {
+      "speaker": "PATIENT_BOT",
+      "t_start": 40.0,
+      "t_end": 49.89,
+      "text": "Yes, of course. My name is Siobhan Okafor, and my date of birth is March 12th, 1951.",
+      "interrupted": false,
+      "stt_confidence": null,
+      "latency": {
+        "llm_node_ttft": 1.475,
+        "tts_node_ttfb": 0.198,
+        "e2e_latency": 3.207
+      }
+    },
+    {
+      "speaker": "CLINIC_AGENT",
+      "t_start": 52.15,
+      "t_end": 56.39,
+      "text": "Thank you. Could you please tell me your full name, including your first and last name?",
+      "interrupted": false,
+      "stt_confidence": 0.9909668,
+      "latency": {
+        "transcription_delay": 0.175,
+        "end_of_turn_delay": 0.601
+      }
+    },
+    {
+      "speaker": "PATIENT_BOT",
+      "t_start": 58.46,
+      "t_end": 66.83,
+      "text": "Sure. It's Siobhan Okafor. That's S-I-O-B-H-A-N, and then O-K-A-F-O-R.",
+      "interrupted": false,
+      "stt_confidence": null,
+      "latency": {
+        "llm_node_ttft": 1.447,
+        "tts_node_ttfb": 0.142,
+        "e2e_latency": 2.075
+      }
+    },
+    {
+      "speaker": "CLINIC_AGENT",
+      "t_start": 71.56,
+      "t_end": 80.96,
+      "text": "Thank you. Just to confirm, your first name is Siobhan and your last name is Okafor. With a date of birth of March twelfth nineteen fifty one. Is that correct?",
+      "interrupted": false,
+      "stt_confidence": 0.9986979133333334,
+      "latency": {
+        "transcription_delay": 0.307,
+        "end_of_turn_delay": 0.6
+      }
+    },
+    {
+      "speaker": "PATIENT_BOT",
+      "t_start": 83.35,
+      "t_end": 89.07,
+      "text": "Yes, that's right. Siobhan Okafor, born March 12th, 1951.",
+      "interrupted": false,
+      "stt_confidence": null,
+      "latency": {
+        "llm_node_ttft": 1.331,
+        "tts_node_ttfb": 0.186,
+        "e2e_latency": 2.393
+      }
+    },
+    {
+      "speaker": "CLINIC_AGENT",
+      "t_start": 91.8,
+      "t_end": 100.24,
+      "text": "Would you like to use a phone number to help look up your record? If so, please provide the number you have on file with us. If you are not sure, just let me know.",
+      "interrupted": false,
+      "stt_confidence": 0.999804688,
+      "latency": {
+        "transcription_delay": 0.166,
+        "end_of_turn_delay": 0.601
+      }
+    },
+    {
+      "speaker": "PATIENT_BOT",
+      "t_start": 102.77,
+      "t_end": 111.92,
+      "text": "Yes, my number is 650-555-0143.",
+      "interrupted": false,
+      "stt_confidence": null,
+      "latency": {
+        "llm_node_ttft": 1.459,
+        "tts_node_ttfb": 0.246,
+        "e2e_latency": 2.527
+      }
+    },
+    {
+      "speaker": "CLINIC_AGENT",
+      "t_start": 118.45,
+      "t_end": 128.04,
+      "text": "I have your phone number as six five zero five five five zero one four three and your date of birth as March twelfth nineteen fifty one. Is that correct?",
+      "interrupted": false,
+      "stt_confidence": 0.999804688,
+      "latency": {
+        "transcription_delay": 0.387,
+        "end_of_turn_delay": 0.602
+      }
+    },
+    {
+      "speaker": "PATIENT_BOT",
+      "t_start": 130.49,
+      "t_end": 138.44,
+      "text": "Yes, that's correct. Oh, but I'm a new patient, so I don't think I'm on your files yet, if that helps.",
+      "interrupted": false,
+      "stt_confidence": null,
+      "latency": {
+        "llm_node_ttft": 1.315,
+        "tts_node_ttfb": 0.237,
+        "e2e_latency": 2.451
+      }
+    },
+    {
+      "speaker": "CLINIC_AGENT",
+      "t_start": 136.51,
+      "t_end": 145.74,
+      "text": "I'll connect you to our patient support team so they can help you get scheduled. Please stay on the line. Transferring you now. Thank you.",
+      "interrupted": false,
+      "stt_confidence": 1.0,
+      "latency": {
+        "transcription_delay": 0.217,
+        "end_of_turn_delay": 0.601
+      }
+    },
+    {
+      "speaker": "TOOL",
+      "t_start": 147.49,
+      "t_end": null,
+      "text": "wait_on_transfer()"
+    },
+    {
+      "speaker": "CLINIC_AGENT",
+      "t_start": 148.3,
+      "t_end": 151.99,
+      "text": "Hello. You've reached the Pretty Good AI test line. Goodbye.",
+      "interrupted": false,
+      "stt_confidence": 0.9694010466666666,
+      "latency": {
+        "transcription_delay": 0.215,
+        "end_of_turn_delay": 0.6
+      }
+    },
+    {
+      "speaker": "PATIENT_BOT",
+      "t_start": 153.95,
+      "t_end": 165.71,
+      "text": "I'm sorry, I think there may be a mix-up. I was trying to reach Pivot Point Orthopedics to book a new patient appointment for knee pain. Is this the right line for that?",
+      "interrupted": false,
+      "stt_confidence": null,
+      "latency": {
+        "llm_node_ttft": 1.408,
+        "tts_node_ttfb": 0.183,
+        "e2e_latency": 1.966
+      }
+    }
+  ]
+}

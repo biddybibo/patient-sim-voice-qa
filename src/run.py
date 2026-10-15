@@ -20,6 +20,8 @@ from src.persona import list_scenarios, load_plan
 WORKER_READY_LINE = "registered worker"
 WORKER_START_TIMEOUT = 60
 SAVE_TIMEOUT = 60
+# Watchdog margin past the scenario's time limit (the bot's own wrap-up takes up to ~30 s).
+WATCHDOG_GRACE = 90
 
 
 def start_worker() -> subprocess.Popen:
@@ -78,7 +80,7 @@ def main() -> None:
     worker = None if args.no_worker else start_worker()
     try:
         call = asyncio.run(place_call(args.scenario, args.persona))
-        asyncio.run(wait_for_call_end(call.room_name))
+        asyncio.run(wait_for_call_end(call.room_name, plan.max_seconds + WATCHDOG_GRACE))
         print(f"Call ended after {time.time() - call.answered_at:.0f}s")
         call_dir = CALLS_DIR / call.call_id
         if wait_for_file(call_dir / "metrics.json", SAVE_TIMEOUT):
@@ -89,7 +91,11 @@ def main() -> None:
     finally:
         if worker:
             worker.terminate()
-            worker.wait(timeout=15)
+            try:
+                worker.wait(timeout=15)
+            except subprocess.TimeoutExpired:
+                worker.kill()  # a stuck worker must not block the next call
+                worker.wait()
 
 
 if __name__ == "__main__":

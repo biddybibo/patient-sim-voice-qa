@@ -1,0 +1,171 @@
+{
+  "call_id": "026-multi-intent",
+  "scenario": "multi-intent",
+  "persona": "rushed_professional",
+  "llm": "claude-haiku-5-5",
+  "room": "call-026-multi-intent-1792045487",
+  "recording_started_at": 1792045489.213929,
+  "turns": [
+    {
+      "speaker": "CLINIC_AGENT",
+      "t_start": 5.0,
+      "t_end": 16.74,
+      "text": "This call may be recorded quality and training purposes. Thanks for calling Pivot Point Orthopedic. Part of Pretty Good AI. How may I help you today?",
+      "interrupted": false,
+      "stt_confidence": 0.994042966,
+      "latency": {
+        "transcription_delay": 0.178,
+        "end_of_turn_delay": 1.5
+      }
+    },
+    {
+      "speaker": "PATIENT_BOT",
+      "t_start": 19.78,
+      "t_end": 31.72,
+      "text": "Hi, this is Jane Doe. I need three things. I want to move my appointment on Thursday October 22nd at 2 PM with Dr. Lukowski to the following week. I also need a refill of my lisinopril, 10 milligrams once a day. And I got a forty dollar bill last month and want to know why.",
+      "interrupted": false,
+      "stt_confidence": null,
+      "latency": {
+        "llm_node_ttft": 1.105,
+        "tts_node_ttfb": 0.225,
+        "e2e_latency": 3.041
+      }
+    },
+    {
+      "speaker": "CLINIC_AGENT",
+      "t_start": 35.0,
+      "t_end": 36.84,
+      "text": "Jane, can you please provide your date of birth?",
+      "interrupted": false,
+      "stt_confidence": 1.0,
+      "latency": {
+        "transcription_delay": 0.282,
+        "end_of_turn_delay": 0.601
+      }
+    },
+    {
+      "speaker": "PATIENT_BOT",
+      "t_start": 38.66,
+      "t_end": 40.01,
+      "text": "July 4th, 2000.",
+      "interrupted": false,
+      "stt_confidence": null,
+      "latency": {
+        "llm_node_ttft": 1.063,
+        "tts_node_ttfb": 0.179,
+        "e2e_latency": 1.814
+      }
+    },
+    {
+      "speaker": "CLINIC_AGENT",
+      "t_start": 47.36,
+      "t_end": 60.09,
+      "text": "Jane, I see you have an appointment scheduled for Monday, October nineteenth at ten AM with Dugiehauser at Nashville, two two zero Athens Way. Is this the appointment you want to move to the following week?",
+      "interrupted": false,
+      "stt_confidence": 0.988769535,
+      "latency": {
+        "transcription_delay": 0.226,
+        "end_of_turn_delay": 3.001
+      }
+    },
+    {
+      "speaker": "PATIENT_BOT",
+      "t_start": 64.73,
+      "t_end": 72.07,
+      "text": "No, that's not the one I have. My appointment is Thursday, October 22nd at 2 PM with Dr. Lukowski at Pivot Point Orthopedics. Can you check that one?",
+      "interrupted": false,
+      "stt_confidence": null,
+      "latency": {
+        "llm_node_ttft": 1.064,
+        "tts_node_ttfb": 0.142,
+        "e2e_latency": 4.64
+      }
+    },
+    {
+      "speaker": "CLINIC_AGENT",
+      "t_start": 74.61,
+      "t_end": 95.19,
+      "text": "The only appointment I see on file is for Monday, October nineteenth at ten AM with Judy Houser at Nashville, two two zero Athens Way, There is nothing listed for Thursday, October twenty second, or with Drive Wachowski. Would you like to move the October nineteenth appointment or do you want me to check with the clinic about the appointment you mentioned?",
+      "interrupted": false,
+      "stt_confidence": 0.9965820366666667,
+      "latency": {
+        "transcription_delay": 0.175,
+        "end_of_turn_delay": 3.001
+      }
+    },
+    {
+      "speaker": "PATIENT_BOT",
+      "t_start": 100.0,
+      "t_end": 105.11,
+      "text": "Hmm, that's not the one I'm thinking of. Let's check with the clinic on the Thursday one. For now, can you help with my lisinopril refill?",
+      "interrupted": false,
+      "stt_confidence": null,
+      "latency": {
+        "llm_node_ttft": 1.14,
+        "tts_node_ttfb": 0.216,
+        "e2e_latency": 4.806
+      }
+    },
+    {
+      "speaker": "CLINIC_AGENT",
+      "t_start": 112.75,
+      "t_end": 127.14,
+      "text": "I don't see any lisinopril or other medications on your chart to refill right now, Since your appointment details also aren't matching, I'll connect you to our patient support team so they can help with both your appointment and needs. Please stay on the line.",
+      "interrupted": false,
+      "stt_confidence": 0.9832356733333333,
+      "latency": {
+        "transcription_delay": 0.174,
+        "end_of_turn_delay": 0.601
+      }
+    },
+    {
+      "speaker": "CLINIC_AGENT",
+      "t_start": 127.8,
+      "t_end": 129.39,
+      "text": "Transferring you now. Thank you.",
+      "interrupted": false,
+      "stt_confidence": 0.9995117,
+      "latency": {
+        "transcription_delay": 0,
+        "end_of_turn_delay": 0.601
+      }
+    },
+    {
+      "speaker": "TOOL",
+      "t_start": 130.78,
+      "t_end": null,
+      "text": "wait_on_transfer()"
+    },
+    {
+      "speaker": "CLINIC_AGENT",
+      "t_start": 130.96,
+      "t_end": 134.94,
+      "text": "Hello. You've reached the Pretty Good AI test line. Goodbye.",
+      "interrupted": false,
+      "stt_confidence": 0.9296875,
+      "latency": {
+        "transcription_delay": 0.226,
+        "end_of_turn_delay": 0.601
+      }
+    },
+    {
+      "speaker": "TOOL",
+      "t_start": 136.71,
+      "t_end": null,
+      "text": "end_call({\"reason\": \"loop_detected\"})"
+    },
+    {
+      "speaker": "PATIENT_BOT",
+      "t_start": 136.72,
+      "t_end": 139.97,
+      "text": "This is a test line, and the call has ended. I'm hanging up now.",
+      "interrupted": false,
+      "stt_confidence": null,
+      "latency": {
+        "llm_node_ttft": 1.205,
+        "tts_node_ttfb": 0.141,
+        "e2e_latency": 1.774
+      }
+    }
+  ]
+}

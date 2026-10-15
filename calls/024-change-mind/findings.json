@@ -1,0 +1,107 @@
+{
+  "summary": "Bob called to book a follow-up next week and changed from Tuesday to Thursday mid-reply. The agent handled the change cleanly. It offered Thursday Oct 22 at 8 AM, never booked Tuesday, and restated Thursday when asked to confirm the day. Several issues remain. The agent never mentioned Bob's existing Tue Oct 20 10 AM appointment, even though it offered an 8 AM slot that same day. It ignored the caller's request to text a different phone number. The doctor's name came out differently in almost every turn. There was about 12.8 s of dead air after the date of birth. Ground truth also lists no Thursday appointment for Bob, so the booking itself should be verified.",
+  "goal_met": true,
+  "expected_checks": [
+    {
+      "expectation": "Books Thursday, not Tuesday",
+      "verdict": "met",
+      "evidence": "[01:36.6] agent pivoted to 'Thursday, October twenty second... eight AM'; [01:53.0] 'set for Thursday, October twenty second at eight AM'."
+    },
+    {
+      "expectation": "Does not leave a Tuesday booking behind",
+      "verdict": "met",
+      "evidence": "The Tuesday 8 AM slot was only offered, never confirmed. The final confirmation at [02:27.0] names Thursday only. The earlier Tue Oct 20 10 AM appointment from call 009 was not created in this call, though the agent never raised it (see findings)."
+    },
+    {
+      "expectation": "Probe: confirms the booked day before goodbye",
+      "verdict": "met",
+      "evidence": "[02:27.0] 'Your appointment is Thursday, October twenty second at eight AM'."
+    }
+  ],
+  "findings": [
+    {
+      "title": "Existing Tuesday Oct 20 appointment not mentioned while offering Tuesday slots",
+      "category": "scheduling",
+      "severity": "medium",
+      "timestamp": "[01:17.6]",
+      "quote": "We have several openings with doctor Doody Hauser on Tuesday. October twentieth. The earliest available slot is at eight AM.",
+      "what_happened": "Bob already had an appointment on Tue Oct 20 at 10 AM with Dr. Howser (booked in call 009). The agent offered him another 8 AM slot on the same day with the same doctor and never mentioned the existing visit. It then booked Thursday without asking whether the Tuesday visit should be kept, moved or cancelled.",
+      "why_it_matters": "The patient may forget the Tuesday appointment and not show up, or end up with duplicate visits. Either way the clinic wastes a slot and the patient may be charged a no-show fee.",
+      "expected_behavior": "Look up and surface existing upcoming appointments when the patient asks to book. Ask whether the new visit is in addition to the Tue Oct 20 10 AM appointment or replaces it.",
+      "confidence": "medium",
+      "possible_stt_error": false,
+      "listen_for": "",
+      "verification": "unverified",
+      "notes": ""
+    },
+    {
+      "title": "Thursday booking possibly not persisted",
+      "category": "scheduling",
+      "severity": "high",
+      "timestamp": "[01:53.0]",
+      "quote": "Follow-up with doctor Judy Houser is set for Thursday, October twenty second at eight AM",
+      "what_happened": "The agent confirmed a Thursday Oct 22 8 AM booking. Ground-truth known_appointments for Bob lists only the Tue Oct 20 10 AM appointment and has no Thursday entry.",
+      "why_it_matters": "If the booking was not actually written, the patient was given a false confirmation and will arrive for an appointment that does not exist.",
+      "expected_behavior": "Only confirm a booking after it is successfully saved in the scheduling system.",
+      "confidence": "low",
+      "possible_stt_error": false,
+      "listen_for": "Check the clinic's scheduling system for a Bob Dylan Thu Oct 22 8 AM entry. The ground-truth snapshot may simply not have been updated for this call.",
+      "verification": "unverified",
+      "notes": ""
+    },
+    {
+      "title": "Text-message request and alternate phone number ignored",
+      "category": "conversation",
+      "severity": "medium",
+      "timestamp": "[02:27.0]",
+      "quote": "Your appointment is Thursday, October twenty second at eight AM with doctor Judy Hauser.",
+      "what_happened": "The agent offered to text the details. The patient accepted and gave 650-996-3518, which differs from the number on file. The agent never acknowledged the number, never confirmed a text would be sent, and never asked whether to update the record. It only answered the day-confirmation question.",
+      "why_it_matters": "The patient expects a text that may never arrive or may go to the on-file number instead. The new contact number is also lost.",
+      "expected_behavior": "Confirm which number the text will go to, read the new number back, send the text (or say it was sent), and offer to update the phone number on file.",
+      "confidence": "high",
+      "possible_stt_error": false,
+      "listen_for": "",
+      "verification": "unverified",
+      "notes": ""
+    },
+    {
+      "title": "Doctor's name rendered inconsistently and incorrectly",
+      "category": "inconsistency",
+      "severity": "low",
+      "timestamp": "[01:53.0]",
+      "quote": "Follow-up with doctor Judy Houser",
+      "what_happened": "The doctor's name came out as 'Hauser', 'Doody Hauser', 'Duby Hauser' and 'Judy Houser/Hauser' across turns. This happened even after the patient said 'Dr. Doogie Howser' at [01:08.3]. 'Judy' was repeated in the final confirmation.",
+      "why_it_matters": "A garbled or wrong provider name in a confirmation undermines trust and can make the patient doubt who they are seeing.",
+      "expected_behavior": "Pronounce the provider name consistently as 'Doctor Doogie Howser'.",
+      "confidence": "low",
+      "possible_stt_error": true,
+      "listen_for": "Listen to whether the agent actually says 'Judy' or 'Doody' versus 'Doogie' at 01:17.6, 01:36.6, 01:53.0 and 02:27.0. This may be our STT or the agent's TTS pronunciation.",
+      "verification": "unverified",
+      "notes": ""
+    },
+    {
+      "title": "Long dead air after date of birth",
+      "category": "conversation",
+      "severity": "low",
+      "timestamp": "[01:01.0]",
+      "quote": "Thanks, Bob. Just to confirm, you'd like to book a follow-up visit",
+      "what_happened": "There was about 12.8 s between the patient giving the DOB at [00:48.2] and the agent's reply. The measured max response latency was 10.16 s.",
+      "why_it_matters": "A real caller may think the line dropped during that silence.",
+      "expected_behavior": "Respond within a few seconds, or say something like 'one moment while I pull up your chart'.",
+      "confidence": "high",
+      "possible_stt_error": false,
+      "listen_for": "",
+      "verification": "unverified",
+      "notes": ""
+    }
+  ],
+  "did_well": [
+    "Handled the mid-sentence change of mind cleanly and moved straight to Thursday without booking Tuesday.",
+    "Accurately restated the booked day, date and time when the patient asked for confirmation.",
+    "Gracefully corrected course when the caller said he was not Jane, then verified identity by date of birth.",
+    "Gave useful preparation instructions (photo ID, insurance card, medication list, imaging discs).",
+    "No talk-over and a smooth opening."
+  ],
+  "call": "024-change-mind",
+  "model": "claude-opus-5-5"
+}

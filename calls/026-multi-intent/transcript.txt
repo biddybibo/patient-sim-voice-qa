@@ -1,0 +1,14 @@
+[00:05.0] CLINIC_AGENT: This call may be recorded quality and training purposes. Thanks for calling Pivot Point Orthopedic. Part of Pretty Good AI. How may I help you today?
+[00:19.8] PATIENT_BOT: Hi, this is Jane Doe. I need three things. I want to move my appointment on Thursday October 22nd at 2 PM with Dr. Lukowski to the following week. I also need a refill of my lisinopril, 10 milligrams once a day. And I got a forty dollar bill last month and want to know why.
+[00:35.0] CLINIC_AGENT: Jane, can you please provide your date of birth?
+[00:38.7] PATIENT_BOT: July 4th, 2000.
+[00:47.4] CLINIC_AGENT: Jane, I see you have an appointment scheduled for Monday, October nineteenth at ten AM with Dugiehauser at Nashville, two two zero Athens Way. Is this the appointment you want to move to the following week?
+[01:04.7] PATIENT_BOT: No, that's not the one I have. My appointment is Thursday, October 22nd at 2 PM with Dr. Lukowski at Pivot Point Orthopedics. Can you check that one?
+[01:14.6] CLINIC_AGENT: The only appointment I see on file is for Monday, October nineteenth at ten AM with Judy Houser at Nashville, two two zero Athens Way, There is nothing listed for Thursday, October twenty second, or with Drive Wachowski. Would you like to move the October nineteenth appointment or do you want me to check with the clinic about the appointment you mentioned?
+[01:40.0] PATIENT_BOT: Hmm, that's not the one I'm thinking of. Let's check with the clinic on the Thursday one. For now, can you help with my lisinopril refill?
+[01:52.8] CLINIC_AGENT: I don't see any lisinopril or other medications on your chart to refill right now, Since your appointment details also aren't matching, I'll connect you to our patient support team so they can help with both your appointment and needs. Please stay on the line.
+[02:07.8] CLINIC_AGENT: Transferring you now. Thank you.
+[02:10.8] -- wait_on_transfer()
+[02:11.0] CLINIC_AGENT: Hello. You've reached the Pretty Good AI test line. Goodbye.
+[02:16.7] -- end_call({"reason": "loop_detected"})
+[02:16.7] PATIENT_BOT: This is a test line, and the call has ended. I'm hanging up now.

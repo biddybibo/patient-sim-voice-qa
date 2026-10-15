@@ -1,0 +1,181 @@
+{
+  "call_id": "025-multi-intent",
+  "scenario": "multi-intent",
+  "persona": "rushed_professional",
+  "llm": "claude-haiku-5-5",
+  "room": "call-025-multi-intent-1792040390",
+  "recording_started_at": 1792040391.9953191,
+  "turns": [
+    {
+      "speaker": "CLINIC_AGENT",
+      "t_start": 5.39,
+      "t_end": 17.43,
+      "text": "This call may be recorded for quality and training purposes. Thanks for calling Pivot Point Orthopedics. Part of Pretty Good AI. How may I help you today?",
+      "interrupted": false,
+      "stt_confidence": 0.9884033249999999,
+      "latency": {
+        "transcription_delay": 0.27,
+        "end_of_turn_delay": 1.501
+      }
+    },
+    {
+      "speaker": "PATIENT_BOT",
+      "t_start": 20.24,
+      "t_end": 26.7,
+      "text": "Hi, this is Jane Doe. I have three things. I need to move my appointment next week, get my lisinopril refilled, and find out why I got a forty dollar bill last month.",
+      "interrupted": false,
+      "stt_confidence": null,
+      "latency": {
+        "llm_node_ttft": 0.934,
+        "tts_node_ttfb": 0.194,
+        "e2e_latency": 2.812
+      }
+    },
+    {
+      "speaker": "CLINIC_AGENT",
+      "t_start": 29.64,
+      "t_end": 31.38,
+      "text": "Jane, please provide your date of birth.",
+      "interrupted": false,
+      "stt_confidence": 1.0,
+      "latency": {
+        "transcription_delay": 0.313,
+        "end_of_turn_delay": 0.601
+      }
+    },
+    {
+      "speaker": "PATIENT_BOT",
+      "t_start": 32.81,
+      "t_end": 34.25,
+      "text": "July 4th, 2000.",
+      "interrupted": false,
+      "stt_confidence": null,
+      "latency": {
+        "llm_node_ttft": 0.866,
+        "tts_node_ttfb": 0.196,
+        "e2e_latency": 1.424
+      }
+    },
+    {
+      "speaker": "CLINIC_AGENT",
+      "t_start": 39.79,
+      "t_end": 47.58,
+      "text": "You have a follow-up appointment scheduled for Monday, October nineteenth ten AM with Judy Houser at Nashville two two zero Athens Way. Is this the appointment you wanna move?",
+      "interrupted": false,
+      "stt_confidence": 0.9986979133333334,
+      "latency": {
+        "transcription_delay": 0.185,
+        "end_of_turn_delay": 0.6
+      }
+    },
+    {
+      "speaker": "PATIENT_BOT",
+      "t_start": 48.96,
+      "t_end": 56.3,
+      "text": "Hmm, that's not the one I have. I have Thursday, October twenty-second at two PM with Dr. Lukowski. Can you check that one and move it to the following week?",
+      "interrupted": false,
+      "stt_confidence": null,
+      "latency": {
+        "llm_node_ttft": 0.977,
+        "tts_node_ttfb": 0.149,
+        "e2e_latency": 1.381
+      }
+    },
+    {
+      "speaker": "CLINIC_AGENT",
+      "t_start": 59.1,
+      "t_end": 68.63,
+      "text": "The only appointment I see on file is for Monday, October nineteenth at ten AM with Doogie Howser. There is nothing listed for Thursday, October twenty second with doctor Lukowski.",
+      "interrupted": false,
+      "stt_confidence": 0.99967448,
+      "latency": {
+        "transcription_delay": 0.328,
+        "end_of_turn_delay": 0.601
+      }
+    },
+    {
+      "speaker": "CLINIC_AGENT",
+      "t_start": 69.19,
+      "t_end": 74.78,
+      "text": "Would you like to move the October nineteenth appointment instead? Do you want me to check again for another appointment?",
+      "interrupted": false,
+      "stt_confidence": 1.0,
+      "latency": {
+        "transcription_delay": 0.365,
+        "end_of_turn_delay": 21.818
+      }
+    },
+    {
+      "speaker": "PATIENT_BOT",
+      "t_start": 97.16,
+      "t_end": 102.5,
+      "text": "Yes, let's check once more for the Thursday one. If it's not there, go ahead and move the Monday appointment to the following week.",
+      "interrupted": false,
+      "stt_confidence": null,
+      "latency": {
+        "llm_node_ttft": 0.692,
+        "tts_node_ttfb": 0.555,
+        "e2e_latency": 22.379
+      }
+    },
+    {
+      "speaker": "CLINIC_AGENT",
+      "t_start": 106.78,
+      "t_end": 115.87,
+      "text": "The next opening with Judy Houser in Nashville. Would you like to move your appoint appointment to this time, or would you prefer a later slot that day?",
+      "interrupted": false,
+      "stt_confidence": 0.9990234333333333,
+      "latency": {
+        "transcription_delay": 0.304,
+        "end_of_turn_delay": 0.602
+      }
+    },
+    {
+      "speaker": "PATIENT_BOT",
+      "t_start": 117.27,
+      "t_end": 122.15,
+      "text": "I'd like to move it to the following week. Can you tell me what's open with Judy Houser then? Any time that week is fine.",
+      "interrupted": false,
+      "stt_confidence": null,
+      "latency": {
+        "llm_node_ttft": 0.832,
+        "tts_node_ttfb": 0.128,
+        "e2e_latency": 1.4
+      }
+    },
+    {
+      "speaker": "CLINIC_AGENT",
+      "t_start": 126.98,
+      "t_end": 302.23,
+      "text": "I was not able to find any openings with Judy Houcher for the week of November second.",
+      "interrupted": false,
+      "stt_confidence": 1.0,
+      "latency": {
+        "transcription_delay": 0,
+        "end_of_turn_delay": 3.0
+      }
+    },
+    {
+      "speaker": "PATIENT_BOT",
+      "t_start": 305.66,
+      "t_end": 310.5,
+      "text": "Okay. Can you check the week of November ninth instead? Or any opening with another provider in that area?",
+      "interrupted": false,
+      "stt_confidence": null,
+      "latency": {
+        "llm_node_ttft": 1.044,
+        "tts_node_ttfb": 0.431,
+        "e2e_latency": 3.434
+      }
+    },
+    {
+      "speaker": "CLINIC_AGENT",
+      "t_start": 5059.42,
+      "t_end": null,
+      "text": "Would you like to try a different week?",
+      "interrupted": false,
+      "stt_confidence": 0.0,
+      "latency": {}
+    }
+  ]
+}

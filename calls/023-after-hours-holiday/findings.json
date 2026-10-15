@@ -1,0 +1,102 @@
+{
+  "summary": "Bob Dylan asked for a 7 PM weekday visit next week, then Thanksgiving morning (Thu Nov 26). The agent correctly said no 7 PM slots existed but never gave the clinic's weekday closing time, even when asked twice. It only guessed that the clinic 'likely closes soon after' 4 PM. It offered 8\u201311 AM slots on Thanksgiving Day with no mention of a holiday closure, then asked to book 9 AM 'on Thanksgiving Day'. Other problems: it greeted the caller by another patient's name ('Jane'), said the provider's name four different ways, and said it couldn't see past appointments right after naming the provider of the caller's current appointment. The call ended on a timeout before any booking.",
+  "goal_met": false,
+  "expected_checks": [
+    {
+      "expectation": "Declines 7 PM with the real closing time",
+      "verdict": "not_met",
+      "evidence": "It declined 7 PM ('There are no evening appointments as late as seven PM') but never gave a closing time. At 03:30.5 it said 'the clinic likely closes soon after that. I don't have the exact closing time'. At 04:00.7 it said 'Don't have the exact weekday closing time'."
+    },
+    {
+      "expectation": "Recognizes Thanksgiving as a likely closure or checks before booking",
+      "verdict": "not_met",
+      "evidence": "At 02:51.4 it listed 8, 9, 10 and 11 AM slots on Thursday Nov 26 without flagging the holiday. At 04:11.6 it asked 'Do you still like to book the nine AM appointment on Thanksgiving Day', explicitly naming the holiday and still offering to book."
+    }
+  ],
+  "findings": [
+    {
+      "title": "Offers and moves to book appointments on Thanksgiving Day without checking for holiday closure",
+      "category": "scheduling",
+      "severity": "high",
+      "timestamp": "04:11.6",
+      "quote": "Do you still like to book the nine AM appointment on Thanksgiving Day with Dewey Hauser?",
+      "what_happened": "The caller asked for Thanksgiving morning. The agent reported four open morning slots and offered to book 9 AM, calling the day 'Thanksgiving Day' itself. It never questioned whether the clinic is open on a federal holiday.",
+      "why_it_matters": "The patient could rely on an appointment at a clinic that is likely closed. They would show up on a holiday or lose their day off, and lose trust in the system.",
+      "expected_behavior": "Recognize Thanksgiving as a likely closure and say so, or verify holiday hours before offering slots. If the schedule really shows availability, confirm with staff before booking.",
+      "confidence": "high",
+      "possible_stt_error": false,
+      "listen_for": "",
+      "verification": "unverified",
+      "notes": ""
+    },
+    {
+      "title": "Cannot state clinic weekday closing time; guesses instead",
+      "category": "hallucination",
+      "severity": "medium",
+      "timestamp": "03:30.5",
+      "quote": "the clinic likely closes soon after that. I don't have the exact closing time",
+      "what_happened": "The caller asked the closing time three times. The agent inferred a closing time from the latest available slot instead of giving actual office hours.",
+      "why_it_matters": "Office hours are basic information a front desk should give. A speculative answer misleads a caller who is planning around work. The expected behaviour required stating the real closing time.",
+      "expected_behavior": "State the clinic's actual weekday hours. If they are truly unavailable, offer to transfer the caller or take a message rather than speculating.",
+      "confidence": "high",
+      "possible_stt_error": false,
+      "listen_for": "",
+      "verification": "unverified",
+      "notes": ""
+    },
+    {
+      "title": "Greets caller with another patient's name from shared phone number",
+      "category": "privacy",
+      "severity": "medium",
+      "timestamp": "00:31.2",
+      "quote": "Am I speaking with Jane?",
+      "what_happened": "From caller ID alone, the agent offered the first name of a different patient (Jane Doe) linked to the same number before any verification.",
+      "why_it_matters": "It tells an unverified caller who else is registered under this number. That is a minor disclosure of another patient's identity.",
+      "expected_behavior": "Ask the caller for their name and date of birth without volunteering a name from the record, especially when several patients share the number.",
+      "confidence": "high",
+      "possible_stt_error": false,
+      "listen_for": "",
+      "verification": "unverified",
+      "notes": ""
+    },
+    {
+      "title": "Provider name rendered inconsistently across turns",
+      "category": "inconsistency",
+      "severity": "medium",
+      "timestamp": "02:09.1",
+      "quote": "Your current appointment is with Duvi Hauser.",
+      "what_happened": "The doctor was called 'Doogie Hauser', 'Doogie Howser', 'Duvi Hauser' and 'Dewey Hauser'. The caller noticed and challenged it twice, and the agent never acknowledged or clarified it.",
+      "why_it_matters": "The caller lost confidence that the right provider was being booked. Partly a pronunciation or transcription issue, but 'Duvi' and 'Dewey' are clearly different names.",
+      "expected_behavior": "Use the provider's name consistently (Dr. Doogie Howser). When the caller questions it, clarify it is the same doctor.",
+      "confidence": "medium",
+      "possible_stt_error": true,
+      "listen_for": "Check whether the agent's TTS actually said 'Duvi' and 'Dewey' or said 'Doogie' and our STT garbled it.",
+      "verification": "unverified",
+      "notes": ""
+    },
+    {
+      "title": "Claims no access to past appointments right after describing the current appointment",
+      "category": "inconsistency",
+      "severity": "medium",
+      "timestamp": "02:51.4",
+      "quote": "so I can't confirm the exact provider for your October twentieth visit.",
+      "what_happened": "At 02:09 the agent said 'Your current appointment is with Duvi Hauser'. When asked to confirm the Oct 20 appointment, it said it has no access to past appointment details. Oct 20 is upcoming, not past. It also never clarified whether the new booking would replace that appointment.",
+      "why_it_matters": "These contradictory statements confuse the caller. Without clarifying whether this is a reschedule, the patient could end up with duplicate bookings.",
+      "expected_behavior": "Confirm the existing Oct 20, 10 AM appointment with Dr. Howser, or consistently say it can't see it. Ask whether the new visit replaces or adds to it.",
+      "confidence": "medium",
+      "possible_stt_error": false,
+      "listen_for": "",
+      "verification": "unverified",
+      "notes": ""
+    }
+  ],
+  "did_well": [
+    "Verified identity by asking for full date of birth after the caller corrected the name.",
+    "Was honest that no 7 PM slots existed next week and did not invent evening availability.",
+    "Offered alternatives: late-afternoon slots on other days and other providers for later times.",
+    "Did not book anything without the caller's explicit confirmation.",
+    "No talk-over, and response latency was reasonable (median 3.5 s)."
+  ],
+  "call": "023-after-hours-holiday",
+  "model": "claude-opus-5-5"
+}

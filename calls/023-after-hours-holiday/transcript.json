@@ -1,0 +1,320 @@
+{
+  "call_id": "023-after-hours-holiday",
+  "scenario": "after-hours-holiday",
+  "persona": "skeptical",
+  "llm": "claude-haiku-5-5",
+  "room": "call-023-after-hours-holiday-1792039794",
+  "recording_started_at": 1792039795.820031,
+  "turns": [
+    {
+      "speaker": "CLINIC_AGENT",
+      "t_start": 4.81,
+      "t_end": 16.55,
+      "text": "This call may be recorded for quality and training purposes. Thanks for calling Pivot Point Orthopaedics. Part of Pretty Good AI. How may I help you today?",
+      "interrupted": false,
+      "stt_confidence": 0.9717407175,
+      "latency": {
+        "transcription_delay": 0.294,
+        "end_of_turn_delay": 1.5
+      }
+    },
+    {
+      "speaker": "PATIENT_BOT",
+      "t_start": 19.18,
+      "t_end": 24.94,
+      "text": "Hi, I'd like to book a visit for next week. I need a 7 PM appointment on a weekday because of my work schedule.",
+      "interrupted": false,
+      "stt_confidence": null,
+      "latency": {
+        "llm_node_ttft": 0.869,
+        "tts_node_ttfb": 0.148,
+        "e2e_latency": 2.625
+      }
+    },
+    {
+      "speaker": "CLINIC_AGENT",
+      "t_start": 28.41,
+      "t_end": 30.5,
+      "text": "I see you're calling from the number we have on file.",
+      "interrupted": false,
+      "stt_confidence": 1.0,
+      "latency": {
+        "transcription_delay": 0.337,
+        "end_of_turn_delay": 0.602
+      }
+    },
+    {
+      "speaker": "CLINIC_AGENT",
+      "t_start": 31.16,
+      "t_end": 32.2,
+      "text": "Am I speaking with Jane?",
+      "interrupted": false,
+      "stt_confidence": 1.0,
+      "latency": {
+        "transcription_delay": 0.372,
+        "end_of_turn_delay": 0.602
+      }
+    },
+    {
+      "speaker": "PATIENT_BOT",
+      "t_start": 33.62,
+      "t_end": 35.06,
+      "text": "No, this is Bob Dylan.",
+      "interrupted": false,
+      "stt_confidence": null,
+      "latency": {
+        "llm_node_ttft": 0.716,
+        "tts_node_ttfb": 0.261,
+        "e2e_latency": 1.42
+      }
+    },
+    {
+      "speaker": "CLINIC_AGENT",
+      "t_start": 37.56,
+      "t_end": 39.2,
+      "text": "Please provide your full date of birth.",
+      "interrupted": false,
+      "stt_confidence": 1.0,
+      "latency": {
+        "transcription_delay": 0.344,
+        "end_of_turn_delay": 0.601
+      }
+    },
+    {
+      "speaker": "PATIENT_BOT",
+      "t_start": 40.45,
+      "t_end": 42.22,
+      "text": "July 4th, 1990.",
+      "interrupted": false,
+      "stt_confidence": null,
+      "latency": {
+        "llm_node_ttft": 0.668,
+        "tts_node_ttfb": 0.223,
+        "e2e_latency": 1.252
+      }
+    },
+    {
+      "speaker": "CLINIC_AGENT",
+      "t_start": 47.46,
+      "t_end": 49.8,
+      "text": "What type of visit do you need? For example,",
+      "interrupted": false,
+      "stt_confidence": 1.0,
+      "latency": {
+        "transcription_delay": 0.369,
+        "end_of_turn_delay": 0.602
+      }
+    },
+    {
+      "speaker": "CLINIC_AGENT",
+      "t_start": 50.41,
+      "t_end": 57.3,
+      "text": "is this for a routine checkup? A follow-up, a new patient consultation, an urgent concern, or a procedure?",
+      "interrupted": false,
+      "stt_confidence": 0.9964843760000001,
+      "latency": {
+        "transcription_delay": 0.249,
+        "end_of_turn_delay": 0.602
+      }
+    },
+    {
+      "speaker": "PATIENT_BOT",
+      "t_start": 58.96,
+      "t_end": 65.42,
+      "text": "It's a follow-up, I think. I have an appointment on Tuesday October 20th at 10 AM with Dr. Howser, but I need an evening slot next week.",
+      "interrupted": false,
+      "stt_confidence": null,
+      "latency": {
+        "llm_node_ttft": 0.692,
+        "tts_node_ttfb": 0.186,
+        "e2e_latency": 1.659
+      }
+    },
+    {
+      "speaker": "CLINIC_AGENT",
+      "t_start": 69.86,
+      "t_end": 80.55,
+      "text": "I found several follow-up appointments next week with Doogie Hauser. The latest available on Monday, October nineteenth is at three PM. Would you like to hear about evening options on other days next week?",
+      "interrupted": false,
+      "stt_confidence": 1.0,
+      "latency": {
+        "transcription_delay": 0.246,
+        "end_of_turn_delay": 0.602
+      }
+    },
+    {
+      "speaker": "PATIENT_BOT",
+      "t_start": 82.28,
+      "t_end": 89.34,
+      "text": "Wait, you're saying Monday the 19th at 3 PM is the latest? I need 7 PM. Are you sure there's nothing in the evening next week?",
+      "interrupted": false,
+      "stt_confidence": null,
+      "latency": {
+        "llm_node_ttft": 0.728,
+        "tts_node_ttfb": 0.188,
+        "e2e_latency": 1.728
+      }
+    },
+    {
+      "speaker": "CLINIC_AGENT",
+      "t_start": 89.71,
+      "t_end": 111.6,
+      "text": "That's right. The latest slot on Monday is at three PM. Let me check other days next week for any evening appointments closer to seven PM. One moment. The latest slot available on Tuesday, October twentieth with Doogie Howser is at four PM. There are no evening appointments as late as seven PM. Would you like to hear about late afternoon options on other days?",
+      "interrupted": false,
+      "stt_confidence": 0.9990931928571428,
+      "latency": {
+        "transcription_delay": 0.309,
+        "end_of_turn_delay": 0.601
+      }
+    },
+    {
+      "speaker": "CLINIC_AGENT",
+      "t_start": 112.26,
+      "t_end": 114.9,
+      "text": "Or would you prefer to see any provider for an evening slot?",
+      "interrupted": false,
+      "stt_confidence": 1.0,
+      "latency": {
+        "transcription_delay": 0.313,
+        "end_of_turn_delay": 0.602
+      }
+    },
+    {
+      "speaker": "PATIENT_BOT",
+      "t_start": 116.37,
+      "t_end": 126.23,
+      "text": "Okay, so no 7 PM slots at all next week. Wait, you said Doogie Howser just now, but earlier you said Doogie Hauser. Which doctor is it? And what time do you close on weekdays?",
+      "interrupted": false,
+      "stt_confidence": null,
+      "latency": {
+        "llm_node_ttft": 0.788,
+        "tts_node_ttfb": 0.155,
+        "e2e_latency": 1.473
+      }
+    },
+    {
+      "speaker": "CLINIC_AGENT",
+      "t_start": 129.06,
+      "t_end": 148.9,
+      "text": "Your current appointment is with Duvi Hauser. That's the provider available for follow-up visits next week. The latest appointments offered are at four PM. The clinic does not have evening slots. As late as seven PM. If you'd like, I can check for the latest available times on other days or with a different provider. Would you like to do that?",
+      "interrupted": false,
+      "stt_confidence": 0.97830962875,
+      "latency": {
+        "transcription_delay": 0.35,
+        "end_of_turn_delay": 0.601
+      }
+    },
+    {
+      "speaker": "PATIENT_BOT",
+      "t_start": 150.59,
+      "t_end": 163.09,
+      "text": "Now you're saying Duvi Hauser, and my appointment on file is with Dr. Howser. That doesn't match, so can you tell me what you have on file for my October 20th appointment? And if there's no evening slot, I'd like to try Thanksgiving Day, Thursday November 26th, in the morning instead.",
+      "interrupted": false,
+      "stt_confidence": null,
+      "latency": {
+        "llm_node_ttft": 0.701,
+        "tts_node_ttfb": 0.162,
+        "e2e_latency": 1.692
+      }
+    },
+    {
+      "speaker": "CLINIC_AGENT",
+      "t_start": 168.91,
+      "t_end": 170.85,
+      "text": "That access to your past appointment details,",
+      "interrupted": false,
+      "stt_confidence": 0.9838867,
+      "latency": {
+        "transcription_delay": 0.303,
+        "end_of_turn_delay": 0.6
+      }
+    },
+    {
+      "speaker": "CLINIC_AGENT",
+      "t_start": 171.41,
+      "t_end": 196.55,
+      "text": "so I can't confirm the exact provider for your October twentieth visit. I can only see available slots for new bookings or rescheduling. Let me check for available morning appointments on Thursday, November twenty sixth. One moment. On Thursday, November twenty sixth, there are morning appointments with at eight AM, nine AM, ten AM, and eleven AM. Would you like to book the eight AM slot or hear about another time?",
+      "interrupted": false,
+      "stt_confidence": 0.9975586000000001,
+      "latency": {
+        "transcription_delay": 0.31,
+        "end_of_turn_delay": 0.601
+      }
+    },
+    {
+      "speaker": "PATIENT_BOT",
+      "t_start": 198.42,
+      "t_end": 206.92,
+      "text": "Hold on, you can't confirm my October appointment, but you're offering me slots. That's a contradiction. Before I book anything, what time do you close on weekdays?",
+      "interrupted": false,
+      "stt_confidence": null,
+      "latency": {
+        "llm_node_ttft": 0.833,
+        "tts_node_ttfb": 0.199,
+        "e2e_latency": 1.867
+      }
+    },
+    {
+      "speaker": "CLINIC_AGENT",
+      "t_start": 210.51,
+      "t_end": 225.55,
+      "text": "The latest available appointments are at four PM, so the clinic likely closes soon after that. I don't have the exact closing time but there are no evening slots past four PM. Would you like to book a morning slot on November twenty sixth or check another date?",
+      "interrupted": false,
+      "stt_confidence": 0.9998604914285715,
+      "latency": {
+        "transcription_delay": 0.252,
+        "end_of_turn_delay": 0.601
+      }
+    },
+    {
+      "speaker": "PATIENT_BOT",
+      "t_start": 227.31,
+      "t_end": 237.37,
+      "text": "\"Likely closes soon after\" isn't an answer. I need the actual closing time on weekdays. And I'd still like to book the Thanksgiving morning slot, so I'll take the 9 AM if you can confirm the closing time.",
+      "interrupted": false,
+      "stt_confidence": null,
+      "latency": {
+        "llm_node_ttft": 0.75,
+        "tts_node_ttfb": 0.16,
+        "e2e_latency": 1.765
+      }
+    },
+    {
+      "speaker": "CLINIC_AGENT",
+      "t_start": 240.68,
+      "t_end": 251.03,
+      "text": "Don't have the exact weekday closing time for the clinic. Only the appointment times available. The latest slots offered are at four PM, so the clinic does not offer evening hours.",
+      "interrupted": false,
+      "stt_confidence": 0.9954427,
+      "latency": {
+        "transcription_delay": 0.179,
+        "end_of_turn_delay": 0.601
+      }
+    },
+    {
+      "speaker": "CLINIC_AGENT",
+      "t_start": 251.64,
+      "t_end": 255.33,
+      "text": "Do you still like to book the nine AM appointment on Thanksgiving Day with Dewey Hauser?",
+      "interrupted": false,
+      "stt_confidence": 1.0,
+      "latency": {
+        "transcription_delay": 0.279,
+        "end_of_turn_delay": 0.601
+      }
+    },
+    {
+      "speaker": "PATIENT_BOT",
+      "t_start": 256.79,
+      "t_end": 260.6,
+      "text": "Now it's Dewey Hauser? The provider keeps changing, and I still don't have a closing time. Can you",
+      "interrupted": true,
+      "stt_confidence": null,
+      "latency": {
+        "llm_node_ttft": 0.705,
+        "tts_node_ttfb": 0.237,
+        "e2e_latency": 1.457
+      }
+    }
+  ]
+}

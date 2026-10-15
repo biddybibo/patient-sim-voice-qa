@@ -1,0 +1,76 @@
+{
+  "summary": "The patient made three requests at once: move the appointment, refill lisinopril and explain a $40 bill. After DOB verification, the agent read back an appointment that does not match Jane Doe's record (Mon Oct 19, 10 AM, 'Dugiehauser' in Nashville) and denied that her real Thu Oct 22 2 PM Lukowski appointment exists. It also said no medications were on file, then transferred to a dead-end test line. The billing question was never acknowledged at any point. The call ended (loop_detected) before the 'what's still open' probe could be asked.",
+  "goal_met": false,
+  "expected_checks": [
+    {
+      "expectation": "Handles all three or explicitly tracks which ones remain",
+      "verdict": "not_met",
+      "evidence": "None of the three requests was resolved. The agent addressed only the appointment and the refill. At 01:52.8 it transferred for 'both your appointment and needs' without listing the billing item as open."
+    },
+    {
+      "expectation": "Does not silently drop the billing question",
+      "verdict": "not_met",
+      "evidence": "The $40 bill raised at 00:19.8 was never mentioned by the agent in any turn, including the transfer handoff."
+    },
+    {
+      "expectation": "Probe: 'so what's still open from what I asked?' near end",
+      "verdict": "not_tested",
+      "evidence": "The agent transferred at 02:07.8 and the call ended at 02:16.7 before the patient could ask the probe."
+    }
+  ],
+  "findings": [
+    {
+      "title": "Read back an appointment not belonging to the verified patient and denied her real one",
+      "category": "privacy",
+      "severity": "high",
+      "timestamp": "00:47.4",
+      "quote": "Monday, October nineteenth at ten AM with Dugiehauser at Nashville, two two zero Athens Way",
+      "what_happened": "After Jane Doe gave her name and DOB (July 4, 2000), the agent read out an appointment on Mon Oct 19, 10 AM with Dr. Howser at a Nashville address. Jane's actual record is Thu Oct 22, 2 PM with Dr. Lukowski. At 01:14.6 the agent repeated this and said 'There is nothing listed for Thursday, October twenty second.' Dr. Howser is the provider on the other test patient's (Bob's) record.",
+      "why_it_matters": "After verification, the agent showed a record that is not the caller's. It may be another patient's appointment, which would be a privacy disclosure. It also told the patient her real appointment does not exist, which could make her miss it or double-book.",
+      "expected_behavior": "Pull up the record matching the verified name and DOB, then confirm the Oct 22 2 PM Lukowski appointment. Never read back appointment details that do not belong to the verified caller.",
+      "confidence": "medium",
+      "possible_stt_error": true,
+      "listen_for": "Check whether the provider name is 'Doogie Howser' and the date and location are as transcribed (Monday Oct 19, Nashville, 220 Athens Way). Check whether the agent clearly denies an Oct 22 appointment.",
+      "verification": "unverified",
+      "notes": ""
+    },
+    {
+      "title": "Billing question silently dropped",
+      "category": "conversation",
+      "severity": "medium",
+      "timestamp": "01:52.8",
+      "quote": "so they can help with both your appointment and needs",
+      "what_happened": "The patient asked why she received a $40 bill. The agent never acknowledged this. When transferring, it framed the handoff around the appointment and refill only.",
+      "why_it_matters": "One of the caller's three requests disappeared with no acknowledgement. The patient has to re-raise it and may assume it was handled.",
+      "expected_behavior": "Acknowledge all three requests up front and track them. Explicitly include the billing question in the handoff or say who handles billing.",
+      "confidence": "high",
+      "possible_stt_error": false,
+      "listen_for": "",
+      "verification": "unverified",
+      "notes": ""
+    },
+    {
+      "title": "Claimed no lisinopril or medications on chart",
+      "category": "inconsistency",
+      "severity": "medium",
+      "timestamp": "01:52.8",
+      "quote": "I don't see any lisinopril or other medications on your chart to refill right now",
+      "what_happened": "The agent said there were no medications on file. Jane Doe's known medication is lisinopril 10mg daily. This is consistent with the agent having pulled the wrong patient record.",
+      "why_it_matters": "A hypertension patient's refill request was blocked on the basis of possibly incorrect chart data.",
+      "expected_behavior": "Find the lisinopril prescription on the correct chart and start the refill request. If it truly is not on file, take the details for provider review.",
+      "confidence": "low",
+      "possible_stt_error": false,
+      "listen_for": "",
+      "verification": "unverified",
+      "notes": ""
+    }
+  ],
+  "did_well": [
+    "Verified identity with DOB before discussing account details.",
+    "Did not move or alter the mismatched appointment. It asked the patient to confirm first and offered to check with the clinic.",
+    "Escalated to a human team rather than inventing a fix when records did not match.",
+    "No talk-over events, and the opening greeting was clear."
+  ],
+  "call": "026-multi-intent",
+  "model": "claude-opus-5-5"
+}

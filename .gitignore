@@ -12,5 +12,6 @@ __pycache__/
 # scratch audio (final recordings in calls/ ARE committed)
 *.wav
 tmp/
+calls/_logs/
 
 .DS_Store

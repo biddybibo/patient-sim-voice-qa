@@ -1,0 +1,18 @@
+[00:05.3] CLINIC_AGENT: This call may be recorded for quality and training purposes. Thanks for calling Pivot Point Orthopaedics. Part of Pretty Good AI. How may I help you today?
+[00:20.2] PATIENT_BOT: Hi there! I'd like to book an appointment for next week, preferably Tuesday morning if you have anything open.
+[00:27.8] CLINIC_AGENT: I see you're calling from the number we have on file.
+[00:30.6] CLINIC_AGENT: Am I speaking with Jane?
+[00:33.9] PATIENT_BOT: No, this is Bob Dylan, sorry for the confusion. I'm a patient of Dr. Howser's, and I'm calling about booking a follow-up next week.
+[00:42.5] CLINIC_AGENT: No problem, Bob. Please provide your full date of birth so I can look up your chart.
+[00:48.2] PATIENT_BOT: My date of birth is July 4th, 1990.
+[01:01.0] CLINIC_AGENT: Thanks, Bob. Just to confirm, you'd like to book a follow-up visit with doctor Hauser next week. Is that correct?
+[01:08.3] PATIENT_BOT: That's right, though I think the doctor's name is Dr. Doogie Howser. I'd like a follow-up next week, ideally Tuesday morning if you have something open.
+[01:17.6] CLINIC_AGENT: We have several openings with doctor Doody Hauser on Tuesday. October twentieth. The earliest available slot is at eight AM. Would you like to book that time?
+[01:29.4] PATIENT_BOT: Tuesday at... actually, no, wait, make it Thursday. Tuesday won't work for me.
+[01:36.6] CLINIC_AGENT: No problem. On Thursday, October twenty second, doctor Duby Hauser has an opening at eight AM. Would you like to book that time?
+[01:45.4] PATIENT_BOT: Eight AM on Thursday works for me, yes, please book that one.
+[01:53.0] CLINIC_AGENT: Follow-up with doctor Judy Houser is set for Thursday, October twenty second at eight AM at Pivot Point Orthopedics. Please bring your photo ID, insurance card, a list of your current medications, and any imaging discs you have. Would you like me to send you a text with these appointment details?
+[02:12.6] PATIENT_BOT: Yes, a text would be great, my number is 650-996-3518. Before we go, could you confirm the day you booked for me one more time?
+[02:27.0] CLINIC_AGENT: Your appointment is Thursday, October twenty second at eight AM with doctor Judy Hauser.
+[02:33.9] PATIENT_BOT: Thursday, October twenty second at eight AM, got it. Thank you so much for your help, have a great day!
+[02:33.9] -- end_call({"reason": "goal_met"})

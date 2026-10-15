@@ -1,0 +1,55 @@
+{
+  "summary": "The new patient (Siobhan Okafor, knee pain) was never booked. She said in her first sentence that she had never been to the practice. The agent ignored this and ran an existing-patient lookup instead: it asked for her name twice, then asked for a phone number 'on file with us.' Only after she repeated that she was new did the agent transfer her to a 'patient support team.' That transfer reached a recorded 'Pretty Good AI test line. Goodbye.' The agent read the name back as 'Siobhan Okafor,' but it never spelled it back, and the call ended before the spell-back probe. Pacing was generally patient, with a modest 6.5s maximum latency.",
+  "goal_met": false,
+  "expected_checks": [
+    {
+      "expectation": "Captures the spelled name correctly and reads it back correctly",
+      "verdict": "not_tested",
+      "evidence": "At 01:11.6 the agent confirmed 'your first name is Siobhan and your last name is Okafor.' Our transcript shows this correctly, but it was a spoken confirmation, not a spelled read-back. The call was transferred and ended at 02:28.3, before the patient could ask for her name to be spelled back, so spelling capture was never verified."
+    },
+    {
+      "expectation": "Patient pacing with a slow, hesitant caller",
+      "verdict": "met",
+      "evidence": "Median response latency was 2.69s and the agent did not cut into the opening. It confirmed details slowly and clearly. The only overlap was a brief ~1.2s around 02:16.5, and the longest silence was 6.53s, both minor."
+    }
+  ],
+  "findings": [
+    {
+      "title": "New patient handed off to a dead-end transfer; no appointment booked",
+      "category": "scheduling",
+      "severity": "medium",
+      "timestamp": "02:16.5",
+      "quote": "I'll connect you to our patient support team so they can help you get scheduled.",
+      "what_happened": "Once the caller restated that she was a new patient, the agent made no attempt to register or schedule her. It transferred her, promising the support team would 'help you get scheduled.' The transfer reached a recording saying 'You've reached the Pretty Good AI test line. Goodbye.'",
+      "why_it_matters": "An elderly, hesitant caller who wanted a first visit for knee pain ended the call with nothing booked. She was left confused and asked 'Is this the right line?' New-patient intake is a core front-desk task. If the agent cannot handle it, the handoff must actually reach someone.",
+      "expected_behavior": "Collect new-patient details (name, DOB, phone, insurance, reason for visit) and offer available slots. If policy requires a human, transfer to a staffed line, or take a callback number and set expectations.",
+      "confidence": "medium",
+      "possible_stt_error": false,
+      "listen_for": "Confirm the transfer destination audio really is a goodbye recording rather than a live team. The destination may be test-environment configuration, but the patient outcome is the same.",
+      "verification": "unverified",
+      "notes": ""
+    },
+    {
+      "title": "Ignored stated new-patient status and ran an existing-patient lookup with a redundant name request",
+      "category": "conversation",
+      "severity": "low",
+      "timestamp": "00:52.1",
+      "quote": "Could you please tell me your full name, including your first and last name?",
+      "what_happened": "At 00:22.6 the patient said 'I've never been to your office before.' The agent nonetheless asked for her name and DOB, then asked for her full name again right after she had given it. At 01:31.8 it asked for 'the number you have on file with us.' Its new-patient handling only began after she repeated at 02:10.5 that she wasn't on file.",
+      "why_it_matters": "Repeating questions and asking a self-identified new patient for on-file details wastes time. It can also confuse or frustrate a slow, hesitant elderly caller.",
+      "expected_behavior": "Acknowledge the new-patient statement immediately and go to new-patient intake. Ask for the name once, and ask for spelling if needed.",
+      "confidence": "high",
+      "possible_stt_error": false,
+      "listen_for": "Check whether the agent's 00:52.1 request was a deliberate prompt for spelling; on the transcript it reads as a straight repeat.",
+      "verification": "unverified",
+      "notes": ""
+    }
+  ],
+  "did_well": [
+    "Read back the patient's name and date of birth for confirmation (01:11.6) and her phone number digit by digit (01:58.5).",
+    "Kept an unhurried pace suited to an elderly caller and did not cut into her opening.",
+    "Recognised it should not invent a record once the caller said she was not on file, and attempted a handoff rather than fabricating a match."
+  ],
+  "call": "027-new-patient-spelled-name",
+  "model": "claude-opus-5-5"
+}

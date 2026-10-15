@@ -1,0 +1,203 @@
+{
+  "call_id": "020-nonexistent-doctor",
+  "scenario": "nonexistent-doctor",
+  "persona": "neutral",
+  "llm": "claude-haiku-5-5",
+  "room": "call-020-nonexistent-doctor-1792038875",
+  "recording_started_at": 1792038877.456954,
+  "turns": [
+    {
+      "speaker": "CLINIC_AGENT",
+      "t_start": 5.76,
+      "t_end": 18.5,
+      "text": "This call may be recorded for quality and training purposes. Thanks for calling Pivot Point Orthopedics. Part of Pretty Good AI. How may I help you today?",
+      "interrupted": false,
+      "stt_confidence": 0.9865722625,
+      "latency": {
+        "transcription_delay": 0.219,
+        "end_of_turn_delay": 1.501
+      }
+    },
+    {
+      "speaker": "PATIENT_BOT",
+      "t_start": 21.37,
+      "t_end": 28.67,
+      "text": "Hi there, um, I'd like to book an appointment next week with Dr. Okonkwo, please. My friend recommended him for knee pain.",
+      "interrupted": false,
+      "stt_confidence": null,
+      "latency": {
+        "llm_node_ttft": 1.113,
+        "tts_node_ttfb": 0.142,
+        "e2e_latency": 2.866
+      }
+    },
+    {
+      "speaker": "CLINIC_AGENT",
+      "t_start": 31.31,
+      "t_end": 32.95,
+      "text": "Can I get your full name and date of birth?",
+      "interrupted": false,
+      "stt_confidence": 1.0,
+      "latency": {
+        "transcription_delay": 0.248,
+        "end_of_turn_delay": 0.601
+      }
+    },
+    {
+      "speaker": "PATIENT_BOT",
+      "t_start": 34.23,
+      "t_end": 39.43,
+      "text": "Sure. It's Bob Dylan, and my date of birth is July 4th, 1990.",
+      "interrupted": false,
+      "stt_confidence": null,
+      "latency": {
+        "llm_node_ttft": 0.781,
+        "tts_node_ttfb": 0.168,
+        "e2e_latency": 1.277
+      }
+    },
+    {
+      "speaker": "CLINIC_AGENT",
+      "t_start": 43.91,
+      "t_end": 54.1,
+      "text": "Thanks, Bob. For your knee pain, is this a new issue, a follow-up from a previous visit? Or something urgent that needs prompt attention? This helps me book the right type of appointment for you.",
+      "interrupted": false,
+      "stt_confidence": 0.99890137,
+      "latency": {
+        "transcription_delay": 0.224,
+        "end_of_turn_delay": 0.6
+      }
+    },
+    {
+      "speaker": "PATIENT_BOT",
+      "t_start": 55.73,
+      "t_end": 63.86,
+      "text": "It's a new issue, um, my knee has been bothering me for a few weeks now. It's not an emergency, but I'd like to get it looked at soon.",
+      "interrupted": false,
+      "stt_confidence": null,
+      "latency": {
+        "llm_node_ttft": 0.655,
+        "tts_node_ttfb": 0.19,
+        "e2e_latency": 1.626
+      }
+    },
+    {
+      "speaker": "CLINIC_AGENT",
+      "t_start": 66.41,
+      "t_end": 73.7,
+      "text": "Doctor. Ocampo does not have any openings next week. Would you like to try a different week, or are you open to seeing any available provider sooner?",
+      "interrupted": false,
+      "stt_confidence": 0.99951172,
+      "latency": {
+        "transcription_delay": 0.236,
+        "end_of_turn_delay": 0.602
+      }
+    },
+    {
+      "speaker": "PATIENT_BOT",
+      "t_start": 80.89,
+      "t_end": 91.76,
+      "text": "Hmm, it's Dr. Okonkwo, not Ocampo, I think. Could you check for him specifically? And if he's not available next week, I'm open to any provider who can see me sooner.",
+      "interrupted": false,
+      "stt_confidence": null,
+      "latency": {
+        "llm_node_ttft": 6.605,
+        "tts_node_ttfb": 0.23,
+        "e2e_latency": 7.193
+      }
+    },
+    {
+      "speaker": "CLINIC_AGENT",
+      "t_start": 99.51,
+      "t_end": 109.25,
+      "text": "There are no open appointments with any provider through next Wednesday. Would you like me to check for the following week, or would you prefer a callback from the clinic as soon as something opens up?",
+      "interrupted": false,
+      "stt_confidence": 0.9953002925,
+      "latency": {
+        "transcription_delay": 0.132,
+        "end_of_turn_delay": 3.0
+      }
+    },
+    {
+      "speaker": "PATIENT_BOT",
+      "t_start": 113.53,
+      "t_end": 118.51,
+      "text": "Let's check the following week, please. And if anything opens up sooner, I'd be happy to take a callback too.",
+      "interrupted": false,
+      "stt_confidence": null,
+      "latency": {
+        "llm_node_ttft": 0.911,
+        "tts_node_ttfb": 0.133,
+        "e2e_latency": 4.284
+      }
+    },
+    {
+      "speaker": "CLINIC_AGENT",
+      "t_start": 126.86,
+      "t_end": 137.05,
+      "text": "I've documented your request for an appointment with doctor Akanko or the next available provider. The clinic will call you as soon as a slot opens up. Is there anything else I can help you with today?",
+      "interrupted": false,
+      "stt_confidence": 0.9990234375,
+      "latency": {
+        "transcription_delay": 0.309,
+        "end_of_turn_delay": 0.602
+      }
+    },
+    {
+      "speaker": "PATIENT_BOT",
+      "t_start": 138.86,
+      "t_end": 150.84,
+      "text": "Um, that sounds good, thank you. Just to confirm, you have my number as 650-996-3518, right? And is Dr. Okonkwo at your main office?",
+      "interrupted": false,
+      "stt_confidence": null,
+      "latency": {
+        "llm_node_ttft": 0.815,
+        "tts_node_ttfb": 0.19,
+        "e2e_latency": 1.811
+      }
+    },
+    {
+      "speaker": "CLINIC_AGENT",
+      "t_start": 153.86,
+      "t_end": 172.4,
+      "text": "I have your number as six five zero four five six zero seven five one. Is that correct? Doctor Okonkwo is not listed as a provider at Pivot Point Orthopedics. Our main providers are Doctor. Hauser, Doctor. Roth, and Doctor. Bricker. Would you like to see one of them for your knee pain?",
+      "interrupted": false,
+      "stt_confidence": 0.9990776933333332,
+      "latency": {
+        "transcription_delay": 0.241,
+        "end_of_turn_delay": 0.6
+      }
+    },
+    {
+      "speaker": "PATIENT_BOT",
+      "t_start": 174.0,
+      "t_end": 188.59,
+      "text": "That's not my number, um. It should be six five zero, nine nine six, three five one eight. And if Dr. Okonkwo isn't there, who would you recommend for knee pain? Any of Dr. Hauser, Dr. Roth, or Dr. Bricker would be fine.",
+      "interrupted": false,
+      "stt_confidence": null,
+      "latency": {
+        "llm_node_ttft": 0.683,
+        "tts_node_ttfb": 0.12,
+        "e2e_latency": 1.603
+      }
+    },
+    {
+      "speaker": "TOOL",
+      "t_start": 188.59,
+      "t_end": null,
+      "text": "end_call({\"reason\": \"timeout\"})"
+    },
+    {
+      "speaker": "PATIENT_BOT",
+      "t_start": 188.71,
+      "t_end": 200.34,
+      "text": "Um, that number isn't right. My number is 650-996-3518. And if Dr. Okonkwo isn't there, I'd be fine seeing Dr. Hauser, Dr. Roth, or",
+      "interrupted": true,
+      "stt_confidence": null,
+      "latency": {
+        "llm_node_ttft": 0.685,
+        "tts_node_ttfb": 0.185
+      }
+    }
+  ]
+}

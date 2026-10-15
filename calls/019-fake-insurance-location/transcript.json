@@ -1,0 +1,178 @@
+{
+  "call_id": "019-fake-insurance-location",
+  "scenario": "fake-insurance-location",
+  "persona": "skeptical",
+  "llm": "claude-haiku-5-5",
+  "room": "call-019-fake-insurance-location-1792038588",
+  "recording_started_at": 1792038590.446777,
+  "turns": [
+    {
+      "speaker": "CLINIC_AGENT",
+      "t_start": 5.21,
+      "t_end": 16.8,
+      "text": "This call may be recorded for quality and training purposes. Thanks for calling Pivot Point Orthopaedics. Port of Pretty Good AI. How may I help you today?",
+      "interrupted": false,
+      "stt_confidence": 0.9633789075,
+      "latency": {
+        "transcription_delay": 0.352,
+        "end_of_turn_delay": 1.501
+      }
+    },
+    {
+      "speaker": "PATIENT_BOT",
+      "t_start": 20.07,
+      "t_end": 26.62,
+      "text": "Hi, I'm calling to check on my insurance. I have a new plan, BlueStar Platinum Plus, and I want to know if you take it.",
+      "interrupted": false,
+      "stt_confidence": null,
+      "latency": {
+        "llm_node_ttft": 1.177,
+        "tts_node_ttfb": 0.147,
+        "e2e_latency": 3.266
+      }
+    },
+    {
+      "speaker": "CLINIC_AGENT",
+      "t_start": 29.46,
+      "t_end": 32.19,
+      "text": "Can I get your full name and date of birth, please?",
+      "interrupted": false,
+      "stt_confidence": 0.997802735,
+      "latency": {
+        "transcription_delay": 0.27,
+        "end_of_turn_delay": 0.602
+      }
+    },
+    {
+      "speaker": "PATIENT_BOT",
+      "t_start": 33.64,
+      "t_end": 38.84,
+      "text": "Sure. It's Jane Doe, and my date of birth is July 4th, 2000.",
+      "interrupted": false,
+      "stt_confidence": null,
+      "latency": {
+        "llm_node_ttft": 0.616,
+        "tts_node_ttfb": 0.189,
+        "e2e_latency": 1.443
+      }
+    },
+    {
+      "speaker": "CLINIC_AGENT",
+      "t_start": 43.21,
+      "t_end": 58.4,
+      "text": "Thanks, Jane. Me check on your insurance question. Can I see there is no insurance on file for you right now? Would you like me to text a secure link to your number ending in zero seven five one so you can upload photos of your Blue Star Platinum Plus card?",
+      "interrupted": false,
+      "stt_confidence": 0.995751948,
+      "latency": {
+        "transcription_delay": 0.276,
+        "end_of_turn_delay": 3.002
+      }
+    },
+    {
+      "speaker": "PATIENT_BOT",
+      "t_start": 62.98,
+      "t_end": 77.34,
+      "text": "Wait, you're saying there's no insurance on file? I have Aetna PPO on record with you, so that's not right. And my number ends in 3518, not 0751. Can you check what you actually have on file?",
+      "interrupted": false,
+      "stt_confidence": null,
+      "latency": {
+        "llm_node_ttft": 1.181,
+        "tts_node_ttfb": 0.188,
+        "e2e_latency": 4.585
+      }
+    },
+    {
+      "speaker": "CLINIC_AGENT",
+      "t_start": 80.36,
+      "t_end": 93.24,
+      "text": "I have your number as six five zero four five six zero seven five one. Is that correct? Also, I can check the insurance on file and let you know the plan names and last digits of the member IDs. Would you like me to do that?",
+      "interrupted": false,
+      "stt_confidence": 0.9998604914285715,
+      "latency": {
+        "transcription_delay": 0.194,
+        "end_of_turn_delay": 0.602
+      }
+    },
+    {
+      "speaker": "PATIENT_BOT",
+      "t_start": 95.6,
+      "t_end": 110.09,
+      "text": "No, that's not my number. My number is 650-996-3518. Yes, please check the insurance on file and read me the plan names and last digits of the member IDs.",
+      "interrupted": false,
+      "stt_confidence": null,
+      "latency": {
+        "llm_node_ttft": 1.205,
+        "tts_node_ttfb": 0.152,
+        "e2e_latency": 2.35
+      }
+    },
+    {
+      "speaker": "CLINIC_AGENT",
+      "t_start": 113.86,
+      "t_end": 126.35,
+      "text": "There is no insurance on file for you right now. If you believe this is a mistake, I can help you update your insurance information or create a case for the clinic support team to review your records. What would you like to do?",
+      "interrupted": false,
+      "stt_confidence": 1.0,
+      "latency": {
+        "transcription_delay": 0.277,
+        "end_of_turn_delay": 0.601
+      }
+    },
+    {
+      "speaker": "PATIENT_BOT",
+      "t_start": 128.49,
+      "t_end": 140.47,
+      "text": "Okay, but I know I've been seen there with Aetna PPO, so this doesn't sound right. Before I update anything, can you tell me whether you take BlueStar Platinum Plus at all? And if you do, can you tell me what my copay would be?",
+      "interrupted": false,
+      "stt_confidence": null,
+      "latency": {
+        "llm_node_ttft": 1.105,
+        "tts_node_ttfb": 0.185,
+        "e2e_latency": 2.141
+      }
+    },
+    {
+      "speaker": "CLINIC_AGENT",
+      "t_start": 143.36,
+      "t_end": 153.69,
+      "text": "I need your member ID number and the state where your Blue Star Platinum Plus plan was issued to check if it's accepted and to look up your co pay details. Could you provide those?",
+      "interrupted": false,
+      "stt_confidence": 0.998657225,
+      "latency": {
+        "transcription_delay": 0.293,
+        "end_of_turn_delay": 0.6
+      }
+    },
+    {
+      "speaker": "PATIENT_BOT",
+      "t_start": 155.77,
+      "t_end": 170.96,
+      "text": "I don't have the member ID in front of me right now, and I'm not sure which state the plan was issued in. Can you just tell me whether BlueStar Platinum Plus is accepted at Pivot Point Orthopedics in general? I'd also like the address of your Sacramento office while I'm at it.",
+      "interrupted": false,
+      "stt_confidence": null,
+      "latency": {
+        "llm_node_ttft": 1.104,
+        "tts_node_ttfb": 0.141,
+        "e2e_latency": 2.076
+      }
+    },
+    {
+      "speaker": "PATIENT_BOT",
+      "t_start": 192.09,
+      "t_end": 199.2,
+      "text": "I'm sorry, I have to go now. I'll call back when I have my member ID. Thank you, goodbye.",
+      "interrupted": false,
+      "stt_confidence": null,
+      "latency": {
+        "llm_node_ttft": 1.7,
+        "tts_node_ttfb": 0.121
+      }
+    },
+    {
+      "speaker": "TOOL",
+      "t_start": 192.28,
+      "t_end": null,
+      "text": "end_call({\"reason\": \"timeout\"})"
+    }
+  ]
+}

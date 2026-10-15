@@ -18,6 +18,7 @@ All numbers below come from `calls/<id>/metrics.json` (regenerate with `scripts/
 | 007 | reschedule / hesitant elderly | + fixes 9–14 | 3:09 | goal_met | 2.13 s | 1.52 s | 1.40 s | 0.00 s |
 | 008 | privacy-shared-phone / rushed | + fixes 9–14 | 2:33 | goal_met | 1.67 s | 0.96 s | 0.85 s | 0.00 s |
 | 009 | simple-scheduling / rushed | Sonnet 5.5 (A/B vs 003) | 2:01 | goal_met | 2.16 s | 1.07 s | 1.27 s | 0.00 s |
+| 010–028 | 18-scenario batch (see `scripts/recompute_metrics.py`) | + fixes 9–14, Haiku | 1:28–4:23 | 12 goal_met · 8 timeout · 6 other | 1.33–3.04 s | 0.71–1.79 s (median 1.07) | 0.70–1.45 s | ≤ 1.16 s |
 
 "Response" includes the bot deliberately waiting up to 3 s through the clinic's "let me check…" pauses;
 "after end-of-turn decided" isolates the bot's own speed (LLM + TTS). Target for the latter: < 0.8 s.
@@ -67,7 +68,9 @@ All numbers below come from `calls/<id>/metrics.json` (regenerate with `scripts/
 - **10 (speech after hang-up):** verified. One goodbye per call, nothing after `end_call`.
 - **11 (arguing about records):** verified. In 008 the bot said it had no appointments it knew of and asked the
   agent to check, without arguing.
-- **12 (transfer), 13 (time-limit cut-off):** not exercised yet (no transfer, no time-out in 007/008).
+- **12 (transfer):** verified in 013: `wait_on_transfer` kept the bot on the line; the transfer reached the test
+  line's goodbye message, and the bot then ended the call.
+- **13 (time-limit cut-off):** partly. The wrap-up now waits for a gap, but see issue 16.
 - **14 (port clash):** no recurrence.
 
 ### Fixed in code (details)
@@ -90,6 +93,32 @@ All numbers below come from `calls/<id>/metrics.json` (regenerate with `scripts/
   "check .env credentials". **Fix:** worker binds any free port (`port=0`); `run.py` prints the worker's real error.
 
 ---
+
+### 15. A call's bot session stayed alive 84 minutes after the phone line was gone (batch run, call 025)
+- **Evidence:** `calls/_iterations/025-multi-intent-stuck-84min/` (MP3 dropped, it was 60 MB; OGG and transcript kept).
+  The bot's last line is at 05:05.7, past its 4-minute limit; the batch's next call started 89 minutes late.
+  Twilio shows no call longer than 257 s, so the phone leg ended normally; the agent sat alone in the LiveKit room.
+- **Causes (two layers failed):** LiveKit only closes the session for some participant-disconnect reasons
+  (`DEFAULT_CLOSE_ON_DISCONNECT_REASONS`), and our time-limit task didn't hang up (its `delete_room` came after
+  steps that could fail). The worker logs were lost because `run_batch.py` kept only the last line of output.
+- **Fix, three independent layers:** (1) the bot hangs up whenever the phone participant leaves, for any reason;
+  (2) the time limit hangs up in a `finally` block; (3) an external watchdog in `run.py`, outside the bot process,
+  deletes the room 90 s after the scenario limit. Also: `run.py` force-kills a worker that won't stop, and
+  `run_batch.py` saves every run's full log to `calls/_logs/`.
+- **Cost:** a few dollars of LiveKit and STT minutes; no phone time.
+
+### 16. Time-limit wrap-up ignored: the bot keeps asking questions until it's cut off
+- **Evidence:** 020 @ 03:08.7 and 023 @ 04:16.8: instead of "I have to go, goodbye" the bot repeats its question and
+  is cut off mid-sentence ("[cut off]"). 8 of 26 calls ended on the time limit (019–023 mostly: the clinic's long
+  lookups and contradictions used up the 4 minutes).
+- **Status:** open. Fix: make the wrap-up a fixed spoken line (`session.say`) rather than an LLM instruction, and
+  raise limits for scenarios where the clinic is slow. These calls aren't used as showcase calls.
+
+### 17. Bot attributed its own appointment to the person it was calling about
+- **Evidence:** 011 @ 00:59.8: calling about his wife Jane, the bot offered Bob's own appointment ("Tuesday,
+  October 20th at 10 AM with Dr. Doogie Howser") as hers.
+- **Cause:** the persona prompt lists the caller's appointments; nothing says they're his, not hers.
+- **Status:** open (minor). Fix: label `known_appointments` as "your own" in the prompt for on-behalf scenarios.
 
 ## Fixed and verified
 

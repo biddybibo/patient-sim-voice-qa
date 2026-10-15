@@ -1,0 +1,103 @@
+{
+  "summary": "The caller asked for Sunday Oct 18 at 10 AM. The agent correctly avoided booking a weekend slot and offered concrete Tuesday alternatives. However, it never said whether the office is open on Sundays or gave its hours, even when asked directly. It went along with the caller's wrong date of 'Saturday, October nineteenth'. Its biggest failure was ignoring the caller's existing Tue Oct 20 10 AM appointment with the same doctor. When asked whether the new slot was the same visit, it reported a single 'scheduled' appointment at 10:30 and never mentioned the 10 AM one. This leaves a likely duplicate or misreported booking. It also read back a hybrid, wrong phone number before correcting it. The call ended on timeout without a clear confirmation of what was booked or whether the text was sent.",
+  "goal_met": false,
+  "expected_checks": [
+    {
+      "expectation": "Does not book on a day the practice is closed; states the real hours",
+      "verdict": "not_met",
+      "evidence": "No Sunday or Saturday booking was made, which is good. But when asked 'Do you actually have the office open on Sundays?' (01:19) the agent only said 'There are no available appointments on Sunday' (01:28). Later it said 'There are no weekend appointments available' (01:54). It never stated the practice hours or that it is closed on weekends, and never explained why nothing after 5 PM exists."
+    },
+    {
+      "expectation": "Offers concrete alternative slots",
+      "verdict": "met",
+      "evidence": "It offered Tue Oct 20 at 10:30 AM (01:08). At 01:54 it offered 10:30 and 11:30 AM on Tue Oct 20 and asked whether to keep looking for something later in the day."
+    }
+  ],
+  "findings": [
+    {
+      "title": "Existing 10 AM appointment ignored; agent reports a single 10:30 appointment as 'scheduled'",
+      "category": "scheduling",
+      "severity": "high",
+      "timestamp": "02:41.4",
+      "quote": "You have an appointment scheduled for Tuesday, October twentieth at ten thirty AM with doctor Dugie Hauser",
+      "what_happened": "Bob already had Tue Oct 20 at 10 AM with Dr. Howser on file (call 009). The agent offered 10:30 the same day with the same doctor without noticing. The caller said they already had a 10 AM visit that day and asked whether it was the same one. The agent replied with only a 10:30 appointment. It never mentioned or reconciled the 10 AM booking, even after the caller pointed out the discrepancy again at 02:54. At 03:33 it repeated 10:30 as the appointment. So the agent either booked a back-to-back duplicate or misreported the existing appointment's time.",
+      "why_it_matters": "The patient may now hold two overlapping appointments with the same doctor. Or they may think their visit is at 10:30 when the record says 10 AM. Either way they could show up at the wrong time, or a slot could be wasted or double-booked.",
+      "expected_behavior": "Check existing appointments after verifying identity. Tell the caller they already have Tue Oct 20 at 10 AM with Dr. Howser. Ask whether to use that visit for the knee, reschedule it, or add a separate appointment. Then clearly state what is on file.",
+      "confidence": "high",
+      "possible_stt_error": false,
+      "listen_for": "",
+      "verification": "unverified",
+      "notes": ""
+    },
+    {
+      "title": "Did not answer whether the office is open on Sundays or give hours",
+      "category": "time-date",
+      "severity": "medium",
+      "timestamp": "01:28.0",
+      "quote": "There are no available appointments on Sunday, October eighteenth",
+      "what_happened": "The caller asked directly whether the office is open on Sundays. The agent answered only that no appointments were available and pushed the Tuesday slot. It never stated the practice's operating hours or weekend status.",
+      "why_it_matters": "A weekend-only patient needs to know whether weekends or evenings are ever possible. 'No availability' suggests a later Sunday might open up, which could prompt repeat calls.",
+      "expected_behavior": "State plainly that the office is closed on weekends (if true) and give the actual weekday hours, including closing time.",
+      "confidence": "high",
+      "possible_stt_error": false,
+      "listen_for": "",
+      "verification": "unverified",
+      "notes": ""
+    },
+    {
+      "title": "Accepted incorrect date 'Saturday, October nineteenth'",
+      "category": "time-date",
+      "severity": "medium",
+      "timestamp": "01:54.2",
+      "quote": "Let me check for Saturday, October nineteenth first.",
+      "what_happened": "The caller said Saturday was October 19th. The Saturday before Sunday Oct 18 is October 17th, and October 19th is a Monday. The agent repeated the wrong date without correcting it.",
+      "why_it_matters": "Echoing a wrong weekday/date pairing can lead to searching or booking the wrong day, and it erodes trust in the agent's date handling.",
+      "expected_behavior": "Clarify the date, e.g. 'Saturday would be October 17th; did you mean that?', before searching.",
+      "confidence": "high",
+      "possible_stt_error": false,
+      "listen_for": "",
+      "verification": "unverified",
+      "notes": ""
+    },
+    {
+      "title": "Read back an incorrect hybrid phone number for confirmation",
+      "category": "inconsistency",
+      "severity": "low",
+      "timestamp": "03:11.7",
+      "quote": "I have your number as six five zero nine nine six zero seven five one",
+      "what_happened": "The caller had just given 650-996-3518. The agent read back 650-996-0751, which mixes the caller's number with digits from the on-file number ending 0751. The caller had to correct it.",
+      "why_it_matters": "A confirmation text could have gone to a nonexistent or stranger's number if the caller hadn't caught it.",
+      "expected_behavior": "Read back exactly the number the caller provided, or clearly distinguish it from the number on file.",
+      "confidence": "medium",
+      "possible_stt_error": true,
+      "listen_for": "Whether the agent actually said 'zero seven five one' or 'three five one eight' at 03:11.",
+      "verification": "unverified",
+      "notes": ""
+    },
+    {
+      "title": "Call ended without confirming the booking or the text being sent",
+      "category": "conversation",
+      "severity": "low",
+      "timestamp": "03:33.4",
+      "quote": "Would you like me to send the text confirmation to this number?",
+      "what_happened": "The caller confirmed at 03:55 and restated that they were booking the 10:30 slot for the knee. The agent never replied before the call timed out. It never confirmed the booking, the text, or the status of the 10 AM appointment.",
+      "why_it_matters": "The caller is left unsure what is actually on file and whether a confirmation is coming.",
+      "expected_behavior": "Confirm the final appointment state and that the text was sent, then close the call.",
+      "confidence": "medium",
+      "possible_stt_error": false,
+      "listen_for": "Whether there was any clinic audio after 03:55 that the transcript missed.",
+      "verification": "unverified",
+      "notes": ""
+    }
+  ],
+  "did_well": [
+    "Did not book a weekend appointment on a day with no availability.",
+    "Verified name and DOB before discussing appointments.",
+    "Asked for the visit type and triaged urgency.",
+    "Offered concrete alternative slots (10:30 and 11:30 AM Tuesday) and offered to keep looking for later times.",
+    "Gave the full address (1234 Recovery Way, Suite 200, Austin) when asked for the location.",
+    "No talk-over and reasonable response latency (median ~2.6 s)."
+  ],
+  "call": "022-sunday-appointment",
+  "model": "claude-opus-5-5"
+}

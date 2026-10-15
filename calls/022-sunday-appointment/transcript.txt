@@ -1,0 +1,20 @@
+[00:05.3] CLINIC_AGENT: This call may be recorded for quality and training purposes. Thanks for calling Pivot Point Orthopedic. Part of Pretty Good AI. May I help you today?
+[00:20.9] PATIENT_BOT: Hi there, I'm calling to book an appointment for my sore knee. I was hoping for this coming Sunday, October 18th, at 10 AM if you have anything.
+[00:31.8] CLINIC_AGENT: I'll check the schedule for you in just a moment. First, may I have your full name and date of birth?
+[00:39.8] PATIENT_BOT: Sure, it's Bob Dylan, and my date of birth is July 4th, 1990.
+[00:47.7] CLINIC_AGENT: Thanks, Bob. Make sure I booked the right appointment, can you tell me if this visit is for an urgent concern? A general checkup, a follow-up, or something else?
+[00:59.0] PATIENT_BOT: It's not an emergency, just a sore knee that's been bugging me for a little while now. I'd say it's more of a new concern, so I guess it's a general visit to get it looked at.
+[01:08.3] CLINIC_AGENT: Thanks for clarifying. The soonest opening I see is Tuesday, October twentieth at ten thirty AM with doctor Judy Hauser. Would you like to book that slot?
+[01:19.2] PATIENT_BOT: I was really hoping for Sunday, October eighteenth, at 10 AM if that's possible. Do you actually have the office open on Sundays?
+[01:28.0] CLINIC_AGENT: There are no available appointments on Sunday, October eighteenth, The earliest opening is Tuesday, October twentieth at ten thirty AM with doctor Dugi Hauser. Would you like to take that slot, or would you prefer a different day or time?
+[01:44.6] PATIENT_BOT: Since weekends are the only time I'm free, is there anything on Saturday, October nineteenth? And if not, could you tell me the earliest weekday slot after 5 PM?
+[01:54.2] CLINIC_AGENT: Let me check for Saturday, October nineteenth first. If nothing is available, I'll look for the earliest weekday slot after five PM, One moment. I'll check for the next available weekday appointment after five PM. One moment while I look cut up. There are no weekend appointments available, and the earliest weekday slot by see are both in the morning. Ten thirty and eleven thirty AM on Tuesday, October twentieth, with doctor Dugiehauser. Would you like to book one of those, or should I keep looking for something later in the day?
+[02:26.0] PATIENT_BOT: Let's go with the ten thirty slot on Tuesday, October twentieth, then. Actually, I already have an appointment that day at 10 AM with Dr. Doogie Howser at Pivot Point Orthopedics, so could you check whether that's the same visit on your end?
+[02:41.4] CLINIC_AGENT: You have an appointment scheduled for Tuesday, October twentieth at ten thirty AM with doctor Dugie Hauser at Pivot Point Orthopedics. Would you like a text message with these details?
+[02:54.4] PATIENT_BOT: Hmm, that's different from what I have on file, which is 10 AM with Dr. Doogie Howser. Could you tell me what you have listed for the location and the time? Yes, a text confirmation would be great, and it can go to 650-996-3518.
+[03:11.7] CLINIC_AGENT: Just to confirm, I have your number as six five zero nine nine six zero seven five one. Is that
+[03:23.2] PATIENT_BOT: Not quite, the number is six five zero, nine nine six, three five one eight. Could you also confirm the location and time you have on that Tuesday appointment?
+[03:33.4] CLINIC_AGENT: Your appointment is Tuesday, October twentieth at ten thirty AM with doctor Judy Hauser at Pivot Point Orthopedics. One two three four Recovery Way, suite two hundred, Austin I have your number as six five zero nine nine six three five one eight Would you like me to send the text confirmation to this number?
+[03:55.3] PATIENT_BOT: Yes, please send the text to that number, thank you. Just to be clear, I'm booking the ten thirty slot on Tuesday, October twentieth, with the doctor you mentioned for my knee.
+[04:04.5] -- end_call({"reason": "timeout"})
+[04:04.5] PATIENT_BOT: Yes, that number is correct, please send the text confirmation. Thanks so much for your help, and goodbye!

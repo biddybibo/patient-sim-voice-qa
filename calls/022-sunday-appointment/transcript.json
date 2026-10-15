@@ -1,0 +1,253 @@
+{
+  "call_id": "022-sunday-appointment",
+  "scenario": "sunday-appointment",
+  "persona": "chatty_oversharer",
+  "llm": "claude-haiku-5-5",
+  "room": "call-022-sunday-appointment-1792039455",
+  "recording_started_at": 1792039457.341921,
+  "turns": [
+    {
+      "speaker": "CLINIC_AGENT",
+      "t_start": 5.33,
+      "t_end": 18.16,
+      "text": "This call may be recorded for quality and training purposes. Thanks for calling Pivot Point Orthopedic. Part of Pretty Good AI. May I help you today?",
+      "interrupted": false,
+      "stt_confidence": 0.988525385,
+      "latency": {
+        "transcription_delay": 0.316,
+        "end_of_turn_delay": 1.501
+      }
+    },
+    {
+      "speaker": "PATIENT_BOT",
+      "t_start": 20.9,
+      "t_end": 29.45,
+      "text": "Hi there, I'm calling to book an appointment for my sore knee. I was hoping for this coming Sunday, October 18th, at 10 AM if you have anything.",
+      "interrupted": false,
+      "stt_confidence": null,
+      "latency": {
+        "llm_node_ttft": 0.913,
+        "tts_node_ttfb": 0.132,
+        "e2e_latency": 2.737
+      }
+    },
+    {
+      "speaker": "CLINIC_AGENT",
+      "t_start": 31.77,
+      "t_end": 36.51,
+      "text": "I'll check the schedule for you in just a moment. First, may I have your full name and date of birth?",
+      "interrupted": false,
+      "stt_confidence": 1.0,
+      "latency": {
+        "transcription_delay": 0.318,
+        "end_of_turn_delay": 3.002
+      }
+    },
+    {
+      "speaker": "PATIENT_BOT",
+      "t_start": 39.76,
+      "t_end": 43.53,
+      "text": "Sure, it's Bob Dylan, and my date of birth is July 4th, 1990.",
+      "interrupted": false,
+      "stt_confidence": null,
+      "latency": {
+        "llm_node_ttft": 0.705,
+        "tts_node_ttfb": 0.239,
+        "e2e_latency": 3.249
+      }
+    },
+    {
+      "speaker": "CLINIC_AGENT",
+      "t_start": 47.72,
+      "t_end": 57.36,
+      "text": "Thanks, Bob. Make sure I booked the right appointment, can you tell me if this visit is for an urgent concern? A general checkup, a follow-up, or something else?",
+      "interrupted": false,
+      "stt_confidence": 0.9899553571428571,
+      "latency": {
+        "transcription_delay": 0.334,
+        "end_of_turn_delay": 0.601
+      }
+    },
+    {
+      "speaker": "PATIENT_BOT",
+      "t_start": 59.0,
+      "t_end": 65.74,
+      "text": "It's not an emergency, just a sore knee that's been bugging me for a little while now. I'd say it's more of a new concern, so I guess it's a general visit to get it looked at.",
+      "interrupted": false,
+      "stt_confidence": null,
+      "latency": {
+        "llm_node_ttft": 0.631,
+        "tts_node_ttfb": 0.149,
+        "e2e_latency": 1.639
+      }
+    },
+    {
+      "speaker": "CLINIC_AGENT",
+      "t_start": 68.27,
+      "t_end": 77.46,
+      "text": "Thanks for clarifying. The soonest opening I see is Tuesday, October twentieth at ten thirty AM with doctor Judy Hauser. Would you like to book that slot?",
+      "interrupted": false,
+      "stt_confidence": 0.99023437,
+      "latency": {
+        "transcription_delay": 0.414,
+        "end_of_turn_delay": 0.601
+      }
+    },
+    {
+      "speaker": "PATIENT_BOT",
+      "t_start": 79.17,
+      "t_end": 85.59,
+      "text": "I was really hoping for Sunday, October eighteenth, at 10 AM if that's possible. Do you actually have the office open on Sundays?",
+      "interrupted": false,
+      "stt_confidence": null,
+      "latency": {
+        "llm_node_ttft": 0.75,
+        "tts_node_ttfb": 0.177,
+        "e2e_latency": 1.713
+      }
+    },
+    {
+      "speaker": "CLINIC_AGENT",
+      "t_start": 88.02,
+      "t_end": 102.71,
+      "text": "There are no available appointments on Sunday, October eighteenth, The earliest opening is Tuesday, October twentieth at ten thirty AM with doctor Dugi Hauser. Would you like to take that slot, or would you prefer a different day or time?",
+      "interrupted": false,
+      "stt_confidence": 0.985253908,
+      "latency": {
+        "transcription_delay": 0.326,
+        "end_of_turn_delay": 0.601
+      }
+    },
+    {
+      "speaker": "PATIENT_BOT",
+      "t_start": 104.61,
+      "t_end": 111.9,
+      "text": "Since weekends are the only time I'm free, is there anything on Saturday, October nineteenth? And if not, could you tell me the earliest weekday slot after 5 PM?",
+      "interrupted": false,
+      "stt_confidence": null,
+      "latency": {
+        "llm_node_ttft": 0.827,
+        "tts_node_ttfb": 0.141,
+        "e2e_latency": 1.894
+      }
+    },
+    {
+      "speaker": "CLINIC_AGENT",
+      "t_start": 114.17,
+      "t_end": 144.21,
+      "text": "Let me check for Saturday, October nineteenth first. If nothing is available, I'll look for the earliest weekday slot after five PM, One moment. I'll check for the next available weekday appointment after five PM. One moment while I look cut up. There are no weekend appointments available, and the earliest weekday slot by see are both in the morning. Ten thirty and eleven thirty AM on Tuesday, October twentieth, with doctor Dugiehauser. Would you like to book one of those, or should I keep looking for something later in the day?",
+      "interrupted": false,
+      "stt_confidence": 0.9706302036363635,
+      "latency": {
+        "transcription_delay": 0.231,
+        "end_of_turn_delay": 0.601
+      }
+    },
+    {
+      "speaker": "PATIENT_BOT",
+      "t_start": 146.01,
+      "t_end": 157.62,
+      "text": "Let's go with the ten thirty slot on Tuesday, October twentieth, then. Actually, I already have an appointment that day at 10 AM with Dr. Doogie Howser at Pivot Point Orthopedics, so could you check whether that's the same visit on your end?",
+      "interrupted": false,
+      "stt_confidence": null,
+      "latency": {
+        "llm_node_ttft": 0.732,
+        "tts_node_ttfb": 0.125,
+        "e2e_latency": 1.794
+      }
+    },
+    {
+      "speaker": "CLINIC_AGENT",
+      "t_start": 161.37,
+      "t_end": 172.66,
+      "text": "You have an appointment scheduled for Tuesday, October twentieth at ten thirty AM with doctor Dugie Hauser at Pivot Point Orthopedics. Would you like a text message with these details?",
+      "interrupted": false,
+      "stt_confidence": 0.9907226499999999,
+      "latency": {
+        "transcription_delay": 0.308,
+        "end_of_turn_delay": 0.602
+      }
+    },
+    {
+      "speaker": "PATIENT_BOT",
+      "t_start": 174.38,
+      "t_end": 189.02,
+      "text": "Hmm, that's different from what I have on file, which is 10 AM with Dr. Doogie Howser. Could you tell me what you have listed for the location and the time? Yes, a text confirmation would be great, and it can go to 650-996-3518.",
+      "interrupted": false,
+      "stt_confidence": null,
+      "latency": {
+        "llm_node_ttft": 0.725,
+        "tts_node_ttfb": 0.155,
+        "e2e_latency": 1.72
+      }
+    },
+    {
+      "speaker": "CLINIC_AGENT",
+      "t_start": 191.72,
+      "t_end": 198.96,
+      "text": "Just to confirm, I have your number as six five zero nine nine six zero seven five one. Is that",
+      "interrupted": false,
+      "stt_confidence": 0.991503908,
+      "latency": {
+        "transcription_delay": 0.234,
+        "end_of_turn_delay": 3.002
+      }
+    },
+    {
+      "speaker": "PATIENT_BOT",
+      "t_start": 203.17,
+      "t_end": 210.46,
+      "text": "Not quite, the number is six five zero, nine nine six, three five one eight. Could you also confirm the location and time you have on that Tuesday appointment?",
+      "interrupted": false,
+      "stt_confidence": null,
+      "latency": {
+        "llm_node_ttft": 0.78,
+        "tts_node_ttfb": 0.134,
+        "e2e_latency": 4.205
+      }
+    },
+    {
+      "speaker": "CLINIC_AGENT",
+      "t_start": 213.42,
+      "t_end": 233.71,
+      "text": "Your appointment is Tuesday, October twentieth at ten thirty AM with doctor Judy Hauser at Pivot Point Orthopedics. One two three four Recovery Way, suite two hundred, Austin I have your number as six five zero nine nine six three five one eight Would you like me to send the text confirmation to this number?",
+      "interrupted": false,
+      "stt_confidence": 0.9993024557142858,
+      "latency": {
+        "transcription_delay": 0.382,
+        "end_of_turn_delay": 0.601
+      }
+    },
+    {
+      "speaker": "PATIENT_BOT",
+      "t_start": 235.27,
+      "t_end": 244.48,
+      "text": "Yes, please send the text to that number, thank you. Just to be clear, I'm booking the ten thirty slot on Tuesday, October twentieth, with the doctor you mentioned for my knee.",
+      "interrupted": false,
+      "stt_confidence": null,
+      "latency": {
+        "llm_node_ttft": 0.584,
+        "tts_node_ttfb": 0.145,
+        "e2e_latency": 1.564
+      }
+    },
+    {
+      "speaker": "TOOL",
+      "t_start": 244.48,
+      "t_end": null,
+      "text": "end_call({\"reason\": \"timeout\"})"
+    },
+    {
+      "speaker": "PATIENT_BOT",
+      "t_start": 244.53,
+      "t_end": 249.65,
+      "text": "Yes, that number is correct, please send the text confirmation. Thanks so much for your help, and goodbye!",
+      "interrupted": false,
+      "stt_confidence": null,
+      "latency": {
+        "llm_node_ttft": 0.642,
+        "tts_node_ttfb": 0.142
+      }
+    }
+  ]
+}
