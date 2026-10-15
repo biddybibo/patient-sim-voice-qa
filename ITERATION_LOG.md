@@ -33,7 +33,28 @@ Claude TTFT 0.88 s, 1 talk-over (0.9 s, issue 9), booked and hung up itself, 2:5
   disclaimer ("This call may be recorded…", ends 00:08.2) as the end of the clinic's turn.
 - **Reproduction:** 1/2. Did **not** happen in call 003, where the clinic delivered disclaimer and greeting
   as one continuous turn (04.9–16.7) with no pause; the bot waited and spoke at 18.6.
-- **Status:** left unfixed on purpose to debug on camera (Loom 2). Fix + after-metrics go here.
+- **Diagnosis (AI-assisted debugging session, recorded as Loom 2):**
+  - *H1, premature end of turn:* the disclaimer ended at 08.17 and the bot's end-of-turn fired at 08.77
+    (`end_of_turn_delay` = 0.601 s = the configured minimum, i.e. the turn detector was confident the
+    disclaimer was a finished turn). The clinic resumed at 08.78. The bot's `e2e_latency` 2.239 s
+    subtracted from its start at 10.41 lands exactly on 08.17: it was answering the disclaimer.
+    Call 003 is the control: no pause after the disclaimer, no talk-over.
+  - *H2, an uncancellable queued reply:* with interruptions off, a reply is uninterruptible from the moment
+    it's created, not just while playing, so the clinic resuming 1.6 s before the bot's audio couldn't cancel
+    it; meanwhile LiveKit discards incoming audio for STT (`discard_audio_if_uninterruptible`), which is why
+    the greeting is missing from the transcript.
+- **Fix (two small changes in `src/agent.py`):**
+  1. *Greeting-only endpointing:* end-of-turn wait is 1.5 s until the bot first speaks, then 0.6 s
+     (`session.update_options`). Rejected alternative: raising it to 1.0 s for every turn, since that adds
+     ~0.4 s to every reply while latency (issue 7) is already over target.
+  2. *Drop a queued reply the clinic talks over:* when the clinic starts speaking and the bot's reply
+     hasn't started playing, interrupt it; once audio is playing, interruptions stay off (no bot-vs-bot
+     overlap loops). Logs `clinic resumed before our reply played; dropping it` so the two fixes can be
+     told apart on a call.
+  3. *Follow-up from code review:* change 2 could cancel `end_call` if the clinic says goodbye while the
+     bot's goodbye is finishing; `end_call` now marks the call as ending and change 2 skips it.
+- **Status:** applied, **not yet verified** on a call (needs a call where the clinic pauses after the
+  disclaimer; check the left channel). After-metrics go here.
 
 ### 7. Bot response latency above target
 - **Evidence:** baseline table above. The largest component is Claude's time-to-first-token (0.9 s median),
@@ -53,7 +74,9 @@ Claude TTFT 0.88 s, 1 talk-over (0.9 s, issue 9), booked and hung up itself, 2:5
 - **Evidence:** `calls/003-simple-scheduling/transcript.txt` at 00:58.5; `metrics.json` → talk-over 0.93 s.
   Clinic said "Let me check…" (ends 57.2), started the slot offer at 57.9; bot's filler landed on top of it.
 - **Cause:** our own prompt rule: "If they say they're checking something, just wait or say 'sure'."
-- **Status:** Phase 4: change to "stay silent while they check".
+  Same mechanism as issue 6's H2: the bot's reply was queued when the clinic started the slot offer.
+- **Status:** issue 6's change 2 should drop that queued "sure". Prompt rule to be changed to
+  "stay silent while they check" in Phase 4. Not yet verified.
 
 ### 10. Bot says goodbye twice
 - **Evidence:** `calls/003-simple-scheduling/transcript.txt` at 02:30.1 (goodbye) and again at 02:47.0 after

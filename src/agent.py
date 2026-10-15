@@ -45,6 +45,11 @@ logger = logging.getLogger("patient-caller")
 
 # If the clinic says nothing this long after answering, nudge with "Hello?".
 GREETING_WAIT_SECONDS = 6.0
+# Silence that ends a clinic turn. The greeting gets a longer wait: a recorded disclaimer
+# followed by a ~0.6 s pause and then the greeting otherwise reads as a finished turn
+# (call 002 at 00:08.2). Back to the normal delay once the bot first speaks.
+GREETING_ENDPOINTING_DELAY = 1.5
+ENDPOINTING_DELAY = 0.6
 # Mid-call silence (both sides quiet) before checking the line is still there.
 SILENCE_CHECK_SECONDS = 15.0
 # end_call(goal_met) earlier than this is refused: real calls with verification take longer,
@@ -119,6 +124,8 @@ class PatientAgent(Agent):
             )
         logger.info("end_call requested after %.0fs: %s", elapsed, reason)
         context.userdata["end_reason"] = context.userdata.get("end_reason") or reason
+        # From here on, the clinic's "goodbye" must not cancel this speech (and with it the hang-up).
+        context.userdata["ending"] = True
         await context.wait_for_playout()
         await get_job_context().delete_room()
         return None
@@ -202,7 +209,7 @@ async def entrypoint(ctx: JobContext) -> None:
         vad=ctx.proc.userdata["vad"],
         turn_handling={
             "turn_detection": inference.TurnDetector(),
-            "endpointing": {"min_delay": 0.6, "max_delay": 3.0},
+            "endpointing": {"min_delay": GREETING_ENDPOINTING_DELAY, "max_delay": 3.0},
             # Two bots talking: let the bot finish its (short) turn rather than getting into
             # overlap/echo loops. Barge-in scenarios turn this on via flags.allow_interruptions.
             "interruption": {"enabled": plan.allow_interruptions},
@@ -219,12 +226,29 @@ async def entrypoint(ctx: JobContext) -> None:
     def _on_user_state(ev) -> None:
         if ev.new_state == "speaking":
             heard_clinic.set()
+            # The clinic kept talking after we decided their turn was over: drop the queued
+            # reply if none of it has played yet (call 002 at 00:08.8). Interruptions are
+            # off, so LiveKit won't do this for us.
+            speech = session.current_speech
+            if (
+                speech
+                and not speech.done()
+                and session.agent_state != "speaking"
+                and not session.userdata.get("ending")
+            ):
+                logger.info("clinic resumed before our reply played; dropping it")
+                speech.interrupt(force=True)
         elif ev.new_state == "away" and heard_clinic.is_set():
             # Long silence mid-call (e.g. a lookup that never came back): check once per silence.
             logger.info("line silent for %.0fs, checking in", SILENCE_CHECK_SECONDS)
             session.generate_reply(
                 instructions="The line has been silent for a while. Briefly ask if they're still there."
             )
+
+    @session.on("agent_state_changed")
+    def _on_agent_state(ev) -> None:
+        if ev.new_state == "speaking" and session.options.endpointing["min_delay"] != ENDPOINTING_DELAY:
+            session.update_options(endpointing_opts={"min_delay": ENDPOINTING_DELAY})
 
     @session.on("conversation_item_added")
     def _on_item(ev) -> None:
