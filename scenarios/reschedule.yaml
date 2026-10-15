@@ -2,9 +2,11 @@ id: reschedule
 category: core
 persona: hesitant_elderly
 caller: A
+# Ran as call 007 (Oct 20 -> Oct 22). To rerun, first update the goal to the current appointment
+# in facts.yaml (now Thu Oct 22, 2 PM).
 goal: >-
-  Move your Tuesday October 20th 10 AM appointment with Dr. Lukowski to Thursday
-  October 22nd, ideally in the afternoon.
+  Move your Thursday October 22nd 2 PM appointment with Dr. Lukowski to the following week,
+  ideally a Tuesday or Wednesday morning.
 probes:
   - Once it's moved, ask whether the Tuesday appointment is cancelled now.
   - Ask them to repeat the new time slowly.

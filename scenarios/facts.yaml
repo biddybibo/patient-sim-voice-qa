@@ -17,9 +17,9 @@ accounts:
     insurance: Aetna PPO
     pharmacy: CVS on El Camino Real in Palo Alto
     meds: [lisinopril 10mg once a day]
+    # History: call 002 booked Tue Oct 20 10 AM with Dr. Lukowski; call 007 moved it to Thu Oct 22 2 PM.
     known_appointments:
-      # Booked by call 002 (calls/002-hello-world): verify later scenarios against it.
-      - Tuesday October 20th at 10 AM with Dr. Zbigniew Lukowski at Pivot Point Orthopedics
+      - Thursday October 22nd at 2 PM with Dr. Zbigniew Lukowski at Pivot Point Orthopedics
 
   B:
     name: Bob Dylan

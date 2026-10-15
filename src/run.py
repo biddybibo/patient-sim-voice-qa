@@ -7,6 +7,7 @@ Run:  uv run python -m src.run --scenario hello-world
 import argparse
 import asyncio
 import collections
+import os
 import subprocess
 import sys
 import threading
@@ -63,11 +64,14 @@ def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--scenario", default="simple-scheduling", help=", ".join(list_scenarios()))
     parser.add_argument("--persona", help="override the scenario's persona (see scenarios/personas.yaml)")
+    parser.add_argument("--llm", help="live LLM model id, e.g. claude-sonnet-5-5 (default: config.LIVE_LLM_MODEL)")
     parser.add_argument(
         "--no-worker", action="store_true", help="use a worker you already started"
     )
     args = parser.parse_args()
 
+    if args.llm:
+        os.environ["LIVE_LLM_MODEL"] = args.llm  # inherited by the worker subprocess
     plan = load_plan(args.scenario, args.persona)  # fail fast before starting anything
     print(f"Scenario {args.scenario} as {plan.facts['name']} ({plan.persona_id}), limit {plan.max_seconds}s")
 

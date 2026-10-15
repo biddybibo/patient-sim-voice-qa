@@ -87,7 +87,8 @@ class FastClaude(anthropic.LLM):
     def chat(self, *, extra_kwargs=NOT_GIVEN, **kwargs):
         extra = dict(extra_kwargs) if is_given(extra_kwargs) else {}
         body = dict(extra.get("extra_body") or {})
-        body.setdefault("thinking", {"type": "disabled"})
+        if self.model in config.THINKING_OFF:
+            body.setdefault("thinking", config.THINKING_OFF[self.model])
         body.setdefault("output_config", {"effort": "low"})
         extra["extra_body"] = body
         return super().chat(extra_kwargs=extra, **kwargs)
@@ -228,6 +229,7 @@ async def save_call(ctx: JobContext) -> None:
             "call_id": call_id,
             "scenario": meta.get("scenario"),
             "persona": session.userdata.get("persona"),
+            "llm": session.userdata.get("llm"),
             "room": report.room,
             "recording_started_at": t0,
         },
@@ -264,7 +266,12 @@ async def entrypoint(ctx: JobContext) -> None:
         },
         # Both sides quiet this long -> user_state "away" -> we check the line (see below).
         user_away_timeout=SILENCE_CHECK_SECONDS,
-        userdata={"end_reason": None, "persona": plan.persona_id, "started_at": time.time()},
+        userdata={
+            "end_reason": None,
+            "persona": plan.persona_id,
+            "llm": config.LIVE_LLM_MODEL,
+            "started_at": time.time(),
+        },
     )
 
     heard_clinic = asyncio.Event()

@@ -17,8 +17,16 @@ AGENT_NAME = "patient-caller"
 # One folder per call: recording.ogg/.mp3, transcript.txt/.json, metrics.json
 CALLS_DIR = Path(__file__).resolve().parents[1] / "calls"
 
-# Live conversation model: small and fast. Thinking is turned off in agent.py for latency.
-LIVE_LLM_MODEL = "claude-haiku-5-5"
+# Live conversation model. Override per run with `src.run --llm ...` (sets LIVE_LLM_MODEL).
+LIVE_LLM_MODEL = os.getenv("LIVE_LLM_MODEL", "claude-haiku-5-5")
+
+# How to turn thinking off for each model: a patient's reply doesn't need reasoning, and thinking
+# roughly doubles time-to-first-token (scripts/bench_llm.py: Haiku 1.12 s -> 0.65 s median).
+# Haiku 5.5 accepts "disabled"; Sonnet 5.5 rejects it and offers "between_tools" instead.
+THINKING_OFF = {
+    "claude-haiku-5-5": {"type": "disabled"},
+    "claude-sonnet-5-5": {"type": "between_tools"},
+}
 STT_MODEL = "nova-3"
 TTS_MODEL = "sonic-3"
 

@@ -15,6 +15,8 @@ All numbers below come from `calls/<id>/metrics.json` (regenerate with `scripts/
 | 004 | simple-scheduling / rushed | + greeting fix | 4:07 | timeout | 3.05 s | 1.06 s | 0.71 s | 0.36 s |
 | 005 | routine-refill / non-native | + greeting fix | 1:28 | transferred | 1.60 s | 1.00 s | 0.79 s | 0.64 s |
 | 006 | insurance-question / neutral | + greeting fix | 3:17 | timeout | 1.73 s | 0.70 s | 0.75 s | 1.52 s |
+| 007 | reschedule / hesitant elderly | + fixes 9–14 | 3:09 | goal_met | 2.13 s | 1.52 s | 1.40 s | 0.00 s |
+| 008 | privacy-shared-phone / rushed | + fixes 9–14 | 2:33 | goal_met | 1.67 s | 0.96 s | 0.85 s | 0.00 s |
 
 "Response" includes the bot deliberately waiting up to 3 s through the clinic's "let me check…" pauses;
 "after end-of-turn decided" isolates the bot's own speed (LLM + TTS). Target for the latter: < 0.8 s.
@@ -26,7 +28,21 @@ All numbers below come from `calls/<id>/metrics.json` (regenerate with `scripts/
 ### 7. Bot responsiveness
 - **Evidence:** table above. Once the bot decides the clinic is done it takes 0.70–1.26 s to start speaking
   (median per call); Claude Haiku 5.5's time-to-first-token (0.71–0.90 s, thinking off, effort `low`) is most of it.
-- **Next:** measured comparison with Sonnet 5.5; check whether the prompt cache is actually hit.
+- **Offline benchmark** (`scripts/bench_llm.py`, results in `calls/_bench/llm_ttft.json`): replays the real
+  persona prompt + the first turns of call 003, ending on the clinic's slot offer, 8 trials per config.
+
+  | Live LLM config | TTFT median | TTFT p90 | Full reply median |
+  |---|---|---|---|
+  | Haiku 5.5, thinking off, effort `low` (current) | 0.65 s | 0.75 s | 0.78 s |
+  | Haiku 5.5, default adaptive thinking | 1.12 s | 1.69 s | 1.42 s |
+  | Sonnet 5.5, `thinking: between_tools`, effort `low` | 0.55 s | 0.58 s | 1.07 s |
+
+  Turning thinking off saves ~0.5 s median / ~0.9 s p90 per reply, which confirms the original design choice.
+  Sonnet 5.5 reaches its first token *sooner* and more consistently than Haiku; it writes the rest of the reply
+  more slowly, but TTS starts on the first sentence, so TTFT is what the caller hears. Cost difference is ~20x per
+  token, about $0.07 vs $0.004 per call.
+- **Next:** make the live model configurable (each model needs a different thinking-off setting: Haiku accepts
+  `disabled`, Sonnet 5.5 rejects it and uses `between_tools`), then confirm on a real call before switching.
 
 ### 11. Ground-truth drift: the bot argued with correct clinic records
 - **Evidence:** `calls/004-simple-scheduling/transcript.txt` at 01:13.8. The clinic said Bob already had an
@@ -37,7 +53,18 @@ All numbers below come from `calls/<id>/metrics.json` (regenerate with `scripts/
 - **Status:** fixed, awaiting a call to confirm. Lesson: scenarios that change state (book/cancel/reschedule) need
   `facts.yaml` updated after every call, or a run order that accounts for them.
 
-### Fixed in code, awaiting a verification call
+### Fixes 9–14: verification so far (calls 007, 008)
+- **9 (fillers):** verified. 0.00 s of overlap in both calls; the hold rule fired in 008 ("clinic is checking
+  something; staying quiet"). Issue 6's change 2 also fired 6 times, each when the clinic split a turn in two
+  ("I see you're calling from the number we have on file." / "Am I speaking with Jane?"): the bot dropped its
+  reply to the first half and answered the question instead.
+- **10 (speech after hang-up):** verified. One goodbye per call, nothing after `end_call`.
+- **11 (arguing about records):** verified. In 008 the bot said it had no appointments it knew of and asked the
+  agent to check, without arguing.
+- **12 (transfer), 13 (time-limit cut-off):** not exercised yet (no transfer, no time-out in 007/008).
+- **14 (port clash):** no recurrence.
+
+### Fixed in code (details)
 - **9. Fillers spoken over the clinic.** "Sure, thanks" (003 @ 00:58.5), "Sure, take your time" (006 @ 00:52.2,
   cut the clinic off mid-word: "Point…"), "No problem, I'll hold" (006 @ 01:09.0). Cause: our prompt rule
   "just wait or say 'sure'". **Fix:** a clinic turn that is only a hold phrase ("let me check", "one moment",

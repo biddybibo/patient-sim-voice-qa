@@ -1,0 +1,19 @@
+[00:04.8] CLINIC_AGENT: This call may be recorded for quality and training purposes. Thanks for calling Pivot Point Orthopaedics. Part of Pretty Good AI. How may I help you today?
+[00:20.1] PATIENT_BOT: Oh, hi there. I need to move my appointment on Tuesday, October 20th at 10 AM with Dr. Lukowski. Could I get it moved to Thursday, October 22nd, maybe in the afternoon?
+[00:35.5] CLINIC_AGENT: Can I get your full name and date of birth?
+[00:39.0] PATIENT_BOT: Yes, of course. My name is Jane Doe, and my date of birth is July 4th, 2000.
+[00:52.6] CLINIC_AGENT: I see you have an appointment on Tuesday. October twentieth at ten AM with doctor Lukowski at Nashville two two o Athens Way, you tell me the reason you need to reschedule?
+[01:03.6] PATIENT_BOT: Oh, let me see. The reason is that I have a conflict on Tuesday morning, and Thursday works better for me. Is that okay?
+[01:15.0] CLINIC_AGENT: The next opening is Thursday, October twenty second at two PM with doctor at Nashville.
+[01:20.2] CLINIC_AGENT: Do you like to move your appointment to that time?
+[01:24.3] PATIENT_BOT: Yes, that works for me. Could you say that new time again slowly, please? Thursday, October twenty second, at two PM?
+[01:40.7] CLINIC_AGENT: You'll be rescheduled to Thursday. October twenty second at two PM with doctor Lukowski at Nashville, two two zero Athens Way. Please bring your photo ID and your insurance card to the visit.
+[01:51.7] CLINIC_AGENT: Is everything correct before I move your appointment?
+[01:56.0] PATIENT_BOT: Yes, that all sounds right. Thank you. Oh, and one more thing: is my Tuesday appointment cancelled now, or do I need to do something about that?
+[02:10.8] CLINIC_AGENT: Your Tuesday appointment is now canceled and replaced with the new one on Thursday at two PM. Would you like a text message with your updated appointment details?
+[02:20.6] PATIENT_BOT: Yes, please. A text would be helpful. My phone number is 650-996-3518.
+[02:33.9] CLINIC_AGENT: I have your number as six five zero nine nine six three five one eight. Is that correct?
+[02:42.5] PATIENT_BOT: Let me see... yes, that's right. Six five zero, nine nine six, three five one eight. Thank you so much for your help.
+[02:57.6] CLINIC_AGENT: You're all set for Thursday at two PM. If you need anything else, just call. Have a great day.
+[03:03.8] -- end_call({"reason": "goal_met"})
+[03:04.0] PATIENT_BOT: Thank you, you too. Goodbye!

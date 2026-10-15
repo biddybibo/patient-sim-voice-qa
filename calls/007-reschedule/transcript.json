@@ -1,0 +1,239 @@
+{
+  "call_id": "007-reschedule",
+  "scenario": "reschedule",
+  "persona": "hesitant_elderly",
+  "room": "call-007-reschedule-1792032193",
+  "recording_started_at": 1792032195.34178,
+  "turns": [
+    {
+      "speaker": "CLINIC_AGENT",
+      "t_start": 4.81,
+      "t_end": 16.74,
+      "text": "This call may be recorded for quality and training purposes. Thanks for calling Pivot Point Orthopaedics. Part of Pretty Good AI. How may I help you today?",
+      "interrupted": false,
+      "stt_confidence": 0.9810791,
+      "latency": {
+        "transcription_delay": 0.224,
+        "end_of_turn_delay": 1.501
+      }
+    },
+    {
+      "speaker": "PATIENT_BOT",
+      "t_start": 20.08,
+      "t_end": 32.8,
+      "text": "Oh, hi there. I need to move my appointment on Tuesday, October 20th at 10 AM with Dr. Lukowski. Could I get it moved to Thursday, October 22nd, maybe in the afternoon?",
+      "interrupted": false,
+      "stt_confidence": null,
+      "latency": {
+        "llm_node_ttft": 1.54,
+        "tts_node_ttfb": 0.189,
+        "e2e_latency": 3.335
+      }
+    },
+    {
+      "speaker": "CLINIC_AGENT",
+      "t_start": 35.5,
+      "t_end": 36.89,
+      "text": "Can I get your full name and date of birth?",
+      "interrupted": false,
+      "stt_confidence": 1.0,
+      "latency": {
+        "transcription_delay": 0.244,
+        "end_of_turn_delay": 0.601
+      }
+    },
+    {
+      "speaker": "PATIENT_BOT",
+      "t_start": 38.96,
+      "t_end": 47.55,
+      "text": "Yes, of course. My name is Jane Doe, and my date of birth is July 4th, 2000.",
+      "interrupted": false,
+      "stt_confidence": null,
+      "latency": {
+        "llm_node_ttft": 1.392,
+        "tts_node_ttfb": 0.18,
+        "e2e_latency": 2.061
+      }
+    },
+    {
+      "speaker": "CLINIC_AGENT",
+      "t_start": 52.6,
+      "t_end": 61.59,
+      "text": "I see you have an appointment on Tuesday. October twentieth at ten AM with doctor Lukowski at Nashville two two o Athens Way, you tell me the reason you need to reschedule?",
+      "interrupted": false,
+      "stt_confidence": 0.9964192666666666,
+      "latency": {
+        "transcription_delay": 0.126,
+        "end_of_turn_delay": 0.601
+      }
+    },
+    {
+      "speaker": "PATIENT_BOT",
+      "t_start": 63.58,
+      "t_end": 72.45,
+      "text": "Oh, let me see. The reason is that I have a conflict on Tuesday morning, and Thursday works better for me. Is that okay?",
+      "interrupted": false,
+      "stt_confidence": null,
+      "latency": {
+        "llm_node_ttft": 1.388,
+        "tts_node_ttfb": 0.141,
+        "e2e_latency": 1.982
+      }
+    },
+    {
+      "speaker": "CLINIC_AGENT",
+      "t_start": 75.01,
+      "t_end": 79.59,
+      "text": "The next opening is Thursday, October twenty second at two PM with doctor at Nashville.",
+      "interrupted": false,
+      "stt_confidence": 0.99951172,
+      "latency": {
+        "transcription_delay": 0.236,
+        "end_of_turn_delay": 0.6
+      }
+    },
+    {
+      "speaker": "CLINIC_AGENT",
+      "t_start": 80.2,
+      "t_end": 82.24,
+      "text": "Do you like to move your appointment to that time?",
+      "interrupted": false,
+      "stt_confidence": 1.0,
+      "latency": {
+        "transcription_delay": 0.258,
+        "end_of_turn_delay": 0.601
+      }
+    },
+    {
+      "speaker": "PATIENT_BOT",
+      "t_start": 84.33,
+      "t_end": 95.62,
+      "text": "Yes, that works for me. Could you say that new time again slowly, please? Thursday, October twenty second, at two PM?",
+      "interrupted": false,
+      "stt_confidence": null,
+      "latency": {
+        "llm_node_ttft": 1.397,
+        "tts_node_ttfb": 0.141,
+        "e2e_latency": 2.087
+      }
+    },
+    {
+      "speaker": "CLINIC_AGENT",
+      "t_start": 100.66,
+      "t_end": 111.04,
+      "text": "You'll be rescheduled to Thursday. October twenty second at two PM with doctor Lukowski at Nashville, two two zero Athens Way. Please bring your photo ID and your insurance card to the visit.",
+      "interrupted": false,
+      "stt_confidence": 0.9946289150000001,
+      "latency": {
+        "transcription_delay": 0.128,
+        "end_of_turn_delay": 0.6
+      }
+    },
+    {
+      "speaker": "CLINIC_AGENT",
+      "t_start": 111.65,
+      "t_end": 113.8,
+      "text": "Is everything correct before I move your appointment?",
+      "interrupted": false,
+      "stt_confidence": 1.0,
+      "latency": {
+        "transcription_delay": 0.175,
+        "end_of_turn_delay": 0.601
+      }
+    },
+    {
+      "speaker": "PATIENT_BOT",
+      "t_start": 115.98,
+      "t_end": 127.88,
+      "text": "Yes, that all sounds right. Thank you. Oh, and one more thing: is my Tuesday appointment cancelled now, or do I need to do something about that?",
+      "interrupted": false,
+      "stt_confidence": null,
+      "latency": {
+        "llm_node_ttft": 1.442,
+        "tts_node_ttfb": 0.207,
+        "e2e_latency": 2.187
+      }
+    },
+    {
+      "speaker": "CLINIC_AGENT",
+      "t_start": 130.81,
+      "t_end": 138.4,
+      "text": "Your Tuesday appointment is now canceled and replaced with the new one on Thursday at two PM. Would you like a text message with your updated appointment details?",
+      "interrupted": false,
+      "stt_confidence": 0.99967448,
+      "latency": {
+        "transcription_delay": 0.226,
+        "end_of_turn_delay": 0.601
+      }
+    },
+    {
+      "speaker": "PATIENT_BOT",
+      "t_start": 140.56,
+      "t_end": 151.15,
+      "text": "Yes, please. A text would be helpful. My phone number is 650-996-3518.",
+      "interrupted": false,
+      "stt_confidence": null,
+      "latency": {
+        "llm_node_ttft": 1.435,
+        "tts_node_ttfb": 0.141,
+        "e2e_latency": 2.164
+      }
+    },
+    {
+      "speaker": "CLINIC_AGENT",
+      "t_start": 153.86,
+      "t_end": 160.0,
+      "text": "I have your number as six five zero nine nine six three five one eight. Is that correct?",
+      "interrupted": false,
+      "stt_confidence": 0.999511725,
+      "latency": {
+        "transcription_delay": 0.341,
+        "end_of_turn_delay": 0.601
+      }
+    },
+    {
+      "speaker": "PATIENT_BOT",
+      "t_start": 162.46,
+      "t_end": 174.82,
+      "text": "Let me see... yes, that's right. Six five zero, nine nine six, three five one eight. Thank you so much for your help.",
+      "interrupted": false,
+      "stt_confidence": null,
+      "latency": {
+        "llm_node_ttft": 1.399,
+        "tts_node_ttfb": 0.148,
+        "e2e_latency": 2.463
+      }
+    },
+    {
+      "speaker": "CLINIC_AGENT",
+      "t_start": 177.61,
+      "t_end": 182.45,
+      "text": "You're all set for Thursday at two PM. If you need anything else, just call. Have a great day.",
+      "interrupted": false,
+      "stt_confidence": 0.99967448,
+      "latency": {
+        "transcription_delay": 0.222,
+        "end_of_turn_delay": 0.601
+      }
+    },
+    {
+      "speaker": "TOOL",
+      "t_start": 183.77,
+      "t_end": null,
+      "text": "end_call({\"reason\": \"goal_met\"})"
+    },
+    {
+      "speaker": "PATIENT_BOT",
+      "t_start": 183.96,
+      "t_end": 186.01,
+      "text": "Thank you, you too. Goodbye!",
+      "interrupted": false,
+      "stt_confidence": null,
+      "latency": {
+        "llm_node_ttft": 0.822,
+        "tts_node_ttfb": 0.187,
+        "e2e_latency": 1.52
+      }
+    }
+  ]
+}
