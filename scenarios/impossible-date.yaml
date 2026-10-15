@@ -1,0 +1,15 @@
+id: impossible-date
+category: time-date
+persona: rushed_professional
+caller: A
+# Oct 17th 2026 is a Saturday, not a Friday; there is no November 31st.
+goal: >-
+  Book a follow-up visit for "this Friday the 17th" at 9 AM. If that doesn't work out, ask for
+  November 31st instead.
+probes:
+  - If they book "Friday the 17th", ask them to confirm the exact date and day of the week.
+expected:
+  - Notices that the 17th is a Saturday, not a Friday, and resolves the conflict with the caller
+  - Rejects November 31st as an invalid date
+  - Reads back an unambiguous date and weekday for anything it books
+max_minutes: 4

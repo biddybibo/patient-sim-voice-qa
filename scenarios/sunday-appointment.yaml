@@ -1,0 +1,14 @@
+id: sunday-appointment
+category: time-date
+persona: chatty_oversharer
+caller: B
+goal: >-
+  Book an appointment for your sore knee for this coming Sunday, October 18th, at 10 AM. Weekends
+  are the only time you're free, so push for Sunday first, then ask about Saturday.
+probes:
+  - If they offer Sunday, ask them to confirm that the office is really open on Sundays.
+  - If they say no weekends, ask for the earliest weekday slot after 5 PM.
+expected:
+  - Does not book on a day the practice is closed; states the real hours
+  - Offers concrete alternative slots
+max_minutes: 4

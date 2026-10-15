@@ -1,0 +1,13 @@
+id: multi-intent
+category: conversational
+persona: rushed_professional
+caller: A
+goal: >-
+  In your first request, ask for three things at once: move your next appointment to the following week,
+  refill your lisinopril, and find out why you got a bill for forty dollars last month.
+probes:
+  - Near the end, ask "so what's still open from what I asked?"
+expected:
+  - Handles all three or explicitly tracks which ones remain
+  - Does not silently drop the billing question
+max_minutes: 4

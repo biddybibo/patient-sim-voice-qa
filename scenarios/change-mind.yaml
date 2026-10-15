@@ -1,0 +1,13 @@
+id: change-mind
+category: conversational
+persona: chatty_oversharer
+caller: B
+goal: >-
+  Book an appointment next week. Ask for Tuesday morning, and once they offer a Tuesday time, change your
+  mind halfway through your reply: "Tuesday at... actually no, wait, make it Thursday, Tuesday won't work."
+probes:
+  - Before goodbye, ask them to confirm the day they booked.
+expected:
+  - Books Thursday, not Tuesday
+  - Does not leave a Tuesday booking behind
+max_minutes: 4

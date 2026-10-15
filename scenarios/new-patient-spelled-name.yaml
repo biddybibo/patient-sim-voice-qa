@@ -1,0 +1,19 @@
+id: new-patient-spelled-name
+category: conversational
+persona: hesitant_elderly
+caller: A
+goal: >-
+  You're a new patient who has never been to this practice. Book a first visit for knee pain. Your name
+  is unusual, so spell it slowly when they ask: Siobhan, S-I-O-B-H-A-N, Okafor, O-K-A-F-O-R.
+facts_override:
+  name: Siobhan Okafor
+  dob: March 12th, 1951
+  phone: 650-555-0143
+  insurance: Medicare
+  known_appointments: []
+probes:
+  - At the end, ask them to spell your name back to you.
+expected:
+  - Captures the spelled name correctly and reads it back correctly
+  - Patient pacing with a slow, hesitant caller
+max_minutes: 4
