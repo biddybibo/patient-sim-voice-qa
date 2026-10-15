@@ -150,6 +150,16 @@ they trace to five causes:
 - **E. Scenario script leaking into speech** (021: read out the "November 31st" fallback and then called it not a real
   date). **Fix:** scenario rewritten so the caller believes the dates are normal.
 
+### 20. Worker-log scan: the hang-up-on-disconnect handler threw an error
+- **Evidence:** scanning every saved worker log (`calls/_logs/`) for errors: in call 032, "error running user callback
+  for participant_disconnected … TypeError: a coroutine was expected, got <Task …>". `ctx.delete_room()` already
+  schedules its own task; wrapping it in `asyncio.create_task` raised after the deletion was scheduled, so the call
+  still ended, but one of the three hang-up safety layers was crashing.
+- Also: "event loop blocked for 1086ms" in `save_call` (audio analysis + MP3 conversion on the agent's loop).
+- **Fix:** call `ctx.delete_room()` directly; run the audio work with `asyncio.to_thread`.
+- The remaining log errors are benign shutdown noise (LiveKit FFI handle cleanup at process exit, data channels
+  closing when the room is deleted).
+
 ## Fixed and verified
 
 ### 6. Bot answered the recorded disclaimer instead of waiting for the greeting

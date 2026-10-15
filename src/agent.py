@@ -225,8 +225,9 @@ async def save_call(ctx: JobContext) -> None:
     call_dir = config.CALLS_DIR / call_id
     t0 = report.audio_recording_started_at or report.started_at
 
+    # Audio work is CPU-bound (~1 s for a 3-minute call): keep it off the event loop.
     if report.audio_recording_path and report.audio_recording_path.exists():
-        save_audio(report.audio_recording_path, call_dir)
+        await asyncio.to_thread(save_audio, report.audio_recording_path, call_dir)
     else:
         logger.warning("no audio recording found for %s", call_id)
 
@@ -245,7 +246,7 @@ async def save_call(ctx: JobContext) -> None:
     )
     end_reason = session.userdata.get("end_reason") or "remote_hangup"
     recording = call_dir / "recording.ogg"
-    audio = analyze(recording) if recording.exists() else None
+    audio = await asyncio.to_thread(analyze, recording) if recording.exists() else None
     call_metrics = metrics.compute(turns, report.duration, end_reason, audio)
     (call_dir / "metrics.json").write_text(json.dumps(call_metrics, indent=2))
     logger.info("saved call to %s", call_dir)
@@ -349,7 +350,7 @@ async def entrypoint(ctx: JobContext) -> None:
         logger.info("phone line left (%s); ending the call", reason)
         session.userdata["end_reason"] = session.userdata.get("end_reason") or "remote_hangup"
         session.userdata["ending"] = True
-        asyncio.create_task(ctx.delete_room())
+        ctx.delete_room()  # schedules its own task (wrapping it in create_task raised TypeError)
 
     session.userdata["started_at"] = time.time()
     await session.start(

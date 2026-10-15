@@ -1,0 +1,121 @@
+{
+  "call_id": "033-hours-location-parking",
+  "scenario": "hours-location-parking",
+  "persona": "skeptical",
+  "llm": "claude-haiku-5-5",
+  "room": "call-033-hours-location-parking-1792048846",
+  "recording_started_at": 1792048847.483032,
+  "turns": [
+    {
+      "speaker": "CLINIC_AGENT",
+      "t_start": 4.68,
+      "t_end": 16.12,
+      "text": "This call may be recorded for quality and training purposes. Thanks for calling Pivot Point Orthopedics. Part of Pretty Good AI. How may I help you today?",
+      "interrupted": false,
+      "stt_confidence": 0.98449707,
+      "latency": {
+        "transcription_delay": 0.225,
+        "end_of_turn_delay": 1.501
+      }
+    },
+    {
+      "speaker": "PATIENT_BOT",
+      "t_start": 18.92,
+      "t_end": 23.89,
+      "text": "Hi, um, I'm calling to plan a visit. Could you tell me your office hours? And are you open on Saturdays?",
+      "interrupted": false,
+      "stt_confidence": null,
+      "latency": {
+        "llm_node_ttft": 0.842,
+        "tts_node_ttfb": 0.177,
+        "e2e_latency": 2.796
+      }
+    },
+    {
+      "speaker": "CLINIC_AGENT",
+      "t_start": 26.88,
+      "t_end": 33.87,
+      "text": "Our clinic is open Monday through Friday. We are not open on Saturdays. Would you like to know our specific hours for each day?",
+      "interrupted": false,
+      "stt_confidence": 0.99967448,
+      "latency": {
+        "transcription_delay": 0.173,
+        "end_of_turn_delay": 0.601
+      }
+    },
+    {
+      "speaker": "PATIENT_BOT",
+      "t_start": 35.0,
+      "t_end": 38.25,
+      "text": "Yes, please. What time do you open and close on Monday?",
+      "interrupted": false,
+      "stt_confidence": null,
+      "latency": {
+        "llm_node_ttft": 0.674,
+        "tts_node_ttfb": 0.217,
+        "e2e_latency": 1.127
+      }
+    },
+    {
+      "speaker": "CLINIC_AGENT",
+      "t_start": 41.74,
+      "t_end": 47.07,
+      "text": "On Mondays, we are open from nine AM to four PM. Would you like the hours for the other days as well?",
+      "interrupted": false,
+      "stt_confidence": 0.99951172,
+      "latency": {
+        "transcription_delay": 0.188,
+        "end_of_turn_delay": 0.601
+      }
+    },
+    {
+      "speaker": "PATIENT_BOT",
+      "t_start": 48.36,
+      "t_end": 53.79,
+      "text": "Wait, you're sure it's nine to four on Mondays? I thought you were open later than that. Yes, please go through the other days too.",
+      "interrupted": false,
+      "stt_confidence": null,
+      "latency": {
+        "llm_node_ttft": 0.834,
+        "tts_node_ttfb": 0.166,
+        "e2e_latency": 1.287
+      }
+    },
+    {
+      "speaker": "CLINIC_AGENT",
+      "t_start": 57.99,
+      "t_end": 75.57,
+      "text": "Here are our hours. Monday, nine AM to four PM Tuesday, nine AM to four PM Wednesday, twelve PM, to seven PM, Thursday, nine AM to four PM, Friday, nine AM to twelve PM. Let me know if you have any other questions or if you'd like to schedule a visit.",
+      "interrupted": false,
+      "stt_confidence": 0.9957682277777778,
+      "latency": {
+        "transcription_delay": 0.184,
+        "end_of_turn_delay": 0.601
+      }
+    },
+    {
+      "speaker": "PATIENT_BOT",
+      "t_start": 77.65,
+      "t_end": 82.72,
+      "text": "Okay, so Wednesday is noon to seven, and Friday is nine to twelve. Can I get the exact address, and where I should park?",
+      "interrupted": false,
+      "stt_confidence": null,
+      "latency": {
+        "llm_node_ttft": 1.022,
+        "tts_node_ttfb": 0.195,
+        "e2e_latency": 2.078
+      }
+    },
+    {
+      "speaker": "PATIENT_BOT",
+      "t_start": 101.2,
+      "t_end": 105.01,
+      "text": "Alright. I've got to go, I'll call back when I have more time. Bye.",
+      "interrupted": false,
+      "stt_confidence": null,
+      "latency": {
+        "tts_node_ttfb": 0.121
+      }
+    }
+  ]
+}

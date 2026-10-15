@@ -1,0 +1,9 @@
+[00:04.7] CLINIC_AGENT: This call may be recorded for quality and training purposes. Thanks for calling Pivot Point Orthopedics. Part of Pretty Good AI. How may I help you today?
+[00:18.9] PATIENT_BOT: Hi, um, I'm calling to plan a visit. Could you tell me your office hours? And are you open on Saturdays?
+[00:26.9] CLINIC_AGENT: Our clinic is open Monday through Friday. We are not open on Saturdays. Would you like to know our specific hours for each day?
+[00:35.0] PATIENT_BOT: Yes, please. What time do you open and close on Monday?
+[00:41.7] CLINIC_AGENT: On Mondays, we are open from nine AM to four PM. Would you like the hours for the other days as well?
+[00:48.4] PATIENT_BOT: Wait, you're sure it's nine to four on Mondays? I thought you were open later than that. Yes, please go through the other days too.
+[00:58.0] CLINIC_AGENT: Here are our hours. Monday, nine AM to four PM Tuesday, nine AM to four PM Wednesday, twelve PM, to seven PM, Thursday, nine AM to four PM, Friday, nine AM to twelve PM. Let me know if you have any other questions or if you'd like to schedule a visit.
+[01:17.7] PATIENT_BOT: Okay, so Wednesday is noon to seven, and Friday is nine to twelve. Can I get the exact address, and where I should park?
+[01:41.2] PATIENT_BOT: Alright. I've got to go, I'll call back when I have more time. Bye.
