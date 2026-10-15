@@ -1,0 +1,71 @@
+{
+  "summary": "The new patient (Siobhan Okafor) gave her spelled name, DOB and phone. The agent read the name, DOB and phone back correctly and confirmed them twice. It then hit a dead end: \"I can't proceed further right now\". It offered a transfer to patient support, said only \"You.\", and the call ended with a remote hangup about 34 seconds later. No appointment was booked, no follow-up was confirmed, and the spell-back probe was never reached.",
+  "goal_met": false,
+  "expected_checks": [
+    {
+      "expectation": "Captures the spelled name correctly and reads it back correctly",
+      "verdict": "not_tested",
+      "evidence": "At 01:04.8 the agent said \"I have your name as Siobhan Okafor\", which matches the spelled name as transcribed. However, it never spelled the name back. The call died before the patient could ask it to spell her name, so letter-level accuracy was not verified."
+    },
+    {
+      "expectation": "Patient pacing with a slow, hesitant caller",
+      "verdict": "met",
+      "evidence": "The agent let the caller finish spelling without interrupting and confirmed details one at a time. Response latency was about 4.8s median and 5.05s max, which is slow but not harmful. The only talk-over happened at the very end, during the failed transfer."
+    }
+  ],
+  "findings": [
+    {
+      "title": "Agent dead-ends a routine new-patient booking after collecting all details",
+      "category": "scheduling",
+      "severity": "high",
+      "timestamp": "02:27.8",
+      "quote": "I can't proceed further right now, but I can make sure our clinic support team follows up with you.",
+      "what_happened": "The caller said up front she was a new patient wanting a knee-pain visit. The agent collected and confirmed her name, DOB and phone twice. It then said it could not proceed, never offered appointment times, and gave no reason.",
+      "why_it_matters": "Booking a first visit is a core front-desk task. A new patient who goes through a lengthy intake only to be told nothing can be done is likely to give up or go elsewhere.",
+      "expected_behavior": "Create a new-patient record or start new-patient intake (e.g., insurance), then offer available appointment slots. If it truly cannot, explain why and give a concrete next step.",
+      "confidence": "high",
+      "possible_stt_error": false,
+      "listen_for": "",
+      "verification": "unverified",
+      "notes": ""
+    },
+    {
+      "title": "Promised transfer ends in a fragment and a dropped call",
+      "category": "conversation",
+      "severity": "high",
+      "timestamp": "02:44.7",
+      "quote": "You.",
+      "what_happened": "The patient accepted the offer to connect to patient support. The agent's only response was the fragment \"You.\", and there was talk-over at about 164.6s. The patient asked it to repeat itself. More overlapping audio followed at about 170.9s and 171.7s, then the clinic side hung up at 181s with no transfer confirmation or callback arrangement.",
+      "why_it_matters": "The caller is elderly and hesitant. She was promised a handoff and was instead left with no appointment, no transfer and no confirmed follow-up.",
+      "expected_behavior": "Clearly state that it is transferring the call (e.g., \"Please hold while I connect you\") and complete the transfer. If the transfer fails, confirm that support will call her back at the number she gave.",
+      "confidence": "medium",
+      "possible_stt_error": true,
+      "listen_for": "Check whether the agent said a full sentence such as \"Thank you, transferring you now\" that was clipped to \"You.\". Also check whether any audible transfer or hold tone came before the hangup at 181s, or whether the line simply dropped.",
+      "verification": "unverified",
+      "notes": ""
+    },
+    {
+      "title": "Asks a self-declared new patient for the number 'on file with us'",
+      "category": "conversation",
+      "severity": "low",
+      "timestamp": "01:22.0",
+      "quote": "please provide the number you have on file with us.",
+      "what_happened": "The caller had just said she had never been to the practice. The agent still tried to look up an existing record by the phone number on file, then re-confirmed every detail a second time.",
+      "why_it_matters": "This ignores what the caller said and lengthens an already slow call for an elderly caller, which erodes confidence that she was heard.",
+      "expected_behavior": "Recognize a new patient and move straight into new-patient registration rather than an existing-record lookup.",
+      "confidence": "medium",
+      "possible_stt_error": false,
+      "listen_for": "",
+      "verification": "unverified",
+      "notes": ""
+    }
+  ],
+  "did_well": [
+    "Read back the unusual name \"Siobhan Okafor\" correctly after the caller spelled it.",
+    "Accurately confirmed the DOB (March 12, 1951) and phone number (650-555-0143).",
+    "Did not interrupt the caller while she slowly spelled her name and gave her details.",
+    "Was honest that it could not proceed rather than falsely claiming a booking, and offered a human handoff."
+  ],
+  "call": "034-new-patient-spelled-name",
+  "model": "claude-opus-5-5"
+}

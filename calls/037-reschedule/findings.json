@@ -1,0 +1,77 @@
+{
+  "summary": "Jane Doe asked to move her Thursday Oct 22, 2 PM appointment with Dr. Lukowski. Per the test history, call 007 confirmed that slot, but the agent said nothing was on file for Oct 22. It offered only the Mon Oct 19 Dr. Hauser appointment. This matches the known BUG-03 recurring. The agent then fell back to a transfer that ended at a test-line goodbye. No reschedule happened, so the goal was not met. The agent did avoid guessing: it did not move the wrong appointment or create a duplicate booking.",
+  "goal_met": false,
+  "expected_checks": [
+    {
+      "expectation": "Finds the existing October 20th appointment (scenario context: the Thu Oct 22, 2 PM Lukowski appointment that replaced it)",
+      "verdict": "not_met",
+      "evidence": "At 01:22.0 the agent said: \"There isn't anything on file for Thursday, October twenty second with doctor Likowski.\" It only surfaced the Mon Oct 19 Hauser appointment. Note that Oct 20 was cancelled in call 007, so the expectation's date appears stale. The appointment the caller referenced (Oct 22) was not found either."
+    },
+    {
+      "expectation": "Moves it rather than creating a second booking",
+      "verdict": "not_tested",
+      "evidence": "No move or booking occurred. The agent did not create a duplicate and did not move the wrong (Oct 19) appointment without consent."
+    },
+    {
+      "expectation": "Confirms the Tuesday slot is released",
+      "verdict": "not_tested",
+      "evidence": "The call never reached a reschedule, so the cancellation probe was never asked."
+    }
+  ],
+  "findings": [
+    {
+      "title": "Cannot find the caller's Thu Oct 22, 2 PM Lukowski appointment (BUG-03 recurrence)",
+      "category": "scheduling",
+      "severity": "high",
+      "timestamp": "01:22.0",
+      "quote": "There isn't anything on file for Thursday, October twenty second with doctor Likowski.",
+      "what_happened": "The patient gave the exact date, time and provider of an appointment that call 007 confirmed when moving it from Tue Oct 20. The agent said only the Mon Oct 19 Hauser appointment exists. It repeated this at 02:16.8.",
+      "why_it_matters": "Either the call 007 move was falsely confirmed and never persisted, or the lookup is failing. In both cases the patient cannot manage an appointment she was told she has. She may also miss or double up on care.",
+      "expected_behavior": "Retrieve all of Jane's upcoming appointments, including Thu Oct 22, 2 PM with Dr. Lukowski, and offer to move it to the following Tuesday or Wednesday morning.",
+      "confidence": "medium",
+      "possible_stt_error": false,
+      "listen_for": "Confirm the agent states no Oct 22 appointment exists. Then check the backend for whether call 007's move actually persisted.",
+      "verification": "unverified",
+      "notes": ""
+    },
+    {
+      "title": "Agent tells caller to 'check with the clinic directly', then transfers to a dead end",
+      "category": "conversation",
+      "severity": "low",
+      "timestamp": "02:40.1",
+      "quote": "You might wanna check with the clinic directly to confirm your appointment details.",
+      "what_happened": "The agent is the clinic's own line, yet it told the patient to contact the clinic. It then offered a transfer that ended immediately with \"You've reached the Pretty Good AI test line. Goodbye.\"",
+      "why_it_matters": "A hesitant elderly caller is left unresolved, with confusing guidance and no callback or next step. The dead-end transfer may be a test-environment artifact.",
+      "expected_behavior": "Explain that a staff member will look into the missing appointment. Offer a callback or message to staff, and avoid referring the caller to 'the clinic' as if it were a separate entity.",
+      "confidence": "medium",
+      "possible_stt_error": false,
+      "listen_for": "Whether the transfer destination is a real staff line in production or only a test stub.",
+      "verification": "unverified",
+      "notes": ""
+    },
+    {
+      "title": "Caller addressed by wrong name and provider name rendered inconsistently",
+      "category": "inconsistency",
+      "severity": "low",
+      "timestamp": "00:55.3",
+      "quote": "Dana, I see you have appointment scheduled for Monday, October nineteenth at ten AM with doctor Dewey Hauser",
+      "what_happened": "Right after the caller said 'this is Jane Doe', the agent appeared to call her 'Dana'. It named the provider 'Dewey Hauser' here and 'Dougie Houser' at 01:22.0; the actual provider is Doogie Howser.",
+      "why_it_matters": "Using the wrong name right after identity confirmation undermines the caller's trust.",
+      "expected_behavior": "Address the caller as Jane and pronounce the provider name consistently.",
+      "confidence": "low",
+      "possible_stt_error": true,
+      "listen_for": "Whether the agent actually says 'Dana' or 'Jane', and how it pronounces Doogie Howser in both turns.",
+      "verification": "unverified",
+      "notes": ""
+    }
+  ],
+  "did_well": [
+    "Identified the caller from her on-file number and confirmed her name before discussing appointments.",
+    "Did not move the Oct 19 Hauser appointment when the caller said it wasn't the one she meant; it asked for confirmation first.",
+    "Did not create a new booking or guess at an appointment it couldn't find.",
+    "Declined to look up records by an unverified alternate phone number, which is reasonable privacy behaviour.",
+    "Offered escalation to live support rather than leaving the caller stuck."
+  ],
+  "call": "037-reschedule",
+  "model": "claude-opus-5-5"
+}

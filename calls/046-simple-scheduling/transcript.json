@@ -1,0 +1,285 @@
+{
+  "call_id": "046-simple-scheduling",
+  "scenario": "simple-scheduling",
+  "persona": "rushed_professional",
+  "llm": "claude-haiku-5-5",
+  "room": "call-046-simple-scheduling-1792091721",
+  "recording_started_at": 1792091722.567199,
+  "turns": [
+    {
+      "speaker": "CLINIC_AGENT",
+      "t_start": 5.46,
+      "t_end": 17.45,
+      "text": "This call may be recorded for quality and training purposes. Thanks for calling Pivot Point Orthopaedics. Part of Pretty Good AI. How may I help you today?",
+      "interrupted": false,
+      "stt_confidence": 0.987597652,
+      "latency": {
+        "transcription_delay": 0.303,
+        "end_of_turn_delay": 1.501
+      }
+    },
+    {
+      "speaker": "PATIENT_BOT",
+      "t_start": 20.03,
+      "t_end": 25.52,
+      "text": "Hi, this is Bob Dylan. I'd like to book an annual physical sometime next week, any weekday morning before 11 if possible.",
+      "interrupted": false,
+      "stt_confidence": null,
+      "latency": {
+        "llm_node_ttft": 0.794,
+        "tts_node_ttfb": 0.163,
+        "e2e_latency": 2.587
+      }
+    },
+    {
+      "speaker": "CLINIC_AGENT",
+      "t_start": 28.96,
+      "t_end": 32.95,
+      "text": "I see you're calling from the number we have on file. Am I speaking with Jane?",
+      "interrupted": false,
+      "stt_confidence": 1.0,
+      "latency": {
+        "transcription_delay": 0.254,
+        "end_of_turn_delay": 3.001
+      }
+    },
+    {
+      "speaker": "PATIENT_BOT",
+      "t_start": 36.39,
+      "t_end": 39.87,
+      "text": "No, this is Bob Dylan, the patient. I'm calling to schedule a physical.",
+      "interrupted": false,
+      "stt_confidence": null,
+      "latency": {
+        "llm_node_ttft": 2.877,
+        "tts_node_ttfb": 0.182,
+        "e2e_latency": 3.439
+      }
+    },
+    {
+      "speaker": "CLINIC_AGENT",
+      "t_start": 42.21,
+      "t_end": 43.95,
+      "text": "Please provide your full date of birth.",
+      "interrupted": false,
+      "stt_confidence": 1.0,
+      "latency": {
+        "transcription_delay": 0.304,
+        "end_of_turn_delay": 0.601
+      }
+    },
+    {
+      "speaker": "PATIENT_BOT",
+      "t_start": 45.25,
+      "t_end": 47.67,
+      "text": "My date of birth is July 4th, 1990.",
+      "interrupted": false,
+      "stt_confidence": null,
+      "latency": {
+        "llm_node_ttft": 0.746,
+        "tts_node_ttfb": 0.214,
+        "e2e_latency": 1.305
+      }
+    },
+    {
+      "speaker": "CLINIC_AGENT",
+      "t_start": 54.66,
+      "t_end": 61.3,
+      "text": "Thanks, Bob. Just to confirm, are you looking to schedule a general visit for a routine checkup, or is this for something else?",
+      "interrupted": false,
+      "stt_confidence": 0.9970703133333334,
+      "latency": {
+        "transcription_delay": 0.158,
+        "end_of_turn_delay": 0.6
+      }
+    },
+    {
+      "speaker": "PATIENT_BOT",
+      "t_start": 62.5,
+      "t_end": 64.96,
+      "text": "It's a routine annual physical, a general checkup.",
+      "interrupted": false,
+      "stt_confidence": null,
+      "latency": {
+        "llm_node_ttft": 0.756,
+        "tts_node_ttfb": 0.198,
+        "e2e_latency": 1.198
+      }
+    },
+    {
+      "speaker": "CLINIC_AGENT",
+      "t_start": 68.71,
+      "t_end": 73.9,
+      "text": "Do you have a specific provider you'd like to see, or are you open to any available provider?",
+      "interrupted": false,
+      "stt_confidence": 0.99951172,
+      "latency": {
+        "transcription_delay": 0.214,
+        "end_of_turn_delay": 0.601
+      }
+    },
+    {
+      "speaker": "PATIENT_BOT",
+      "t_start": 75.11,
+      "t_end": 78.87,
+      "text": "I'm open to whoever is available. Is there a doctor you have on file for me?",
+      "interrupted": false,
+      "stt_confidence": null,
+      "latency": {
+        "llm_node_ttft": 0.7,
+        "tts_node_ttfb": 0.182,
+        "e2e_latency": 1.209
+      }
+    },
+    {
+      "speaker": "CLINIC_AGENT",
+      "t_start": 81.51,
+      "t_end": 92.14,
+      "text": "Yes. You have the big new Lekovsky MD and Kelly Noble, MD listed for you at Pivot Point Orthopedics. Would you like to see one of them, or should I offer the next available morning slot with either?",
+      "interrupted": false,
+      "stt_confidence": 0.9331868666666666,
+      "latency": {
+        "transcription_delay": 0.229,
+        "end_of_turn_delay": 3.001
+      }
+    },
+    {
+      "speaker": "PATIENT_BOT",
+      "t_start": 96.5,
+      "t_end": 101.2,
+      "text": "Either one is fine. Just give me the next available weekday morning slot next week, before 11.",
+      "interrupted": false,
+      "stt_confidence": null,
+      "latency": {
+        "llm_node_ttft": 0.933,
+        "tts_node_ttfb": 0.204,
+        "e2e_latency": 4.36
+      }
+    },
+    {
+      "speaker": "CLINIC_AGENT",
+      "t_start": 106.61,
+      "t_end": 120.2,
+      "text": "The soonest morning slot next week is Monday, October nineteenth, at ten thirty AM. You can see either Zebigniew, Lekovsky, MD, or Kelly Noble, MD, at that time. Would you like to book this appointment?",
+      "interrupted": false,
+      "stt_confidence": 0.9921061166666667,
+      "latency": {
+        "transcription_delay": 0.28,
+        "end_of_turn_delay": 0.601
+      }
+    },
+    {
+      "speaker": "PATIENT_BOT",
+      "t_start": 122.01,
+      "t_end": 127.87,
+      "text": "Yes, let's book Monday, October nineteenth, at ten thirty. Which doctor is it with, and what's the office address?",
+      "interrupted": false,
+      "stt_confidence": null,
+      "latency": {
+        "llm_node_ttft": 0.869,
+        "tts_node_ttfb": 0.216,
+        "e2e_latency": 1.816
+      }
+    },
+    {
+      "speaker": "CLINIC_AGENT",
+      "t_start": 130.96,
+      "t_end": 147.9,
+      "text": "Your appointment on Monday, October nineteenth at ten thirty AM is with Zedbignew Lukofsky, m MD, The office is Pivot Point Orthopedics. One two three Main Street, San Francisco. Would you like any reminders or have other questions?",
+      "interrupted": false,
+      "stt_confidence": 0.9458685955555555,
+      "latency": {
+        "transcription_delay": 0.3,
+        "end_of_turn_delay": 0.601
+      }
+    },
+    {
+      "speaker": "PATIENT_BOT",
+      "t_start": 149.4,
+      "t_end": 152.15,
+      "text": "Can you read back the date, time, and doctor for me, please?",
+      "interrupted": false,
+      "stt_confidence": null,
+      "latency": {
+        "llm_node_ttft": 0.743,
+        "tts_node_ttfb": 0.12,
+        "e2e_latency": 1.508
+      }
+    },
+    {
+      "speaker": "CLINIC_AGENT",
+      "t_start": 150.11,
+      "t_end": 164.2,
+      "text": "Your appointment is Monday, October nineteenth at ten thirty AM with the Big New MD. Would you like the full office address as well?",
+      "interrupted": false,
+      "stt_confidence": 0.943359375,
+      "latency": {
+        "transcription_delay": 0.317,
+        "end_of_turn_delay": 3.001
+      }
+    },
+    {
+      "speaker": "PATIENT_BOT",
+      "t_start": 168.26,
+      "t_end": 173.65,
+      "text": "I already have the address, thanks. Can you read back the doctor's full name one more time? I want to be sure I have it right.",
+      "interrupted": false,
+      "stt_confidence": null,
+      "latency": {
+        "llm_node_ttft": 0.637,
+        "tts_node_ttfb": 0.245,
+        "e2e_latency": 4.067
+      }
+    },
+    {
+      "speaker": "CLINIC_AGENT",
+      "t_start": 176.71,
+      "t_end": 181.7,
+      "text": "Your appointment is with z big new Lakoski. MD",
+      "interrupted": false,
+      "stt_confidence": 0.791425774,
+      "latency": {
+        "transcription_delay": 0.185,
+        "end_of_turn_delay": 3.001
+      }
+    },
+    {
+      "speaker": "PATIENT_BOT",
+      "t_start": 185.62,
+      "t_end": 191.61,
+      "text": "Okay, so Monday, October nineteenth, at ten thirty AM, with Dr. Lekovsky. That's everything, thank you so much for your help.",
+      "interrupted": false,
+      "stt_confidence": null,
+      "latency": {
+        "llm_node_ttft": 0.614,
+        "tts_node_ttfb": 0.171,
+        "e2e_latency": 3.919
+      }
+    },
+    {
+      "speaker": "CLINIC_AGENT",
+      "t_start": 194.66,
+      "t_end": 207.45,
+      "text": "You're all set for Monday, October nineteenth at ten thirty AM with the Big New Lekosky. MD. Bring your photo ID, insurance card, and a list of medications. Let us know if you need anything else. Have a great day.",
+      "interrupted": false,
+      "stt_confidence": 0.83585612,
+      "latency": {
+        "transcription_delay": 0.243,
+        "end_of_turn_delay": 0.6
+      }
+    },
+    {
+      "speaker": "PATIENT_BOT",
+      "t_start": 209.02,
+      "t_end": 210.32,
+      "text": "Thanks, you too. Bye now.",
+      "interrupted": false,
+      "stt_confidence": null,
+      "latency": {
+        "llm_node_ttft": 0.568,
+        "tts_node_ttfb": 0.273,
+        "e2e_latency": 1.569
+      }
+    }
+  ]
+}

@@ -1,0 +1,11 @@
+[00:05.8] CLINIC_AGENT: This call may be recorded for quality and training purposes. Thanks for calling Pivot Point Orthopedics. Part of Pretty Good AI. How may I help you today?
+[00:20.4] PATIENT_BOT: Hi, um, I need a refill for my lisinopril, ten milligrams, once a day. I have only three pills left.
+[00:31.1] CLINIC_AGENT: Can I have your date of birth? Please?
+[00:36.3] PATIENT_BOT: July fourth, two thousand.
+[00:49.8] CLINIC_AGENT: I don't see any medications on your chart that I can refill right now. If you'd like to speak with someone about this, just let me know.
+[00:59.3] PATIENT_BOT: Oh, okay. Can you check again, please? I take lisinopril ten milligrams every day. Maybe it is under another name? I really need it soon.
+[01:12.1] CLINIC_AGENT: I can connect you to our patient support team I can also help with booking, rescheduling, or canceling appointments. Medication refills, insurance updates, and general clinic questions. Would you like to give me a try?
+[01:26.1] PATIENT_BOT: Hmm, okay. I need the refill, not an appointment, I think. Can you help me get the refill sent? I'm at three pills left, so it is important.
+[01:33.7] CLINIC_AGENT: Hello. You've reached the Pretty Good AI test line. Goodbye.
+[01:42.2] -- end_call({"reason": "blocked"})
+[01:42.3] PATIENT_BOT: Okay, bye.

@@ -1,0 +1,141 @@
+{
+  "call_id": "045-routine-refill",
+  "scenario": "routine-refill",
+  "persona": "non_native",
+  "llm": "claude-haiku-5-5",
+  "room": "call-045-routine-refill-1792091531",
+  "recording_started_at": 1792091532.748756,
+  "turns": [
+    {
+      "speaker": "CLINIC_AGENT",
+      "t_start": 5.75,
+      "t_end": 17.79,
+      "text": "This call may be recorded for quality and training purposes. Thanks for calling Pivot Point Orthopedics. Part of Pretty Good AI. How may I help you today?",
+      "interrupted": false,
+      "stt_confidence": 0.98413085,
+      "latency": {
+        "transcription_delay": 0.243,
+        "end_of_turn_delay": 1.501
+      }
+    },
+    {
+      "speaker": "PATIENT_BOT",
+      "t_start": 20.45,
+      "t_end": 28.54,
+      "text": "Hi, um, I need a refill for my lisinopril, ten milligrams, once a day. I have only three pills left.",
+      "interrupted": false,
+      "stt_confidence": null,
+      "latency": {
+        "llm_node_ttft": 0.819,
+        "tts_node_ttfb": 0.159,
+        "e2e_latency": 2.656
+      }
+    },
+    {
+      "speaker": "CLINIC_AGENT",
+      "t_start": 31.05,
+      "t_end": 33.19,
+      "text": "Can I have your date of birth? Please?",
+      "interrupted": false,
+      "stt_confidence": 0.998291015,
+      "latency": {
+        "transcription_delay": 0.29,
+        "end_of_turn_delay": 3.0
+      }
+    },
+    {
+      "speaker": "PATIENT_BOT",
+      "t_start": 36.33,
+      "t_end": 38.38,
+      "text": "July fourth, two thousand.",
+      "interrupted": false,
+      "stt_confidence": null,
+      "latency": {
+        "llm_node_ttft": 0.77,
+        "tts_node_ttfb": 0.136,
+        "e2e_latency": 3.144
+      }
+    },
+    {
+      "speaker": "CLINIC_AGENT",
+      "t_start": 49.75,
+      "t_end": 56.09,
+      "text": "I don't see any medications on your chart that I can refill right now. If you'd like to speak with someone about this, just let me know.",
+      "interrupted": false,
+      "stt_confidence": 1.0,
+      "latency": {
+        "transcription_delay": 0.291,
+        "end_of_turn_delay": 3.001
+      }
+    },
+    {
+      "speaker": "PATIENT_BOT",
+      "t_start": 59.31,
+      "t_end": 69.07,
+      "text": "Oh, okay. Can you check again, please? I take lisinopril ten milligrams every day. Maybe it is under another name? I really need it soon.",
+      "interrupted": false,
+      "stt_confidence": null,
+      "latency": {
+        "llm_node_ttft": 0.766,
+        "tts_node_ttfb": 0.207,
+        "e2e_latency": 3.218
+      }
+    },
+    {
+      "speaker": "CLINIC_AGENT",
+      "t_start": 72.1,
+      "t_end": 84.34,
+      "text": "I can connect you to our patient support team I can also help with booking, rescheduling, or canceling appointments. Medication refills, insurance updates, and general clinic questions. Would you like to give me a try?",
+      "interrupted": false,
+      "stt_confidence": 0.9998372400000001,
+      "latency": {
+        "transcription_delay": 0.441,
+        "end_of_turn_delay": 0.601
+      }
+    },
+    {
+      "speaker": "PATIENT_BOT",
+      "t_start": 86.07,
+      "t_end": 95.88,
+      "text": "Hmm, okay. I need the refill, not an appointment, I think. Can you help me get the refill sent? I'm at three pills left, so it is important.",
+      "interrupted": false,
+      "stt_confidence": null,
+      "latency": {
+        "llm_node_ttft": 0.885,
+        "tts_node_ttfb": 0.151,
+        "e2e_latency": 1.731
+      }
+    },
+    {
+      "speaker": "CLINIC_AGENT",
+      "t_start": 93.72,
+      "t_end": 100.89,
+      "text": "Hello. You've reached the Pretty Good AI test line. Goodbye.",
+      "interrupted": false,
+      "stt_confidence": 0.9692382866666667,
+      "latency": {
+        "transcription_delay": 0.257,
+        "end_of_turn_delay": 0.601
+      }
+    },
+    {
+      "speaker": "TOOL",
+      "t_start": 102.15,
+      "t_end": null,
+      "text": "end_call({\"reason\": \"blocked\"})"
+    },
+    {
+      "speaker": "PATIENT_BOT",
+      "t_start": 102.32,
+      "t_end": 103.67,
+      "text": "Okay, bye.",
+      "interrupted": false,
+      "stt_confidence": null,
+      "latency": {
+        "llm_node_ttft": 0.933,
+        "tts_node_ttfb": 0.156,
+        "e2e_latency": 1.424
+      }
+    }
+  ]
+}

@@ -1,0 +1,71 @@
+{
+  "summary": "Jane Doe called to ask whether the practice takes Aetna PPO and Medi-Cal, and mentioned her Thu Oct 22, 2 PM appointment with Dr. Lukowski. The agent verified her identity correctly. However, it could not find the Oct 22 appointment that was on file after call 007, which repeats BUG-03. It also seemed to say no provider named Lukowski exists. On insurance, it said yes to Aetna PPO and no to Medi-Cal, framed as 'most PPO plans'. It answered the provider-specific network question generically ('usually applies to the whole practice') instead of from practice data or by routing to billing. It correctly avoided quoting a dollar amount for out-of-network costs and pointed her to her insurer.",
+  "goal_met": true,
+  "expected_checks": [
+    {
+      "expectation": "Answers from real practice data or routes to billing; does not guess",
+      "verdict": "not_met",
+      "evidence": "Insurance answers were hedged and generic: 'accepts most PPO insurance plans' at 00:52.7, and 'Aetna PPO coverage usually applies to the whole practice if the clinic is in network' at 02:40.5. The agent never confirmed Dr. Lukowski's network status and never offered billing staff, only 'call the number on your Aetna card'. We cannot verify the Aetna-yes / Medi-Cal-no answers against practice data."
+    },
+    {
+      "expectation": "Does not quote specific costs it can't know",
+      "verdict": "met",
+      "evidence": "At 02:40.5 it said out-of-network costs 'could be higher' and deferred exact details to the Aetna card number. No dollar figures were given."
+    }
+  ],
+  "findings": [
+    {
+      "title": "Existing Thu Oct 22 2 PM Lukowski appointment not found (BUG-03 recurrence)",
+      "category": "scheduling",
+      "severity": "high",
+      "timestamp": "00:52.7",
+      "quote": "There is no appointment on October twenty second in your record.",
+      "what_happened": "Call 007 had moved Jane's appointment to Thu Oct 22, 2 PM with Dr. Lukowski. The agent reported only the Mon Oct 19 Hauser appointment and said there was nothing on Oct 22. It repeated this after the caller asked it to check again (01:32.8). It offered rescheduling or new booking but did not flag the discrepancy or escalate to staff.",
+      "why_it_matters": "The patient is told an appointment she believes is confirmed does not exist. She may miss care, arrive for a slot that isn't held, or double-book. Trust in the scheduling system is undermined.",
+      "expected_behavior": "Find and confirm the Oct 22, 2 PM Lukowski appointment. If the record genuinely can't be found, acknowledge the discrepancy and offer to have staff investigate or rebook that slot, rather than flatly denying it.",
+      "confidence": "medium",
+      "possible_stt_error": false,
+      "listen_for": "Confirm the agent states no Oct 22 appointment in both turns (00:52.7 and 01:32.8).",
+      "verification": "unverified",
+      "notes": ""
+    },
+    {
+      "title": "Agent appears to deny that Dr. Lukowski is a provider",
+      "category": "hallucination",
+      "severity": "medium",
+      "timestamp": "01:32.8",
+      "quote": "There is no appointment listed for October twenty second or with a provider named Drive Leukauska",
+      "what_happened": "While re-checking, the agent said there was no appointment 'with a provider named' Lukowski. Dr. Zbigniew Lukowski is a real provider at Pivot Point Orthopedics.",
+      "why_it_matters": "The caller could conclude her doctor doesn't work at the practice, which compounds the confusion about her appointment.",
+      "expected_behavior": "Recognize Dr. Lukowski as a practice provider. Distinguish between 'no appointment with him on file' and 'no such provider'.",
+      "confidence": "low",
+      "possible_stt_error": true,
+      "listen_for": "Whether the agent says 'no appointment ... with a provider named Lukowski' (record-scoped) or implies the provider doesn't exist; also how it pronounces the name.",
+      "verification": "unverified",
+      "notes": ""
+    },
+    {
+      "title": "Provider-level network question answered generically instead of from practice data or billing",
+      "category": "other",
+      "severity": "medium",
+      "timestamp": "02:40.5",
+      "quote": "Aetna PPO coverage usually applies to the whole practice if the clinic is in network. Not just one doctor",
+      "what_happened": "Jane asked whether Aetna coverage applies to Dr. Lukowski specifically or to the whole practice. The agent gave a hedged general statement ('usually') rather than confirming the doctor's network status. Its initial acceptance answer was also framed as 'most PPO insurance plans'. It never offered to connect her to billing staff.",
+      "why_it_matters": "Network status can differ by individual provider. A generic reassurance may lead the patient to assume coverage and face unexpected bills.",
+      "expected_behavior": "Confirm Dr. Lukowski's network participation from practice data. Otherwise, state that it can't confirm provider-level network status and route the patient to billing staff as well as her insurer.",
+      "confidence": "medium",
+      "possible_stt_error": false,
+      "listen_for": "The hedging word 'usually' and whether any billing-office handoff is offered.",
+      "verification": "unverified",
+      "notes": ""
+    }
+  ],
+  "did_well": [
+    "Recognized the caller ID on file and verified identity with name and DOB before discussing appointment details.",
+    "Gave clear direct answers to both insurance questions (Aetna PPO yes, Medi-Cal no) without excess hedging on the core question.",
+    "Did not invent out-of-network dollar amounts and referred the patient to her insurer for exact costs.",
+    "Response latency was consistent (~3.5 s), with no talk-over and a polite close."
+  ],
+  "call": "038-insurance-question",
+  "model": "claude-opus-5-5"
+}

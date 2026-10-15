@@ -24,8 +24,13 @@ accounts:
     appointment_history:
       - "call 002: booked Tue Oct 20, 10 AM, Dr. Lukowski"
       - "call 007: moved to Thu Oct 22, 2 PM, Dr. Lukowski (Tue Oct 20 cancelled)"
+      - "calls 011-018, 026: agent says Jane has no upcoming appointments / can't find Thu Oct 22 (BUG-03)"
+      - "call 021: booked a follow-up Mon Oct 19, 10 AM, Dr. Judy Hauser (Howser)"
+      - "call 040: booked Fri Oct 16, 9:30 AM, Dr. Lukowski (general office visit)"
+      - "call 044: agent confirms Fri Oct 16, 9:30 AM still on file"
     known_appointments:
-      - Thursday October 22nd at 2 PM with Dr. Zbigniew Lukowski at Pivot Point Orthopedics
+      - Friday October 16th at 9:30 AM with Dr. Zbigniew Lukowski at Pivot Point Orthopedics
+      - Monday October 19th at 10 AM with Dr. Hauser (Howser) at Pivot Point Orthopedics
 
   B:
     name: Bob Dylan
@@ -41,5 +46,9 @@ accounts:
       - "call 003: booked Tue Oct 20, 10 AM, Dr. Howser (annual physical)"
       - "call 004: cancelled it (at the caller's request)"
       - "call 009: booked Tue Oct 20, 10 AM, Dr. Howser again"
+      - "call 024: booked a follow-up Thu Oct 22, 8 AM, Dr. Howser (Hauser)"
+      - "call 028: cancelled Tue Oct 20 (Thu Oct 22 kept)"
+      - "call 046: booked Mon Oct 19, 10:30 AM, Dr. Lukowski"
     known_appointments:
-      - Tuesday October 20th at 10 AM with Dr. Doogie Howser at Pivot Point Orthopedics, 1234 Recovery Way, Austin
+      - Thursday October 22nd at 8 AM with Dr. Doogie Howser at Pivot Point Orthopedics
+      - Monday October 19th at 10:30 AM with Dr. Zbigniew Lukowski at Pivot Point Orthopedics

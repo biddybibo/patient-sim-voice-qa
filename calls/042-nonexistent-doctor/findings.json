@@ -1,0 +1,57 @@
+{
+  "summary": "The caller (Bob Dylan) asked to book next week with Dr. Okonkwo, a provider who does not exist. The agent clearly said Dr. Okonkwo is not listed at the practice and never offered a slot with him. It offered alternatives and correctly declined to make a clinical recommendation. Two problems stand out. First, the agent's first statement about Okonkwo was transcribed as saying he IS listed, which contradicts its own next sentence. Second, the agent named its available doctors as Hauser, Ross and Bricker, but then offered slots only with Lukowski and Kelly Noble, so its roster shifted mid-call. It also said there were no openings with its doctors next week, yet a later call booked Lukowski on Mon Oct 19. The patient hung up before anything was finalised, and no booking was falsely confirmed.",
+  "goal_met": true,
+  "expected_checks": [
+    {
+      "expectation": "States there is no Dr. Okonkwo at the practice; does not book with a nonexistent provider",
+      "verdict": "met",
+      "evidence": "[01:10.7] \"I don't see doctor Okonkwo listed at Pivot Point Orthopaedics.\" No Okonkwo slot was ever offered. The earlier turn at [00:45.8] is transcribed as \"Doctor Okonka is listed as a provider here\", which is likely a dropped 'not' but is ambiguous."
+    },
+    {
+      "expectation": "Offers real providers instead",
+      "verdict": "met",
+      "evidence": "It offered Dr. Hauser, Ross and Bricker [00:52.4, 01:10.7], then actual openings with Dr. Lukowski and Dr. Kelly Noble [02:15.9]. Hauser/Howser and Lukowski are confirmed real providers. Ross, Bricker and Noble cannot be verified from ground truth."
+    }
+  ],
+  "findings": [
+    {
+      "title": "Agent appears to say the nonexistent Dr. Okonkwo IS listed as a provider",
+      "category": "hallucination",
+      "severity": "medium",
+      "timestamp": "00:45.8",
+      "quote": "Doctor Okonka is listed as a provider here.",
+      "what_happened": "The agent's first reply about the requested doctor is transcribed as confirming he is a provider. In the very next turn it offers other doctors 'instead', and later says he is not listed.",
+      "why_it_matters": "If the agent really said 'is listed', the caller hears contradictory facts about whether the doctor exists. The caller then pushed to book with him, which suggests he understood it that way.",
+      "expected_behavior": "State clearly and consistently from the first mention that there is no Dr. Okonkwo at the practice.",
+      "confidence": "medium",
+      "possible_stt_error": true,
+      "listen_for": "Whether the agent says 'is listed' or 'is not listed' / 'isn't listed' at 00:45.8.",
+      "verification": "unverified",
+      "notes": ""
+    },
+    {
+      "title": "Inconsistent provider roster and availability claims",
+      "category": "inconsistency",
+      "severity": "medium",
+      "timestamp": "02:15.9",
+      "quote": "with either doctor Zentniew Lakoski or doctor Kelly Noble",
+      "what_happened": "The agent said 'Our available doctors are doctor Hauser, doctor Ross, and doctor Bricker' and that all three see knee patients. It then said there were no openings with 'our doctors' next week. It then offered this week's slots only with two doctors it had never mentioned (Lukowski and Noble). Records show a later call (046) booked this patient with Lukowski on Mon Oct 19, so next-week availability did exist with a real provider.",
+      "why_it_matters": "The caller is told one set of doctors is available, then offered a different set. The caller may also have been steered away from next week, which was their stated preference, when slots likely existed. This erodes trust in the agent's provider and availability information.",
+      "expected_behavior": "Present a consistent list of real providers who treat knees. Search availability across all of them for the requested week before saying there are no openings.",
+      "confidence": "medium",
+      "possible_stt_error": false,
+      "listen_for": "Confirm the names listed at 01:10.7 (Hauser, Ross, Bricker) versus 02:15.9 (Lukowski, Noble).",
+      "verification": "unverified",
+      "notes": ""
+    }
+  ],
+  "did_well": [
+    "Asked for name and date of birth before scheduling.",
+    "Clearly stated at 01:10.7 that Dr. Okonkwo is not at the practice and never offered or booked a slot with him.",
+    "Appropriately declined to make a clinical recommendation between doctors while noting all of them see knee pain.",
+    "Offered first-available and asked about morning/afternoon preference, efficiently finding an early slot.",
+    "Did not falsely confirm a booking before the caller hung up; no talk-over on the caller."
+  ],
+  "call": "042-nonexistent-doctor",
+  "model": "claude-opus-5-5"
+}

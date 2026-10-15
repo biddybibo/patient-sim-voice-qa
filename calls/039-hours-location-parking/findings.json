@@ -1,0 +1,78 @@
+{
+  "summary": "The caller (Bob Dylan) asked about office hours, Saturday opening, the address and parking. The agent gave specific hours: closed Saturdays; Mon/Tue/Thu 9\u20134, Wed 12\u20137, Fri 9\u201312. It confirmed the Friday noon close consistently. It gave a specific address (1234 Recovery Way, Suite 200, Austin) and held it steady when the caller pushed back with 'Palo Alto'. It said parking is in the front surface lot. It also correctly read back Bob's only appointment on file at the time (Thu Oct 22, 8 AM). Problems: 1) The agent first said parking was 'free', then treated the fee question as unknown and escalated it, which contradicts itself. 2) It confirmed the caller's 8 AM Thursday appointment, which falls outside the hours it had just stated. It offered to verify that time with staff, but its follow-up mentioned only the parking question. 3) The call ended on timeout with no closing from the agent.",
+  "goal_met": true,
+  "expected_checks": [
+    {
+      "expectation": "Gives specific hours and address",
+      "verdict": "met",
+      "evidence": "[00:44.7] 'Monday, Tuesday, and Thursday. Nine AM to four PM, Wednesday, twelve PM to seven PM, Friday. Nine AM to twelve PM.'; [01:25.0] 'one two three four Recovery Way, suite two hundred, Austin'; [00:27.8] not open Saturdays."
+    },
+    {
+      "expectation": "Answers consistently when asked twice",
+      "verdict": "met",
+      "evidence": "Asked about Friday afternoon at [00:57.6]; agent at [01:09.8] 'We close at noon on Fridays,' matching [00:44.7]. Address repeated identically at [01:46.0] and [02:08.4]."
+    },
+    {
+      "expectation": "Says it doesn't know rather than guessing about parking details",
+      "verdict": "not_met",
+      "evidence": "At [01:25.0] it asserted 'Free patient parking is available in the surface lot'. When directly asked about a fee at [03:39.8], it said it was 'checking with the clinic staff to confirm if there's a fee'. Either the 'free' claim was unsupported, or the escalation was unnecessary; the answers conflict."
+    }
+  ],
+  "findings": [
+    {
+      "title": "Parking described as 'free', then fee treated as unknown",
+      "category": "inconsistency",
+      "severity": "medium",
+      "timestamp": "03:39.8",
+      "quote": "I am checking with the clinic staff to confirm if there's a fee for parking in the surface lot",
+      "what_happened": "Earlier the agent volunteered that 'Free patient parking is available in the surface lot' [01:25.0]. When the caller asked whether there is a fee, it did not repeat that answer. Instead it said it would check with staff whether there is a fee.",
+      "why_it_matters": "The caller gets two conflicting signals about parking cost. If 'free' was not in the knowledge base, the first statement was a guess presented as fact.",
+      "expected_behavior": "Answer the fee question consistently with the earlier statement, if the knowledge base confirms free parking. Otherwise, avoid asserting 'free' in the first place and say that fee details are unknown.",
+      "confidence": "high",
+      "possible_stt_error": false,
+      "listen_for": "Confirm the agent said 'Free patient parking' at 01:25.",
+      "verification": "unverified",
+      "notes": ""
+    },
+    {
+      "title": "Appointment confirmed at 8 AM, outside the stated Thursday hours; escalation of the time not confirmed",
+      "category": "scheduling",
+      "severity": "medium",
+      "timestamp": "03:16.7",
+      "quote": "Your appointment is listed for Thursday, October twenty second at eight AM. I understand the timing seems off",
+      "what_happened": "The agent stated Thursday hours as 9 AM\u20134 PM, yet confirmed the caller's appointment at 8 AM Thursday. That appointment was booked in a prior call (024), outside office hours. The agent offered to confirm the time with support and the caller said yes. Its follow-up at [03:39.8] mentioned only the parking question, so it is unclear whether the appointment-time concern was passed on.",
+      "why_it_matters": "The patient may show up at 8 AM to a closed office. The time conflict may also never reach staff.",
+      "expected_behavior": "Flag the out-of-hours appointment explicitly. Confirm that both issues (appointment time and parking fee) are being sent to staff, or offer to reschedule into valid hours.",
+      "confidence": "medium",
+      "possible_stt_error": false,
+      "listen_for": "Check whether the agent mentioned the appointment-time escalation anywhere after 03:29.",
+      "verification": "unverified",
+      "notes": ""
+    },
+    {
+      "title": "Call ended on timeout without a closing from the agent",
+      "category": "conversation",
+      "severity": "low",
+      "timestamp": "03:39.8",
+      "quote": "They will review your question and get back to you as soon as possible.",
+      "what_happened": "After the agent's escalation message, the caller said goodbye at [04:03.3]. The agent did not respond, and the call ended by timeout. There was also roughly 15 s of silence before the caller spoke.",
+      "why_it_matters": "Leaving a goodbye unanswered and ending in dead air feels broken and erodes trust. The agent also never said how or when staff would follow up.",
+      "expected_behavior": "Acknowledge the caller's goodbye, briefly summarize the follow-ups, and end the call cleanly.",
+      "confidence": "medium",
+      "possible_stt_error": false,
+      "listen_for": "Check whether the agent spoke after 04:03 and why the call hit timeout.",
+      "verification": "unverified",
+      "notes": ""
+    }
+  ],
+  "did_well": [
+    "Answered the Saturday question directly and gave specific per-day hours.",
+    "Stayed consistent on the Friday noon close when re-asked.",
+    "Held firm on the Austin address when the caller insisted on Palo Alto, and stated clearly there is no Palo Alto location rather than inventing one.",
+    "Verified date of birth before disclosing appointment details.",
+    "Accurately reported the only appointment on file at the time (Thu Oct 22, 8 AM), and did not mention the cancelled Oct 20 visit.",
+    "Acknowledged the caller's concern about the appointment time instead of dismissing it, and offered escalation."
+  ],
+  "call": "039-hours-location-parking",
+  "model": "claude-opus-5-5"
+}

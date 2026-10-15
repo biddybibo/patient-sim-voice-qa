@@ -1,0 +1,62 @@
+{
+  "summary": "Jane Doe asked to book a check-up for 'Friday the 17th' at 9 AM. The agent verified her DOB and found her existing Fri Oct 16, 9:30 AM appointment. It then twice proposed moving it to 'Friday, October seventeenth' without noticing that Oct 17 is a Saturday. The first time the caller asked for the exact date and weekday, the agent did not answer. Only when the caller asked directly did it say Oct 17 is a Saturday, and it then offered Fri Oct 23 at 9 AM. It read that slot back clearly and the caller confirmed. After the confirmation there was about 16 s of silence: the agent never said the change was done and the caller hung up. Ground truth shows the Oct 16, 9:30 AM appointment still on file, so the reschedule the caller agreed to never happened. The November 31st probe was never reached.",
+  "goal_met": false,
+  "expected_checks": [
+    {
+      "expectation": "Notices that the 17th is a Saturday, not a Friday, and resolves the conflict with the caller",
+      "verdict": "met",
+      "evidence": "At 02:35.6 the agent said 'October seventeenth this year is a Saturday' and offered Saturday or another Friday. It then found Fri Oct 23. This only came after it had twice offered 'Friday, October seventeenth' (01:29.7, 02:12.6) and the caller asked directly."
+    },
+    {
+      "expectation": "Rejects November 31st as an invalid date",
+      "verdict": "not_tested",
+      "evidence": "The call ended before the caller asked for November 31st."
+    },
+    {
+      "expectation": "Reads back an unambiguous date and weekday for anything it books",
+      "verdict": "met",
+      "evidence": "At 03:42.0 the agent asked the caller to confirm moving the appointment 'to Friday, October twenty third at nine AM at Pivot Point Orthopedics'. This includes weekday, date, time, provider and location. The booking itself was never completed or confirmed."
+    }
+  ],
+  "findings": [
+    {
+      "title": "Agreed reschedule to Oct 23 never completed or confirmed; caller left with the Oct 16 appointment still on file",
+      "category": "scheduling",
+      "severity": "high",
+      "timestamp": "03:50.6",
+      "quote": "Is that correct?",
+      "what_happened": "The agent asked the caller to confirm the move to Fri Oct 23 at 9 AM, and the caller said 'Yes, that's correct.' The agent then said nothing for about 16 s and gave no confirmation that the change was made. The caller hung up. Ground truth shows the Fri Oct 16, 9:30 AM appointment still on file and no Oct 23 booking.",
+      "why_it_matters": "The caller believes the appointment was moved to Oct 23. She may miss her real Oct 16 appointment the next day and find no booking on Oct 23.",
+      "expected_behavior": "After the caller confirms, the agent should complete the reschedule promptly and state it is done. If the system fails, it should tell the caller the change did not go through.",
+      "confidence": "medium",
+      "possible_stt_error": false,
+      "listen_for": "Check the 03:52\u201304:10 gap for any clinic speech our transcript missed. The caller's 'Okay, got it' suggests something may have been said.",
+      "verification": "unverified",
+      "notes": ""
+    },
+    {
+      "title": "Agent twice proposed 'Friday, October seventeenth' and dodged the caller's date check",
+      "category": "time-date",
+      "severity": "medium",
+      "timestamp": "01:29.7",
+      "quote": "Would you like to reschedule your appointment to Friday, October seventeenth nine AM if it's available?",
+      "what_happened": "The agent repeated the caller's wrong weekday at 01:29.7 and again at 02:12.6. At 01:50.2 the caller asked it to 'confirm the exact date and day of the week'. The agent only restated the existing Oct 16 appointment and again offered 'Friday, October seventeenth'. It corrected the weekday only after the caller asked outright whether Oct 17 is a Friday.",
+      "why_it_matters": "A less careful caller would have agreed to an impossible 'Friday the 17th'. That could lead to a Saturday booking or a mismatch between the caller's expectation and the schedule.",
+      "expected_behavior": "Check the weekday against the calendar as soon as the caller says 'Friday the 17th'. Flag that Oct 17 is a Saturday and ask whether she means Fri Oct 16 or another Friday.",
+      "confidence": "high",
+      "possible_stt_error": false,
+      "listen_for": "Confirm the agent said 'Friday, October seventeenth' at 01:29.7 and 02:12.6.",
+      "verification": "unverified",
+      "notes": ""
+    }
+  ],
+  "did_well": [
+    "Verified identity with date of birth before discussing appointments.",
+    "Found the caller's existing Oct 16, 9:30 AM appointment and offered to keep, reschedule or cancel it instead of double-booking.",
+    "Once asked directly, correctly said Oct 17 is a Saturday and offered either Saturday or another Friday.",
+    "Found the next Friday 9 AM slot and read back weekday, date, time, provider and location before acting.",
+    "Did not talk over the caller."
+  ],
+  "call": "044-impossible-date",
+  "model": "claude-opus-5-5"
+}

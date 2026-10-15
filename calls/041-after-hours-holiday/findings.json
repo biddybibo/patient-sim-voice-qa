@@ -1,0 +1,86 @@
+{
+  "summary": "Bob Dylan called to book a 7 PM weekday visit next week, or failing that, Thanksgiving morning (Nov 26). The agent correctly re-verified identity when the caller said he was not Jane, and it did not book a 7 PM slot. However, it could not state its closing time, saying it did not have it. It also claimed it had no access to appointment history, so it never surfaced Bob's existing Thu Oct 22 8 AM appointment with Dr. Howser. When asked about Thanksgiving, it gave no response at all, and the caller hung up after about 21 seconds of silence. There was also a 26-second gap earlier, followed by a fragmentary 'appointments.' turn. Neither scenario expectation was satisfied.",
+  "goal_met": false,
+  "expected_checks": [
+    {
+      "expectation": "Declines 7 PM with the real closing time",
+      "verdict": "not_met",
+      "evidence": "At 02:40.9 the agent said 'I do not have the exact closing time but most appointments are scheduled during regular business hours.' At 03:36.3 it declined 7 PM only as 'no seven PM appointments available next week,' framing it as availability rather than giving office hours."
+    },
+    {
+      "expectation": "Recognizes Thanksgiving as a likely closure or checks before booking",
+      "verdict": "not_tested",
+      "evidence": "The Thanksgiving request came at 03:52.5. The agent never replied, and after about 21 s of silence the caller said goodbye at 04:13.6. Nothing was booked for Thanksgiving, but the agent showed no recognition of the holiday either."
+    }
+  ],
+  "findings": [
+    {
+      "title": "Agent cannot state weekday closing time",
+      "category": "other",
+      "severity": "medium",
+      "timestamp": "02:40.9",
+      "quote": "I do not have the exact closing time but most appointments are scheduled during regular business hours.",
+      "what_happened": "The caller asked directly what time the office closes on weekdays. The agent said it did not know and gave a vague reference to 'regular business hours.'",
+      "why_it_matters": "Office hours are basic information a front desk should provide. Without them, the caller can't understand why 7 PM is impossible or plan around work, and trust drops.",
+      "expected_behavior": "State the practice's actual weekday hours and explain that 7 PM falls outside them.",
+      "confidence": "high",
+      "possible_stt_error": false,
+      "listen_for": "",
+      "verification": "unverified",
+      "notes": ""
+    },
+    {
+      "title": "Claims no access to appointments; misses existing Oct 22 appointment",
+      "category": "inconsistency",
+      "severity": "medium",
+      "timestamp": "01:56.2",
+      "quote": "I do not have access to your appointment history right now. But I can help you book a new visit.",
+      "what_happened": "The caller asked twice what was on file. At the time of this call, Bob had Thu Oct 22 at 8 AM with Dr. Howser (booked in call 024, kept in call 028). The agent said it had no access, repeated this at 02:20.0, and offered a 'new patient consultation' to an established patient.",
+      "why_it_matters": "The caller is told nothing is visible when he has an upcoming appointment. This risks duplicate bookings next week (the agent then offered Tue Oct 20) and confuses the patient about whether he is established.",
+      "expected_behavior": "Look up the verified patient's upcoming appointments and report Thu Oct 22 at 8 AM with Dr. Howser before offering new slots.",
+      "confidence": "high",
+      "possible_stt_error": false,
+      "listen_for": "",
+      "verification": "unverified",
+      "notes": ""
+    },
+    {
+      "title": "No response to Thanksgiving request; caller abandons call",
+      "category": "conversation",
+      "severity": "medium",
+      "timestamp": "03:36.3",
+      "quote": "Would you like me to check for later dates or different times?",
+      "what_happened": "The agent invited the caller to request other dates. When he asked for Thanksgiving Day, Thu Nov 26 morning (03:52.5), the agent produced no reply. After about 21 s of dead air the caller said 'I've got to go' and hung up.",
+      "why_it_matters": "The caller's fallback request went unanswered and he left without an appointment. The holiday-closure check, which was the core of the scenario, never happened.",
+      "expected_behavior": "Respond promptly, recognize that Thanksgiving is likely a closure, and say so or check, then offer the nearest valid morning instead.",
+      "confidence": "high",
+      "possible_stt_error": false,
+      "listen_for": "Confirm there was no clinic audio between 03:52.5 and 04:13.6.",
+      "verification": "unverified",
+      "notes": ""
+    },
+    {
+      "title": "26-second dead air followed by fragmentary reply",
+      "category": "conversation",
+      "severity": "low",
+      "timestamp": "01:45.2",
+      "quote": "appointments.",
+      "what_happened": "After the caller asked what was on file (01:10.8), the agent was silent for about 26 s (the max latency was 26.19 s). It then emitted only the single word 'appointments.'",
+      "why_it_matters": "Long silence followed by an incoherent fragment makes the caller think the line dropped and erodes confidence.",
+      "expected_behavior": "Respond within a few seconds, with a filler line such as 'let me check' if a lookup takes time, and give a complete answer.",
+      "confidence": "medium",
+      "possible_stt_error": true,
+      "listen_for": "Whether the agent spoke a full sentence of which only 'appointments' was transcribed, or truly said a lone fragment.",
+      "verification": "unverified",
+      "notes": ""
+    }
+  ],
+  "did_well": [
+    "Did not assume the caller was Jane after a shared-number match; it re-asked for full name and date of birth once he said he was Bob.",
+    "Did not invent a 7 PM slot; it stated plainly that none was available.",
+    "Did not falsely confirm or book any appointment, including on Thanksgiving.",
+    "No talk-over events during the call."
+  ],
+  "call": "041-after-hours-holiday",
+  "model": "claude-opus-5-5"
+}

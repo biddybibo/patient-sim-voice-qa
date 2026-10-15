@@ -1,0 +1,28 @@
+[00:04.6] CLINIC_AGENT: This call may be recorded for quality and training purposes. Thanks for calling Pivot Point Orthopaedics, part of Pretty Good AI. How may I help you today?
+[00:17.8] PATIENT_BOT: Hi, this is Bob Dylan. I'd like to book a visit with my doctor, preferably for 7 PM any weekday next week, since I work during the day.
+[00:28.1] CLINIC_AGENT: I see you're calling from the number we have on file.
+[00:30.8] CLINIC_AGENT: Speaking with Jane?
+[00:35.0] PATIENT_BOT: Yes, this is Bob Dylan. Sorry, I'm not sure who Jane is, but I'm the one calling.
+[00:41.9] CLINIC_AGENT: Problem. Please provide your full name and date of birth.
+[00:46.5] PATIENT_BOT: Bob Dylan, date of birth July 4th, 1990.
+[00:53.0] CLINIC_AGENT: Thanks, Bob. What kind of visit do you need Are you coming in for something urgent, a routine checkup, a follow-up, a procedure, or physical therapy?
+[01:03.6] PATIENT_BOT: A routine follow-up, I think. I'm mostly just checking in on my cholesterol medication.
+[01:11.8] CLINIC_AGENT: Do you have a specific provider you'd like to see for your follow-up? Or should I look for openings with any available provider?
+[01:19.8] PATIENT_BOT: Any available provider is fine with me, as long as it's 7 PM on a weekday next week. And wait, do you have a doctor I'm already scheduled with on file? I don't remember the details.
+[01:31.4] CLINIC_AGENT: You already have a follow-up appointment scheduled with doctor Doogie Hauser on Thursday, October twenty second at eight AM at Pivot Point Orthopedics. Would you like to keep this appointment? Reschedule it to a later time, or cancel it?
+[01:46.2] PATIENT_BOT: Wait, you're sure it's Thursday, October twenty-second at eight in the morning? I don't remember that one. Can you tell me what it's for before I decide anything?
+[01:58.0] CLINIC_AGENT: Your appointment on Thursday, October twenty second at eight AM is a follow-up visit likely related to your ongoing care and medication check-in. Would you like to keep this appointment, reschedule it for a later time, or cancel it?
+[02:11.7] PATIENT_BOT: Okay, so I already have one on file that I don't remember booking. I'd rather keep it for now and add the 7 PM visit next week. Can you check if you have anything open for me at 7 PM on a weekday next week?
+[02:24.6] CLINIC_AGENT: I can't book another follow-up visit of the same type where you already have one scheduled. If you wanna move your current appointment to a seven PM slot next week, I can help reschedule it. Would you like to do that?
+[02:36.6] PATIENT_BOT: Sure, let's move it to 7 PM next week instead. Which weekday do you have open?
+[02:44.4] CLINIC_AGENT: Let me check which weekdays next week. Have a seven PM opening for your follow-up. One moment. You have a follow-up appointment with doctor Duttihauser, on Thursday, October twenty second at eight AM. Would you like to move this appointment to a seven PM slot on a different weekday next week? If so, do you have a preferred day, or should I check all weekdays for seven PM?
+[03:06.9] CLINIC_AGENT: Follow-up appointment is set for Thursday. October twenty second at eight AM with doctor Dugge Hauser. Just to confirm, is this the appointment you wanna move to a seven PM slot next week?
+[03:18.8] PATIENT_BOT: Yes, that's the one. Check all weekdays for me, and I'd prefer the earliest 7 PM you have. Also, what time do you close on weekdays?
+[03:28.6] CLINIC_AGENT: I don't have the clinic's closing time. But the latest follow-up slots available next week are at two PM. There are no seven PM openings for follow-up visits. Would you like to try for a different time such as late afternoon or a different week?
+[03:43.4] PATIENT_BOT: Wait, you're saying there's nothing at 7 PM next week at all? Then I'll take the latest one, and I'd like to know which day it's on. If that doesn't work, I can do Thanksgiving Day, Thursday November twenty-sixth, in the morning.
+[03:56.8] CLINIC_AGENT: The latest follow-up slot next week is Monday, October nineteenth at two PM with doctor Judy Hauser. Would you like to move your appointment to that time? If not, I can check for openings on Thursday, November twenty sixth in the morning.
+[04:12.6] PATIENT_BOT: Monday at two PM is too early for me to get off work, so no. Let's check Thanksgiving, Thursday November twenty-sixth, in the morning.
+[04:22.9] CLINIC_AGENT: Next opening on Thanksgiving, Thursday, November twenty sixth, is at eight AM with doctor Judy Hauser. Would you like to move your appointment to that time, or would you prefer nine AM or ten AM instead?
+[04:35.2] PATIENT_BOT: Eight AM works, but I'd rather have the later one if you have it. Is ten AM open? And before we book, what time do you close on weekdays?
+[04:45.0] CLINIC_AGENT: Yes. Ten AM is open on Thursday, November twenty sixth.
+[05:02.4] PATIENT_BOT: Hold on, I haven't confirmed the ten AM booking yet. Please go ahead and move my appointment to Thursday, November twenty-sixth at ten AM with Judy Hauser, and tell me once it's confirmed.

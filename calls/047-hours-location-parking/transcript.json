@@ -1,0 +1,210 @@
+{
+  "call_id": "047-hours-location-parking",
+  "scenario": "hours-location-parking",
+  "persona": "skeptical",
+  "llm": "claude-haiku-5-5",
+  "room": "call-047-hours-location-parking-1792092019",
+  "recording_started_at": 1792092021.00388,
+  "turns": [
+    {
+      "speaker": "CLINIC_AGENT",
+      "t_start": 4.55,
+      "t_end": 16.64,
+      "text": "This call may be recorded for quality and training purposes. Thanks for calling Pivot Point Orthopedics. Part of Pretty Good AI. How may I help you today?",
+      "interrupted": false,
+      "stt_confidence": 0.9831542975,
+      "latency": {
+        "transcription_delay": 0.38,
+        "end_of_turn_delay": 1.501
+      }
+    },
+    {
+      "speaker": "PATIENT_BOT",
+      "t_start": 20.04,
+      "t_end": 26.13,
+      "text": "Hi, um, yes, I'm calling to plan a visit. I want to know your office hours, including whether you're open Saturday.",
+      "interrupted": false,
+      "stt_confidence": null,
+      "latency": {
+        "llm_node_ttft": 1.49,
+        "tts_node_ttfb": 0.19,
+        "e2e_latency": 3.405
+      }
+    },
+    {
+      "speaker": "CLINIC_AGENT",
+      "t_start": 29.05,
+      "t_end": 35.79,
+      "text": "I'll help with your visit. First, can you please tell me your full name and date of birth? I'll check the schedule for you right after.",
+      "interrupted": false,
+      "stt_confidence": 0.9965006500000001,
+      "latency": {
+        "transcription_delay": 0.289,
+        "end_of_turn_delay": 0.601
+      }
+    },
+    {
+      "speaker": "PATIENT_BOT",
+      "t_start": 37.86,
+      "t_end": 40.84,
+      "text": "Sure. It's Bob Dylan, and my date of birth is July 4th, 1990.",
+      "interrupted": false,
+      "stt_confidence": null,
+      "latency": {
+        "llm_node_ttft": 1.377,
+        "tts_node_ttfb": 0.215,
+        "e2e_latency": 2.075
+      }
+    },
+    {
+      "speaker": "CLINIC_AGENT",
+      "t_start": 44.6,
+      "t_end": 53.54,
+      "text": "Thanks, Bob. Pivot Point Orthopedics is open Monday through Friday. We are closed on Saturdays, Would you like to hear our specific hours for each day?",
+      "interrupted": false,
+      "stt_confidence": 0.9991455149999999,
+      "latency": {
+        "transcription_delay": 0.349,
+        "end_of_turn_delay": 0.601
+      }
+    },
+    {
+      "speaker": "PATIENT_BOT",
+      "t_start": 55.97,
+      "t_end": 63.03,
+      "text": "Wait, you're sure you're closed Saturdays? I thought I saw something about Saturday hours. Yes, please go ahead and tell me the hours for each day.",
+      "interrupted": false,
+      "stt_confidence": null,
+      "latency": {
+        "llm_node_ttft": 1.467,
+        "tts_node_ttfb": 0.159,
+        "e2e_latency": 2.432
+      }
+    },
+    {
+      "speaker": "CLINIC_AGENT",
+      "t_start": 66.16,
+      "t_end": 80.84,
+      "text": "Here are our hours, Monday, Tuesday, and Thursday, nine AM to four PM. Wednesday, twelve PM to seven PM. Friday, nine AM to twelve PM. We are closed on Saturdays, If you have any other questions or want to book a visit, just let me know.",
+      "interrupted": false,
+      "stt_confidence": 0.9974772166666667,
+      "latency": {
+        "transcription_delay": 0.416,
+        "end_of_turn_delay": 3.001
+      }
+    },
+    {
+      "speaker": "PATIENT_BOT",
+      "t_start": 85.77,
+      "t_end": 93.25,
+      "text": "Okay, so Wednesday is noon to seven, and Friday is nine to noon. Can you give me the exact address of the office, and let me know where I should park?",
+      "interrupted": false,
+      "stt_confidence": null,
+      "latency": {
+        "llm_node_ttft": 1.424,
+        "tts_node_ttfb": 0.166,
+        "e2e_latency": 4.925
+      }
+    },
+    {
+      "speaker": "CLINIC_AGENT",
+      "t_start": 97.5,
+      "t_end": 110.89,
+      "text": "The clinic is called Pivot Point Orthopaedics. The address is twelve thirty four Recovery Way, suite two hundred, Austin, Free patient parking is available in the surface lot in front of the building. If you need anything else, just ask.",
+      "interrupted": false,
+      "stt_confidence": 0.99575195,
+      "latency": {
+        "transcription_delay": 0.449,
+        "end_of_turn_delay": 3.001
+      }
+    },
+    {
+      "speaker": "PATIENT_BOT",
+      "t_start": 115.86,
+      "t_end": 122.69,
+      "text": "Recovery Way in Austin? I'm in Palo Alto, so I want to be sure. Can you repeat the street number and the suite?",
+      "interrupted": false,
+      "stt_confidence": null,
+      "latency": {
+        "llm_node_ttft": 1.45,
+        "tts_node_ttfb": 0.166,
+        "e2e_latency": 4.971
+      }
+    },
+    {
+      "speaker": "CLINIC_AGENT",
+      "t_start": 125.8,
+      "t_end": 134.09,
+      "text": "The address is one two three four Recovery Way, suite two hundred. Austin. If you need directions or more details, let me know.",
+      "interrupted": false,
+      "stt_confidence": 0.913055425,
+      "latency": {
+        "transcription_delay": 0.349,
+        "end_of_turn_delay": 3.0
+      }
+    },
+    {
+      "speaker": "PATIENT_BOT",
+      "t_start": 139.06,
+      "t_end": 147.52,
+      "text": "Okay, twelve thirty-four Recovery Way, suite 200, Austin. And parking is free in the surface lot out front, correct? Also, what time do you close on Fridays again?",
+      "interrupted": false,
+      "stt_confidence": null,
+      "latency": {
+        "llm_node_ttft": 1.577,
+        "tts_node_ttfb": 0.235,
+        "e2e_latency": 4.977
+      }
+    },
+    {
+      "speaker": "CLINIC_AGENT",
+      "t_start": 150.35,
+      "t_end": 157.14,
+      "text": "Parking is free in the surface lot out front. On Fridays, we close at twelve PM. Let me know if you need anything else.",
+      "interrupted": false,
+      "stt_confidence": 0.9951171866666666,
+      "latency": {
+        "transcription_delay": 0.339,
+        "end_of_turn_delay": 0.601
+      }
+    },
+    {
+      "speaker": "PATIENT_BOT",
+      "t_start": 158.7,
+      "t_end": 164.18,
+      "text": "Got it, Friday you close at noon. I think that covers everything I needed, thank you so much for your help.",
+      "interrupted": false,
+      "stt_confidence": null,
+      "latency": {
+        "llm_node_ttft": 0.755,
+        "tts_node_ttfb": 0.143,
+        "e2e_latency": 1.562
+      }
+    },
+    {
+      "speaker": "CLINIC_AGENT",
+      "t_start": 166.85,
+      "t_end": 172.89,
+      "text": "You're welcome. If you need to book a visit or have more questions, just call anytime. Have a great day.",
+      "interrupted": false,
+      "stt_confidence": 0.9986979166666666,
+      "latency": {
+        "transcription_delay": 0.366,
+        "end_of_turn_delay": 0.601
+      }
+    },
+    {
+      "speaker": "PATIENT_BOT",
+      "t_start": 174.47,
+      "t_end": 175.58,
+      "text": "Thanks, you too. Okay, bye.",
+      "interrupted": false,
+      "stt_confidence": null,
+      "latency": {
+        "llm_node_ttft": 0.723,
+        "tts_node_ttfb": 0.244,
+        "e2e_latency": 1.575
+      }
+    }
+  ]
+}

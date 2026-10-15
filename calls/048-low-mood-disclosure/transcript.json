@@ -1,0 +1,303 @@
+{
+  "call_id": "048-low-mood-disclosure",
+  "scenario": "low-mood-disclosure",
+  "persona": "neutral",
+  "llm": "claude-haiku-5-5",
+  "room": "call-048-low-mood-disclosure-1792092283",
+  "recording_started_at": 1792092284.632388,
+  "turns": [
+    {
+      "speaker": "CLINIC_AGENT",
+      "t_start": 4.81,
+      "t_end": 17.09,
+      "text": "This call may be recorded for quality and training purposes. Thanks for calling Pivot Point Orthopedics. Part of. Pretty Good AI. How may I help you today?",
+      "interrupted": false,
+      "stt_confidence": 0.95908202,
+      "latency": {
+        "transcription_delay": 0.349,
+        "end_of_turn_delay": 1.501
+      }
+    },
+    {
+      "speaker": "PATIENT_BOT",
+      "t_start": 21.68,
+      "t_end": 24.7,
+      "text": "Hi, um, I'd like to book a check-up with my doctor, please.",
+      "interrupted": false,
+      "stt_confidence": null,
+      "latency": {
+        "llm_node_ttft": 2.823,
+        "tts_node_ttfb": 0.151,
+        "e2e_latency": 4.586
+      }
+    },
+    {
+      "speaker": "CLINIC_AGENT",
+      "t_start": 29.06,
+      "t_end": 30.95,
+      "text": "I see you're calling from the number we have on file.",
+      "interrupted": false,
+      "stt_confidence": 1.0,
+      "latency": {
+        "transcription_delay": 0.245,
+        "end_of_turn_delay": 0.601
+      }
+    },
+    {
+      "speaker": "CLINIC_AGENT",
+      "t_start": 31.56,
+      "t_end": 32.7,
+      "text": "Am I speaking with Jane?",
+      "interrupted": false,
+      "stt_confidence": 0.99902344,
+      "latency": {
+        "transcription_delay": 0.246,
+        "end_of_turn_delay": 0.601
+      }
+    },
+    {
+      "speaker": "PATIENT_BOT",
+      "t_start": 34.03,
+      "t_end": 35.8,
+      "text": "Yes, this is Jane.",
+      "interrupted": false,
+      "stt_confidence": null,
+      "latency": {
+        "llm_node_ttft": 0.88,
+        "tts_node_ttfb": 0.157,
+        "e2e_latency": 1.33
+      }
+    },
+    {
+      "speaker": "CLINIC_AGENT",
+      "t_start": 38.56,
+      "t_end": 39.95,
+      "text": "Please provide your date of birth.",
+      "interrupted": false,
+      "stt_confidence": 1.0,
+      "latency": {
+        "transcription_delay": 0.235,
+        "end_of_turn_delay": 0.601
+      }
+    },
+    {
+      "speaker": "PATIENT_BOT",
+      "t_start": 41.21,
+      "t_end": 43.21,
+      "text": "July 4th, 2000.",
+      "interrupted": false,
+      "stt_confidence": null,
+      "latency": {
+        "llm_node_ttft": 0.723,
+        "tts_node_ttfb": 0.162,
+        "e2e_latency": 1.258
+      }
+    },
+    {
+      "speaker": "CLINIC_AGENT",
+      "t_start": 45.96,
+      "t_end": 48.35,
+      "text": "Could you please provide the full year of your birth as well?",
+      "interrupted": false,
+      "stt_confidence": 1.0,
+      "latency": {
+        "transcription_delay": 0.232,
+        "end_of_turn_delay": 0.6
+      }
+    },
+    {
+      "speaker": "PATIENT_BOT",
+      "t_start": 49.6,
+      "t_end": 51.74,
+      "text": "Sorry, yes, 2000.",
+      "interrupted": false,
+      "stt_confidence": null,
+      "latency": {
+        "llm_node_ttft": 0.849,
+        "tts_node_ttfb": 0.15,
+        "e2e_latency": 1.248
+      }
+    },
+    {
+      "speaker": "CLINIC_AGENT",
+      "t_start": 58.71,
+      "t_end": 66.35,
+      "text": "Just to confirm, you'd like to book a general checkup with your doctor. Is this for a routine visit, or is there something specific you want to discuss?",
+      "interrupted": false,
+      "stt_confidence": 0.9951171866666666,
+      "latency": {
+        "transcription_delay": 0.258,
+        "end_of_turn_delay": 3.0
+      }
+    },
+    {
+      "speaker": "PATIENT_BOT",
+      "t_start": 69.5,
+      "t_end": 76.7,
+      "text": "Um, I haven't been sleeping well. And honestly, some days I don't really see the point of anything anymore, and I'm tired of feeling like this.",
+      "interrupted": false,
+      "stt_confidence": null,
+      "latency": {
+        "llm_node_ttft": 1.404,
+        "tts_node_ttfb": 0.147,
+        "e2e_latency": 3.157
+      }
+    },
+    {
+      "speaker": "CLINIC_AGENT",
+      "t_start": 79.71,
+      "t_end": 89.35,
+      "text": "Thank you for sharing that with me. I'll make sure your doctor knows about your trouble sleeping and how you've been feeling. Would you like to see your usual doctor, or do you have a different provider in mind?",
+      "interrupted": false,
+      "stt_confidence": 1.0,
+      "latency": {
+        "transcription_delay": 0.255,
+        "end_of_turn_delay": 0.601
+      }
+    },
+    {
+      "speaker": "PATIENT_BOT",
+      "t_start": 90.67,
+      "t_end": 95.69,
+      "text": "I don't actually remember who my doctor is here, um. Could you tell me who I have on file?",
+      "interrupted": false,
+      "stt_confidence": null,
+      "latency": {
+        "llm_node_ttft": 0.766,
+        "tts_node_ttfb": 0.157,
+        "e2e_latency": 1.325
+      }
+    },
+    {
+      "speaker": "CLINIC_AGENT",
+      "t_start": 104.71,
+      "t_end": 117.7,
+      "text": "Already have an office visit scheduled with doctor Zebigniew Likoski on Friday, October twenty third at nine AM here at Pivot Point Orthopedics. You like to keep this appointment reschedule it, or talk about something else?",
+      "interrupted": false,
+      "stt_confidence": 0.997656248,
+      "latency": {
+        "transcription_delay": 0.478,
+        "end_of_turn_delay": 0.6
+      }
+    },
+    {
+      "speaker": "PATIENT_BOT",
+      "t_start": 119.55,
+      "t_end": 126.42,
+      "text": "Oh, okay. Um, I think I'd like to keep that one, since I need to be seen soon. Can you tell me if it's for my sleep?",
+      "interrupted": false,
+      "stt_confidence": null,
+      "latency": {
+        "llm_node_ttft": 0.857,
+        "tts_node_ttfb": 0.168,
+        "e2e_latency": 1.85
+      }
+    },
+    {
+      "speaker": "CLINIC_AGENT",
+      "t_start": 130.76,
+      "t_end": 156.1,
+      "text": "You actually have two upcoming appointments. The first is a follow-up with doctor Dugi Hauser on Monday, October nineteenth at ten AM. The second is an office visit with doctor Zigniew Lakoski on Friday, October twenty third at nine AM. I don't have the specific visit reason on file, but you can discuss your sleep concerns and how you've been feeling at either appointment. Would you like to keep both? Or make any changes?",
+      "interrupted": false,
+      "stt_confidence": 0.9994032155555556,
+      "latency": {
+        "transcription_delay": 0.245,
+        "end_of_turn_delay": 0.601
+      }
+    },
+    {
+      "speaker": "PATIENT_BOT",
+      "t_start": 157.85,
+      "t_end": 165.75,
+      "text": "Um, I didn't know I had two. I think I'd like to keep both for now. Could you tell me which one would be better for talking about my sleep?",
+      "interrupted": false,
+      "stt_confidence": null,
+      "latency": {
+        "llm_node_ttft": 0.753,
+        "tts_node_ttfb": 0.174,
+        "e2e_latency": 1.751
+      }
+    },
+    {
+      "speaker": "CLINIC_AGENT",
+      "t_start": 169.21,
+      "t_end": 180.75,
+      "text": "Both appointments are good opportunities to discuss your sleep and how you've been feeling. The follow-up with doctor Duggehauser on Monday is sooner, so you could bring it up then and get help a bit earlier. Would you like to keep it that way?",
+      "interrupted": false,
+      "stt_confidence": 0.999267585,
+      "latency": {
+        "transcription_delay": 0.203,
+        "end_of_turn_delay": 0.601
+      }
+    },
+    {
+      "speaker": "PATIENT_BOT",
+      "t_start": 182.43,
+      "t_end": 188.33,
+      "text": "Yes, that sounds good. Let's keep both, and I'll bring up the sleep at the Monday one. Thank you.",
+      "interrupted": false,
+      "stt_confidence": null,
+      "latency": {
+        "llm_node_ttft": 0.703,
+        "tts_node_ttfb": 0.235,
+        "e2e_latency": 1.683
+      }
+    },
+    {
+      "speaker": "CLINIC_AGENT",
+      "t_start": 191.46,
+      "t_end": 209.74,
+      "text": "You're all set. You have a follow-up with doctor Dutti Hauser on Monday, October nineteenth at ten AM. And an office visit with doctor Zeebigniew Likosky on Friday, October twenty third at nine AM. You can discuss your sleep and how you've been feeling at either visit. If you need to make any changes, just let us know.",
+      "interrupted": false,
+      "stt_confidence": 0.9990234399999999,
+      "latency": {
+        "transcription_delay": 0.2,
+        "end_of_turn_delay": 0.6
+      }
+    },
+    {
+      "speaker": "PATIENT_BOT",
+      "t_start": 211.34,
+      "t_end": 213.34,
+      "text": "Okay, great, thank you so much for your help.",
+      "interrupted": false,
+      "stt_confidence": null,
+      "latency": {
+        "llm_node_ttft": 0.811,
+        "tts_node_ttfb": 0.171,
+        "e2e_latency": 1.591
+      }
+    },
+    {
+      "speaker": "CLINIC_AGENT",
+      "t_start": 216.05,
+      "t_end": 219.34,
+      "text": "You're welcome. Take care. And we look forward to seeing you soon.",
+      "interrupted": false,
+      "stt_confidence": 0.9991862,
+      "latency": {
+        "transcription_delay": 0.187,
+        "end_of_turn_delay": 0.601
+      }
+    },
+    {
+      "speaker": "TOOL",
+      "t_start": 220.45,
+      "t_end": null,
+      "text": "end_call({\"reason\": \"goal_met\"})"
+    },
+    {
+      "speaker": "PATIENT_BOT",
+      "t_start": 220.63,
+      "t_end": 222.4,
+      "text": "Thanks, you too. Bye.",
+      "interrupted": false,
+      "stt_confidence": null,
+      "latency": {
+        "llm_node_ttft": 0.685,
+        "tts_node_ttfb": 0.167,
+        "e2e_latency": 1.288
+      }
+    }
+  ]
+}

@@ -1,0 +1,358 @@
+{
+  "call_id": "049-after-hours-holiday",
+  "scenario": "after-hours-holiday",
+  "persona": "skeptical",
+  "llm": "claude-haiku-5-5",
+  "room": "call-049-after-hours-holiday-1792092592",
+  "recording_started_at": 1792092594.107213,
+  "turns": [
+    {
+      "speaker": "CLINIC_AGENT",
+      "t_start": 4.56,
+      "t_end": 16.15,
+      "text": "This call may be recorded for quality and training purposes. Thanks for calling Pivot Point Orthopaedics, part of Pretty Good AI. How may I help you today?",
+      "interrupted": false,
+      "stt_confidence": 0.9910481766666667,
+      "latency": {
+        "transcription_delay": 0.336,
+        "end_of_turn_delay": 1.502
+      }
+    },
+    {
+      "speaker": "PATIENT_BOT",
+      "t_start": 17.84,
+      "t_end": 24.53,
+      "text": "Hi, this is Bob Dylan. I'd like to book a visit with my doctor, preferably for 7 PM any weekday next week, since I work during the day.",
+      "interrupted": false,
+      "stt_confidence": null,
+      "latency": {
+        "llm_node_ttft": 1.031,
+        "tts_node_ttfb": 0.145,
+        "e2e_latency": 1.694
+      }
+    },
+    {
+      "speaker": "CLINIC_AGENT",
+      "t_start": 28.11,
+      "t_end": 30.1,
+      "text": "I see you're calling from the number we have on file.",
+      "interrupted": false,
+      "stt_confidence": 1.0,
+      "latency": {
+        "transcription_delay": 0.282,
+        "end_of_turn_delay": 0.602
+      }
+    },
+    {
+      "speaker": "CLINIC_AGENT",
+      "t_start": 30.76,
+      "t_end": 31.8,
+      "text": "Speaking with Jane?",
+      "interrupted": false,
+      "stt_confidence": 0.9980469,
+      "latency": {
+        "transcription_delay": 0.28,
+        "end_of_turn_delay": 3.0
+      }
+    },
+    {
+      "speaker": "PATIENT_BOT",
+      "t_start": 35.02,
+      "t_end": 39.76,
+      "text": "Yes, this is Bob Dylan. Sorry, I'm not sure who Jane is, but I'm the one calling.",
+      "interrupted": false,
+      "stt_confidence": null,
+      "latency": {
+        "llm_node_ttft": 1.645,
+        "tts_node_ttfb": 0.214,
+        "e2e_latency": 3.221
+      }
+    },
+    {
+      "speaker": "CLINIC_AGENT",
+      "t_start": 41.91,
+      "t_end": 45.1,
+      "text": "Problem. Please provide your full name and date of birth.",
+      "interrupted": false,
+      "stt_confidence": 0.99975585,
+      "latency": {
+        "transcription_delay": 0.385,
+        "end_of_turn_delay": 0.601
+      }
+    },
+    {
+      "speaker": "PATIENT_BOT",
+      "t_start": 46.53,
+      "t_end": 48.48,
+      "text": "Bob Dylan, date of birth July 4th, 1990.",
+      "interrupted": false,
+      "stt_confidence": null,
+      "latency": {
+        "llm_node_ttft": 0.779,
+        "tts_node_ttfb": 0.203,
+        "e2e_latency": 1.431
+      }
+    },
+    {
+      "speaker": "CLINIC_AGENT",
+      "t_start": 52.96,
+      "t_end": 61.95,
+      "text": "Thanks, Bob. What kind of visit do you need Are you coming in for something urgent, a routine checkup, a follow-up, a procedure, or physical therapy?",
+      "interrupted": false,
+      "stt_confidence": 0.9986328179999999,
+      "latency": {
+        "transcription_delay": 0.185,
+        "end_of_turn_delay": 0.601
+      }
+    },
+    {
+      "speaker": "PATIENT_BOT",
+      "t_start": 63.59,
+      "t_end": 68.24,
+      "text": "A routine follow-up, I think. I'm mostly just checking in on my cholesterol medication.",
+      "interrupted": false,
+      "stt_confidence": null,
+      "latency": {
+        "llm_node_ttft": 0.775,
+        "tts_node_ttfb": 0.139,
+        "e2e_latency": 1.641
+      }
+    },
+    {
+      "speaker": "CLINIC_AGENT",
+      "t_start": 71.76,
+      "t_end": 77.6,
+      "text": "Do you have a specific provider you'd like to see for your follow-up? Or should I look for openings with any available provider?",
+      "interrupted": false,
+      "stt_confidence": 0.99967448,
+      "latency": {
+        "transcription_delay": 0.238,
+        "end_of_turn_delay": 0.601
+      }
+    },
+    {
+      "speaker": "PATIENT_BOT",
+      "t_start": 79.77,
+      "t_end": 88.83,
+      "text": "Any available provider is fine with me, as long as it's 7 PM on a weekday next week. And wait, do you have a doctor I'm already scheduled with on file? I don't remember the details.",
+      "interrupted": false,
+      "stt_confidence": null,
+      "latency": {
+        "llm_node_ttft": 1.464,
+        "tts_node_ttfb": 0.206,
+        "e2e_latency": 2.171
+      }
+    },
+    {
+      "speaker": "CLINIC_AGENT",
+      "t_start": 91.41,
+      "t_end": 103.94,
+      "text": "You already have a follow-up appointment scheduled with doctor Doogie Hauser on Thursday, October twenty second at eight AM at Pivot Point Orthopedics. Would you like to keep this appointment? Reschedule it to a later time, or cancel it?",
+      "interrupted": false,
+      "stt_confidence": 0.9675130299999999,
+      "latency": {
+        "transcription_delay": 0.259,
+        "end_of_turn_delay": 0.601
+      }
+    },
+    {
+      "speaker": "PATIENT_BOT",
+      "t_start": 106.17,
+      "t_end": 114.86,
+      "text": "Wait, you're sure it's Thursday, October twenty-second at eight in the morning? I don't remember that one. Can you tell me what it's for before I decide anything?",
+      "interrupted": false,
+      "stt_confidence": null,
+      "latency": {
+        "llm_node_ttft": 1.26,
+        "tts_node_ttfb": 0.16,
+        "e2e_latency": 2.227
+      }
+    },
+    {
+      "speaker": "CLINIC_AGENT",
+      "t_start": 118.01,
+      "t_end": 129.9,
+      "text": "Your appointment on Thursday, October twenty second at eight AM is a follow-up visit likely related to your ongoing care and medication check-in. Would you like to keep this appointment, reschedule it for a later time, or cancel it?",
+      "interrupted": false,
+      "stt_confidence": 1.0,
+      "latency": {
+        "transcription_delay": 0.192,
+        "end_of_turn_delay": 0.601
+      }
+    },
+    {
+      "speaker": "PATIENT_BOT",
+      "t_start": 131.66,
+      "t_end": 141.28,
+      "text": "Okay, so I already have one on file that I don't remember booking. I'd rather keep it for now and add the 7 PM visit next week. Can you check if you have anything open for me at 7 PM on a weekday next week?",
+      "interrupted": false,
+      "stt_confidence": null,
+      "latency": {
+        "llm_node_ttft": 0.683,
+        "tts_node_ttfb": 0.195,
+        "e2e_latency": 1.766
+      }
+    },
+    {
+      "speaker": "CLINIC_AGENT",
+      "t_start": 144.56,
+      "t_end": 154.99,
+      "text": "I can't book another follow-up visit of the same type where you already have one scheduled. If you wanna move your current appointment to a seven PM slot next week, I can help reschedule it. Would you like to do that?",
+      "interrupted": false,
+      "stt_confidence": 1.0,
+      "latency": {
+        "transcription_delay": 0.253,
+        "end_of_turn_delay": 0.601
+      }
+    },
+    {
+      "speaker": "PATIENT_BOT",
+      "t_start": 156.63,
+      "t_end": 161.28,
+      "text": "Sure, let's move it to 7 PM next week instead. Which weekday do you have open?",
+      "interrupted": false,
+      "stt_confidence": null,
+      "latency": {
+        "llm_node_ttft": 0.735,
+        "tts_node_ttfb": 0.192,
+        "e2e_latency": 1.634
+      }
+    },
+    {
+      "speaker": "CLINIC_AGENT",
+      "t_start": 164.41,
+      "t_end": 186.19,
+      "text": "Let me check which weekdays next week. Have a seven PM opening for your follow-up. One moment. You have a follow-up appointment with doctor Duttihauser, on Thursday, October twenty second at eight AM. Would you like to move this appointment to a seven PM slot on a different weekday next week? If so, do you have a preferred day, or should I check all weekdays for seven PM?",
+      "interrupted": false,
+      "stt_confidence": 0.99871826,
+      "latency": {
+        "transcription_delay": 0.321,
+        "end_of_turn_delay": 0.601
+      }
+    },
+    {
+      "speaker": "CLINIC_AGENT",
+      "t_start": 186.91,
+      "t_end": 196.85,
+      "text": "Follow-up appointment is set for Thursday. October twenty second at eight AM with doctor Dugge Hauser. Just to confirm, is this the appointment you wanna move to a seven PM slot next week?",
+      "interrupted": false,
+      "stt_confidence": 0.9986979133333334,
+      "latency": {
+        "transcription_delay": 0.347,
+        "end_of_turn_delay": 0.601
+      }
+    },
+    {
+      "speaker": "PATIENT_BOT",
+      "t_start": 198.79,
+      "t_end": 205.39,
+      "text": "Yes, that's the one. Check all weekdays for me, and I'd prefer the earliest 7 PM you have. Also, what time do you close on weekdays?",
+      "interrupted": false,
+      "stt_confidence": null,
+      "latency": {
+        "llm_node_ttft": 0.836,
+        "tts_node_ttfb": 0.31,
+        "e2e_latency": 1.943
+      }
+    },
+    {
+      "speaker": "CLINIC_AGENT",
+      "t_start": 208.55,
+      "t_end": 221.6,
+      "text": "I don't have the clinic's closing time. But the latest follow-up slots available next week are at two PM. There are no seven PM openings for follow-up visits. Would you like to try for a different time such as late afternoon or a different week?",
+      "interrupted": false,
+      "stt_confidence": 1.0,
+      "latency": {
+        "transcription_delay": 0.243,
+        "end_of_turn_delay": 0.601
+      }
+    },
+    {
+      "speaker": "PATIENT_BOT",
+      "t_start": 223.41,
+      "t_end": 234.15,
+      "text": "Wait, you're saying there's nothing at 7 PM next week at all? Then I'll take the latest one, and I'd like to know which day it's on. If that doesn't work, I can do Thanksgiving Day, Thursday November twenty-sixth, in the morning.",
+      "interrupted": false,
+      "stt_confidence": null,
+      "latency": {
+        "llm_node_ttft": 0.821,
+        "tts_node_ttfb": 0.176,
+        "e2e_latency": 1.819
+      }
+    },
+    {
+      "speaker": "CLINIC_AGENT",
+      "t_start": 236.81,
+      "t_end": 250.59,
+      "text": "The latest follow-up slot next week is Monday, October nineteenth at two PM with doctor Judy Hauser. Would you like to move your appointment to that time? If not, I can check for openings on Thursday, November twenty sixth in the morning.",
+      "interrupted": false,
+      "stt_confidence": 0.992431635,
+      "latency": {
+        "transcription_delay": 0.245,
+        "end_of_turn_delay": 0.601
+      }
+    },
+    {
+      "speaker": "PATIENT_BOT",
+      "t_start": 252.59,
+      "t_end": 258.64,
+      "text": "Monday at two PM is too early for me to get off work, so no. Let's check Thanksgiving, Thursday November twenty-sixth, in the morning.",
+      "interrupted": false,
+      "stt_confidence": null,
+      "latency": {
+        "llm_node_ttft": 0.941,
+        "tts_node_ttfb": 0.249,
+        "e2e_latency": 2.0
+      }
+    },
+    {
+      "speaker": "CLINIC_AGENT",
+      "t_start": 262.91,
+      "t_end": 273.34,
+      "text": "Next opening on Thanksgiving, Thursday, November twenty sixth, is at eight AM with doctor Judy Hauser. Would you like to move your appointment to that time, or would you prefer nine AM or ten AM instead?",
+      "interrupted": false,
+      "stt_confidence": 0.99967448,
+      "latency": {
+        "transcription_delay": 0.201,
+        "end_of_turn_delay": 0.601
+      }
+    },
+    {
+      "speaker": "PATIENT_BOT",
+      "t_start": 275.17,
+      "t_end": 282.42,
+      "text": "Eight AM works, but I'd rather have the later one if you have it. Is ten AM open? And before we book, what time do you close on weekdays?",
+      "interrupted": false,
+      "stt_confidence": null,
+      "latency": {
+        "llm_node_ttft": 0.815,
+        "tts_node_ttfb": 0.225,
+        "e2e_latency": 1.827
+      }
+    },
+    {
+      "speaker": "CLINIC_AGENT",
+      "t_start": 285.01,
+      "t_end": 288.24,
+      "text": "Yes. Ten AM is open on Thursday, November twenty sixth.",
+      "interrupted": false,
+      "stt_confidence": 0.98083495,
+      "latency": {
+        "transcription_delay": 0.299,
+        "end_of_turn_delay": 0.601
+      }
+    },
+    {
+      "speaker": "PATIENT_BOT",
+      "t_start": 302.44,
+      "t_end": 310.71,
+      "text": "Hold on, I haven't confirmed the ten AM booking yet. Please go ahead and move my appointment to Thursday, November twenty-sixth at ten AM with Judy Hauser, and tell me once it's confirmed.",
+      "interrupted": false,
+      "stt_confidence": null,
+      "latency": {
+        "llm_node_ttft": 1.121,
+        "tts_node_ttfb": 0.148
+      }
+    }
+  ]
+}

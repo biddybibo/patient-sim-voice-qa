@@ -1,0 +1,16 @@
+[00:04.5] CLINIC_AGENT: This call may be recorded for quality and training purposes. Thanks for calling Pivot Point Orthopedics. Part of Pretty Good AI. How may I help you today?
+[00:20.0] PATIENT_BOT: Hi, um, yes, I'm calling to plan a visit. I want to know your office hours, including whether you're open Saturday.
+[00:29.1] CLINIC_AGENT: I'll help with your visit. First, can you please tell me your full name and date of birth? I'll check the schedule for you right after.
+[00:37.9] PATIENT_BOT: Sure. It's Bob Dylan, and my date of birth is July 4th, 1990.
+[00:44.6] CLINIC_AGENT: Thanks, Bob. Pivot Point Orthopedics is open Monday through Friday. We are closed on Saturdays, Would you like to hear our specific hours for each day?
+[00:56.0] PATIENT_BOT: Wait, you're sure you're closed Saturdays? I thought I saw something about Saturday hours. Yes, please go ahead and tell me the hours for each day.
+[01:06.2] CLINIC_AGENT: Here are our hours, Monday, Tuesday, and Thursday, nine AM to four PM. Wednesday, twelve PM to seven PM. Friday, nine AM to twelve PM. We are closed on Saturdays, If you have any other questions or want to book a visit, just let me know.
+[01:25.8] PATIENT_BOT: Okay, so Wednesday is noon to seven, and Friday is nine to noon. Can you give me the exact address of the office, and let me know where I should park?
+[01:37.5] CLINIC_AGENT: The clinic is called Pivot Point Orthopaedics. The address is twelve thirty four Recovery Way, suite two hundred, Austin, Free patient parking is available in the surface lot in front of the building. If you need anything else, just ask.
+[01:55.9] PATIENT_BOT: Recovery Way in Austin? I'm in Palo Alto, so I want to be sure. Can you repeat the street number and the suite?
+[02:05.8] CLINIC_AGENT: The address is one two three four Recovery Way, suite two hundred. Austin. If you need directions or more details, let me know.
+[02:19.1] PATIENT_BOT: Okay, twelve thirty-four Recovery Way, suite 200, Austin. And parking is free in the surface lot out front, correct? Also, what time do you close on Fridays again?
+[02:30.3] CLINIC_AGENT: Parking is free in the surface lot out front. On Fridays, we close at twelve PM. Let me know if you need anything else.
+[02:38.7] PATIENT_BOT: Got it, Friday you close at noon. I think that covers everything I needed, thank you so much for your help.
+[02:46.8] CLINIC_AGENT: You're welcome. If you need to book a visit or have more questions, just call anytime. Have a great day.
+[02:54.5] PATIENT_BOT: Thanks, you too. Okay, bye.

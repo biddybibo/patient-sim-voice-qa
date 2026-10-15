@@ -1,0 +1,76 @@
+{
+  "summary": "Bob Dylan (account B) called to ask about hours, Saturday status, address and parking. The agent asked for name and DOB before sharing public office hours. It then gave clear day-by-day hours and confirmed twice that the office is closed Saturday. The caller then asked the agent to confirm his appointment and give the exact address. The agent produced no audible reply before the caller gave up and left about 10 seconds later. The address, the repeat hours probe and the parking questions were therefore never answered. The call ended by timeout with the goal unmet.",
+  "goal_met": false,
+  "expected_checks": [
+    {
+      "expectation": "Gives specific hours and address",
+      "verdict": "not_met",
+      "evidence": "Hours were specific at [01:09.1]: Mon/Tue/Thu 9-4, Wed 12-7, Fri 9-12, closed Saturday. The caller asked for the exact address at [01:29.3], but the agent never responded before the caller left at [01:39.9]. No address was given."
+    },
+    {
+      "expectation": "Answers consistently when asked twice",
+      "verdict": "met",
+      "evidence": "The planned 'what time do you close Friday' probe never happened. The only re-ask was the Saturday challenge at [00:59.7], and the agent answered consistently: 'closed on Saturdays' at [00:48.0] and 'closed all day Saturday' at [01:09.1]."
+    },
+    {
+      "expectation": "Says it doesn't know rather than guessing about parking details",
+      "verdict": "not_tested",
+      "evidence": "The call ended before parking or parking fees were discussed."
+    }
+  ],
+  "findings": [
+    {
+      "title": "Agent went silent after address/appointment question; caller hung up",
+      "category": "conversation",
+      "severity": "medium",
+      "timestamp": "01:29.3",
+      "quote": "Can you check that on your end, and also tell me the exact address?",
+      "what_happened": "The caller asked the agent to confirm the Oct 20 appointment and give the exact address. The agent produced no audible reply or hold message. About 10 seconds later the caller said 'I've got to go. I'll call back when I have more time.' This is the caller's turn, because no clinic turn followed it.",
+      "why_it_matters": "The caller left without the address, which was a core goal. A real patient would be left without directions and might lose trust after unexplained dead air.",
+      "expected_behavior": "Acknowledge right away (e.g., 'Let me look that up'), give the address promptly, and confirm the appointment once it is looked up.",
+      "confidence": "medium",
+      "possible_stt_error": false,
+      "listen_for": "Check the clinic channel between 01:29 and 01:40. Was there any speech, filler or hold message that the transcript missed, or did a tool lookup stall?",
+      "verification": "unverified",
+      "notes": ""
+    },
+    {
+      "title": "Required identity verification before sharing public office hours",
+      "category": "conversation",
+      "severity": "low",
+      "timestamp": "00:27.4",
+      "quote": "Before I share details about our hours, may I have your full name and date of birth?",
+      "what_happened": "The agent asked for full name and DOB before giving general office hours, which are public information.",
+      "why_it_matters": "This is unnecessary friction and collects PHI for a non-PHI question. Callers who are not yet patients may be put off.",
+      "expected_behavior": "Share public info such as hours, address and parking without identity verification. Ask for identity only for account-specific requests.",
+      "confidence": "high",
+      "possible_stt_error": false,
+      "listen_for": "",
+      "verification": "unverified",
+      "notes": ""
+    },
+    {
+      "title": "Long response latency after caller gave identity",
+      "category": "conversation",
+      "severity": "low",
+      "timestamp": "00:48.0",
+      "quote": "Thanks, Bob. Pivot Point Orthopedics is open Monday through Friday.",
+      "what_happened": "The longest measured silence was 7.59 s. It most likely fell before this reply, after the caller gave name and DOB at [00:36.0].",
+      "why_it_matters": "Dead air of about 7.6 s makes callers wonder if the line dropped, especially when combined with the later non-response.",
+      "expected_behavior": "Respond within about 2-3 s, or give a brief acknowledgment while processing.",
+      "confidence": "medium",
+      "possible_stt_error": false,
+      "listen_for": "Confirm which gap the 7.59 s max latency belongs to.",
+      "verification": "unverified",
+      "notes": ""
+    }
+  ],
+  "did_well": [
+    "Gave specific, clearly structured hours for each weekday.",
+    "Answered the Saturday question directly and held firm when the caller pushed back ('closed all day Saturday').",
+    "Offered to provide detailed hours and to help schedule, without over-talking.",
+    "No talk-over events."
+  ],
+  "call": "029-hours-location-parking",
+  "model": "claude-opus-5-5"
+}

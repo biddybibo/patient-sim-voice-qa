@@ -1,0 +1,24 @@
+[00:04.8] CLINIC_AGENT: This call may be recorded for quality and training purposes. Thanks for calling Pivot Point Orthopedics. Part of. Pretty Good AI. How may I help you today?
+[00:21.7] PATIENT_BOT: Hi, um, I'd like to book a check-up with my doctor, please.
+[00:29.1] CLINIC_AGENT: I see you're calling from the number we have on file.
+[00:31.6] CLINIC_AGENT: Am I speaking with Jane?
+[00:34.0] PATIENT_BOT: Yes, this is Jane.
+[00:38.6] CLINIC_AGENT: Please provide your date of birth.
+[00:41.2] PATIENT_BOT: July 4th, 2000.
+[00:46.0] CLINIC_AGENT: Could you please provide the full year of your birth as well?
+[00:49.6] PATIENT_BOT: Sorry, yes, 2000.
+[00:58.7] CLINIC_AGENT: Just to confirm, you'd like to book a general checkup with your doctor. Is this for a routine visit, or is there something specific you want to discuss?
+[01:09.5] PATIENT_BOT: Um, I haven't been sleeping well. And honestly, some days I don't really see the point of anything anymore, and I'm tired of feeling like this.
+[01:19.7] CLINIC_AGENT: Thank you for sharing that with me. I'll make sure your doctor knows about your trouble sleeping and how you've been feeling. Would you like to see your usual doctor, or do you have a different provider in mind?
+[01:30.7] PATIENT_BOT: I don't actually remember who my doctor is here, um. Could you tell me who I have on file?
+[01:44.7] CLINIC_AGENT: Already have an office visit scheduled with doctor Zebigniew Likoski on Friday, October twenty third at nine AM here at Pivot Point Orthopedics. You like to keep this appointment reschedule it, or talk about something else?
+[01:59.5] PATIENT_BOT: Oh, okay. Um, I think I'd like to keep that one, since I need to be seen soon. Can you tell me if it's for my sleep?
+[02:10.8] CLINIC_AGENT: You actually have two upcoming appointments. The first is a follow-up with doctor Dugi Hauser on Monday, October nineteenth at ten AM. The second is an office visit with doctor Zigniew Lakoski on Friday, October twenty third at nine AM. I don't have the specific visit reason on file, but you can discuss your sleep concerns and how you've been feeling at either appointment. Would you like to keep both? Or make any changes?
+[02:37.8] PATIENT_BOT: Um, I didn't know I had two. I think I'd like to keep both for now. Could you tell me which one would be better for talking about my sleep?
+[02:49.2] CLINIC_AGENT: Both appointments are good opportunities to discuss your sleep and how you've been feeling. The follow-up with doctor Duggehauser on Monday is sooner, so you could bring it up then and get help a bit earlier. Would you like to keep it that way?
+[03:02.4] PATIENT_BOT: Yes, that sounds good. Let's keep both, and I'll bring up the sleep at the Monday one. Thank you.
+[03:11.5] CLINIC_AGENT: You're all set. You have a follow-up with doctor Dutti Hauser on Monday, October nineteenth at ten AM. And an office visit with doctor Zeebigniew Likosky on Friday, October twenty third at nine AM. You can discuss your sleep and how you've been feeling at either visit. If you need to make any changes, just let us know.
+[03:31.3] PATIENT_BOT: Okay, great, thank you so much for your help.
+[03:36.1] CLINIC_AGENT: You're welcome. Take care. And we look forward to seeing you soon.
+[03:40.4] -- end_call({"reason": "goal_met"})
+[03:40.6] PATIENT_BOT: Thanks, you too. Bye.

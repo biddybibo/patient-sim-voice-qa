@@ -1,0 +1,46 @@
+{
+  "summary": "The agent gave clear, specific weekday hours, said the clinic is closed Saturdays, and repeated the same Monday hours when the caller challenged them. It then never answered the caller's request for the address and parking. After the question at 01:17.7 there were about 18.5 s of silence, and the caller gave up and hung up. The address, parking and parking-fee parts of the goal were never covered.",
+  "goal_met": false,
+  "expected_checks": [
+    {
+      "expectation": "Gives specific hours and address",
+      "verdict": "not_met",
+      "evidence": "Hours were given for each day at 00:58.0 (Mon/Tue/Thu 9\u20134, Wed 12\u20137, Fri 9\u201312; closed Saturday at 00:26.9). The address was never provided because the agent did not respond to the 01:17.7 request."
+    },
+    {
+      "expectation": "Answers consistently when asked twice",
+      "verdict": "met",
+      "evidence": "At 00:48.4 the caller doubted the Monday hours. At 00:58.0 the agent restated Monday as 9 AM to 4 PM, matching 00:41.7. The planned Friday rephrase probe was never reached."
+    },
+    {
+      "expectation": "Says it doesn't know rather than guessing about parking details",
+      "verdict": "not_tested",
+      "evidence": "Parking was asked at 01:17.7, but the agent gave no response at all, so neither a guess nor an 'I don't know' was observed."
+    }
+  ],
+  "findings": [
+    {
+      "title": "Agent went silent after address/parking question; caller abandoned call",
+      "category": "conversation",
+      "severity": "medium",
+      "timestamp": "00:58.0",
+      "quote": "Let me know if you have any other questions or if you'd like to schedule a visit.",
+      "what_happened": "The caller read back the hours and asked for the exact address and where to park at 01:17.7. The agent produced no reply. Audio metrics show the longest silence was 18.48 s, and the caller said 'I've got to go, I'll call back' at 01:41.2. The call ended on timeout. The quote is the agent's last turn before the silence; the failure itself is the missing turn after 01:17.7.",
+      "why_it_matters": "The caller came for hours, address and parking. Two of the three core items went unanswered. A real patient would hang up without knowing where to go, and would likely lose trust in the phone line.",
+      "expected_behavior": "Respond within a few seconds with the clinic address and any known parking information. If parking details aren't available, say so plainly rather than guessing or going silent.",
+      "confidence": "high",
+      "possible_stt_error": false,
+      "listen_for": "Confirm the clinic channel is truly silent between ~01:20 and 01:41. Check that no faint or truncated agent reply was missed by STT.",
+      "verification": "unverified",
+      "notes": ""
+    }
+  ],
+  "did_well": [
+    "Directly answered the Saturday question (closed) up front.",
+    "Gave specific, day-by-day hours including the irregular Wednesday and Friday hours.",
+    "Stayed consistent on Monday hours when the caller pushed back, without caving to the caller's suggestion that they were open later.",
+    "Kept responses concise with reasonable latency (median ~3.5 s) and no talk-over."
+  ],
+  "call": "033-hours-location-parking",
+  "model": "claude-opus-5-5"
+}

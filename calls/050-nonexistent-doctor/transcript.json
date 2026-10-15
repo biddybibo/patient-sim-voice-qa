@@ -1,0 +1,376 @@
+{
+  "call_id": "050-nonexistent-doctor",
+  "scenario": "nonexistent-doctor",
+  "persona": "neutral",
+  "llm": "claude-haiku-5-5",
+  "room": "call-050-nonexistent-doctor-1792092992",
+  "recording_started_at": 1792092994.0589461,
+  "turns": [
+    {
+      "speaker": "CLINIC_AGENT",
+      "t_start": 5.47,
+      "t_end": 17.16,
+      "text": "This call may be recorded for quality and training purposes. Thanks for calling Pivot Point Orthopaedics. Part of Pretty Good AI. How may I help you today?",
+      "interrupted": false,
+      "stt_confidence": 0.99523925,
+      "latency": {
+        "transcription_delay": 0.332,
+        "end_of_turn_delay": 1.501
+      }
+    },
+    {
+      "speaker": "PATIENT_BOT",
+      "t_start": 19.87,
+      "t_end": 25.17,
+      "text": "Hi, um, I'd like to book an appointment with Dr. Okonkwo, please. My friend recommended him for knee pain.",
+      "interrupted": false,
+      "stt_confidence": null,
+      "latency": {
+        "llm_node_ttft": 0.814,
+        "tts_node_ttfb": 0.264,
+        "e2e_latency": 2.711
+      }
+    },
+    {
+      "speaker": "CLINIC_AGENT",
+      "t_start": 28.13,
+      "t_end": 30.61,
+      "text": "Can you please tell me your full name and date of birth?",
+      "interrupted": false,
+      "stt_confidence": 1.0,
+      "latency": {
+        "transcription_delay": 0.406,
+        "end_of_turn_delay": 0.601
+      }
+    },
+    {
+      "speaker": "PATIENT_BOT",
+      "t_start": 32.08,
+      "t_end": 35.34,
+      "text": "Sure, it's Bob Dylan, and my date of birth is July 4th, 1990.",
+      "interrupted": false,
+      "stt_confidence": null,
+      "latency": {
+        "llm_node_ttft": 0.872,
+        "tts_node_ttfb": 0.183,
+        "e2e_latency": 1.471
+      }
+    },
+    {
+      "speaker": "CLINIC_AGENT",
+      "t_start": 38.03,
+      "t_end": 39.01,
+      "text": "Thanks. And your last name?",
+      "interrupted": false,
+      "stt_confidence": 0.9758301,
+      "latency": {
+        "transcription_delay": 0.411,
+        "end_of_turn_delay": 0.6
+      }
+    },
+    {
+      "speaker": "PATIENT_BOT",
+      "t_start": 40.48,
+      "t_end": 43.96,
+      "text": "Dylan, that's D-Y-L-A-N. Sorry, I should have said that first.",
+      "interrupted": false,
+      "stt_confidence": null,
+      "latency": {
+        "llm_node_ttft": 0.71,
+        "tts_node_ttfb": 0.181,
+        "e2e_latency": 1.462
+      }
+    },
+    {
+      "speaker": "CLINIC_AGENT",
+      "t_start": 46.27,
+      "t_end": 46.86,
+      "text": "No problem.",
+      "interrupted": false,
+      "stt_confidence": 0.99853516,
+      "latency": {
+        "transcription_delay": 0.425,
+        "end_of_turn_delay": 0.6
+      }
+    },
+    {
+      "speaker": "CLINIC_AGENT",
+      "t_start": 47.47,
+      "t_end": 48.96,
+      "text": "Can you please tell me your last name?",
+      "interrupted": false,
+      "stt_confidence": 1.0,
+      "latency": {
+        "transcription_delay": 0.266,
+        "end_of_turn_delay": 0.6
+      }
+    },
+    {
+      "speaker": "PATIENT_BOT",
+      "t_start": 50.31,
+      "t_end": 53.8,
+      "text": "Sorry, I think I'm being a bit slow here. My last name is Dylan.",
+      "interrupted": false,
+      "stt_confidence": null,
+      "latency": {
+        "llm_node_ttft": 0.727,
+        "tts_node_ttfb": 0.205,
+        "e2e_latency": 1.35
+      }
+    },
+    {
+      "speaker": "CLINIC_AGENT",
+      "t_start": 58.48,
+      "t_end": 66.76,
+      "text": "Just to confirm, I have your first name as Dylan, last name as Dylan, and your date of birth as July fourth nineteen ninety. Is that correct?",
+      "interrupted": false,
+      "stt_confidence": 0.998291015,
+      "latency": {
+        "transcription_delay": 0.393,
+        "end_of_turn_delay": 0.601
+      }
+    },
+    {
+      "speaker": "PATIENT_BOT",
+      "t_start": 68.79,
+      "t_end": 76.04,
+      "text": "Um, no, my first name is Bob, and my last name is Dylan. The date of birth is right, July 4th, 1990.",
+      "interrupted": false,
+      "stt_confidence": null,
+      "latency": {
+        "llm_node_ttft": 1.068,
+        "tts_node_ttfb": 0.199,
+        "e2e_latency": 2.028
+      }
+    },
+    {
+      "speaker": "CLINIC_AGENT",
+      "t_start": 78.73,
+      "t_end": 78.91,
+      "text": "Thanks.",
+      "interrupted": false,
+      "stt_confidence": 0.90478516,
+      "latency": {
+        "transcription_delay": 0.475,
+        "end_of_turn_delay": 0.601
+      }
+    },
+    {
+      "speaker": "CLINIC_AGENT",
+      "t_start": 79.53,
+      "t_end": 81.51,
+      "text": "Can you please spell your last name for me?",
+      "interrupted": false,
+      "stt_confidence": 1.0,
+      "latency": {
+        "transcription_delay": 0.313,
+        "end_of_turn_delay": 0.601
+      }
+    },
+    {
+      "speaker": "PATIENT_BOT",
+      "t_start": 82.92,
+      "t_end": 85.34,
+      "text": "D-Y-L-A-N.",
+      "interrupted": false,
+      "stt_confidence": null,
+      "latency": {
+        "llm_node_ttft": 0.783,
+        "tts_node_ttfb": 0.178,
+        "e2e_latency": 1.411
+      }
+    },
+    {
+      "speaker": "CLINIC_AGENT",
+      "t_start": 98.77,
+      "t_end": 104.97,
+      "text": "Thanks, Bob Dylan. You mentioned knee pain, Is this a new urgent issue, or is it a follow-up for a previous visit?",
+      "interrupted": false,
+      "stt_confidence": 0.9972330666666668,
+      "latency": {
+        "transcription_delay": 0.322,
+        "end_of_turn_delay": 0.601
+      }
+    },
+    {
+      "speaker": "CLINIC_AGENT",
+      "t_start": 105.57,
+      "t_end": 107.86,
+      "text": "This will help me book the right type of appointment for you.",
+      "interrupted": false,
+      "stt_confidence": 1.0,
+      "latency": {
+        "transcription_delay": 0.339,
+        "end_of_turn_delay": 0.6
+      }
+    },
+    {
+      "speaker": "PATIENT_BOT",
+      "t_start": 109.14,
+      "t_end": 114.02,
+      "text": "Um, it's a new issue, not urgent, just ongoing knee pain that I'd like to get checked out.",
+      "interrupted": false,
+      "stt_confidence": null,
+      "latency": {
+        "llm_node_ttft": 0.637,
+        "tts_node_ttfb": 0.146,
+        "e2e_latency": 1.277
+      }
+    },
+    {
+      "speaker": "CLINIC_AGENT",
+      "t_start": 117.48,
+      "t_end": 129.11,
+      "text": "You already have an appointment booked for an acute issue with doctor Sidney Lukosky on Friday. October sixteenth at eight fifteen AM at Tissot Point Orthopedics. Would you like to keep this appointment?",
+      "interrupted": false,
+      "stt_confidence": 0.9889648440000001,
+      "latency": {
+        "transcription_delay": 0.18,
+        "end_of_turn_delay": 0.601
+      }
+    },
+    {
+      "speaker": "CLINIC_AGENT",
+      "t_start": 129.72,
+      "t_end": 132.06,
+      "text": "Schedule it, or discuss something else?",
+      "interrupted": false,
+      "stt_confidence": 0.8152465799999999,
+      "latency": {
+        "transcription_delay": 0.491,
+        "end_of_turn_delay": 0.6
+      }
+    },
+    {
+      "speaker": "PATIENT_BOT",
+      "t_start": 133.6,
+      "t_end": 140.39,
+      "text": "Oh, I don't remember booking that. Could you tell me a bit more about what you have on file for it? I'd still like to see Dr. Okonkwo next week for my knee.",
+      "interrupted": false,
+      "stt_confidence": null,
+      "latency": {
+        "llm_node_ttft": 0.668,
+        "tts_node_ttfb": 0.211,
+        "e2e_latency": 1.543
+      }
+    },
+    {
+      "speaker": "CLINIC_AGENT",
+      "t_start": 143.73,
+      "t_end": 185.16,
+      "text": "See you'd like more details about your upcoming appointment. And to see doctor Ocampo next week for your knee. I'll check your appointment details and options for you. One moment. You have three upcoming appointments on file. Tomorrow, Friday, October sixteenth, at eight fifteen AM with doctor Zigbigniew Lukowski for an acute visit. Monday, October nineteenth at ten thirty AM with doctor Zigbigniew Likosky for an office visit. Thursday, October twenty second at eight AM with doctor Judy Hauser for a follow-up. Would you like to keep reschedule, or cancel any of these? Also, I don't see an appointment with doctor Alcampo next week. Let me know how you'd like to proceed.",
+      "interrupted": false,
+      "stt_confidence": 0.9796685133333334,
+      "latency": {
+        "transcription_delay": 0.342,
+        "end_of_turn_delay": 0.601
+      }
+    },
+    {
+      "speaker": "PATIENT_BOT",
+      "t_start": 186.82,
+      "t_end": 196.16,
+      "text": "Um, I'm not sure about those three. I don't remember booking any of them, so could you just keep them as they are for now? And I'd really like to see Dr. Okonkwo next week for my knee.",
+      "interrupted": false,
+      "stt_confidence": null,
+      "latency": {
+        "llm_node_ttft": 0.78,
+        "tts_node_ttfb": 0.158,
+        "e2e_latency": 1.659
+      }
+    },
+    {
+      "speaker": "CLINIC_AGENT",
+      "t_start": 199.62,
+      "t_end": 214.66,
+      "text": "I'll keep your current appointments as they are. I don't see a provider named doctor O'Conquo at Pivot Point Orthopedics. Would you like to see one of our available doctors for your knee pain next week? I can help you book with doctor Hauser, doctor Ross, or doctor Bricker.",
+      "interrupted": false,
+      "stt_confidence": 0.9983723966666668,
+      "latency": {
+        "transcription_delay": 0.366,
+        "end_of_turn_delay": 0.6
+      }
+    },
+    {
+      "speaker": "PATIENT_BOT",
+      "t_start": 216.24,
+      "t_end": 223.86,
+      "text": "Oh, okay. Could you tell me who you'd recommend for knees out of those? And if Dr. Okonkwo is at a different location, I'd still like to know.",
+      "interrupted": false,
+      "stt_confidence": null,
+      "latency": {
+        "llm_node_ttft": 0.779,
+        "tts_node_ttfb": 0.165,
+        "e2e_latency": 1.585
+      }
+    },
+    {
+      "speaker": "CLINIC_AGENT",
+      "t_start": 227.37,
+      "t_end": 255.66,
+      "text": "At Pivot Point Orthopaedics, for a new knee issue, doctor Dugie Hauser is a great choice for first time evaluations. And quick orthopedic procedures. Doctor Adam Bricker is also very approachable and sees both new and returning patients for joint and muscle concerns. Doctor Doug Ross handles more complex cases that need extra time. I don't have any information about a doctor O'Conco at other locations. Would you like to book with doctor Hauser or doctor Bricker for your knee pain?",
+      "interrupted": false,
+      "stt_confidence": 0.9956597233333334,
+      "latency": {
+        "transcription_delay": 0.279,
+        "end_of_turn_delay": 0.601
+      }
+    },
+    {
+      "speaker": "PATIENT_BOT",
+      "t_start": 257.49,
+      "t_end": 262.98,
+      "text": "Um, Dr. Bricker sounds good, since he handles joint concerns. Do you have anything next week with him?",
+      "interrupted": false,
+      "stt_confidence": null,
+      "latency": {
+        "llm_node_ttft": 0.879,
+        "tts_node_ttfb": 0.15,
+        "e2e_latency": 1.831
+      }
+    },
+    {
+      "speaker": "CLINIC_AGENT",
+      "t_start": 266.92,
+      "t_end": 276.81,
+      "text": "Before I check doctor Bricker's schedule, I need to confirm the type of visit. Since this is a new nonurgent knee issue, would you like a general office visit to get it checked out?",
+      "interrupted": false,
+      "stt_confidence": 0.9968261725,
+      "latency": {
+        "transcription_delay": 0.318,
+        "end_of_turn_delay": 0.601
+      }
+    },
+    {
+      "speaker": "PATIENT_BOT",
+      "t_start": 278.29,
+      "t_end": 281.59,
+      "text": "Yes, that sounds right, a general office visit would be great.",
+      "interrupted": false,
+      "stt_confidence": null,
+      "latency": {
+        "llm_node_ttft": 0.658,
+        "tts_node_ttfb": 0.148,
+        "e2e_latency": 1.487
+      }
+    },
+    {
+      "speaker": "TOOL",
+      "t_start": 302.43,
+      "t_end": null,
+      "text": "end_call({\"reason\": \"blocked\"})"
+    },
+    {
+      "speaker": "PATIENT_BOT",
+      "t_start": 302.58,
+      "t_end": 306.02,
+      "text": "Okay, thanks so much for your help. Bye.",
+      "interrupted": false,
+      "stt_confidence": null,
+      "latency": {
+        "llm_node_ttft": 0.848,
+        "tts_node_ttfb": 0.196
+      }
+    }
+  ]
+}

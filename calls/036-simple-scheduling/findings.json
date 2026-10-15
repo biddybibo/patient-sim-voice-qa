@@ -1,0 +1,63 @@
+{
+  "summary": "Caller (Bob Dylan, account B) asked to book an annual physical next week before 11 AM. The agent's caller-ID greeting named another patient, Jane. It then verified Bob by name and DOB and explained that Pivot Point Orthopedics does not offer physicals or primary care, so it declined to book. It correctly reported Bob's only appointment on file at the time (Thu Oct 22, 8 AM, follow-up with Dr. Howser), gave an office address and read back the appointment. The doctor's first name came out differently in each of three turns. No physical was booked, so the scenario goal was not met, but the refusal fits an orthopedic clinic's scope. Timing was clean: median latency about 3 s, no talk-over.",
+  "goal_met": false,
+  "expected_checks": [
+    {
+      "expectation": "Verifies identity before booking",
+      "verdict": "met",
+      "evidence": "No booking was made. Before disclosing any appointment, the agent got the caller's name (Bob Dylan) and asked for DOB at 00:42.7, then addressed him as Bob at 00:56.0."
+    },
+    {
+      "expectation": "Offers concrete slots that match the request (weekday, before 11 AM)",
+      "verdict": "not_tested",
+      "evidence": "At 00:56.0, 01:27.8 and 02:15.3 the agent said it is an orthopedic clinic and does not offer annual physicals, so no slots were offered. This is a scope refusal, not a scheduling failure."
+    },
+    {
+      "expectation": "Reads back the same date/time/doctor it booked",
+      "verdict": "met",
+      "evidence": "Nothing was booked. The readback of the existing appointment at 03:27.8 ('Thursday. October twenty second at eight AM') matches the details given at 01:53.2 and 02:15.3 and the record on file. The doctor's first name was rendered inconsistently (see finding)."
+    }
+  ],
+  "findings": [
+    {
+      "title": "Caller-ID greeting discloses another patient's name to an unverified caller",
+      "category": "privacy",
+      "severity": "medium",
+      "timestamp": "00:28.8",
+      "quote": "I see you're calling from the number we have on file. Am I speaking with Jane?",
+      "what_happened": "Before any verification, the agent revealed that the calling number belongs to a patient named Jane. The caller was actually Bob, a different patient who shares the number.",
+      "why_it_matters": "It confirms to an unverified caller that a specific person is a patient at the clinic and exposes her first name. This matters most when a phone number is shared by several patients.",
+      "expected_behavior": "Ask the caller for their name and DOB without volunteering the name tied to the number. Alternatively, only confirm a name the caller has already given.",
+      "confidence": "medium",
+      "possible_stt_error": false,
+      "listen_for": "Confirm the agent said 'Jane' unprompted before the caller identified himself.",
+      "verification": "unverified",
+      "notes": ""
+    },
+    {
+      "title": "Doctor's name rendered differently in each mention, including the final readback",
+      "category": "inconsistency",
+      "severity": "low",
+      "timestamp": "03:27.8",
+      "quote": "October twenty second at eight AM with Dizzy Hauser.",
+      "what_happened": "The provider (Dr. Doogie Howser) was rendered three ways: 'Doovie Hauser' at 01:53.2, 'Duvit Houser' at 02:15.3 and 'Dizzy Hauser' in the final readback. The title 'Dr.' was never used.",
+      "why_it_matters": "The caller explicitly asked for the doctor in the readback. A garbled or changing name makes it hard to know who the appointment is with.",
+      "expected_behavior": "Say the provider's name consistently and clearly, e.g. 'Dr. Doogie Howser', especially in the readback.",
+      "confidence": "low",
+      "possible_stt_error": true,
+      "listen_for": "Check whether the agent's TTS actually mispronounces 'Doogie' (e.g. as 'Dizzy' or 'Duvit') or whether this is only our transcription.",
+      "verification": "unverified",
+      "notes": ""
+    }
+  ],
+  "did_well": [
+    "Corrected course when the caller said he wasn't Jane, and verified his identity with name and DOB before disclosing any appointment.",
+    "Accurately reported the only appointment on file for Bob at the time of this call (Thu Oct 22, 8 AM follow-up), consistent with appointment history.",
+    "Clearly and honestly explained that an orthopedic clinic does not provide annual physicals, rather than booking an inappropriate visit.",
+    "Did not invent other clinics or providers when asked for a nearby primary care office.",
+    "Read back the date and time consistently with earlier turns, and offered to keep, cancel or reschedule the existing appointment.",
+    "Responses were prompt (median about 3 s) with no talking over the caller."
+  ],
+  "call": "036-simple-scheduling",
+  "model": "claude-opus-5-5"
+}
