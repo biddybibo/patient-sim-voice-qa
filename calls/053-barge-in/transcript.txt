@@ -1,0 +1,28 @@
+[00:05.7] CLINIC_AGENT: This call may be recorded for quality and training purposes. Thanks for calling Pivot Point Orthopaedics. Part of Pretty Good AI. How may I help you today?
+[00:21.3] PATIENT_BOT: Hi there! I'd like to book a follow-up visit for next week, if possible. Thursday afternoon would work best for me.
+[00:30.7] CLINIC_AGENT: Can you please provide your full name and date of birth?
+[00:36.2] PATIENT_BOT: Sure! It's Bob Dylan, and my date of birth is July 4th, 1990.
+[00:55.1] CLINIC_AGENT: To confirm, you'd like to book a follow-up consultation for next week. Is this for
+[01:00.6] PATIENT_BOT: Sorry to jump in, but I'm really just looking for a Thursday afternoon follow-up next week.
+[01:06.4] PATIENT_BOT: Yes, that's right, a follow-up next week. Thursday afternoon would be perfect for me.
+[01:14.1] CLINIC_AGENT: You already have a follow-up appointment booked for Thursday, October twenty second at two PM with doctor Judy Hauser at Pivot Point Orthopedics.
+[01:23.0] CLINIC_AGENT: Do you like to keep this appointment? Reschedule it, or cancel it?
+[01:29.8] PATIENT_BOT: Oh, I don't remember that one at all. Could you tell me what it's for? I'd like to know before I change anything.
+[01:39.1] CLINIC_AGENT: Your appointment on Thursday, October twenty second at two PM with doctor Dugi Houser is listed as a follow-up visit. If you need more details about the reason for this appointment, I can have our clinic support team review your chart and get back to you. Would you like me to do that?
+[01:57.1] PATIENT_BOT: Hmm, I don't really remember what it's for. Let's keep it for now, and I'd still love a separate follow-up next Thursday afternoon if you have an opening.
+[02:07.1] CLINIC_AGENT: You can only have one follow-up appointment of this type booked at a time. So I'm not able to schedule another for you right now. If you'd like, I can help you reschedule your current appointment or connect you with our clinic support team for more options. What would you prefer?
+[02:22.8] PATIENT_BOT: Oh, I see. Then let's reschedule the existing one to next Thursday afternoon, if that's possible. Could you check that for me?
+[02:34.6] CLINIC_AGENT: You have a follow-up appointment scheduled for Thursday, October twenty second at two PM with doctor Doobie Hauser I can look for other openings next Thursday afternoon to move this appointment. Can you tell me the reason you need to reschedule?
+[02:50.9] PATIENT_BOT: I'm not totally sure what the visit is for, to be honest. I just need a Thursday afternoon slot next week, since my schedule is tight that week. Is anything open next Thursday afternoon?
+[02:56.1] CLINIC_AGENT: The next opening for a Thursday afternoon follow-up with doctor Dube Hauser is Thursday, October twenty ninth at one PM in Nashville. Would you like to move your appointment to that time?
+[03:17.1] PATIENT_BOT: Yes, Thursday, October twenty-ninth at one PM sounds great, let's do that. Just to confirm, that's next Thursday in the afternoon, correct?
+[03:27.2] CLINIC_AGENT: Yes. That's right. Your new appointment would be Thursday, October twenty ninth at one PM in the afternoon with doctor Judy Hauser in Nashville. Can you confirm you'd like to move your current Thursday, October twenty second appointment to this new time? Also, do you want to add a reason for rescheduling, or should I just note it as a schedule conflict?
+[03:47.1] PATIENT_BOT: Yes, please move it to Thursday, October twenty-ninth at one PM. And just note it as a schedule conflict, that works for me.
+[03:56.5] CLINIC_AGENT: Your appointment is now set for Thursday, October twenty ninth at one PM with doctor Dugi Houser in Nashville. Would you like me to send you a text message with these details?
+[04:11.6] PATIENT_BOT: Yes, that would be great, thank you. You can text me at 650-996-3518.
+[04:20.5] CLINIC_AGENT: Hydro number is six five zero nine nine six three five one eight. Is that correct?
+[04:27.8] PATIENT_BOT: Almost, the last four digits are 3518, so the full number is 650-996-3518. Could you double-check that and send it there?
+[04:41.4] CLINIC_AGENT: The text with your new appointment details has been sent to six five zero nine nine six three five one eight Let me know if you need anything else.
+[04:52.1] PATIENT_BOT: No, that's everything, thank you so much for your help!
+[05:01.4] PATIENT_BOT: Thanks so much for getting that moved for me, I really appreciate it. [cut off]
+[05:01.4] -- end_call({"reason": "goal_met"})

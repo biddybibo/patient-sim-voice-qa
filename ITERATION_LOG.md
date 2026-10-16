@@ -150,6 +150,15 @@ they trace to five causes:
 - **E. Scenario script leaking into speech** (021: read out the "November 31st" fallback and then called it not a real
   date). **Fix:** scenario rewritten so the caller believes the dates are normal.
 
+### 22. Interruptions were untested: new barge-in scenario
+- **Gap found** by re-reading the brief, which lists "interruptions" among the edge cases. Our bot deliberately never
+  talks over the clinic, so the agent's barge-in handling had never been exercised.
+- **Built:** scenario flag `barge_in`. Once the opening is over and the clinic has talked for more than 4 s in one turn, the
+  bot cuts in once with a short, goal-driven line ("Sorry to jump in…"). The "drop a queued reply" rule is suspended
+  for it, and the cut-in time is written to `transcript.json` (`barge_in_at_s`).
+- **Result:** calls 052 and 053 cut in at 58.0 s and 59.2 s, after 4.2 s and 4.0 s of clinic speech. The agent stopped
+  within 0.42–0.54 s of overlap (stereo audio) and continued in context. Positive finding, plus BUG-11.
+
 ### 21. Re-recording round 1 (calls 032–044): what the bot review still found
 After fixes A–E, re-recorded calls no longer recite appointments or talk to recordings. The bot-side review still
 flagged three patterns:

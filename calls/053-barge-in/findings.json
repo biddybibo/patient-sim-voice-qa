@@ -1,0 +1,77 @@
+{
+  "summary": "Barge-in handling was good. When the caller cut in at ~01:00, the agent stopped within about 0.4 s, kept the caller verified and focused on the Thursday-afternoon request. It then found an existing follow-up on Thu Oct 22 at 2 PM. The main problem: the caller asked for 'next Thursday afternoon', and the agent moved that appointment to Thu Oct 29, 1 PM in Nashville. It then confirmed 'Yes. That's right' when asked whether that was next week. Earlier calls show a Fri Oct 16 appointment still upcoming, so the call date is no later than Oct 16. That makes Oct 22 'next Thursday', so the existing slot already met the caller's need and the agent moved them about a week later. Smaller issues: a roughly 15 s silence after identity details and an unflagged change to a Nashville location.",
+  "goal_met": false,
+  "expected_checks": [
+    {
+      "expectation": "Stops talking promptly when the caller cuts in (no long talk-over)",
+      "verdict": "met",
+      "evidence": "The agent's 00:55.1 turn ends mid-sentence at 'Is this for' when the caller cuts in at 01:00.6. Audio metrics show a single 0.42 s overlap at 61.2 s."
+    },
+    {
+      "expectation": "Responds to the interruption (Thursday afternoon) instead of finishing or restarting the list",
+      "verdict": "met",
+      "evidence": "At 01:14.1 the agent goes straight to the Thursday request and surfaces the existing Thu Oct 22 2 PM follow-up. It does not restart its confirmation question."
+    },
+    {
+      "expectation": "Keeps context: doesn't re-verify identity or lose the request after the interruption",
+      "verdict": "met",
+      "evidence": "No identity re-verification after the interruption. The agent carried the Thursday-afternoon follow-up request through to the reschedule."
+    }
+  ],
+  "findings": [
+    {
+      "title": "Confirmed Oct 29 as 'next Thursday' and moved the patient off a slot that already matched",
+      "category": "time-date",
+      "severity": "high",
+      "timestamp": "03:27.2",
+      "quote": "Yes. That's right. Your new appointment would be Thursday, October twenty ninth at one PM",
+      "what_happened": "The caller asked for a follow-up next week on Thursday afternoon. The agent found an existing follow-up on Thu Oct 22 at 2 PM, which is a Thursday afternoon. It then offered Oct 29 as 'the next opening for a Thursday afternoon'. When the caller asked 'that's next Thursday in the afternoon, correct?', the agent said yes and moved the appointment. Records show a Fri Oct 16 appointment was still upcoming, so the call took place on or before Oct 16. Next Thursday was therefore Oct 22, and Oct 29 is two weeks out.",
+      "why_it_matters": "The patient gave up an appointment that already met their need and was moved about a week later, based on a false date confirmation. A patient who is 'in a hurry' would arrive expecting next week.",
+      "expected_behavior": "Recognise that the existing Thu Oct 22 2 PM appointment is already next Thursday afternoon and tell the caller so. If the caller still wants Oct 29, correct their assumption that it is next week.",
+      "confidence": "medium",
+      "possible_stt_error": false,
+      "listen_for": "Confirm the agent says 'Yes. That's right' in response to 'that's next Thursday'. Note any mention of today's date.",
+      "verification": "unverified",
+      "notes": ""
+    },
+    {
+      "title": "Location changed to Nashville without flagging it",
+      "category": "scheduling",
+      "severity": "low",
+      "timestamp": "02:56.1",
+      "quote": "Thursday, October twenty ninth at one PM in Nashville",
+      "what_happened": "The original appointment was listed at Pivot Point Orthopedics with no location noted. The agent moved it to a Nashville location without saying this was a different site from the original appointment.",
+      "why_it_matters": "The patient may not notice that the visit location changed and could go to the wrong office.",
+      "expected_behavior": "State clearly when a reschedule changes the clinic location and confirm the patient can attend there.",
+      "confidence": "low",
+      "possible_stt_error": true,
+      "listen_for": "Whether the agent says 'Nashville' and whether the original appointment had a different location.",
+      "verification": "unverified",
+      "notes": ""
+    },
+    {
+      "title": "Long silence after identity details",
+      "category": "conversation",
+      "severity": "low",
+      "timestamp": "00:55.1",
+      "quote": "To confirm, you'd like to book a follow-up consultation for next week.",
+      "what_happened": "After the caller gave name and DOB at 00:36, the agent took about 15 s to respond (longest silence 15.09 s) with no filler or hold message.",
+      "why_it_matters": "Long dead air makes callers think the line dropped, especially one who is in a hurry.",
+      "expected_behavior": "Respond promptly or say something like 'one moment while I look you up'.",
+      "confidence": "medium",
+      "possible_stt_error": false,
+      "listen_for": "The gap between the end of the caller's DOB and the agent's next utterance.",
+      "verification": "unverified",
+      "notes": ""
+    }
+  ],
+  "did_well": [
+    "Stopped speaking almost immediately when the caller barged in (0.42 s overlap).",
+    "Did not re-verify identity after the interruption and kept the Thursday-afternoon request in focus.",
+    "Proactively surfaced the existing follow-up appointment and explained the one-follow-up-at-a-time rule, offering reschedule as an alternative.",
+    "Was honest about not knowing the visit reason and offered to have support review the chart.",
+    "Read back the new appointment and the text-message number before acting. The reschedule did take effect, matching the records."
+  ],
+  "call": "053-barge-in",
+  "model": "claude-opus-5-5"
+}

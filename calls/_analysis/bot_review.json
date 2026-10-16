@@ -917,5 +917,71 @@
         "severity": "minor"
       }
     ]
+  },
+  "052-barge-in": {
+    "overall": "minor_issues",
+    "issues": [
+      {
+        "timestamp": "[02:13.3]",
+        "quote": "Is there any Thursday afternoon next week that's open? Any Thursday works, and I'll keep the existing one if not.",
+        "problem": "The clinic had just said there were no Thursday afternoon openings on the 22nd, which is next week's only Thursday. Asking for 'any Thursday afternoon next week' makes no sense, and 'any Thursday works' contradicts the goal of booking next week.",
+        "kind": "other",
+        "severity": "noticeable"
+      },
+      {
+        "timestamp": "[02:30.3]",
+        "quote": "Yes, that's perfect. Please move me to Thursday, October 22nd at 2 PM with Dr. Hauser.",
+        "problem": "The bot happily accepts a 2 PM slot on the 22nd seconds after being told that day had no afternoon openings. A real caller would likely notice the contradiction and ask about it.",
+        "kind": "other",
+        "severity": "minor"
+      },
+      {
+        "timestamp": "[00:59.0]",
+        "quote": "Sorry to jump in, but I'm really just looking for a Thursday afternoon follow-up next week.",
+        "problem": "This repeats the request the bot already made at the start, and 'sorry to jump in' doesn't fit, since the clinic was silent rather than reading out a list of times.",
+        "kind": "repetition",
+        "severity": "minor"
+      },
+      {
+        "timestamp": "[02:44.6]",
+        "quote": "Is that enough for the office?",
+        "problem": "This is slightly odd phrasing for a caller giving a reason to reschedule.",
+        "kind": "unnatural_wording",
+        "severity": "minor"
+      },
+      {
+        "timestamp": "[03:47.8]",
+        "quote": "Thanks, you too. Bye.",
+        "problem": "The bot says goodbye after it has already ended the call.",
+        "kind": "unnatural_closing",
+        "severity": "minor"
+      }
+    ]
+  },
+  "053-barge-in": {
+    "overall": "noticeable_issues",
+    "issues": [
+      {
+        "timestamp": "[01:06.4]",
+        "quote": "Yes, that's right, a follow-up next week. Thursday afternoon would be perfect for me.",
+        "problem": "This comes right after the bot's own interruption and restates the same Thursday-afternoon request in back-to-back turns, which sounds like a loop.",
+        "kind": "repetition",
+        "severity": "minor"
+      },
+      {
+        "timestamp": "[04:27.8]",
+        "quote": "Almost, the last four digits are 3518, so the full number is 650-996-3518. Could you double-check that and send it there?",
+        "problem": "The clinic read the number back correctly (650-996-3518), yet the bot says it was wrong and repeats the identical number.",
+        "kind": "other",
+        "severity": "noticeable"
+      },
+      {
+        "timestamp": "[05:01.4]",
+        "quote": "Thanks so much for getting that moved for me, I really appreciate it.",
+        "problem": "The bot already closed with thanks and then adds a second goodbye-style thank-you, giving a duplicated closing.",
+        "kind": "unnatural_closing",
+        "severity": "minor"
+      }
+    ]
   }
 }

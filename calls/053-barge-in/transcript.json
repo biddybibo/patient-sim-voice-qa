@@ -1,0 +1,353 @@
+{
+  "call_id": "053-barge-in",
+  "scenario": "barge-in",
+  "persona": "chatty_oversharer",
+  "llm": "claude-haiku-5-5",
+  "barge_in_at_s": 59.19,
+  "room": "call-053-barge-in-1792108984",
+  "recording_started_at": 1792108986.355166,
+  "turns": [
+    {
+      "speaker": "CLINIC_AGENT",
+      "t_start": 5.66,
+      "t_end": 18.0,
+      "text": "This call may be recorded for quality and training purposes. Thanks for calling Pivot Point Orthopaedics. Part of Pretty Good AI. How may I help you today?",
+      "interrupted": false,
+      "stt_confidence": 0.996630862,
+      "latency": {
+        "transcription_delay": 0.299,
+        "end_of_turn_delay": 1.5
+      }
+    },
+    {
+      "speaker": "PATIENT_BOT",
+      "t_start": 21.33,
+      "t_end": 28.11,
+      "text": "Hi there! I'd like to book a follow-up visit for next week, if possible. Thursday afternoon would work best for me.",
+      "interrupted": false,
+      "stt_confidence": null,
+      "latency": {
+        "llm_node_ttft": 1.611,
+        "tts_node_ttfb": 0.121,
+        "e2e_latency": 3.332
+      }
+    },
+    {
+      "speaker": "CLINIC_AGENT",
+      "t_start": 30.71,
+      "t_end": 33.0,
+      "text": "Can you please provide your full name and date of birth?",
+      "interrupted": false,
+      "stt_confidence": 1.0,
+      "latency": {
+        "transcription_delay": 0.29,
+        "end_of_turn_delay": 3.001
+      }
+    },
+    {
+      "speaker": "PATIENT_BOT",
+      "t_start": 36.16,
+      "t_end": 40.02,
+      "text": "Sure! It's Bob Dylan, and my date of birth is July 4th, 1990.",
+      "interrupted": false,
+      "stt_confidence": null,
+      "latency": {
+        "llm_node_ttft": 0.8,
+        "tts_node_ttfb": 0.156,
+        "e2e_latency": 3.164
+      }
+    },
+    {
+      "speaker": "CLINIC_AGENT",
+      "t_start": 55.11,
+      "t_end": 62.35,
+      "text": "To confirm, you'd like to book a follow-up consultation for next week. Is this for",
+      "interrupted": false,
+      "stt_confidence": 0.9362792966666666,
+      "latency": {
+        "transcription_delay": 0,
+        "end_of_turn_delay": 3.001
+      }
+    },
+    {
+      "speaker": "PATIENT_BOT",
+      "t_start": 60.61,
+      "t_end": 64.56,
+      "text": "Sorry to jump in, but I'm really just looking for a Thursday afternoon follow-up next week.",
+      "interrupted": false,
+      "stt_confidence": null,
+      "latency": {
+        "llm_node_ttft": 1.089,
+        "tts_node_ttfb": 0.166
+      }
+    },
+    {
+      "speaker": "PATIENT_BOT",
+      "t_start": 66.36,
+      "t_end": 70.36,
+      "text": "Yes, that's right, a follow-up next week. Thursday afternoon would be perfect for me.",
+      "interrupted": false,
+      "stt_confidence": null,
+      "latency": {
+        "llm_node_ttft": 0.813,
+        "tts_node_ttfb": 0.143,
+        "e2e_latency": 4.013
+      }
+    },
+    {
+      "speaker": "CLINIC_AGENT",
+      "t_start": 74.11,
+      "t_end": 82.4,
+      "text": "You already have a follow-up appointment booked for Thursday, October twenty second at two PM with doctor Judy Hauser at Pivot Point Orthopedics.",
+      "interrupted": false,
+      "stt_confidence": 0.9829915333333333,
+      "latency": {
+        "transcription_delay": 0.341,
+        "end_of_turn_delay": 0.601
+      }
+    },
+    {
+      "speaker": "CLINIC_AGENT",
+      "t_start": 83.01,
+      "t_end": 86.65,
+      "text": "Do you like to keep this appointment? Reschedule it, or cancel it?",
+      "interrupted": false,
+      "stt_confidence": 0.99967448,
+      "latency": {
+        "transcription_delay": 0.409,
+        "end_of_turn_delay": 3.0
+      }
+    },
+    {
+      "speaker": "PATIENT_BOT",
+      "t_start": 89.8,
+      "t_end": 95.84,
+      "text": "Oh, I don't remember that one at all. Could you tell me what it's for? I'd like to know before I change anything.",
+      "interrupted": false,
+      "stt_confidence": null,
+      "latency": {
+        "llm_node_ttft": 0.722,
+        "tts_node_ttfb": 0.149,
+        "e2e_latency": 3.157
+      }
+    },
+    {
+      "speaker": "CLINIC_AGENT",
+      "t_start": 99.06,
+      "t_end": 115.3,
+      "text": "Your appointment on Thursday, October twenty second at two PM with doctor Dugi Houser is listed as a follow-up visit. If you need more details about the reason for this appointment, I can have our clinic support team review your chart and get back to you. Would you like me to do that?",
+      "interrupted": false,
+      "stt_confidence": 1.0,
+      "latency": {
+        "transcription_delay": 0.366,
+        "end_of_turn_delay": 0.601
+      }
+    },
+    {
+      "speaker": "PATIENT_BOT",
+      "t_start": 117.07,
+      "t_end": 123.81,
+      "text": "Hmm, I don't really remember what it's for. Let's keep it for now, and I'd still love a separate follow-up next Thursday afternoon if you have an opening.",
+      "interrupted": false,
+      "stt_confidence": null,
+      "latency": {
+        "llm_node_ttft": 0.82,
+        "tts_node_ttfb": 0.137,
+        "e2e_latency": 1.776
+      }
+    },
+    {
+      "speaker": "CLINIC_AGENT",
+      "t_start": 127.11,
+      "t_end": 141.05,
+      "text": "You can only have one follow-up appointment of this type booked at a time. So I'm not able to schedule another for you right now. If you'd like, I can help you reschedule your current appointment or connect you with our clinic support team for more options. What would you prefer?",
+      "interrupted": false,
+      "stt_confidence": 0.9995117166666666,
+      "latency": {
+        "transcription_delay": 0.253,
+        "end_of_turn_delay": 0.601
+      }
+    },
+    {
+      "speaker": "PATIENT_BOT",
+      "t_start": 142.83,
+      "t_end": 149.8,
+      "text": "Oh, I see. Then let's reschedule the existing one to next Thursday afternoon, if that's possible. Could you check that for me?",
+      "interrupted": false,
+      "stt_confidence": null,
+      "latency": {
+        "llm_node_ttft": 0.85,
+        "tts_node_ttfb": 0.139,
+        "e2e_latency": 1.779
+      }
+    },
+    {
+      "speaker": "CLINIC_AGENT",
+      "t_start": 154.61,
+      "t_end": 169.1,
+      "text": "You have a follow-up appointment scheduled for Thursday, October twenty second at two PM with doctor Doobie Hauser I can look for other openings next Thursday afternoon to move this appointment. Can you tell me the reason you need to reschedule?",
+      "interrupted": false,
+      "stt_confidence": 0.9988606833333332,
+      "latency": {
+        "transcription_delay": 0.312,
+        "end_of_turn_delay": 0.601
+      }
+    },
+    {
+      "speaker": "PATIENT_BOT",
+      "t_start": 170.87,
+      "t_end": 178.9,
+      "text": "I'm not totally sure what the visit is for, to be honest. I just need a Thursday afternoon slot next week, since my schedule is tight that week. Is anything open next Thursday afternoon?",
+      "interrupted": false,
+      "stt_confidence": null,
+      "latency": {
+        "llm_node_ttft": 0.806,
+        "tts_node_ttfb": 0.188,
+        "e2e_latency": 1.768
+      }
+    },
+    {
+      "speaker": "CLINIC_AGENT",
+      "t_start": 176.11,
+      "t_end": 192.55,
+      "text": "The next opening for a Thursday afternoon follow-up with doctor Dube Hauser is Thursday, October twenty ninth at one PM in Nashville. Would you like to move your appointment to that time?",
+      "interrupted": false,
+      "stt_confidence": 0.99641928,
+      "latency": {
+        "transcription_delay": 0.189,
+        "end_of_turn_delay": 3.001
+      }
+    },
+    {
+      "speaker": "PATIENT_BOT",
+      "t_start": 197.1,
+      "t_end": 204.49,
+      "text": "Yes, Thursday, October twenty-ninth at one PM sounds great, let's do that. Just to confirm, that's next Thursday in the afternoon, correct?",
+      "interrupted": false,
+      "stt_confidence": null,
+      "latency": {
+        "llm_node_ttft": 1.203,
+        "tts_node_ttfb": 0.17,
+        "e2e_latency": 4.556
+      }
+    },
+    {
+      "speaker": "CLINIC_AGENT",
+      "t_start": 207.21,
+      "t_end": 224.85,
+      "text": "Yes. That's right. Your new appointment would be Thursday, October twenty ninth at one PM in the afternoon with doctor Judy Hauser in Nashville. Can you confirm you'd like to move your current Thursday, October twenty second appointment to this new time? Also, do you want to add a reason for rescheduling, or should I just note it as a schedule conflict?",
+      "interrupted": false,
+      "stt_confidence": 0.9991048166666667,
+      "latency": {
+        "transcription_delay": 0.265,
+        "end_of_turn_delay": 0.6
+      }
+    },
+    {
+      "speaker": "PATIENT_BOT",
+      "t_start": 227.08,
+      "t_end": 233.72,
+      "text": "Yes, please move it to Thursday, October twenty-ninth at one PM. And just note it as a schedule conflict, that works for me.",
+      "interrupted": false,
+      "stt_confidence": null,
+      "latency": {
+        "llm_node_ttft": 1.275,
+        "tts_node_ttfb": 0.154,
+        "e2e_latency": 2.233
+      }
+    },
+    {
+      "speaker": "CLINIC_AGENT",
+      "t_start": 236.51,
+      "t_end": 247.45,
+      "text": "Your appointment is now set for Thursday, October twenty ninth at one PM with doctor Dugi Houser in Nashville. Would you like me to send you a text message with these details?",
+      "interrupted": false,
+      "stt_confidence": 0.99853516,
+      "latency": {
+        "transcription_delay": 0.29,
+        "end_of_turn_delay": 3.001
+      }
+    },
+    {
+      "speaker": "PATIENT_BOT",
+      "t_start": 251.59,
+      "t_end": 257.86,
+      "text": "Yes, that would be great, thank you. You can text me at 650-996-3518.",
+      "interrupted": false,
+      "stt_confidence": null,
+      "latency": {
+        "llm_node_ttft": 0.856,
+        "tts_node_ttfb": 0.21,
+        "e2e_latency": 4.142
+      }
+    },
+    {
+      "speaker": "CLINIC_AGENT",
+      "t_start": 260.51,
+      "t_end": 266.45,
+      "text": "Hydro number is six five zero nine nine six three five one eight. Is that correct?",
+      "interrupted": false,
+      "stt_confidence": 1.0,
+      "latency": {
+        "transcription_delay": 0.341,
+        "end_of_turn_delay": 0.6
+      }
+    },
+    {
+      "speaker": "PATIENT_BOT",
+      "t_start": 267.83,
+      "t_end": 278.52,
+      "text": "Almost, the last four digits are 3518, so the full number is 650-996-3518. Could you double-check that and send it there?",
+      "interrupted": false,
+      "stt_confidence": null,
+      "latency": {
+        "llm_node_ttft": 0.679,
+        "tts_node_ttfb": 0.175,
+        "e2e_latency": 1.385
+      }
+    },
+    {
+      "speaker": "CLINIC_AGENT",
+      "t_start": 281.41,
+      "t_end": 290.45,
+      "text": "The text with your new appointment details has been sent to six five zero nine nine six three five one eight Let me know if you need anything else.",
+      "interrupted": false,
+      "stt_confidence": 0.999511725,
+      "latency": {
+        "transcription_delay": 0.295,
+        "end_of_turn_delay": 0.601
+      }
+    },
+    {
+      "speaker": "PATIENT_BOT",
+      "t_start": 292.09,
+      "t_end": 295.2,
+      "text": "No, that's everything, thank you so much for your help!",
+      "interrupted": false,
+      "stt_confidence": null,
+      "latency": {
+        "llm_node_ttft": 0.764,
+        "tts_node_ttfb": 0.141,
+        "e2e_latency": 1.64
+      }
+    },
+    {
+      "speaker": "PATIENT_BOT",
+      "t_start": 301.4,
+      "t_end": 305.07,
+      "text": "Thanks so much for getting that moved for me, I really appreciate it.",
+      "interrupted": true,
+      "stt_confidence": null,
+      "latency": {
+        "llm_node_ttft": 0.847,
+        "tts_node_ttfb": 0.135
+      }
+    },
+    {
+      "speaker": "TOOL",
+      "t_start": 301.42,
+      "t_end": null,
+      "text": "end_call({\"reason\": \"goal_met\"})"
+    }
+  ]
+}

@@ -49,6 +49,8 @@ accounts:
       - "call 024: booked a follow-up Thu Oct 22, 8 AM, Dr. Howser (Hauser)"
       - "call 028: cancelled Tue Oct 20 (Thu Oct 22 kept)"
       - "call 046: booked Mon Oct 19, 10:30 AM, Dr. Lukowski"
+      - "call 052: moved Thu Oct 22 8 AM follow-up to Thu Oct 22, 2 PM, Dr. (Judy/Doogie) Hauser"
+      - "call 053: moved that follow-up to Thu Oct 29, 1 PM, Dr. Hauser, Nashville location"
     known_appointments:
-      - Thursday October 22nd at 8 AM with Dr. Doogie Howser at Pivot Point Orthopedics
+      - Thursday October 29th at 1 PM with Dr. Doogie Howser (Hauser), Nashville location
       - Monday October 19th at 10:30 AM with Dr. Zbigniew Lukowski at Pivot Point Orthopedics

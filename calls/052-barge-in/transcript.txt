@@ -1,0 +1,27 @@
+[00:05.4] CLINIC_AGENT: This call may be recorded for quality and training purposes. Thanks for calling Pivot Point Orthopaedics. Part of Pretty Good AI. How may I help you today?
+[00:19.3] PATIENT_BOT: Hi, this is Bob Dylan. I'd like to book a follow-up visit next week, if possible. Thursday afternoon works best for me.
+[00:27.6] CLINIC_AGENT: You please provide your date of birth?
+[00:31.0] PATIENT_BOT: July 4th, 1990.
+[00:48.5] PATIENT_BOT: Hello, are you still there?
+[00:59.0] PATIENT_BOT: Sorry to jump in, but I'm really just looking for a Thursday afternoon follow-up next week.
+[01:06.4] CLINIC_AGENT: Do you have a specific provider you'd like to see, or are you open to available provider?
+[01:12.3] PATIENT_BOT: Whoever has an opening Thursday afternoon is fine with me.
+[01:18.3] CLINIC_AGENT: You already have a follow-up appointment booked with doctor Dugi Hauser on Thursday, October twenty second at eight AM at Pivot Point Orthopedics. Would you like to keep this appointment, reschedule it to a later time that day, or cancel it?
+[01:31.9] PATIENT_BOT: I don't remember that appointment. Can you tell me what else you have on file for me? I really need Thursday afternoon, though.
+[01:40.0] CLINIC_AGENT: You know, the follow-up with doctor Duggehauser on Thursday, October twenty second at eight AM. Would you like to reschedule that appointment to Thursday afternoon instead?
+[01:52.3] PATIENT_BOT: Yes, that works. Please move it to Thursday afternoon, the 22nd.
+[01:59.1] CLINIC_AGENT: Let me check for Thursday. Afternoon openings on October twenty second for your follow-up. One moment. There are no Thursday afternoon openings on October twenty second. Would you like to try a different Thursday or look at other afternoons that week?
+[02:13.3] PATIENT_BOT: Okay. Is there any Thursday afternoon next week that's open? Any Thursday works, and I'll keep the existing one if not.
+[02:22.2] CLINIC_AGENT: The next Thursday afternoon opening is October twenty second at two PM with doctor Judy Hauser. Would you like to move your appointment to that time?
+[02:30.3] PATIENT_BOT: Yes, that's perfect. Please move me to Thursday, October 22nd at 2 PM with Dr. Hauser.
+[02:38.9] CLINIC_AGENT: Can you tell me the reason you need to reschedule your appointment?
+[02:44.6] PATIENT_BOT: I'm just juggling my schedule between meetings, and Thursday afternoon is the only time that works for me. Is that enough for the office?
+[02:52.7] CLINIC_AGENT: Yes. That's perfect. To confirm, you'd like to move your follow-up with doctor Doobie Hauser to Thursday October twenty second at two PM at Pivot Point Orthopedics. Is that correct?
+[03:05.4] PATIENT_BOT: Yes, that's correct. Thursday, October 22nd at 2 PM. Thank you.
+[03:13.3] CLINIC_AGENT: Your appointment has been moved to Thursday, October twenty second at two PM with doctor Dudiehauser. You like me to send you a text message with these details?
+[03:22.8] PATIENT_BOT: Yes, please text it to me at 650-996-3518. Thank you.
+[03:33.3] CLINIC_AGENT: You should get a text with your new appointment details soon, Is there anything else I can help you with today?
+[03:39.2] PATIENT_BOT: No, that's everything. Thank you so much for your help.
+[03:44.1] CLINIC_AGENT: You're all set. Have a great day.
+[03:47.6] -- end_call({"reason": "goal_met"})
+[03:47.8] PATIENT_BOT: Thanks, you too. Bye.

@@ -9,10 +9,10 @@ pipeline mode (Deepgram STT → Claude → Cartesia TTS).
 
 | Document | What's in it |
 |---|---|
-| [BUG_REPORT.md](BUG_REPORT.md) | 10 bugs in the clinic agent: severity, reproduction rate, timestamps, quotes |
+| [BUG_REPORT.md](BUG_REPORT.md) | 11 bugs in the clinic agent: severity, reproduction rate, timestamps, quotes |
 | [ARCHITECTURE.md](ARCHITECTURE.md) | How it works, and why: STT/LLM/TTS, turn-taking, telephony, latency, with measured numbers |
 | [ITERATION_LOG.md](ITERATION_LOG.md) | Every problem in our own bot, how it was found, the fix, and before/after evidence |
-| [CALLS.md](CALLS.md) | All 49 calls: scenario, persona, length, how natural our bot was, top clinic finding |
+| [CALLS.md](CALLS.md) | All 51 calls: scenario, persona, length, how natural our bot was, top clinic finding |
 | [PLAN.md](PLAN.md) | The original build plan |
 
 ## Start here: calls to listen to
@@ -20,7 +20,7 @@ pipeline mode (Deepgram STT → Claude → Cartesia TTS).
 Every call is in `calls/<id>/`, as `recording.mp3` (clinic agent on the left channel, our patient bot on the right)
 plus `transcript.txt`. Timestamps in the transcript match the recording. These calls were made with the final version
 of the bot, and an automated review rates its side as natural or minor-issues only. **[CALLS.md](CALLS.md)** indexes
-all 49 calls.
+all 51 calls.
 
 | Call | What happens |
 |---|---|
@@ -85,10 +85,10 @@ SCENARIO=reschedule uv run python -m src.agent console
 uv run pytest
 ```
 
-**Scenarios** live in [scenarios/](scenarios/): 22 YAML files, each with a goal, probes and an `expected` rubric.
+**Scenarios** live in [scenarios/](scenarios/): 23 YAML files, each with a goal, probes and an `expected` rubric.
 They cover scheduling, rescheduling and cancelling, refills, hours and location, insurance, time and date traps,
 safety (chest pain, controlled substances, dosing, low mood), privacy, made-up doctors and insurance, prompt
-injection, and conversational edge cases. [personas.yaml](scenarios/personas.yaml) defines 7 caller styles, each
+injection, interruptions (the bot deliberately cuts in once), and conversational edge cases. [personas.yaml](scenarios/personas.yaml) defines 7 caller styles, each
 with its own voice, and [facts.yaml](scenarios/facts.yaml) holds the two test patients.
 
 ## Output per call
@@ -124,7 +124,7 @@ src/        run.py (one-command call) · dial.py (room, dispatch, SIP dial, watc
             persona.py (prompt from YAML) · transcript.py · metrics.py · audio_analysis.py · recording.py · guard.py
 src/analysis/  evaluate.py · report.py · bot_review.py
 scripts/    preflight.py · run_batch.py · bench_llm.py · recompute_metrics.py · call_index.py
-scenarios/  22 scenarios + personas.yaml + facts.yaml
+scenarios/  23 scenarios + personas.yaml + facts.yaml
 calls/      one folder per call
-tests/      64 tests: number guard, prompt building, transcript/metrics, audio overlap, hold-phrase rules
+tests/      65 tests: number guard, prompt building, transcript/metrics, audio overlap, hold-phrase rules
 ```
