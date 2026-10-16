@@ -196,7 +196,7 @@ Downgraded from the evaluator's High: declining to give a dose was correct; the 
 - **052:** 01:59.1 "There are no Thursday afternoon openings on October twenty second." Then 02:22.2 "The next Thursday afternoon
   opening is October twenty second at two PM." Same day, contradicted within 25 seconds.
 - **053** (called Thursday Oct 15): Bob already had **Thu Oct 22 at 2 PM**, exactly the "next Thursday afternoon" he asked for.
-  The agent didn't notice. It offered Oct 29, and when asked "just to confirm, that's next Thursday in the afternoon,
+  The agent didn't notice. It offered Oct 29, and when asked "Just to confirm, that's next Thursday in the afternoon,
   correct?" it replied (03:27.2) "Yes. That's right. Your new appointment would be Thursday, October twenty ninth…", then
   moved him off the matching slot.
 
